@@ -223,6 +223,7 @@ namespace GameAssets {
         const char* const  BTN_BACK_SEL                 =  "west_sel.png";
 
         const char* const  BTN_WEST                     =  "west.png";
+        const char* const  BTN_WEST_SEL                     =  "west.png";
         const char* const  BTN_EAST                     =  "east.png";
 
         const char* const  BTN_EXIT                     =  "exit.png";

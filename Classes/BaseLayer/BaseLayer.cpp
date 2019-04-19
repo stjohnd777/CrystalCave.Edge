@@ -4,6 +4,22 @@
 
 using namespace cocos2d;
 
+
+BaseLayer* BaseLayer::create()
+{
+    BaseLayer* baseLayer = new BaseLayer();
+    if ( baseLayer && baseLayer->init())
+    {
+        baseLayer->autorelease();
+    }else{
+        delete baseLayer;
+        baseLayer = nullptr;
+
+    }
+    return baseLayer;
+}
+
+
 bool BaseLayer::init() {
     
     if (!Layer::init() )
@@ -32,6 +48,7 @@ void BaseLayer::strechBackgroundToScreen(std::string backgroundPath, int z){
     }
  
 }
+
 void BaseLayer::strechBackgroundToScreen(std::string backgroundPath, int z, float percentage){
     
     Size size = Director::getInstance()->getWinSize();
@@ -48,22 +65,22 @@ void BaseLayer::strechBackgroundToScreen(std::string backgroundPath, int z, floa
     
 }
 
-
 void BaseLayer::initBackMenu(std::function<void (Ref*)> f ){
-    
-    auto backMenuItem =
-    MenuItemSprite::create(
-        Sprite::create(GameAssets::Sprite::BTN_WEST),
-        Sprite::create(GameAssets::Sprite::BTN_WEST));
+
+    int windowWidth = Director::getInstance()->getWinSize().width;
+    int windowHeight =  Director::getInstance()->getWinSize().height;
+
+    auto spriteBack = Sprite::create(GameAssets::Sprite::BTN_WEST);
+    auto spriteBackSel =Sprite::create(GameAssets::Sprite::BTN_WEST_SEL);
+
+    auto offsetWidth = spriteBack->getContentSize().width /2;
+    auto offsetHeight = spriteBack->getContentSize().height /2;
+
+    auto backMenuItem = MenuItemSprite::create(spriteBack, spriteBackSel);
 
     backMenuItem->setCallback(f);
 
-
-    Point pos =
-    Vec2(
-         backMenuItem->getContentSize().width -40 ,
-         Director::getInstance()->getWinSize().height - (backMenuItem->getContentSize().height)/2
-         );
+    Point pos = Vec2(offsetWidth, windowHeight - offsetHeight);
 
     backMenuItem->setPosition( pos );
 

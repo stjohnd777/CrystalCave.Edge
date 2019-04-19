@@ -15,33 +15,8 @@ class BaseLayer : public cocos2d::Layer {
 public:
 
 
-    /**
-     * This macro generates the create method below.
-     * 1> the returned Layer is autorelease, that is 
-     *    reference counted object
-     */
-    CREATE_FUNC(BaseLayer);
-    /*
-     static BaseLayer* create()
-     {
-         BaseLayer* baseLayer = new BaseLayer();
-         if ( baseLayer && baseLayer->init())
-         {
-             baseLayer->autorelease();
-             retrun baseLayer;
-         }else{
-             delete baseLayer;
-             baseLayer = NULL;
-             return NULL;
-        }
-     }
-     */
-    
-    /*
-     * From the above code we see that this is where
-     * we construct our abject, this is the Objective-C
-     * way.
-     */
+    static BaseLayer* create();
+
     bool init();
 
 
@@ -66,6 +41,7 @@ public:
      * Scale the image to the sceen size and place using the z-order z
      */
     void strechBackgroundToScreen(std::string path,int z);
+
     void strechBackgroundToScreen(std::string backgroundPath, int z, float percentage);
     
     /**
