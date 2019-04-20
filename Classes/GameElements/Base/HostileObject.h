@@ -7,11 +7,11 @@
 #include <map>
 //#include "Utils.h"
 
-class TargetObject : public GameObject {
+class HostileObject : public GameObject {
     
 public:
     
-    static std::vector<TargetObject*> * m_ActiveTargets;
+    static std::vector<HostileObject*> * m_ActiveTargets;
     
     static unsigned int DefalutChipmunkCategoryTarget ;
     
@@ -19,7 +19,7 @@ public:
 
 public:
 
-    TargetObject();
+    HostileObject();
 
 public:
     
@@ -32,7 +32,7 @@ public:
     
     void collision(float dt);
     
-    virtual ~TargetObject();
+    virtual ~HostileObject();
     
 
 };
