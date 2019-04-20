@@ -30,7 +30,7 @@ static Ligthning* createWithParameters(
     return ligthning;
 }
 
-Ligthning::Ligthning() :TargetObject(){
+Ligthning::Ligthning() :HostileObject(){
     init();
 }
 

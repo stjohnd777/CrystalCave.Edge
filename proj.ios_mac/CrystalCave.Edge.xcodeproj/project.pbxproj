@@ -265,8 +265,8 @@
 		2BEB99541FFDE29700BB5777 /* LunarModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB991A1FFDE28300BB5777 /* LunarModule.cpp */; };
 		2BEB99551FFDE29700BB5777 /* OptionLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB991D1FFDE28400BB5777 /* OptionLayer.cpp */; };
 		2BEB99561FFDE29700BB5777 /* OptionLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB991D1FFDE28400BB5777 /* OptionLayer.cpp */; };
-		2BEB99571FFDE29700BB5777 /* TargetObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB991E1FFDE28400BB5777 /* TargetObject.cpp */; };
-		2BEB99581FFDE29700BB5777 /* TargetObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB991E1FFDE28400BB5777 /* TargetObject.cpp */; };
+		2BEB99571FFDE29700BB5777 /* HostileObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB991E1FFDE28400BB5777 /* HostileObject.cpp */; };
+		2BEB99581FFDE29700BB5777 /* HostileObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB991E1FFDE28400BB5777 /* HostileObject.cpp */; };
 		2BEB99591FFDE29700BB5777 /* Mine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99201FFDE28500BB5777 /* Mine.cpp */; };
 		2BEB995A1FFDE29700BB5777 /* Mine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99201FFDE28500BB5777 /* Mine.cpp */; };
 		2BEB995F1FFDE29700BB5777 /* HudLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99271FFDE28700BB5777 /* HudLayer.cpp */; };
@@ -527,13 +527,13 @@
 		2BEB99151FFDE28100BB5777 /* Mine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mine.h; sourceTree = "<group>"; };
 		2BEB99161FFDE28200BB5777 /* FontManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FontManager.cpp; sourceTree = "<group>"; };
 		2BEB99171FFDE28200BB5777 /* LabelManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LabelManager.cpp; sourceTree = "<group>"; };
-		2BEB99181FFDE28200BB5777 /* TargetObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetObject.h; sourceTree = "<group>"; };
+		2BEB99181FFDE28200BB5777 /* HostileObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostileObject.h; sourceTree = "<group>"; };
 		2BEB99191FFDE28300BB5777 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObject.cpp; sourceTree = "<group>"; };
 		2BEB991A1FFDE28300BB5777 /* LunarModule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LunarModule.cpp; sourceTree = "<group>"; };
 		2BEB991B1FFDE28300BB5777 /* Ligthning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ligthning.h; sourceTree = "<group>"; };
 		2BEB991C1FFDE28300BB5777 /* Friendly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friendly.h; sourceTree = "<group>"; };
 		2BEB991D1FFDE28400BB5777 /* OptionLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OptionLayer.cpp; sourceTree = "<group>"; };
-		2BEB991E1FFDE28400BB5777 /* TargetObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TargetObject.cpp; sourceTree = "<group>"; };
+		2BEB991E1FFDE28400BB5777 /* HostileObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HostileObject.cpp; sourceTree = "<group>"; };
 		2BEB991F1FFDE28400BB5777 /* GLVertFence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLVertFence.h; sourceTree = "<group>"; };
 		2BEB99201FFDE28500BB5777 /* Mine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mine.cpp; sourceTree = "<group>"; };
 		2BEB99211FFDE28500BB5777 /* FailedScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FailedScene.h; sourceTree = "<group>"; };
@@ -836,8 +836,8 @@
 				2BEB991C1FFDE28300BB5777 /* Friendly.h */,
 				2BEB99191FFDE28300BB5777 /* GameObject.cpp */,
 				2BEB993A1FFDE29000BB5777 /* GameObject.h */,
-				2BEB991E1FFDE28400BB5777 /* TargetObject.cpp */,
-				2BEB99181FFDE28200BB5777 /* TargetObject.h */,
+				2BEB991E1FFDE28400BB5777 /* HostileObject.cpp */,
+				2BEB99181FFDE28200BB5777 /* HostileObject.h */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1643,7 +1643,7 @@
 				1AF87B781F6F77F7007BE51C /* AppController.mm in Sources */,
 				2BEB99791FFDE29700BB5777 /* SuccessLayer.cpp in Sources */,
 				2BEB994B1FFDE29700BB5777 /* GameSceneManager.cpp in Sources */,
-				2BEB99571FFDE29700BB5777 /* TargetObject.cpp in Sources */,
+				2BEB99571FFDE29700BB5777 /* HostileObject.cpp in Sources */,
 				2BEB996B1FFDE29700BB5777 /* GLHorzFence.cpp in Sources */,
 				2BEB994D1FFDE29700BB5777 /* FontManager.cpp in Sources */,
 				2B85D4822267F9F6005F5DD1 /* MyTMX.cpp in Sources */,
@@ -1676,7 +1676,7 @@
 				2BEB995A1FFDE29700BB5777 /* Mine.cpp in Sources */,
 				2BEB99541FFDE29700BB5777 /* LunarModule.cpp in Sources */,
 				2BEB99621FFDE29700BB5777 /* Ligthning.cpp in Sources */,
-				2BEB99581FFDE29700BB5777 /* TargetObject.cpp in Sources */,
+				2BEB99581FFDE29700BB5777 /* HostileObject.cpp in Sources */,
 				2BEB996A1FFDE29700BB5777 /* FailedScene.cpp in Sources */,
 				2BEB994C1FFDE29700BB5777 /* GameSceneManager.cpp in Sources */,
 				2BEB99741FFDE29700BB5777 /* WellcomeScene.cpp in Sources */,

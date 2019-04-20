@@ -3,11 +3,11 @@
 #include <string>
 #include "cocos2d.h"
 #include "GameObject.h"
-#include "TargetObject.h"
+#include "HostileObject.h"
 
 #include "Constants.h"
 
-class Mine : public TargetObject {
+class Mine : public HostileObject {
 
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32  )
     static pthread_mutex_t lock;

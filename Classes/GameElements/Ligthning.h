@@ -9,12 +9,12 @@
 
 #include "cocos2d.h"
 
-#include "TargetObject.h"
+#include "HostileObject.h"
 
 /**
  *
  */
-class Ligthning : public TargetObject{
+class Ligthning : public HostileObject{
     
 public:
     

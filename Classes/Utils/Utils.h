@@ -3,7 +3,7 @@
 #include "cocos2d.h"
 
 #include "GameObject.h"
-#include "TargetObject.h"
+#include "HostileObject.h"
 
 
 

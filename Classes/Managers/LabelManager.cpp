@@ -1,7 +1,7 @@
 #include "LabelManager.h"
 #include "GameLayer.h"
 #include "SimpleAudioEngine.h"
-#include "TargetObject.h"
+#include "HostileObject.h"
 //#include "Utils.h"
 #include  "Constants.h"
 #include "FontManager.h"
