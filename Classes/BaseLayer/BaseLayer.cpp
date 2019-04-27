@@ -1,6 +1,6 @@
 #include "BaseLayer.h"
 //#include "Constants.h"
-#include "GameSceneManager.h"
+#include "SceneManager.h"
 
 using namespace cocos2d;
 
@@ -70,8 +70,8 @@ void BaseLayer::initBackMenu(std::function<void (Ref*)> f ){
     int windowWidth = Director::getInstance()->getWinSize().width;
     int windowHeight =  Director::getInstance()->getWinSize().height;
 
-    auto spriteBack = Sprite::create(GameAssets::Sprite::BTN_WEST);
-    auto spriteBackSel =Sprite::create(GameAssets::Sprite::BTN_WEST_SEL);
+    auto spriteBack = Sprite::create(GameAssets::Sprite::BTN_BACK);
+    auto spriteBackSel =Sprite::create(GameAssets::Sprite::BTN_BACK_SEL);
 
     auto offsetWidth = spriteBack->getContentSize().width /2;
     auto offsetHeight = spriteBack->getContentSize().height /2;

@@ -3,7 +3,7 @@
 #include <string>
 #include "cocos2d.h"
 #include "GameObject.h"
-#include "Constants.h"
+#include "GameAssets.h"
 
 #include <functional>
 
@@ -35,7 +35,6 @@ public:
      */
     CC_SYNTHESIZE(GameObject*, m_Player, Player);
 
-    
     
     /**
      * Scale the image to the sceen size and place using the z-order z

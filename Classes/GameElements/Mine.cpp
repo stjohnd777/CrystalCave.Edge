@@ -14,7 +14,7 @@ const int Mine::MAX_HEALTH = 200;
 const int Mine::WEIGTH = 75;
 const float Mine::MASS = 100;
 
-const std::string Mine::PNG= "__mine.png";
+const std::string Mine::PNG= "space_mine.png" ;//__mine.png";
 const std::string Mine::SND_EXPLODE="thunder.wav";
 
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32  )
@@ -94,7 +94,7 @@ void Mine::usePhysics(){
     setIsUsingPhysics(true);
     auto body = cocos2d::PhysicsBody::createCircle(this->getContentSize().width / 2);
     body->setContactTestBitmask(true);
-    body->setTag(GameAssets::Sprite::TAG_METEOR);
+//    body->setTag(GameAssets::Sprite::TAG_METEOR);
     body->setDynamic(true);
     this->setPhysicsBody(body);
 }
@@ -210,21 +210,21 @@ void Mine::start( ) {
     // manual collision/pximity alarm and detonition trigger
     scheduleUpdate();
 
-    std::string name = "mine_idel";
-    std::string animationSheet = "mine.png";
-    std::string plist = "mine.plist";
-    std::string subject = "mine";
-    int length =10;
-    float dt =  .25;
-    bool isForEver = true;
-    animationSpriteSheet(
-                              name,
-                              animationSheet,
-                              plist,
-                              subject,
-                              length,
-                              dt,
-                              isForEver );
+//    std::string name = "mine_idel";
+//    std::string animationSheet = "mine.png";
+//    std::string plist = "mine.plist";
+//    std::string subject = "mine";
+//    int length =10;
+//    float dt =  .25;
+//    bool isForEver = true;
+//    animationSpriteSheet(
+//                              name,
+//                              animationSheet,
+//                              plist,
+//                              subject,
+//                              length,
+//                              dt,
+//                              isForEver );
     
     setStatus(IN_PLAY);
 }

@@ -31,7 +31,8 @@ public:
     static std::string getPlatform();
     
     static const char*  const platformString();
-    
+
+    static bool FlipCoin();
     /**
      Return
      */

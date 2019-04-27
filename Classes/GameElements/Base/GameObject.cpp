@@ -3,10 +3,10 @@
 
 
 #include "SimpleAudioEngine.h"
-#include  "Constants.h"
+#include "GameAssets.h"
 #include "Utils.h"
 
-#include "FontManager.h"
+
 using namespace std;
 
 using namespace cocos2d;
@@ -128,8 +128,9 @@ void  GameObject::useHealthLabel(){
     
     memset(m_szHealth, 0, 256);
     sprintf(m_szHealth,"%s","100%");
-    
-    m_healthLabel = Label::createWithBMFont("arial_message.fnt",m_szHealth);
+
+    auto font = GameAssets::Fonts::BMF::ALPHA_NUM::ARIAL;
+    m_healthLabel = Label::createWithBMFont(font,m_szHealth);
     m_healthLabel->setAnchorPoint(Vec2(0,0.5));
     m_healthLabel->setColor(Color3B::YELLOW);
     //m_healthLabel->retain();
@@ -140,9 +141,7 @@ void  GameObject::useHealthLabel(){
     addChild(m_healthLabel);
     
  
-    
 
-    
     m_healthBar = Sprite::create("box.red.32.32.png");
     m_healthBarScale = 1;
     m_healthBar->setScaleX(m_healthBarScale);
@@ -170,7 +169,8 @@ void  GameObject::useInfoLabel(){
     
     memset(m_szInfo, 0, 256);
     sprintf(m_szInfo,"%s","Info Label");
-    m_InfoLabel = Label::createWithBMFont("arial_message.fnt",m_szInfo);
+    auto font = GameAssets::Fonts::BMF::ALPHA_NUM::ARIAL;
+    m_InfoLabel = Label::createWithBMFont(font,m_szInfo);
     m_InfoLabel->setWidth(2* getContentSize().width);
     m_InfoLabel->setHeight(2* getContentSize().height);
     m_InfoLabel->setAnchorPoint(Vec2(0,.5));

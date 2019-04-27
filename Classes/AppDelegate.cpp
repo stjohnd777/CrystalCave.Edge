@@ -1,6 +1,6 @@
 #include "AppDelegate.h"
 #include "GameLayer.h"
-#include "WellcomeScene.h"
+#include "WelcomeLayer.h"
 
 
 
@@ -96,16 +96,13 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_packages();
 
     // load sprite sheet
-    const char* plist = "images.plist";
-    const char* sheet = "images.png";
-    SpriteFrameCache::getInstance()->addSpriteFramesWithFile(plist,sheet);    // create a scene. it's an autorelease object
+    //const char* plist = "images.plist";
+    //const char* sheet = "images.png";
+    //SpriteFrameCache::getInstance()->addSpriteFramesWithFile(plist,sheet);    // create a scene. it's an autorelease object
 
     Director::getInstance()->setContentScaleFactor(4);
     
-    auto scene = WellcomeScene::scene();
-
-
-
+    auto scene = WelcomeLayer::scene();
 
     director->runWithScene(scene);
 

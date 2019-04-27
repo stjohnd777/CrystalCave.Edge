@@ -1,7 +1,8 @@
 #include "OptionLayer.h"
+#include "WelcomeLayer.h"
 #include "Utils.h"
 
-#include "Constants.h"
+#include "GameAssets.h"
 
 Scene* OptionLayer::scene()
 {
@@ -47,11 +48,11 @@ bool OptionLayer::init() {
     return true;
 }
 
-#include "GameSceneManager.h"
+#include "SceneManager.h"
 OptionLayer::OptionLayer(){
 
     auto f = [](Ref* ref){
-        GameSceneManager::getInstance()->Welcome();
+        SceneManager::getInstance()->Welcome();
     };
     
     // Back Menu
@@ -79,7 +80,7 @@ void OptionLayer::controls(Ref* pSender) {
 
 void OptionLayer::initBackGround() {
     
-    strechBackgroundToScreen(GameAssets::Backgrounds::OPTIONS_BACKGROUND, 0);
+    strechBackgroundToScreen(GameAssets::OPTIONS_BACKGROUND, 0);
     
 }
 
@@ -104,7 +105,7 @@ void OptionLayer::menuCloseCallback(Ref* pSender)
     unscheduleAllCallbacks();
     SimpleAudioEngine::getInstance()->stopAllEffects();
     
-    auto scene = WellcomeScene::scene();
+    auto scene = WelcomeLayer::scene();
     Director::getInstance()->replaceScene(scene);
     //runWithScene(scene);
  

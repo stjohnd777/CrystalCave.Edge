@@ -5,7 +5,7 @@
 //  Created by Daniel St. John on 5/17/15.
 //
 //
-#include "Constants.h"
+#include "GameAssets.h"
 #include "LunarModule.h"
 #include "SimpleAudioEngine.h"
 
@@ -58,15 +58,15 @@ void LunarModule::thrushOff(){
 void LunarModule::applyThrush(Vec2 force, float percentage){
     
     CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(.1);
-    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::SHOTGUN, false);
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("woosh.wav", false);
     //CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1);
 
     float forcex = ( percentage * MAX_THRUST) * force.x;
     float forcey = ( percentage * MAX_THRUST) * force.y;
     Vec2 thrustAdjustedForceImplusVector(forcex,forcey);
 
-    float offset = 128 / 2 * .80;
-    auto particalEffectBurst = sun(1, .5);
+    float offset = 128 / 2 * .1;
+    auto particalEffectBurst = smoke(1, .5);
     Point posBust = getPosition();
     if ( force.x > 0){
         posBust.x = posBust.x - (getContentSize().width  + offset);

@@ -6,10 +6,10 @@
 //
 //
 
-#include "GameSceneManager.h"
+#include "SceneManager.h"
 #include  "SimpleAudioEngine.h"
 
-#include "WellcomeScene.h"
+#include "WellcomeLayer.h"
 #include "FailedScene.h"
 #include "OptionLayer.h"
 #include "GameLayer.h"

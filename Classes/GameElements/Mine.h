@@ -5,7 +5,7 @@
 #include "GameObject.h"
 #include "HostileObject.h"
 
-#include "Constants.h"
+#include "GameAssets.h"
 
 class Mine : public HostileObject {
 

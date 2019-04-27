@@ -2,9 +2,7 @@
 
 #include "cocos2d.h"
 
-#include "Constants.h"
-#include "WellcomeScene.h"
-
+#include "BaseLayer.h"
 #include "SimpleAudioEngine.h"
 
 using namespace cocos2d;

@@ -39,6 +39,9 @@ std::string Utils::getPlatform(){
     return platform;
 }
 
+bool Utils::FlipCoin(){
+    return Utils::getRandomIntBetweenTopBottom( 0, 100) > 50;
+}
 
 cocos2d::Size Utils::getWindowSize(){
     cocos2d::Size winSize = Director::getInstance()->getWinSize();

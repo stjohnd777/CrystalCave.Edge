@@ -3,8 +3,8 @@
 #include "SimpleAudioEngine.h"
 #include "HostileObject.h"
 //#include "Utils.h"
-#include  "Constants.h"
-#include "FontManager.h"
+#include "GameAssets.h"
+
 #include <iterator>
 //#include "GameObjectsManager.h"
 
@@ -27,42 +27,38 @@ LabelManager::LabelManager() : m_DelayTime(2), m_FadeTime(1),m_target(nullptr)
 void LabelManager::makeHitLabel(int hit, Point pos,Color3B color){
     char szValue2[100] = {0};
     sprintf(szValue2,"%i",hit); // value
-    makeFadingLabel(szValue2, pos, color, Vec2(0.5, 0.5), FontManager::FONT_NUM_ORANGE.c_str());
+    auto font = GameAssets::Fonts::BMF::NUM::HIT_LABEL;
+    makeFadingLabel(szValue2, pos, color, Vec2(0.5, 0.5),font);
 }
-
-
-
-
-
 
 
 
 
 void LabelManager::makeFadingLabel(const char *const msg, Point pos, Color3B color){
-    makeFadingLabel(msg, pos, color, Vec2(1, 0.5), FontManager::FONT_MSG_ARIAL.c_str());
+    auto font = GameAssets::Fonts::BMF::ALPHA_NUM::ARIAL;
+    makeFadingLabel(msg, pos, color, Vec2(1, 0.5), font);
 }
 
 void LabelManager::makePerminateLabel(const char *const msg, Point pos, Color3B color){
-    makePerminateLabel(msg, pos, color, Vec2(1, 0.5), FontManager::FONT_MSG_ARIAL.c_str());
+    auto font = GameAssets::Fonts::BMF::ALPHA_NUM::ARIAL;
+    makePerminateLabel(msg, pos, color, Vec2(1, 0.5), font);
 }
-
-
-
-
 
 
 void LabelManager::makeFadingLabel(const char *const msg, float percentWidth, float percentHeight, Color3B color,
                                    Point anchor){
     Size size = Director::getInstance()->getWinSize();
     Point pos = Vec2(size.width*percentWidth,size.height*percentHeight);
-    makeFadingLabel(msg, pos, color, anchor, FontManager::FONT_MSG_ARIAL.c_str());
+    auto font = GameAssets::Fonts::BMF::ALPHA_NUM::ARIAL;
+    makeFadingLabel(msg, pos, color, anchor, font);
 }
 
 void LabelManager::makePerminateLabel(const char *const msg, float percentWidth, float percentHeight, Color3B color,
                                       Point anchor){
     Size size = Director::getInstance()->getWinSize();
     Point pos = Vec2(size.width*percentWidth,size.height*percentHeight);
-    makePerminateLabel(msg, pos, color, anchor, FontManager::FONT_MSG_ARIAL.c_str());
+    auto font = GameAssets::Fonts::BMF::ALPHA_NUM::ARIAL;
+    makePerminateLabel(msg, pos, color, anchor,font);
 }
 
 

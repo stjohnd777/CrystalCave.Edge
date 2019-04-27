@@ -10,6 +10,7 @@
 #include "cocos2d.h"
 #include "GameObject.h"
 
+//NS_DSJ_BEGIN
 class GLFence : public  cocos2d::Node{
 
     
@@ -26,10 +27,7 @@ class GLFence : public  cocos2d::Node{
     CC_SYNTHESIZE(int, posLine, PositionLine);
     
     /**
-     * The number of points in the fences length to compute
-     * subline, for example if lenght is 1 = > 100%  and the
-     * ipad retina is 2056 width in pixels, and setp it 250, the
-     * we have 250 subsection on the in the fence
+     * we have setp subsection on the in the fence
      */
     CC_SYNTHESIZE(int, step, Step);
     
@@ -46,8 +44,8 @@ class GLFence : public  cocos2d::Node{
     CC_SYNTHESIZE(float, length, Length);
     
     /*
-     * For a moving fence the percetage of the scene height to move.
-     * so .5 will move the fence .5 * winSize.height
+     * For a moving fence the percetage of the scene width to move.
+     * so .5 will move the fence .5 * winSize.width
      */
     CC_SYNTHESIZE(float, runFactor, runFactor);
     
@@ -56,7 +54,6 @@ class GLFence : public  cocos2d::Node{
      * corrdinate sytems if true, otherwise reversed
      */
     CC_SYNTHESIZE(bool, increasing, Increasing);
-    
     
     
     /*
@@ -97,28 +94,6 @@ class GLFence : public  cocos2d::Node{
      *
      */
     CC_SYNTHESIZE(bool, isElectricFenceOn, IsElectricFenceOn);
-    
-    
-    
-    
-    /**
-     * Generic move object to point p in time dt in straigh line
-     */
-    virtual void move(cocos2d::Point p,float dt) {};
-    
-    /**
-     * Take Damage
-     */
-    virtual void hit(int weight) {};
-    
-    /**
-     * injured behavior optional, like a limping ship, and
-     * give default of nothing
-     */
-    virtual void injured() {};
-    
-    /**
-     * Object do you death sequence
-     */
-    virtual void die() {};
+
 };
+//NS_DSJ_END
