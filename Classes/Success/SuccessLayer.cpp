@@ -1,11 +1,8 @@
-//
-//  SuccessLayer.cpp
-//  CrystalCave.c2dx.2.8
-//
-//  Created by Daniel St. John on 9/28/15.
-//
-//
 
+#include <string>
+#include <sstream>
+
+#include "GameAssets.h"
 #include "SuccessLayer.h"
 #include "SimpleAudioEngine.h"
 #include "GameLayer.h"
@@ -28,19 +25,39 @@ bool SuccessLayer::init() {
     if ( ! Layer::init() ){
         return false;
     }
-    strechBackgroundToScreen("SIFI_GUI/Window/WindowMedium.png", 0, 1);
-    strechBackgroundToScreen("Success.jpeg", 1, .25);
+
+    Size size = Director::getInstance()->getWinSize();
+
+    //strechBackgroundToScreen("SIFI_GUI/Window/WindowMedium.png", 0, 1);
+    strechBackgroundToScreen(GameAssets::SUCCESS_BACKGROUND, 1);
+
+
+    std::stringstream ss;
+    ss << "Level " << (GameLayer::level) -1 <<  " Completed !! ";
+
+    const char* font = GameAssets::Fonts::TTF::MarkerFelt;
+    auto title = std::string(ss.str());
+    auto* pLabel = Label::createWithTTF(title, font, 78);
+    pLabel->enableShadow();
+    pLabel->enableOutline(Color4B::RED);
+    pLabel->setPosition( Vec2(size.width / 2,  .68 *size.height  ) );
+    this->addChild(pLabel);
+
+
+    auto* pTime = Label::createWithTTF("Tap to Continue to next Level", font, 42);
+    pTime->enableShadow();
+    pTime->enableOutline(Color4B::RED);
+    pTime->setPosition( Vec2(size.width / 2,  size.height/2  ) );
+    this->addChild(pTime);
+
+
+    
  
     
     auto singleTouchListener = EventListenerTouchOneByOne::create();
     singleTouchListener->setSwallowTouches(true);
     singleTouchListener->onTouchBegan = CC_CALLBACK_2(SuccessLayer::onTouchBegan, this);
 
-//    singleTouchListener->onTouchMoved = CC_CALLBACK_2(SuccessLayer::onTouchMoved, this);
-//
-//    singleTouchListener->onTouchEnded = CC_CALLBACK_2(SuccessLayer::onTouchEnded, this);
-//
-//    singleTouchListener->onTouchCancelled = CC_CALLBACK_2(SuccessLayer::onTouchCancelled, this);
 
     getEventDispatcher()->addEventListenerWithSceneGraphPriority(singleTouchListener, this);
 
@@ -54,13 +71,3 @@ bool SuccessLayer::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event)
     SceneManager::getInstance()->Game(GameLayer::level);
     return true;
 }
-
-//void SuccessLayer::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event){
-//}
-//
-//void SuccessLayer::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event){
-//
-//}
-//void  SuccessLayer::onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event *event){
-//
-//}

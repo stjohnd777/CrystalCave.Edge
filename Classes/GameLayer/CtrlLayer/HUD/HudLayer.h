@@ -15,6 +15,7 @@
 #include "cocos2d.h"
 #include "BaseLayer.h"
 #include "GameLayer.h"
+#include "LunarModule.h"
 
 class HudLayer : public BaseLayer {
 
@@ -22,6 +23,8 @@ public:
 
     static HudLayer* INSTANCE ;
 public:
+
+    GETTERSETTER(LunarModule*,m_ship,Ship)
     
     ///CREATE_FUNC(HudLayer);
     static HudLayer* create();

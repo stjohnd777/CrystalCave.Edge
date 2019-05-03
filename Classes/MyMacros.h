@@ -33,6 +33,13 @@
         varName = var;\
     }\
 
+
+#define GETTER(varType, varName, funName)\
+protected: varType varName  ;\
+public: virtual varType get##funName(void) const {\
+return varName;\
+}\
+
 /**
  * Creats static get<funName>/set<funName> for static varable of
  * type <varType> and name <varName> with initial value v

@@ -139,12 +139,12 @@ bool HudLayer::init()
 
     // Pause/Play
     auto pause =  Sprite::create();
-    pause->initWithFile("SIFI_GUI/Misc/Pause.png");
+    pause->initWithFile(GameAssets::Sprite::BTN_PAUSE);// "SIFI_GUI/Misc/Pause.png");
     pause->setAnchorPoint(Vec2(1,1));
     MenuItemSprite* itemPause = MenuItemSprite::create(pause,pause,NULL);
     itemPause->setAnchorPoint(Vec2(1,1));
     auto play = Sprite::create();
-    play->initWithFile("SIFI_GUI/Misc/Play.png");
+    play->initWithFile(GameAssets::Sprite::BTN_PLAY);//"SIFI_GUI/Misc/Play.png");
     play->setAnchorPoint(Vec2(1,1));
     MenuItemSprite* itemPlay = MenuItemSprite::create(play,play,NULL);
     itemPlay->setAnchorPoint(Vec2(1,1));
@@ -159,22 +159,25 @@ bool HudLayer::init()
         {
             Director::getInstance()->pause();
             const char * msg = "Game Paused";
-            pausedlabel = (Label*)Label::createWithBMFont (HUD_FONT,msg) ;
+            pausedlabel = (Label*)Label::createWithBMFont (GameAssets::Fonts::BMF::ALPHA_NUM::FUTURA_48,msg) ;
             pausedlabel->setScale(5);
             pausedlabel->setPosition(Utils::getMidPoint());
             addChild(pausedlabel);
+            action = false;
         }else {
             Director::getInstance()->resume();
             pausedlabel->removeFromParentAndCleanup(true);
+            action = true;
+
         }
-        action = !action;
+        //action = !action;
     };
     itemTogglePlayPause = MenuItemToggle::createWithCallback(callback,menuItems);
 
     Menu* menu = Menu::create(itemTogglePlayPause, NULL);
 
-    menu->setAnchorPoint(Vec2(.5,.5));
-    menu->setPosition(Vec2( screenSize.width /2  , screenSize.height /2) );
+    menu->setAnchorPoint(Vec2(1,.5));
+    menu->setPosition(Vec2( screenSize.width   , screenSize.height /2) );
     addChild(menu, 2000);
 
     scheduleUpdate();
@@ -246,7 +249,8 @@ void HudLayer::update(float dt){
     long delta = millisecondNow() - startTime;
     setPlayTime(delta);
 
-    int health = GameLayer::getInstance()->getShip()->getHealth();
+    // TODO
+    int health = this->getShip()->getHealth();
     setHealth(health);
 }
 

@@ -2,7 +2,7 @@
 
 #include <string>
 #include "cocos2d.h"
-#include "GameObject.h"
+
 #include "HostileObject.h"
 
 #include "GameAssets.h"
@@ -28,13 +28,24 @@ public:
     
     bool  init() override;
 
+//    static Mine* create(
+//        cocos2d::Point spawnPoint,
+//        cocos2d::Point[] minePath,
+//        float warnRadus,
+//        bool isUsingPhysics = false,
+//        bool isUsingOnContact = false,
+//        bool isStationary = true)
+//    {
+//        return nullptr;
+//
+//    }
+
     static Mine* create(
-        cocos2d::Point spawnPoint,
-        cocos2d::Point mineLocation,
-        bool isUsingPhysics = false,
-        bool isUsingOnContact = false,
-        bool isStationary = true);
-    
+                        cocos2d::Point spawnPoint,
+                        cocos2d::Point mineLocation,
+                        bool isUsingPhysics = false,
+                        bool isUsingOnContact = false,
+                        bool isStationary = true);
 
 public:
     

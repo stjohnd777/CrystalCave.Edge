@@ -73,7 +73,7 @@ bool FailedLayer::init() {
 void FailedLayer::initBackGround(){
 
     //GameOver002.png
-    strechBackgroundToScreen("SIFI_GUI/Window/WindowMedium.png", 0, 1);
+    strechBackgroundToScreen(GameAssets::FAILED_BACKGROUND_2, 0, 1);
     strechBackgroundToScreen(GameAssets::FAILED_BACKGROUND, 2, .5);
 }
 
@@ -81,11 +81,6 @@ void FailedLayer::initBackGround(){
 bool FailedLayer::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event)
 {
     SceneManager::getInstance()->Game(GameLayer::level);
-//    Scene *pScene =GameLayer::scene();
-//    TransitionCrossFade *animation = TransitionCrossFade::create(.5,  pScene);
-//    Director::getInstance()->replaceScene(pScene);
-//    //Director::getInstance()->replaceScene(animation);
-//    //SceneManager::getInstance()->showGameLayer(0);
     return true;
 }
 

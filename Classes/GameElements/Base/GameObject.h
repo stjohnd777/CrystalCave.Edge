@@ -25,7 +25,7 @@
  2> references the game layer
  
  1> can render them selves on to the GameScene
- 
+ getPosition
  */
 class GameObject : public cocos2d::Sprite{
 

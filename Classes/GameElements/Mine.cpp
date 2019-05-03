@@ -14,8 +14,10 @@ const int Mine::MAX_HEALTH = 200;
 const int Mine::WEIGTH = 75;
 const float Mine::MASS = 100;
 
+#include "GameObject.h"
+
 const std::string Mine::PNG= "space_mine.png" ;//__mine.png";
-const std::string Mine::SND_EXPLODE="thunder.wav";
+const std::string Mine::SND_EXPLODE="Sound/shotgun.wav";
 
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32  )
 pthread_mutex_t Mine::lock= PTHREAD_MUTEX_INITIALIZER;
@@ -161,8 +163,8 @@ void Mine::collision(float dt){
         return;
     }
     
-//     // collsion projectile
-//#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32  )
+     // collsion projectile
+//#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32 )
 //    pthread_mutex_lock(&lock);
 //#endif
 //    for (Projectile* pp:  *Projectile::m_ActiveProjectiles) {
@@ -171,11 +173,11 @@ void Mine::collision(float dt){
 //            break;
 //        }
 //    }
-//    
+//
 //#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32  )
 //    pthread_mutex_unlock(&lock);
 //#endif
-    
+
     // collision target
 };
 

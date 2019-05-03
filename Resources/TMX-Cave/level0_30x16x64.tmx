@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="left-up" width="30" height="16" tilewidth="64" tileheight="64" infinite="0" nextlayerid="7" nextobjectid="13">
+ <properties>
+  <property name="LevelName" value="Hello"/>
+ </properties>
+ <tileset firstgid="1" name="Tiles" tilewidth="64" tileheight="64" tilecount="8" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="1" type="TR-1">
+   <properties>
+    <property name="Dynamic" type="bool" value="false"/>
+    <property name="HitPoint" type="int" value="0"/>
+    <property name="Hostile" type="bool" value="false"/>
+    <property name="PE_Key" value="NA"/>
+    <property name="PhysicsBodyShape" value="BB"/>
+    <property name="usePhysics" type="bool" value="false"/>
+   </properties>
+   <image width="64" height="64" source=".//Tile2.png"/>
+  </tile>
+  <tile id="4" type="TR-0">
+   <properties>
+    <property name="Dynamic" type="bool" value="false"/>
+    <property name="HitPoint" type="int" value="0"/>
+    <property name="Hostile" type="bool" value="false"/>
+    <property name="PE_Key" value="NA"/>
+    <property name="PhysicsBodyShape" value="BB"/>
+   </properties>
+   <image width="64" height="64" source=".//Tile5.png"/>
+  </tile>
+  <tile id="15" type="Acid">
+   <properties>
+    <property name="Dynamic" type="bool" value="false"/>
+    <property name="HitPoint" type="int" value="100"/>
+    <property name="Hostile" type="bool" value="true"/>
+    <property name="PE_Key" value="NA"/>
+    <property name="PhysicsBodyShape" value="BB"/>
+    <property name="usePhysics" type="bool" value="false"/>
+   </properties>
+   <image width="64" height="64" source=".//Acid_Bottom.png"/>
+  </tile>
+  <tile id="16" type="AcidTop">
+   <properties>
+    <property name="Dynamic" type="bool" value="false"/>
+    <property name="HitPoint" type="int" value="100"/>
+    <property name="Hostile" type="bool" value="true"/>
+    <property name="PE_Key" value="AcideTop"/>
+    <property name="PhysicsBodyShape" value="PE"/>
+    <property name="usePhysics" type="bool" value="false"/>
+   </properties>
+   <image width="64" height="64" source=".//Acid_Top.png"/>
+  </tile>
+  <tile id="22" type="SpikeWest">
+   <properties>
+    <property name="AngularDamping" type="bool" value="false"/>
+    <property name="AngularVelocityLimit" type="float" value="0"/>
+    <property name="Area" type="float" value="0"/>
+    <property name="CategoryBitmask" type="int" value="0"/>
+    <property name="CollisionBitmask" type="int" value="0"/>
+    <property name="ContactTestBitmask" type="int" value="0"/>
+    <property name="Density" type="float" value="0"/>
+    <property name="Dynamic" type="bool" value="true"/>
+    <property name="GravityEnabled" type="bool" value="false"/>
+    <property name="Group" type="int" value="0"/>
+    <property name="HitPoint" type="int" value="100"/>
+    <property name="Hostile" type="bool" value="true"/>
+    <property name="IsDamping" type="bool" value="false"/>
+    <property name="LinearDamping" type="bool" value="false"/>
+    <property name="Mass" type="float" value="0"/>
+    <property name="PE_Key" value="SpikeEast"/>
+    <property name="PhysicsBodyShape" value="PE"/>
+    <property name="RotationEnabled" type="bool" value="false"/>
+    <property name="Tag" type="int" value="0"/>
+    <property name="VelocityLimit" type="float" value="0"/>
+    <property name="usePhysics" type="bool" value="false"/>
+   </properties>
+   <image width="64" height="64" source=".//Spike 2.png"/>
+  </tile>
+  <tile id="23" type="SpikeEast">
+   <properties>
+    <property name="AngularDamping" type="bool" value="false"/>
+    <property name="AngularVelocityLimit" type="float" value="0"/>
+    <property name="Area" type="float" value="0"/>
+    <property name="CategoryBitmask" type="int" value="0"/>
+    <property name="CollisionBitmask" type="int" value="0"/>
+    <property name="ContactTestBitmask" type="int" value="0"/>
+    <property name="Density" type="float" value="0"/>
+    <property name="Dynamic" type="bool" value="true"/>
+    <property name="GravityEnabled" type="bool" value="false"/>
+    <property name="Group" type="int" value="0"/>
+    <property name="HitPoint" type="int" value="100"/>
+    <property name="Hostile" type="bool" value="true"/>
+    <property name="IsDamping" type="bool" value="false"/>
+    <property name="LinearDamping" type="bool" value="false"/>
+    <property name="Mass" type="float" value="0"/>
+    <property name="PE_Key" value="SpikeEast"/>
+    <property name="PhysicsBodyShape" value="PE"/>
+    <property name="RotationEnabled" type="bool" value="false"/>
+    <property name="Tag" type="int" value="0"/>
+    <property name="VelocityLimit" type="float" value="0"/>
+    <property name="usePhysics" type="bool" value="false"/>
+   </properties>
+   <image width="64" height="64" source=".//Spike 3 2.png"/>
+  </tile>
+  <tile id="24" type="SpikeSouth">
+   <properties>
+    <property name="AngularDamping" type="bool" value="false"/>
+    <property name="AngularVelocityLimit" type="float" value="0"/>
+    <property name="Area" type="float" value="0"/>
+    <property name="CategoryBitmask" type="int" value="0"/>
+    <property name="CollisionBitmask" type="int" value="0"/>
+    <property name="ContactTestBitmask" type="int" value="0"/>
+    <property name="Density" type="float" value="0"/>
+    <property name="Dynamic" type="bool" value="true"/>
+    <property name="GravityEnabled" type="bool" value="false"/>
+    <property name="Group" type="int" value="0"/>
+    <property name="HitPoint" type="int" value="100"/>
+    <property name="Hostile" type="bool" value="true"/>
+    <property name="IsDamping" type="bool" value="false"/>
+    <property name="LinearDamping" type="bool" value="false"/>
+    <property name="Mass" type="float" value="0"/>
+    <property name="PE_Key" value="SpikeEast"/>
+    <property name="PhysicsBodyShape" value="PE"/>
+    <property name="RotationEnabled" type="bool" value="false"/>
+    <property name="Tag" type="int" value="0"/>
+    <property name="VelocityLimit" type="float" value="0"/>
+    <property name="usePhysics" type="bool" value="false"/>
+   </properties>
+   <image width="64" height="64" source=".//Spike 3.png"/>
+  </tile>
+  <tile id="25" type="SpikeNorth">
+   <properties>
+    <property name="AngularDamping" type="bool" value="false"/>
+    <property name="AngularVelocityLimit" type="float" value="0"/>
+    <property name="Area" type="float" value="0"/>
+    <property name="CategoryBitmask" type="int" value="0"/>
+    <property name="CollisionBitmask" type="int" value="0"/>
+    <property name="ContactTestBitmask" type="int" value="0"/>
+    <property name="Density" type="float" value="0"/>
+    <property name="Dynamic" type="bool" value="true"/>
+    <property name="GravityEnabled" type="bool" value="false"/>
+    <property name="Group" type="int" value="0"/>
+    <property name="HitPoint" type="int" value="100"/>
+    <property name="Hostile" type="bool" value="true"/>
+    <property name="IsDamping" type="bool" value="false"/>
+    <property name="LinearDamping" type="bool" value="false"/>
+    <property name="Mass" type="float" value="0"/>
+    <property name="PE_Key" value="SpikeEast"/>
+    <property name="PhysicsBodyShape" value="PE"/>
+    <property name="RotationEnabled" type="bool" value="false"/>
+    <property name="Tag" type="int" value="0"/>
+    <property name="VelocityLimit" type="float" value="0"/>
+    <property name="usePhysics" type="bool" value="false"/>
+   </properties>
+   <image width="64" height="64" source=".//Spike.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="27" name="CaveLave" tilewidth="195" tileheight="530" tilecount="61" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-26.png"/>
+  </tile>
+  <tile id="1">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-25.png"/>
+  </tile>
+  <tile id="2">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-24.png"/>
+  </tile>
+  <tile id="3">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-23.png"/>
+  </tile>
+  <tile id="4">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-22.png"/>
+  </tile>
+  <tile id="5">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-21.png"/>
+  </tile>
+  <tile id="6">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-20.png"/>
+  </tile>
+  <tile id="7">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-19.png"/>
+  </tile>
+  <tile id="8">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-18.png"/>
+  </tile>
+  <tile id="9">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-17.png"/>
+  </tile>
+  <tile id="10">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-16.png"/>
+  </tile>
+  <tile id="11">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-15.png"/>
+  </tile>
+  <tile id="12">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-14.png"/>
+  </tile>
+  <tile id="13">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-13.png"/>
+  </tile>
+  <tile id="14">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-12.png"/>
+  </tile>
+  <tile id="15">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-11.png"/>
+  </tile>
+  <tile id="16">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-10.png"/>
+  </tile>
+  <tile id="17">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-9.png"/>
+  </tile>
+  <tile id="18">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-8.png"/>
+  </tile>
+  <tile id="19">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-7.png"/>
+  </tile>
+  <tile id="20">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-6.png"/>
+  </tile>
+  <tile id="21">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-5.png"/>
+  </tile>
+  <tile id="22">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-4.png"/>
+  </tile>
+  <tile id="23">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-3.png"/>
+  </tile>
+  <tile id="24">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-2.png"/>
+  </tile>
+  <tile id="25">
+   <image width="64" height="64" source="LavaCave/png1x/tiles/tile-1.png"/>
+  </tile>
+  <tile id="26">
+   <image width="91" height="83" source="LavaCave/png1x/objects/boulder.png"/>
+  </tile>
+  <tile id="27">
+   <image width="54" height="80" source="LavaCave/png1x/objects/stalactite.png"/>
+  </tile>
+  <tile id="28">
+   <image width="133" height="131" source="LavaCave/png1x/objects/crack-2.png"/>
+  </tile>
+  <tile id="29">
+   <image width="113" height="73" source="LavaCave/png1x/objects/crack-1.png"/>
+  </tile>
+  <tile id="30">
+   <image width="195" height="530" source="LavaCave/png1x/objects/pillar.png"/>
+  </tile>
+  <tile id="31">
+   <image width="71" height="74" source="LavaCave/png1x/objects/sign.png"/>
+  </tile>
+  <tile id="32">
+   <image width="120" height="125" source="LavaCave/png1x/objects/door-1.png"/>
+  </tile>
+  <tile id="33">
+   <image width="120" height="125" source="LavaCave/png1x/objects/door-2.png"/>
+  </tile>
+  <tile id="34">
+   <image width="79" height="76" source="LavaCave/png1x/objects/barricade.png"/>
+  </tile>
+  <tile id="35">
+   <image width="43" height="44" source="LavaCave/png1x/objects/item-coin.png"/>
+  </tile>
+  <tile id="36">
+   <image width="72" height="139" source="LavaCave/png1x/objects/gate-4.png"/>
+  </tile>
+  <tile id="37">
+   <image width="72" height="139" source="LavaCave/png1x/objects/gate-3.png"/>
+  </tile>
+  <tile id="38">
+   <image width="72" height="139" source="LavaCave/png1x/objects/gate-2.png"/>
+  </tile>
+  <tile id="39">
+   <image width="72" height="139" source="LavaCave/png1x/objects/gate-1.png"/>
+  </tile>
+  <tile id="40">
+   <image width="80" height="70" source="LavaCave/png1x/objects/spring-3.png"/>
+  </tile>
+  <tile id="41">
+   <image width="80" height="70" source="LavaCave/png1x/objects/spring-2.png"/>
+  </tile>
+  <tile id="42">
+   <image width="124" height="115" source="LavaCave/png1x/objects/portal.png"/>
+  </tile>
+  <tile id="43">
+   <image width="60" height="50" source="LavaCave/png1x/objects/item-key.png"/>
+  </tile>
+  <tile id="44">
+   <image width="73" height="76" source="LavaCave/png1x/objects/chest-2.png"/>
+  </tile>
+  <tile id="45">
+   <image width="67" height="75" source="LavaCave/png1x/objects/barrel.png"/>
+  </tile>
+  <tile id="46">
+   <image width="63" height="95" source="LavaCave/png1x/objects/shrine-2.png"/>
+  </tile>
+  <tile id="47">
+   <image width="78" height="54" source="LavaCave/png1x/objects/switch-2.png"/>
+  </tile>
+  <tile id="48">
+   <image width="64" height="65" source="LavaCave/png1x/objects/crate.png"/>
+  </tile>
+  <tile id="49">
+   <image width="84" height="86" source="LavaCave/png1x/objects/saw.png"/>
+  </tile>
+  <tile id="50">
+   <image width="80" height="70" source="LavaCave/png1x/objects/spring-1.png"/>
+  </tile>
+  <tile id="51">
+   <image width="86" height="27" source="LavaCave/png1x/objects/elevator.png"/>
+  </tile>
+  <tile id="52">
+   <image width="54" height="48" source="LavaCave/png1x/objects/item-meat.png"/>
+  </tile>
+  <tile id="53">
+   <image width="45" height="48" source="LavaCave/png1x/objects/item-orange.png"/>
+  </tile>
+  <tile id="54">
+   <image width="41" height="46" source="LavaCave/png1x/objects/item-apple.png"/>
+  </tile>
+  <tile id="55">
+   <image width="55" height="49" source="LavaCave/png1x/objects/item-star.png"/>
+  </tile>
+  <tile id="56">
+   <image width="44" height="49" source="LavaCave/png1x/objects/item-gem-1.png"/>
+  </tile>
+  <tile id="57">
+   <image width="47" height="49" source="LavaCave/png1x/objects/item-gem-2.png"/>
+  </tile>
+  <tile id="58">
+   <image width="74" height="76" source="LavaCave/png1x/objects/chest-1.png"/>
+  </tile>
+  <tile id="59">
+   <image width="76" height="54" source="LavaCave/png1x/objects/switch-1.png"/>
+  </tile>
+  <tile id="60">
+   <image width="63" height="95" source="LavaCave/png1x/objects/shrine-1.png"/>
+  </tile>
+ </tileset>
+ <imagelayer id="6" name="Image" visible="0">
+  <image source="./LavaCave/png2x/bg/bg.png" width="2048" height="1280"/>
+ </imagelayer>
+ <layer id="5" name="BG" width="30" height="16">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,57,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+57,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,57,0,0,55,0,0,0,0,
+0,0,0,0,55,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,55,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,57,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+57,0,0,0,0,0,0,0,0,0,0,57,0,0,0,0,0,0,0,0,0,0,57,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer id="1" name="L0" width="30" height="16">
+  <properties>
+   <property name="Description">Example Tile Map
+</property>
+   <property name="UsePhysicGroup" value="PHY0"/>
+  </properties>
+  <data encoding="csv">
+5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
+5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
+25,25,25,25,25,25,25,25,25,25,5,5,5,5,5,5,5,5,5,5,25,25,25,25,25,25,25,25,25,25,
+0,0,0,0,0,0,0,0,0,23,5,5,5,5,5,5,5,5,5,5,24,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,23,5,5,5,5,5,5,5,5,5,5,24,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,23,5,5,5,5,5,5,5,5,5,5,24,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,23,5,5,5,5,5,5,5,5,5,5,24,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,23,5,5,5,5,5,5,5,5,5,5,24,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,23,5,5,5,5,5,5,5,5,5,5,24,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,25,25,25,25,25,25,25,25,25,25,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+2,2,2,2,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,
+5,5,5,5,5,5,5,5,5,17,17,17,17,17,17,17,17,17,17,17,17,5,5,5,5,5,5,5,5,5,
+5,5,5,5,5,5,5,5,5,16,16,16,16,16,16,16,16,16,16,16,16,5,5,5,5,5,5,5,5,5
+</data>
+ </layer>
+ <objectgroup id="2" name="PHY0">
+  <object id="1" name="TCB" type="static" x="642.667" y="127.333" width="634.667" height="446.667"/>
+  <object id="2" name="LB" type="static" x="2.66667" y="841.333" width="570.667" height="181.333"/>
+  <object id="4" name="RB" type="static" x="1345.33" y="838.667" width="574.667" height="185.333"/>
+  <object id="5" name="Ceeling" type="static" x="1.33333" y="-1.33333" width="1928" height="126.667"/>
+ </objectgroup>
+ <objectgroup id="3" name="ElectricFences">
+  <object id="6" name="VEF-01" type="VF" x="394" y="200" width="50" height="626"/>
+  <object id="7" name="EVF-02" type="VF" x="1480" y="194" width="58" height="614"/>
+ </objectgroup>
+ <objectgroup id="4" name="Spawn">
+  <object id="8" name="Previous" type="transition" x="12" y="182" width="20" height="644"/>
+  <object id="9" name="Next" type="tansition" x="1892" y="202" width="18" height="626"/>
+  <object id="12" name="SpawnPlayer" type="SpawnPlayer" x="194" y="328">
+   <point/>
+  </object>
+ </objectgroup>
+</map>

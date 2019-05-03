@@ -2,6 +2,8 @@
 #include "GameLayer.h"
 #include "WelcomeLayer.h"
 
+#include "MyTmx.h"
+
 
 
 USING_NS_CC;
@@ -102,7 +104,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     Director::getInstance()->setContentScaleFactor(4);
     
-    auto scene = WelcomeLayer::scene();
+    //auto scene = WelcomeLayer::scene();
+    auto scene = MyTMX::scene("TMX-cave/level0_30x16x64.tmx");
 
     director->runWithScene(scene);
 

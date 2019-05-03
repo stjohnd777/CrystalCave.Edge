@@ -6,6 +6,8 @@
 //
 
 #include "MyTMX.h"
+#include "MyMacros.h"
+#include  "SimpleAudioEngine.h"
 
 
 using namespace cocos2d;
@@ -51,284 +53,120 @@ MyTMX* MyTMX::create(std::string tmx)
     return pRet;
 }
 
+
+#include  <sstream>
+#include "external/tinyxml2/tinyxml2.h"
+#include "Utils.h"
+
+//#include "LunarModule.h"
+//#include "HudLayer.h"
+//#include "CtrlLayer.h"
+
 bool MyTMX::init(std::string tmx) {
 
-    bool ret = false;
+    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(GameAssets::Sound::GAME_BACKGROUND_SOUND, true);
 
-    try {
+    auto size = Director::getInstance()->getWinSize();
+    PhysicsMaterial material(1.0f,1.0f,1.0f);
+    float border = 5;
+    PhysicsBody* boundry = PhysicsBody::createEdgeBox( size,   material,  border, Vec2(size.width/2,size.height/2));
 
-        this->tmxFileName = tmx;
+    setPhysicsBody(boundry);
 
-        this->tiled_map = TMXTiledMap::create(this->tmxFileName);
+    // Player
+    ship = LunarModule::create();
+    ship->setGameLayer(this);
+    ship->useHealthLabel();
+    ship->useInfoLabel();
+    ship->setPosition(Utils::getMidPoint());
+    ship->getPhysicsBody()->setRotationEnable(false);
+    ship->setGameLayer(this);
+    //Follow* follow = Follow::create(ship);
+    //this->runAction(follow);
+    addChild(ship,99);
 
-        assert(tiled_map!=nullptr);
+    // HUD
+    m_HudLayer =  HudLayer::create();
+    m_HudLayer->setShip(ship);
+    m_HudLayer->setGameLayer(this);
+    addChild(m_HudLayer,1000);
+    //m_HudLayer->startTracking();
 
-        this-> columns   = static_cast<int>(tiled_map->getMapSize().width);
+    // CTRL
+    m_CtrlLayer =  CtrlLayer::create();
+    m_CtrlLayer->setShip(ship);
+    m_CtrlLayer->setGameLayer(this);
+    addChild(m_CtrlLayer,3000);
 
-        this-> rows      = static_cast<int>(tiled_map->getMapSize().height);
+#if IS_DESKTOP
+    // Key listener
+    setKeypadEnabled(true);
+    auto listenerKey = EventListenerKeyboard::create();
+    listenerKey->onKeyPressed = CC_CALLBACK_2(MyTMX::onKeyPressed, this);
+    listenerKey->onKeyReleased = CC_CALLBACK_2(MyTMX::onKeyReleased , this);
+    this->_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerKey, this);
+#endif
 
-        this-> mapHeightPixels = tileSize * rows;
-        this-> mapWidhtPixels = tileSize * columns;
-
-        for (auto& child : tiled_map->getChildren())
-        {
-            TMXLayer* layer = dynamic_cast<TMXLayer*>(child);
-            if(layer)
-            {
-                std::string layerName = layer->getLayerName();
-                tmxLayersMap[layerName] = layer;
-            }
-
-            TMXObjectGroup* objGroup = dynamic_cast<TMXObjectGroup*>(child);
-            if(objGroup)
-            {
-                std::string groupName = objGroup->getGroupName();
-                tmxObjectsMap[groupName] = objGroup;
-
-            }
-        }
-
-        ret = true;
-
-    }catch (...){
-
-        ret = false;
-    }
-
-    return ret;
+    return true;
 }
+
+#if IS_DESKTOP
+void MyTMX::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event){
+    gkeyCode = keyCode;
+    m_IsTouching = !m_IsTouching;
+    isKeyDown = true;
+
+    float percentThrust =  m_CtrlLayer->getThrustPercentage();
+
+    log("thrust %f", percentThrust);
+
+    switch(keyCode){
+        case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
+        case EventKeyboard::KeyCode::KEY_A:
+            ship->applyThrush(Vec2(-1,0), percentThrust);
+            break;
+        case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
+        case EventKeyboard::KeyCode::KEY_D:
+            ship->applyThrush(Vec2(1,0),percentThrust);
+            break;
+        case EventKeyboard::KeyCode::KEY_UP_ARROW:
+            ship->applyThrush(Vec2(0,-1),  percentThrust);
+            break;
+        case EventKeyboard::KeyCode::KEY_DOWN_ARROW:
+        case EventKeyboard::KeyCode::KEY_S:
+            ship->applyThrush(Vec2(0,1), percentThrust);
+            break;
+
+        case EventKeyboard::KeyCode::KEY_1:
+        case EventKeyboard::KeyCode::KEY_Q:
+        case EventKeyboard::KeyCode::KEY_KP_MINUS:
+            m_CtrlLayer->setThrust(m_CtrlLayer->getThrust() - 1 ) ;
+            break;
+        case EventKeyboard::KeyCode::KEY_W:
+        case EventKeyboard::KeyCode::KEY_2:
+        case EventKeyboard::KeyCode::KEY_KP_PLUS:
+            m_CtrlLayer->setThrust(m_CtrlLayer->getThrust() + 1 ) ;
+
+
+        case EventKeyboard::KeyCode::KEY_ESCAPE:
+            if (Director::getInstance()->isPaused()){
+                Director::getInstance()->resume();
+            }else {
+                Director::getInstance()->pause();
+            }
+            break;
+
+        case EventKeyboard::KeyCode::KEY_X:
+            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("bell-0104.wav", false);
+            Director::getInstance()->end();
+            break;
+    }
+}
+#endif
 
 MyTMX::MyTMX(){
 
 }
 
-
-
-void MyTMX::handleTMXPhysicsLayer(TMXLayer* base){
-
-    Size s = base->getLayerSize();
-
-    for (int x = 0; x < s.width; ++x)
-    {
-        for (int y = 0; y < s.height; ++y)
-        {
-
-            int id = base->getTileGIDAt(Vec2(x, y));
-
-
-            auto properties = tiled_map->getPropertiesForGID(id);
-            if (properties.isNull() || properties.getType() != Value::Type::MAP) {
-                continue;
-            }
-
-            ValueMap vm = properties.asValueMap();
-
-            Sprite* sprite = base->getTileAt(Vec2(x, y));
-
-            Value vPhysics = vm["physics"];
-
-            PhysicsBody* body = nullptr;
-
-            if ( vPhysics.asBool()){
-
-                Value nName = vm["name"];
-                Value vBody = vm["physics_body"];
-                Value vDynamic = vm["physics_type"];
-                Value vCategory = vm["category"];
-
-                if ( strcmp(vBody.asString().c_str(),"floor") == 0){
-                    Rect r= sprite->getBoundingBox();
-                    Size s = r.size;
-                    s.height = 5;
-                    body = PhysicsBody::createBox(s);
-                    body->setPositionOffset(Vec2(0,-32));
-                }
-                if ( strcmp(vBody.asString().c_str(),"bounding_box") == 0){
-                    Rect r= sprite->getBoundingBox();
-                    Size s = r.size;
-                    body = PhysicsBody::createBox(s);
-
-                }
-
-                sprite->setPhysicsBody(body);
-
-                if ( strcmp(vDynamic.asString().c_str(),"dynamic") == 0 ){
-                    body->setDynamic(true);
-                }else {
-                    body->setDynamic(false);
-                }
-            }
-
-        }
-    }
-
-}
-
-void MyTMX::handleTMXObjectLayer(TMXObjectGroup * objectGroup){
-
-    // std::unordered_map<std::string, Value> ValueMap;
-    ValueVector valueVectorObjects = objectGroup->getObjects();
-    for( Value v : valueVectorObjects){
-
-        ValueMap vm = v.asValueMap();
-
-        log("----");
-        for ( std::pair<std::string, Value> pair : vm){
-
-            std::string key = pair.first;
-            Value value = pair.second;
-            std::string svalue = value.asString();
-            log("%s:%s",key.c_str(),svalue.c_str());
-        }
-
-        Value vname = vm["name"];
-        Value vX = vm["x"];
-        Value vY = vm["y"];
-        Value vWidth = vm["width"];
-        Value vHeight = vm["height"];
-
-        std::string name = vname.asString();
-        //        int x = vX.asInt();
-        //        int y = vY.asInt();
-        //        int width = vWidth.asInt();
-        int height = vHeight.asInt();
-        int tileCordX = vX.asInt() / 64;
-        int tileCordY = vY.asInt() / 64;
-        int cordX = tileCordX * 64;
-        int cordY = tileCordY * 64;
-
-
-        // horizontal electirc fence
-        if( name == "HEF"){
-//            log("--->HEF");
-//
-//
-//            int initYPixel = Director::getInstance()->getWinSize().height -  cordY;
-//            int minYPixel = initYPixel - height;
-//            int maxYPixel = Director::getInstance()->getWinSize().height - cordY;
-//
-//            int steps = 3;
-//            int beamWidthInPixels = 32;
-//            int beamEastXPixel =cordX;
-//            int beamWestXPixel = cordX + 2 * tileWidth;
-//
-//            bool isBlinking = false;
-//            float blinkRateInSeconds = 1;
-//            bool isMoving = true;
-//            float speedPixelPerSecond = 200;
-//            bool increasing = true;
-//
-//            bool showBeamBookEnd = true;
-//            bool showBeamBoundry =true;
-//            bool isRandomColor = true;
-//            Color4F beamColor = Color4F::WHITE;
-//
-//            auto hFence = GLHorzFence::create(initYPixel,  minYPixel,  maxYPixel,
-//                                              steps,
-//                                              beamWidthInPixels,
-//                                              beamEastXPixel,  beamWestXPixel,
-//                                              isBlinking, blinkRateInSeconds,
-//                                              isMoving, speedPixelPerSecond,  increasing,
-//                                              showBeamBookEnd,
-//                                              showBeamBoundry,
-//                                              isRandomColor,beamColor );
-//
-//            hFence->setGameLayer(this);
-//            hFence->setPlayer(player);
-//            hFence->start(this,0);
-//            //addChild(hFence);
-
-        }
-        // vertircal electric fence
-        if( name == "VEF"){
-//            log("--->VEF");
-//
-//            int initXPixel = cordX;
-//            int minXPixel  = cordX;
-//            int maxXPixel  = cordX;
-//            int steps = 2;
-//            int beamWidthInPixels = 32;
-//            int beamBottomYPixel =  mapHeightPixels - height;
-//            int beamTopYPixel = mapHeightPixels - cordY;
-//            bool isBlinling = true;
-//            float blinkRateInSeconds = 1;
-//            bool isMoving = false;
-//            float speedPixelPerSecond = 1;
-//            bool increasing  = false;
-//            bool showBameBookEnd = true;
-//            bool showBeamBoundry = true;
-//            bool isRandomColor = false;
-//            Color4F beamColor = Color4F::WHITE;
-//
-//            auto vFence = GLVertFence::create(initXPixel,  minXPixel,  maxXPixel,
-//                                              steps,
-//                                              beamWidthInPixels,
-//                                              beamBottomYPixel,  beamTopYPixel,
-//                                              isBlinling, blinkRateInSeconds,
-//                                              isMoving, speedPixelPerSecond,  increasing,
-//                                              showBameBookEnd,
-//                                              showBeamBoundry,
-//                                              isRandomColor,beamColor );
-//            vFence->setGameLayer(this);
-//            vFence->setPlayer(player);
-//            vFence->start(this,0);
-
-        }
-
-        // vertical scane beam
-        if( name == "VSB"){
-//            log("--->VSB");
-//
-//            Size winSize = Director::getInstance()->getWinSize();
-//            Point orgin = Vec2(cordX, cordY);
-//
-//            int dispersion = 100;
-//            int limitLeft =  orgin.x - 100 ;
-//            int limitRight = orgin.x + 100  ;
-//            float velocity = 1;
-//            float offOnRate = 1;
-//
-//            auto beam = GLBeam::create(orgin, dispersion, limitLeft, limitRight,velocity,offOnRate);
-//            beam->setGameLayer(this);
-//            auto ply =getPlayer();
-//            beam->setPlayer(ply);
-//            beam->setGameLayer(this);
-//            addChild(beam);
-//            beam -> setDispersion(50);
-//            beam -> setVelocity(10);
-//            beam->start();
-
-        }
-
-        // mine
-        if( name == "Mine"){
-//            log("--->Mine");
-//
-//            int x = cordX;
-//            int y =   cordY;
-//            Point spawnPoint(x,y);
-//            Point mineLocation(x,y);
-//            bool isUsingPhysics = false;
-//            bool isStationary = true;
-//            auto mine =  Mine::create(spawnPoint,mineLocation, isUsingPhysics,isStationary );
-//            //            mine->setGameLayer(this);
-//            //            mine->setPlayer(player);
-//            addChild(mine);
-//            mine->setSize(64,64);
-//            mine->start();
-
-        }
-
-        // saw
-        if( name == "SAW"){
-            log("--->SAW");
-        }
-
-
-        log("%s tile(%i,%i) : cord(%i,%i)",name.c_str(),tileCordX,tileCordY, cordX,cordY);
-
-    }
-
-}
 
 

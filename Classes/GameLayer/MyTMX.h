@@ -13,6 +13,10 @@
 #include "cocos2d.h"
 
 #include "MyMacros.h"
+#include "LunarModule.h"
+#include "HudLayer.h"
+#include "CtrlLayer.h"
+
 
 class MyTMX : public cocos2d::Layer  {
     
@@ -26,40 +30,33 @@ public:
 
     bool init(std::string tmx) ;
 
-public:
-
     MyTMX();
 
 private:
 
-    std::map<std::string , cocos2d::TMXLayer*>       tmxLayersMap;
-
-    std::map<std::string , cocos2d::TMXObjectGroup*> tmxObjectsMap;
+    bool isKeyDown;
+    bool m_IsTouching;
+    LunarModule* ship;
+    HudLayer* m_HudLayer;
+    CtrlLayer* m_CtrlLayer;
+    cocos2d::EventKeyboard::KeyCode gkeyCode ;
 
 
     ATTR(std::string, tmxFileName, TmxFileName,"")
-
     ATTR(int, columns, Columns,0)
-
     ATTR(int, rows, Rows,0)
-
     ATTR(int, tileSize, TileSize,64)
-
     int mapHeightPixels ;
-
     int mapWidhtPixels ;
 
     ATTR(cocos2d::Vec2, m_gravity, Gravity, cocos2d::Vec2(0,-10))
-
     cocos2d::PhysicsWorld* phyWorld;
 
     cocos2d::TMXTiledMap* tiled_map;
 
-
-    void handleTMXPhysicsLayer(cocos2d::TMXLayer* base);
-
-    void handleTMXObjectLayer(cocos2d::TMXObjectGroup * objectGroup);
-
+    #if IS_DESKTOP
+    void onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event);
+    #endif
 };
 
 

@@ -6,7 +6,8 @@
    <terrain name="Warn" tile="-1"/>
   </terraintypes>
  </tileset>
- <tileset firstgid="101" name="images" tilewidth="128" tileheight="143" tilecount="56" columns="0">
+ <tileset firstgid="101" name="images" tilewidth="156" tileheight="156" tilecount="59" columns="0">
+  <grid orientation="orthogonal" width="128" height="143"/>
   <tile id="0">
    <image width="64" height="64" source="Acid_Bottom.png"/>
   </tile>
@@ -71,19 +72,19 @@
    <image width="128" height="128" source="QuartzCrystal.128 2.png"/>
   </tile>
   <tile id="21">
-   <image width="128" height="128" source="QuartzCrystal.128 3.png"/>
+   <image width="128" height="128" source="QuartzCrystalSouth.png"/>
   </tile>
   <tile id="22">
-   <image width="128" height="128" source="QuartzCrystal.128 4.png"/>
+   <image width="128" height="128" source="QuartzCrystalEast.png"/>
   </tile>
   <tile id="23">
-   <image width="128" height="128" source="QuartzCrystal.128.png"/>
+   <image source="QuartzCrystalNorth.png"/>
   </tile>
   <tile id="24">
    <image width="48" height="48" source="redgem.png"/>
   </tile>
   <tile id="25">
-   <image width="128" height="128" source="rock-column.png"/>
+   <image source="rock-column.png"/>
   </tile>
   <tile id="26">
    <image width="64" height="65" source="Saw.png"/>
@@ -174,6 +175,15 @@
   </tile>
   <tile id="55">
    <image width="48" height="48" source="yellowgem.png"/>
+  </tile>
+  <tile id="56">
+   <image width="156" height="156" source="Cave_Pillar_inventory_icon.png"/>
+  </tile>
+  <tile id="57">
+   <image width="128" height="128" source="QuartzCrystalNorth.png"/>
+  </tile>
+  <tile id="58">
+   <image width="128" height="128" source="QuartzCrystalNorth3.png"/>
   </tile>
  </tileset>
  <layer id="1" name="L0" width="64" height="32">

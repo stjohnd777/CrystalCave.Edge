@@ -10,8 +10,6 @@ using namespace cocos2d;
 
 std::vector<HostileObject*>  * HostileObject::m_ActiveTargets = new  std::vector<HostileObject*>();
 
-
-
 unsigned int HostileObject::DefalutChipmunkCategoryTarget = 0x02; // 00000000 00000010
 
 int HostileObject::DefalutChipmunkGroupTarget             = 0x02;
@@ -26,7 +24,6 @@ HostileObject::HostileObject(): GameObject(){
     m_ChipmunkGroup = DefalutChipmunkGroupTarget;
 
     m_ActiveTargets->push_back(this);
-    
 }
 
 
@@ -37,7 +34,6 @@ void HostileObject::collision(float dt){
         getPlayer()->takeDamage(getWeight());
         takeDamage(100);
     }
-
 }
 
 HostileObject::~HostileObject() {

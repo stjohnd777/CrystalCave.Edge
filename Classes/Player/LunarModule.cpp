@@ -57,32 +57,48 @@ void LunarModule::thrushOff(){
 
 void LunarModule::applyThrush(Vec2 force, float percentage){
     
-    CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(.1);
-    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("woosh.wav", false);
+    //CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume();
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::WOOSH, false);
     //CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1);
 
     float forcex = ( percentage * MAX_THRUST) * force.x;
     float forcey = ( percentage * MAX_THRUST) * force.y;
     Vec2 thrustAdjustedForceImplusVector(forcex,forcey);
 
-    float offset = 128 / 2 * .1;
-    auto particalEffectBurst = smoke(1, .5);
-    Point posBust = getPosition();
-    if ( force.x > 0){
-        posBust.x = posBust.x - (getContentSize().width  + offset);
-    }
-    if ( force.x < 0){
-        posBust.x = posBust.x + (getContentSize().width + offset);
-    }
-    if ( force.y > 0){
-        posBust.y = posBust.y - (getContentSize().width  + offset);
-    }
-    if ( force.y < 0){
-        posBust.y = posBust.y + (getContentSize().width  + offset);
+
+    if (this) {
+
+        float offset = 128 / 2 * .1;
+        Point posBust = this->getPosition();
+        if ( force.x > 0){
+            posBust.x = posBust.x - (getContentSize().width  + offset);
+        }
+        if ( force.x < 0){
+            posBust.x = posBust.x + (getContentSize().width + offset);
+        }
+        if ( force.y > 0){
+            posBust.y = posBust.y - (getContentSize().width  + offset);
+        }
+        if ( force.y < 0){
+            posBust.y = posBust.y + (getContentSize().width  + offset);
+        }
+
+        //auto particalEffectBurst = smoke(1, .5);
+
+        ParticleSystemQuad* particalEffectBurst =ParticleSmoke::create();
+        particalEffectBurst->setDuration(1);
+        particalEffectBurst->setScale(.5);
+        particalEffectBurst->setPosition(posBust);
+        getGameLayer()->addChild(particalEffectBurst);
+        DelayTime*  delayTimeAction = DelayTime::create(2*1);
+        CallFunc*   removeAndCleanUp =    CallFunc::create( std::bind(&ParticleSmoke::removeFromParent,particalEffectBurst));
+        Sequence*   seq = Sequence::create(delayTimeAction,removeAndCleanUp,nullptr);
+
+        particalEffectBurst->runAction(seq);
     }
 
     getPhysicsBody()->applyImpulse(thrustAdjustedForceImplusVector);
-    particalEffectBurst->setPosition(posBust);
+
 }
 
 

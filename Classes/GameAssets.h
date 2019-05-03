@@ -26,11 +26,12 @@ namespace LayerLevel {
 
 namespace GameAssets {
 
-    const char* const WELCOME_BACKGROUND           = "space-cave.jpg" ;
+    const char* const WELCOME_BACKGROUND           = "game.png" ;
     const char* const OPTIONS_BACKGROUND           = "Options.png";
     const char* const FAILED_BACKGROUND            = "GameOver.png";
+    const char* const FAILED_BACKGROUND_2          = "game.png";
     const char* const GAME_LAYER                   = "game.png";
-    const char* const SUCCESS_BACKGROUND           = "space-cave.jpg";
+    const char* const SUCCESS_BACKGROUND           = "game.png";
 
     
     namespace Sound {
@@ -50,7 +51,8 @@ namespace GameAssets {
         const char* const TADA                         =   "Sound/success/tada.mp3";
         const char* const ROCK_SLIDE                   =   "Sound/rockslide.mp3";
         const char* const SHOTGUN                      =   "Sound/shotgun.wav";
-        const char* const WOOSH                        =   "Sound/swoosh.wav";
+        const char* const WOOSH                        =   "Sound/woosh.wav";
+        const char* const THRUST                        =   "Sound/thrusters.wav";
     }
 
     

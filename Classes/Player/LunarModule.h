@@ -45,13 +45,13 @@ public:
     
     int percentageThrust = 100;
 
-    void applyThrush(Vec2 force, float percentage);
+    void applyThrush(cocos2d::Vec2 force, float percentage);
 
     void applyTourque(float t ){
         
         angleDegree = angleDegree + t* 10;
         
-        runAction (RotateBy::create(.1,t*10));
+        runAction (cocos2d::RotateBy::create(.1,t*10));
     }
     
     /**

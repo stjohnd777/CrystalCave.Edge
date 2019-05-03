@@ -212,6 +212,7 @@ void GameLayer::initPlayer(){
 
 void GameLayer::initHud() {
     m_HudLayer =  HudLayer::create();
+    m_HudLayer->setShip(getShip());
     addChild(m_HudLayer,1000);
     m_HudLayer->startTracking();
 }
@@ -243,7 +244,7 @@ void GameLayer::AddVerticalElectricFence(
 
     bool showBeamBookEnd = true;
     bool showBeamBoundry = false;
-    bool isRandomColor = false;
+    bool isRandomColor = true;
 
     cocos2d::Color4F beamColor = cocos2d::Color4F::BLUE;
 
@@ -414,26 +415,28 @@ void GameLayer::CreateCrystalCeilingFloor()
         crystalFloorPart->setPosition(pos);
 
         // Crystal Floor Part Randomization Size
-        float scaleXFloorPart = 4 * Utils::getRandomFloatBetweenTopBottom(.5, 2);
-        float scaleYfloorPart = 4 * Utils::getRandomFloatBetweenTopBottom(.5, 2);
+        float scaleXFloorPart =  Utils::getRandomFloatBetweenTopBottom(2,4);
+        float scaleYfloorPart =   Utils::getRandomFloatBetweenTopBottom(2, 4);
         crystalFloorPart->setScale(scaleXFloorPart, scaleYfloorPart);
 
         addChild(crystalFloorPart, 99, TAG_CRYSTAL);
 
 
         // Crystal Ceiling
-        Sprite* crystalCiellingPart = Sprite::create("stalactite.png" /*"QuartzCrystal.128.png"*/);
+        Sprite* crystalCiellingPart = Sprite::create("QuartzCrystalSouth.png");//stalactite.png" /*"QuartzCrystal.128.png"*/);
         crystalCiellingPart->setPosition(Point(xcoord,Director::getInstance()->getWinSize().height));
         crystalCiellingPart->setAnchorPoint(Vec2(.5,1));
         //crystalCiellingPart->setFlippedY(true);
 
-        Size sizeCeilingPart(crystalCiellingPart->getContentSize());
-        auto bodyC = PhysicsBody::createBox(sizeCeilingPart);
-        crystalCiellingPart->setPhysicsBody(bodyC);
+        auto bodyC = shapeCache->createBodyWithName("QuartzCrystalSouth");
+        bodyC->setContactTestBitmask(hack->getContactTestBitmask());
+        bodyC->setCollisionBitmask(hack->getCollisionBitmask());
+        bodyC->setCategoryBitmask(hack->getCategoryBitmask());
         bodyC->setDynamic(false);
+        crystalCiellingPart->setPhysicsBody(bodyC);
 
-        float scaleXCeilingPart = 4* Utils::getRandomFloatBetweenTopBottom(1, 3);
-        float scaleCeilingPart = 4 * Utils::getRandomFloatBetweenTopBottom(1, 3);
+        float scaleXCeilingPart = Utils::getRandomFloatBetweenTopBottom(2, 5);
+        float scaleCeilingPart =  Utils::getRandomFloatBetweenTopBottom(2, 5);
 
         crystalCiellingPart->setScale(scaleXCeilingPart, scaleCeilingPart);
         if ( Utils::getRandomFloatBetweenTopBottom(0, 1) < .5){
@@ -539,7 +542,7 @@ void GameLayer::AddLighting()
     int displacement = 200;
     int detail = 2;
     Color4F lightingColor(.5,  .5, .5, .8);
-    bool isRandom = false;
+    bool isRandom = true;
 
     Size size = Director::getInstance()->getWinSize();
 
@@ -613,7 +616,7 @@ void GameLayer::AddMine(){ }
 
 
 #if IS_DESKTOP
-
+ 
 void GameLayer::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event){
     gkeyCode = keyCode;
     m_IsTouching = !m_IsTouching;

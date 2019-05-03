@@ -246,7 +246,7 @@ ParticleSystemQuad*  GameObject::explosion(float scale,float duration){
     getGameLayer()->addChild(particalSystem);
     
     DelayTime*  delayTimeAction = DelayTime::create(2*duration);
-    CallFunc*   removeAndCleanUp =    CallFunc::create( std::bind(&CCParticleExplosion::removeFromParent,particalSystem));
+    CallFunc*   removeAndCleanUp =    CallFunc::create( std::bind(&ParticleExplosion::removeFromParent,particalSystem));
     Sequence*   seq = Sequence::create(delayTimeAction,removeAndCleanUp,NULL);
     particalSystem->runAction(seq);
     
@@ -260,25 +260,24 @@ ParticleSystemQuad* GameObject::smoke(float scale,float duration){
     ParticleSystemQuad* particalSystem =ParticleSmoke::create();
     particalSystem->setDuration(scale);
     particalSystem->setScale(scale);
+    auto pos =getPosition();
     particalSystem->setPosition(getPosition());
-    
+
     if ( getGameLayer()  == nullptr){
         setGameLayer( getParent());
     }
     getGameLayer()->addChild(particalSystem);
-    
+
     DelayTime*  delayTimeAction = DelayTime::create(2*duration);
-    CallFunc*   removeAndCleanUp =    CallFunc::create( std::bind(&CCParticleSmoke::removeFromParent,particalSystem));
+    CallFunc*   removeAndCleanUp =    CallFunc::create( std::bind(&ParticleSmoke::removeFromParent,particalSystem));
     Sequence*   seq = Sequence::create(delayTimeAction,removeAndCleanUp,NULL);
     particalSystem->runAction(seq);
-    
-    //GameObjectManager::getInstance()->addParticalEffect(particalSystem);
+
     return particalSystem;
-    
 }
 
 ParticleSystemQuad* GameObject::fire(float scale,float duration){
-    ParticleSystemQuad* particalSystem =CCParticleFire::create();
+    ParticleSystemQuad* particalSystem =ParticleFire::create();
     particalSystem->setDuration(scale);
     particalSystem->setScale(scale);
     particalSystem->setPosition(getPosition());
@@ -313,11 +312,8 @@ ParticleSystemQuad* GameObject::galaxy(float scale,float duration){
     CallFunc*   removeAndCleanUp =    CallFunc::create( std::bind(&ParticleGalaxy::removeFromParent,particalSystem));
     Sequence*   seq = Sequence::create(delayTimeAction,removeAndCleanUp,NULL);
     particalSystem->runAction(seq);
-    
-    
-    //GameObjectManager::getInstance()->addParticalEffect(particalSystem);
-    return particalSystem;
-    
+
+    return particalSystem;    
 }
 
 ParticleSystemQuad* GameObject::fireworks(float scale,float duration){
