@@ -11,16 +11,16 @@ using namespace tinyxml2;
 
 namespace dsj {
 
-//    std::vector<std::string> split(const char *str,  char c = ' ')
-//    {
-//        std::vector<std::string> result;
-//        do {
-//            const char *begin = str;
-//            while(*str != c && *str) str++;
-//            result.push_back(std::string(begin, str));
-//        } while (0 != *str++);
-//        return result;
-//    }
+    std::vector<std::string> split(const char *str,  char c = ' ')
+    {
+        std::vector<std::string> result;
+        do {
+            const char *begin = str;
+            while(*str != c && *str) str++;
+            result.push_back(std::string(begin, str));
+        } while (0 != *str++);
+        return result;
+    }
 
     TileLayer::TileLayer(){}
 
@@ -38,23 +38,23 @@ namespace dsj {
 
         cocos2d::log(this->data.c_str());
 
-//        int data[width][height];
-//        //this->_data = (int**)data;
-//        int r = 0;
-//        int c = 0;
-//        auto rows = dsj::split(this->data.c_str(),'/n');
-//        for( auto row : rows){
-//            auto cols = dsj::split(row.c_str(),',');
-//            for ( auto col : cols){
-//                int tileID = std::stoi(col);
-//                data[r][c] = tileID;
-//                //_data[r][c] = tileID;
-//                dsj::Cell cell(r,c);
-//                this->mapTiles[cell] =tileID;
-//                c++;
-//            }
-//            r++;
-//        }
+        int data[width][height];
+        //this->_data = (int**)data;
+        int r = 0;
+        int c = 0;
+        auto rows = dsj::split(this->data.c_str(),'/n');
+        for( auto row : rows){
+            auto cols = dsj::split(row.c_str(),',');
+            for ( auto col : cols){
+                int tileID = std::stoi(col);
+                data[r][c] = tileID;
+                //_data[r][c] = tileID;
+                dsj::Cell cell(r,c);
+                this->mapTiles[cell] =tileID;
+                c++;
+            }
+            r++;
+        }
 
     }
 

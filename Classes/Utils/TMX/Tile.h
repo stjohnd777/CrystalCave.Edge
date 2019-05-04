@@ -8,14 +8,11 @@
 #pragma once
 
 #include "Element.h"
-//#include "TileSet.h"
 
 namespace dsj {
 
     class Tile : public Element {
 
-        //GETTERSETTER(TileSet, parentTileSet, ParentTileSet);
-        
         GETTERSETTER(int, id, Id);
         GETTERSETTER(std::string, type, Type);
         GETTERSETTER(std::string ,imageSource,ImageSource);

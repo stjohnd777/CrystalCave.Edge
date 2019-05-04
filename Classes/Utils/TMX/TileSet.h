@@ -7,8 +7,6 @@
 
 #pragma once
 
-
-//#include "Element.h"
 #include "Tile.h"
 
 namespace dsj {

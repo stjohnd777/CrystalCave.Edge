@@ -80,6 +80,7 @@ namespace dsj
 
     class Element {
 
+
         GETTERSETTER(std::vector< Property >,  m_properties, Properties)
         GETTERSETTER(std::vector< Attribute >, m_attributes,Attributes)
 
