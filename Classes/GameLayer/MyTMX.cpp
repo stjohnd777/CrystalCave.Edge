@@ -9,6 +9,7 @@
 #include "MyMacros.h"
 #include  "SimpleAudioEngine.h"
 
+#include "TileMap.h"
 
 using namespace cocos2d;
 
@@ -66,11 +67,11 @@ bool MyTMX::init(std::string tmx) {
 
     CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(GameAssets::Sound::GAME_BACKGROUND_SOUND, true);
 
+    // boundry
     auto size = Director::getInstance()->getWinSize();
     PhysicsMaterial material(1.0f,1.0f,1.0f);
     float border = 5;
     PhysicsBody* boundry = PhysicsBody::createEdgeBox( size,   material,  border, Vec2(size.width/2,size.height/2));
-
     setPhysicsBody(boundry);
 
     // Player
@@ -97,6 +98,15 @@ bool MyTMX::init(std::string tmx) {
     m_CtrlLayer->setShip(ship);
     m_CtrlLayer->setGameLayer(this);
     addChild(m_CtrlLayer,3000);
+
+    // TileMap
+    try {
+        auto tileMap = dsj::TileMap("TMX-Cave/level0_30x16x64.tmx");
+        log("loaded tmx map");
+    } catch (...) {
+        std::exception_ptr p = std::current_exception();
+        log("Error Tile Map");
+    }
 
 #if IS_DESKTOP
     // Key listener

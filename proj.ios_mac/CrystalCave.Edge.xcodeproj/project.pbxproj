@@ -59,6 +59,20 @@
 		2B730E78226D6CE8005DCD3F /* QuartzCrystalNorthFliped.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B730E75226D6CE8005DCD3F /* QuartzCrystalNorthFliped.png */; };
 		2B730E79226D6CE8005DCD3F /* QuartzCrystalNorthFliped3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B730E76226D6CE8005DCD3F /* QuartzCrystalNorthFliped3.png */; };
 		2B730E7A226D6CE8005DCD3F /* QuartzCrystalNorthFliped3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B730E76226D6CE8005DCD3F /* QuartzCrystalNorthFliped3.png */; };
+		2B7E8B44227DEC4A0099AD4B /* Element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E8B38227DEC470099AD4B /* Element.cpp */; };
+		2B7E8B45227DEC4A0099AD4B /* Element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E8B38227DEC470099AD4B /* Element.cpp */; };
+		2B7E8B46227DEC4A0099AD4B /* TileLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E8B39227DEC470099AD4B /* TileLayer.cpp */; };
+		2B7E8B47227DEC4A0099AD4B /* TileLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E8B39227DEC470099AD4B /* TileLayer.cpp */; };
+		2B7E8B48227DEC4A0099AD4B /* ObjectGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E8B3A227DEC470099AD4B /* ObjectGroup.cpp */; };
+		2B7E8B49227DEC4A0099AD4B /* ObjectGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E8B3A227DEC470099AD4B /* ObjectGroup.cpp */; };
+		2B7E8B4A227DEC4A0099AD4B /* Tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E8B3B227DEC480099AD4B /* Tile.cpp */; };
+		2B7E8B4B227DEC4A0099AD4B /* Tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E8B3B227DEC480099AD4B /* Tile.cpp */; };
+		2B7E8B4C227DEC4A0099AD4B /* TileSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E8B3D227DEC480099AD4B /* TileSet.cpp */; };
+		2B7E8B4D227DEC4A0099AD4B /* TileSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E8B3D227DEC480099AD4B /* TileSet.cpp */; };
+		2B7E8B4E227DEC4A0099AD4B /* TileMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E8B41227DEC490099AD4B /* TileMap.cpp */; };
+		2B7E8B4F227DEC4A0099AD4B /* TileMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E8B41227DEC490099AD4B /* TileMap.cpp */; };
+		2B7E8B50227DEC4A0099AD4B /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E8B42227DEC4A0099AD4B /* Object.cpp */; };
+		2B7E8B51227DEC4A0099AD4B /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E8B42227DEC4A0099AD4B /* Object.cpp */; };
 		2B85D47E2267F951005F5DD1 /* TMX-Cave in Resources */ = {isa = PBXBuildFile; fileRef = 2B85D47D2267F951005F5DD1 /* TMX-Cave */; };
 		2B85D47F2267F951005F5DD1 /* TMX-Cave in Resources */ = {isa = PBXBuildFile; fileRef = 2B85D47D2267F951005F5DD1 /* TMX-Cave */; };
 		2B85D4822267F9F6005F5DD1 /* MyTMX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B85D4802267F9F6005F5DD1 /* MyTMX.cpp */; };
@@ -255,6 +269,20 @@
 		2B730E70226CCFFD005DCD3F /* QuartzCrystalNorth3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QuartzCrystalNorth3.png; sourceTree = "<group>"; };
 		2B730E75226D6CE8005DCD3F /* QuartzCrystalNorthFliped.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QuartzCrystalNorthFliped.png; sourceTree = "<group>"; };
 		2B730E76226D6CE8005DCD3F /* QuartzCrystalNorthFliped3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QuartzCrystalNorthFliped3.png; sourceTree = "<group>"; };
+		2B7E8B35227DEC460099AD4B /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
+		2B7E8B37227DEC460099AD4B /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tile.h; sourceTree = "<group>"; };
+		2B7E8B38227DEC470099AD4B /* Element.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Element.cpp; sourceTree = "<group>"; };
+		2B7E8B39227DEC470099AD4B /* TileLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TileLayer.cpp; sourceTree = "<group>"; };
+		2B7E8B3A227DEC470099AD4B /* ObjectGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectGroup.cpp; sourceTree = "<group>"; };
+		2B7E8B3B227DEC480099AD4B /* Tile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tile.cpp; sourceTree = "<group>"; };
+		2B7E8B3C227DEC480099AD4B /* TileLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileLayer.h; sourceTree = "<group>"; };
+		2B7E8B3D227DEC480099AD4B /* TileSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TileSet.cpp; sourceTree = "<group>"; };
+		2B7E8B3E227DEC480099AD4B /* TileSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileSet.h; sourceTree = "<group>"; };
+		2B7E8B3F227DEC490099AD4B /* ObjectGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectGroup.h; sourceTree = "<group>"; };
+		2B7E8B40227DEC490099AD4B /* TileMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileMap.h; sourceTree = "<group>"; };
+		2B7E8B41227DEC490099AD4B /* TileMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TileMap.cpp; sourceTree = "<group>"; };
+		2B7E8B42227DEC4A0099AD4B /* Object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Object.cpp; sourceTree = "<group>"; };
+		2B7E8B43227DEC4A0099AD4B /* Element.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Element.h; sourceTree = "<group>"; };
 		2B85D47B226653D7005F5DD1 /* MyMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMacros.h; sourceTree = "<group>"; };
 		2B85D47D2267F951005F5DD1 /* TMX-Cave */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "TMX-Cave"; sourceTree = "<group>"; };
 		2B85D4802267F9F6005F5DD1 /* MyTMX.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyTMX.cpp; sourceTree = "<group>"; };
@@ -474,6 +502,20 @@
 		2B74407B22781A0700546221 /* TMX */ = {
 			isa = PBXGroup;
 			children = (
+				2B7E8B38227DEC470099AD4B /* Element.cpp */,
+				2B7E8B43227DEC4A0099AD4B /* Element.h */,
+				2B7E8B42227DEC4A0099AD4B /* Object.cpp */,
+				2B7E8B35227DEC460099AD4B /* Object.h */,
+				2B7E8B3A227DEC470099AD4B /* ObjectGroup.cpp */,
+				2B7E8B3F227DEC490099AD4B /* ObjectGroup.h */,
+				2B7E8B3B227DEC480099AD4B /* Tile.cpp */,
+				2B7E8B37227DEC460099AD4B /* Tile.h */,
+				2B7E8B39227DEC470099AD4B /* TileLayer.cpp */,
+				2B7E8B3C227DEC480099AD4B /* TileLayer.h */,
+				2B7E8B41227DEC490099AD4B /* TileMap.cpp */,
+				2B7E8B40227DEC490099AD4B /* TileMap.h */,
+				2B7E8B3D227DEC480099AD4B /* TileSet.cpp */,
+				2B7E8B3E227DEC480099AD4B /* TileSet.h */,
 			);
 			path = TMX;
 			sourceTree = "<group>";
@@ -947,30 +989,37 @@
 			files = (
 				2B85D48422681E96005F5DD1 /* MyMacros.h in Sources */,
 				2BEB99491FFDE29700BB5777 /* GLVertFence.cpp in Sources */,
+				2B7E8B48227DEC4A0099AD4B /* ObjectGroup.cpp in Sources */,
 				1AF87B781F6F77F7007BE51C /* AppController.mm in Sources */,
 				2BEB99791FFDE29700BB5777 /* SuccessLayer.cpp in Sources */,
 				2BEB994B1FFDE29700BB5777 /* SceneManager.cpp in Sources */,
 				2B5E001A2274D40800205A72 /* UserDataStore.cpp in Sources */,
+				2B7E8B4A227DEC4A0099AD4B /* Tile.cpp in Sources */,
 				2BEB99571FFDE29700BB5777 /* HostileObject.cpp in Sources */,
 				2BEB996B1FFDE29700BB5777 /* GLHorzFence.cpp in Sources */,
 				2B85D4822267F9F6005F5DD1 /* MyTMX.cpp in Sources */,
 				2BEB994F1FFDE29700BB5777 /* LabelManager.cpp in Sources */,
+				2B7E8B4C227DEC4A0099AD4B /* TileSet.cpp in Sources */,
 				2BC0A00E226C27B50089757F /* PhysicsShapeCache.cpp in Sources */,
 				2BEB99691FFDE29700BB5777 /* FailedLayer.cpp in Sources */,
 				2BEB99751FFDE29700BB5777 /* CtrlLayer.cpp in Sources */,
 				2BEB99471FFDE29700BB5777 /* GameLayer.cpp in Sources */,
 				2BEB99731FFDE29700BB5777 /* WelcomeLayer.cpp in Sources */,
+				2B7E8B50227DEC4A0099AD4B /* Object.cpp in Sources */,
 				2BEB99611FFDE29700BB5777 /* Ligthning.cpp in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
 				2BEB99551FFDE29700BB5777 /* OptionLayer.cpp in Sources */,
 				2BEB995F1FFDE29700BB5777 /* HudLayer.cpp in Sources */,
+				2B7E8B44227DEC4A0099AD4B /* Element.cpp in Sources */,
 				1AF87B8A1F6F7822007BE51C /* main.m in Sources */,
+				2B7E8B4E227DEC4A0099AD4B /* TileMap.cpp in Sources */,
 				2BEB99591FFDE29700BB5777 /* Mine.cpp in Sources */,
 				2BEB99711FFDE29700BB5777 /* GLFence.cpp in Sources */,
 				2BEB99531FFDE29700BB5777 /* LunarModule.cpp in Sources */,
 				2BEB99771FFDE29700BB5777 /* Utils.cpp in Sources */,
 				2BEB996F1FFDE29700BB5777 /* AppDelegate.cpp in Sources */,
 				2BEB99631FFDE29700BB5777 /* Friendly.cpp in Sources */,
+				2B7E8B46227DEC4A0099AD4B /* TileLayer.cpp in Sources */,
 				2BEB99511FFDE29700BB5777 /* GameObject.cpp in Sources */,
 				2BEB996D1FFDE29700BB5777 /* BaseLayer.cpp in Sources */,
 			);
@@ -980,12 +1029,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B7E8B49227DEC4A0099AD4B /* ObjectGroup.cpp in Sources */,
 				2BEB99721FFDE29700BB5777 /* GLFence.cpp in Sources */,
+				2B7E8B4B227DEC4A0099AD4B /* Tile.cpp in Sources */,
 				2BEB995A1FFDE29700BB5777 /* Mine.cpp in Sources */,
 				2BEB99541FFDE29700BB5777 /* LunarModule.cpp in Sources */,
 				2BEB99621FFDE29700BB5777 /* Ligthning.cpp in Sources */,
+				2B7E8B4D227DEC4A0099AD4B /* TileSet.cpp in Sources */,
 				2BEB99581FFDE29700BB5777 /* HostileObject.cpp in Sources */,
 				2BEB996A1FFDE29700BB5777 /* FailedLayer.cpp in Sources */,
+				2B7E8B45227DEC4A0099AD4B /* Element.cpp in Sources */,
+				2B7E8B4F227DEC4A0099AD4B /* TileMap.cpp in Sources */,
 				2BEB994C1FFDE29700BB5777 /* SceneManager.cpp in Sources */,
 				2BEB99741FFDE29700BB5777 /* WelcomeLayer.cpp in Sources */,
 				2BEB99781FFDE29700BB5777 /* Utils.cpp in Sources */,
@@ -993,10 +1047,12 @@
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				2BC0A00F226C27B50089757F /* PhysicsShapeCache.cpp in Sources */,
 				2BEB99601FFDE29700BB5777 /* HudLayer.cpp in Sources */,
+				2B7E8B51227DEC4A0099AD4B /* Object.cpp in Sources */,
 				2BEB996E1FFDE29700BB5777 /* BaseLayer.cpp in Sources */,
 				2BEB99481FFDE29700BB5777 /* GameLayer.cpp in Sources */,
 				2BEB99761FFDE29700BB5777 /* CtrlLayer.cpp in Sources */,
 				2BEB996C1FFDE29700BB5777 /* GLHorzFence.cpp in Sources */,
+				2B7E8B47227DEC4A0099AD4B /* TileLayer.cpp in Sources */,
 				2BEB99641FFDE29700BB5777 /* Friendly.cpp in Sources */,
 				2BEB997A1FFDE29700BB5777 /* SuccessLayer.cpp in Sources */,
 				2BEB99501FFDE29700BB5777 /* LabelManager.cpp in Sources */,
