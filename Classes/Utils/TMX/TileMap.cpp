@@ -174,6 +174,8 @@ namespace dsj {
     void  TileMap::render(cocos2d::Node* target){
 
         cocos2d::log(" TileMap::render Enter");
+
+        
         for (auto p : m_layers) {
             auto name = p.first;
             auto layer = p.second;

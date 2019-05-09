@@ -35,7 +35,9 @@ public:
     //void forEach(std::function<void( Tile tile)> );
 
     int getTileId(int row, int col) {
-        return _data[row][col];
+        int index = row* width + col;
+        return vdata.at(index);
+        //return _data[row][col];
     }
 
 
@@ -45,7 +47,9 @@ public:
 
 protected:
 
-    int** _data;
+    //int** _data;
+
+    std::vector<int> vdata;
 
 public:
     const std::string to_string();

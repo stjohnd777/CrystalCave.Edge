@@ -112,20 +112,32 @@ namespace dsj {
         std::stringstream ss;
         ss << "TMX-Cave/" << imageSource;
         auto image = ss.str();
-        SpriteFrame * spriteFrame= SpriteFrameCache::getInstance()->getSpriteFrameByName(image);
-        if ( !spriteFrame) {
-            sprite = Sprite::create(image);
-            SpriteFrameCache::getInstance()->addSpriteFrame(sprite->getSpriteFrame(), imageSource);
-        }else {
-            sprite = cocos2d::Sprite::createWithSpriteFrame(spriteFrame);
-        }
+        sprite = Sprite::create(image);
+
+//        SpriteFrame * spriteFrame= SpriteFrameCache::getInstance()->getSpriteFrameByName(image);
+//        if ( !spriteFrame) {
+//            sprite = Sprite::create(image);
+//            SpriteFrameCache::getInstance()->addSpriteFrame(sprite->getSpriteFrame(), image);
+//        }else {
+//            sprite = cocos2d::Sprite::createWithSpriteFrame(spriteFrame);
+//        }
 
         sprite->setAnchorPoint(cocos2d::Vec2(0,0));
-        float x = row * this->width;
-        float y = col * this->height;
+
+        auto size = cocos2d::Director::getInstance()->getWinSize();
+//        int x = size.width * col;
+//        int y = (size.height / height) * row;
+
+        int x = 64* col;
+        int y = size.height -  64 * row - 64;
+
+//        float x = col * this->width;
+//        float y = row * this->height;
         //cocos2d::Vec2 pos(x,y);
-        cocos2d::Vec2 pos(y,x);
+        cocos2d::Vec2 pos(x,y);
         sprite->setPosition(pos);
+
+        cocos2d::log("render tile %s  (%i,%i)", image.c_str(),row,col);
 
         node-> addChild(sprite,z);
 

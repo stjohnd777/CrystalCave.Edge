@@ -43,6 +43,7 @@ namespace dsj {
         friend std::ostream& operator<<(std::ostream&,  TileSet&);
 
     protected:
+
         
         std::vector<Tile*> tiles;
     };
