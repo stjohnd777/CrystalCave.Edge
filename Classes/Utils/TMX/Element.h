@@ -9,6 +9,7 @@
 
 #include "MyMacros.h"
 #include <string>
+#include <sstream>
 #include <vector>
 #include <map>
 #include "external/tinyxml2/tinyxml2.h"
@@ -27,7 +28,7 @@ namespace dsj
 
     namespace Elements {
         const char* const PROPERTIES = "properties";
-        const char* const PROPERTY = "properties";
+        const char* const PROPERTY = "property";
         const char* const TILESET = "tileset";
         const char* const TILE = "tile";
         const char* const IMAGE = "image";
@@ -49,6 +50,12 @@ namespace dsj
         {
             return (row < cell.row);
         }
+
+        std::string to_string(){
+            std::stringstream ss;
+            ss << "Cell(" << row<<","<<col<<")" ;
+            return ss.str();
+        }
     };
 
     class Attribute {
@@ -57,6 +64,12 @@ namespace dsj
     public:
         Attribute(){}
         Attribute(std::string name,std::string value) : name(name),value(value) {}
+
+        std::string to_string(){
+            std::stringstream ss;
+            ss << "Attribute" << name << "=" << value;
+            return ss.str();
+        }
     };
 
     class Property {
@@ -75,11 +88,16 @@ namespace dsj
         int getFloatValue(){
             return std::stoi( getValue());
         }
+
+        std::string to_string(){
+            std::stringstream ss;
+            ss << "Property" << name << " = " << value << " type = " << type;
+            return ss.str();
+        }
     };
 
 
     class Element {
-
 
         GETTERSETTER(std::vector< Property >,  m_properties, Properties)
         GETTERSETTER(std::vector< Attribute >, m_attributes,Attributes)
@@ -89,7 +107,7 @@ namespace dsj
         static std::vector<Property> ParseProperties(tinyxml2::XMLElement * elementProperties);
 
         static std::vector<Attribute> ParseAttributes(tinyxml2::XMLElement* element) ;
-
+        
     public:
 
         Element();
@@ -105,6 +123,8 @@ namespace dsj
         std::string GetProperty (std::string key);
 
         std::string GetAttribute (std::string key) ;
+
+        const std::string to_string();
 
     protected:
 

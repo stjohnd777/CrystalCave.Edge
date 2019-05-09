@@ -6,6 +6,7 @@
 //
 
 #include "Element.h"
+#include <sstream>
 
 using namespace tinyxml2;
 
@@ -128,5 +129,26 @@ namespace dsj
             }
         }
         return value;
+    }
+
+    const std::string Element::to_string() {
+
+        std::stringstream ss;
+        ss << "Element : {" << "\n";
+            ss << "  attributes : {\n";
+            for ( auto p : m_attributes){
+                ss << "    " << "{" << "name:" << p.getName() << " ,value :" << p.getValue()  << "}" << "\n";
+            }
+            ss << "  }\n";
+
+            ss << "  properties : {\n";
+            for ( auto p : m_properties){
+                ss << "    " << "{" << "name: " << p.getName() << " ,type: " << p.getType() << " ,value: " << p.getValue()  << "}" << "\n";
+            }
+            ss << "  " << "}" << "\n";
+        ss<< "}\n" ;
+
+
+        return ss.str();
     }
 }

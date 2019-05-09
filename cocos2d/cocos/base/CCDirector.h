@@ -28,8 +28,8 @@ THE SOFTWARE.
 #ifndef __CCDIRECTOR_H__
 #define __CCDIRECTOR_H__
 
-#include <stack>
 #include <thread>
+#include <stack>
 #include <chrono>
 
 #include "platform/CCPlatformMacros.h"

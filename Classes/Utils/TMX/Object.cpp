@@ -37,4 +37,23 @@ namespace dsj {
     }
 
     Object::~Object() { }
+
+
+    const std::string  Object::to_string() {
+        std::stringstream ss;
+
+        ss << "Object : {\n";
+        ss << Element::to_string() ;
+        ss << "  " << "id:" << id << "\n";
+        ss << "  " << "name:" << name << "\n";
+        ss << "  " << "}";
+
+        return ss.str();
+    }
+
+
+    std::ostream& operator<<(std::ostream& strm ,  Object& o){
+        return strm << o.to_string();
+    }
+
 }

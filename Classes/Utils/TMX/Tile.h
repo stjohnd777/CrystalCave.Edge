@@ -9,10 +9,16 @@
 
 #include "Element.h"
 
+
+
 namespace dsj {
 
+    class TileSet;
+    
     class Tile : public Element {
 
+        GETTERSETTER(TileSet*, parent, ParentTileSet);
+        
         GETTERSETTER(int, id, Id);
         GETTERSETTER(std::string, type, Type);
         GETTERSETTER(std::string ,imageSource,ImageSource);
@@ -27,8 +33,13 @@ namespace dsj {
 
         Tile ( const Tile& obj);
 
-        void render(cocos2d::Node* node,cocos2d::Vec2 pos, int z);
+        void render(cocos2d::Node* node,int row, int col, int z );
 
         virtual ~Tile();
+
+        const std::string to_string();
+
+    private:
+        friend std::ostream& operator<<(std::ostream&, const Tile&);
     };
 }

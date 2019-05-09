@@ -14,6 +14,7 @@ namespace dsj {
     class TileSet : public Element {
 
         GETTERSETTER(std::string, name, Name);
+        GETTERSETTER(std::string, imagePrefix, ImagePrefix);
 
         GETTERSETTER(std::string , orientation,Orientation);
         GETTERSETTER(int, tilecount, TileCount);
@@ -34,10 +35,15 @@ namespace dsj {
 
         virtual~TileSet() ;
 
-        Tile GetById(int id);
+        Tile* GetById(int id);
+
+        const std::string to_string();
+
+    private:
+        friend std::ostream& operator<<(std::ostream&,  TileSet&);
 
     protected:
         
-        std::vector<Tile> tiles;
+        std::vector<Tile*> tiles;
     };
 }

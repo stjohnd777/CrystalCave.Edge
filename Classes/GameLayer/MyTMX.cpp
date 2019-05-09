@@ -100,9 +100,12 @@ bool MyTMX::init(std::string tmx) {
     addChild(m_CtrlLayer,3000);
 
     // TileMap
+    dsj::TileMap* tileMap;
     try {
-        auto tileMap = dsj::TileMap("TMX-Cave/level0_30x16x64.tmx");
-        log("loaded tmx map");
+        //tileMap = new dsj::TileMap("TMX-Cave/level0_30x16x64.tmx");
+        tileMap = new dsj::TileMap("TMX-Cave/simplest.tmx");
+        log("%s", tileMap->to_string().c_str());
+        tileMap->render(this);
     } catch (...) {
         std::exception_ptr p = std::current_exception();
         log("Error Tile Map");

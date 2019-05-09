@@ -27,6 +27,17 @@ namespace dsj {
     
     class TileMap : public Element {
 
+
+    public :
+
+        static TileMap* getInstance() ;
+
+   private :
+
+        static TileMap* INSTANCE;
+
+        GETTERSETTER(std::string,pathTmx,PathTmx)
+
         GETTERSETTER(std::string,version,Version)
         GETTERSETTER(std::string,tiledversion,TiledVersion)
 
@@ -46,37 +57,41 @@ namespace dsj {
 
     public:
 
-        TileLayer getLayerByName(std::string name);
+        TileLayer* getLayerByName(std::string name);
 
-        TileSet  getTilesetByName(std::string name);
+        TileSet*  getTilesetByName(std::string name);
 
-        ObjectGroup getObjectGroupByName(std::string name);
+        ObjectGroup* getObjectGroupByName(std::string name);
 
-        std::vector<TileLayer> getLayers();
+        std::vector<TileLayer*> getLayers();
 
-        std::vector<TileSet> getTilesets();
+        std::vector<TileSet*> getTilesets();
 
-        std::vector<ObjectGroup> getObjectGroups();
+        std::vector<ObjectGroup*> getObjectGroups();
 
         Tile getTile(int row , int col);
 
         cocos2d::Vec2 GetPixelCoordinates(int row,int col);
 
-        void forEachLayer(std::function<void( TileLayer tileLayer)> );
+        void forEachLayer(std::function<void( TileLayer* tileLayer)> );
 
-        void forEachObjectGroup(std::function<void( ObjectGroup objectGroup)> func);
+        void forEachObjectGroup(std::function<void( ObjectGroup* objectGroup)> func);
         
-        void forEachTileSet(std::function<void( TileSet tile)> func);
+        void forEachTileSet( std::function<void( TileSet* tileSet)> func);
 
         void render(cocos2d::Node* target);
 
+        std::string to_string();
+
     protected:
 
-        std::map<std::string,TileSet> m_tilesets;
 
-        std::map<std::string,TileLayer> m_layers;
+        std::map<std::string,TileSet*> m_tilesets;
 
-        std::map<std::string,ObjectGroup> m_objectGroups;
+        std::map<std::string,TileLayer*> m_layers;
+
+        std::map<std::string,ObjectGroup*> m_objectGroups;
+
 
     public:
 

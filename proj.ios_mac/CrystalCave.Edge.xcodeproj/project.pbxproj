@@ -73,6 +73,7 @@
 		2B7E8B4F227DEC4A0099AD4B /* TileMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E8B41227DEC490099AD4B /* TileMap.cpp */; };
 		2B7E8B50227DEC4A0099AD4B /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E8B42227DEC4A0099AD4B /* Object.cpp */; };
 		2B7E8B51227DEC4A0099AD4B /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E8B42227DEC4A0099AD4B /* Object.cpp */; };
+		2B7E8B60228149D10099AD4B /* MyTMX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B85D4802267F9F6005F5DD1 /* MyTMX.cpp */; };
 		2B85D47E2267F951005F5DD1 /* TMX-Cave in Resources */ = {isa = PBXBuildFile; fileRef = 2B85D47D2267F951005F5DD1 /* TMX-Cave */; };
 		2B85D47F2267F951005F5DD1 /* TMX-Cave in Resources */ = {isa = PBXBuildFile; fileRef = 2B85D47D2267F951005F5DD1 /* TMX-Cave */; };
 		2B85D4822267F9F6005F5DD1 /* MyTMX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B85D4802267F9F6005F5DD1 /* MyTMX.cpp */; };
@@ -227,6 +228,13 @@
 			remoteGlobalIDString = A07A4C241783777C0073F6A7;
 			remoteInfo = "cocos2dx iOS";
 		};
+		2B7E8B5B227E1DE10099AD4B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5087E73D17EB910900C73F5D;
+			remoteInfo = "CrystalCave.Edge-desktop";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -283,6 +291,7 @@
 		2B7E8B41227DEC490099AD4B /* TileMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TileMap.cpp; sourceTree = "<group>"; };
 		2B7E8B42227DEC4A0099AD4B /* Object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Object.cpp; sourceTree = "<group>"; };
 		2B7E8B43227DEC4A0099AD4B /* Element.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Element.h; sourceTree = "<group>"; };
+		2B7E8B56227E1DE00099AD4B /* TileMap.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TileMap.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B85D47B226653D7005F5DD1 /* MyMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMacros.h; sourceTree = "<group>"; };
 		2B85D47D2267F951005F5DD1 /* TMX-Cave */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "TMX-Cave"; sourceTree = "<group>"; };
 		2B85D4802267F9F6005F5DD1 /* MyTMX.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyTMX.cpp; sourceTree = "<group>"; };
@@ -400,6 +409,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2B7E8B53227E1DE00099AD4B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5087E75C17EB910900C73F5D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -427,6 +443,7 @@
 			children = (
 				1D6058910D05DD3D006BFB54 /* CrystalCave.Edge-mobile.app */,
 				5087E76F17EB910900C73F5D /* CrystalCave.Edge-desktop.app */,
+				2B7E8B56227E1DE00099AD4B /* TileMap.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -794,6 +811,24 @@
 			productReference = 1D6058910D05DD3D006BFB54 /* CrystalCave.Edge-mobile.app */;
 			productType = "com.apple.product-type.application";
 		};
+		2B7E8B55227E1DE00099AD4B /* TileMap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B7E8B5D227E1DE10099AD4B /* Build configuration list for PBXNativeTarget "TileMap" */;
+			buildPhases = (
+				2B7E8B52227E1DE00099AD4B /* Sources */,
+				2B7E8B53227E1DE00099AD4B /* Frameworks */,
+				2B7E8B54227E1DE00099AD4B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2B7E8B5C227E1DE10099AD4B /* PBXTargetDependency */,
+			);
+			name = TileMap;
+			productName = TileMap;
+			productReference = 2B7E8B56227E1DE00099AD4B /* TileMap.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		5087E73D17EB910900C73F5D /* CrystalCave.Edge-desktop */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5087E76C17EB910900C73F5D /* Build configuration list for PBXNativeTarget "CrystalCave.Edge-desktop" */;
@@ -824,6 +859,12 @@
 						DevelopmentTeam = 35866CQWBP;
 						ProvisioningStyle = Automatic;
 					};
+					2B7E8B55227E1DE00099AD4B = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = 35866CQWBP;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5087E73D17EB910900C73F5D;
+					};
 				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "CrystalCave.Edge" */;
@@ -848,6 +889,7 @@
 			targets = (
 				1D6058900D05DD3D006BFB54 /* CrystalCave.Edge-mobile */,
 				5087E73D17EB910900C73F5D /* CrystalCave.Edge-desktop */,
+				2B7E8B55227E1DE00099AD4B /* TileMap */,
 			);
 		};
 /* End PBXProject section */
@@ -928,6 +970,13 @@
 				2BDAC17C225C39A800CA02D9 /* lava-block-2.png in Resources */,
 				2B730E5D226CB1D3005DCD3F /* QuartzCrystalSouth.png in Resources */,
 				1AF87B881F6F781D007BE51C /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B7E8B54227E1DE00099AD4B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1025,6 +1074,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2B7E8B52227E1DE00099AD4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B7E8B60228149D10099AD4B /* MyTMX.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5087E75617EB910900C73F5D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1076,6 +1133,11 @@
 			isa = PBXTargetDependency;
 			name = "cocos2dx iOS";
 			targetProxy = 1AC6FB24180E99E1004C840B /* PBXContainerItemProxy */;
+		};
+		2B7E8B5C227E1DE10099AD4B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5087E73D17EB910900C73F5D /* CrystalCave.Edge-desktop */;
+			targetProxy = 2B7E8B5B227E1DE10099AD4B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1150,6 +1212,126 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
 				VALID_ARCHS = "arm64 armv7";
+			};
+			name = Release;
+		};
+		2B7E8B5E227E1DE10099AD4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 35866CQWBP;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = TileMap/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stjohn.TileMap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrystalCave.Edge-desktop.app/Contents/MacOS/CrystalCave.Edge-desktop";
+			};
+			name = Debug;
+		};
+		2B7E8B5F227E1DE10099AD4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 35866CQWBP;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = TileMap/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stjohn.TileMap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrystalCave.Edge-desktop.app/Contents/MacOS/CrystalCave.Edge-desktop";
 			};
 			name = Release;
 		};
@@ -1273,6 +1455,15 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2B7E8B5D227E1DE10099AD4B /* Build configuration list for PBXNativeTarget "TileMap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B7E8B5E227E1DE10099AD4B /* Debug */,
+				2B7E8B5F227E1DE10099AD4B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

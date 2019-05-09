@@ -6,6 +6,9 @@
 //
 
 #include "Tile.h"
+#include "TileSet.h"
+
+#include <sstream>
 
  using namespace tinyxml2;
 
@@ -80,9 +83,56 @@ namespace dsj {
         this->width = obj.width;
     }
 
-    void Tile::render(cocos2d::Node* node,cocos2d::Vec2 pos, int z){
+    const std::string Tile::to_string(){
+
+        std::stringstream ss ;
+
+        ss << "Tile : {\n";
+        ss << Element::to_string() ;
+        ss << "  parent: " << parent->getName();
+        ss << "  id:" << id << "\n";
+        ss << "  type:" << type << "\n";
+        ss << "  imageSource:" << imageSource << "\n";
+        ss << "  height:" << height << "\n";
+        ss << "  width:" << width << "\n";
+        ss << "}";
+
+        return ss.str();
+    }
+
+    std::ostream& operator<<(std::ostream &strm,  Tile &t) {
+        return strm << t.to_string();
+    }
+
+    void Tile::render(cocos2d::Node* node,int row, int col, int z){
+
+        using namespace cocos2d;
+
+        Sprite* sprite;
+        std::stringstream ss;
+        ss << "TMX-Cave/" << imageSource;
+        auto image = ss.str();
+        SpriteFrame * spriteFrame= SpriteFrameCache::getInstance()->getSpriteFrameByName(image);
+        if ( !spriteFrame) {
+            sprite = Sprite::create(image);
+            SpriteFrameCache::getInstance()->addSpriteFrame(sprite->getSpriteFrame(), imageSource);
+        }else {
+            sprite = cocos2d::Sprite::createWithSpriteFrame(spriteFrame);
+        }
+
+        sprite->setAnchorPoint(cocos2d::Vec2(0,0));
+        float x = row * this->width;
+        float y = col * this->height;
+        //cocos2d::Vec2 pos(x,y);
+        cocos2d::Vec2 pos(y,x);
+        sprite->setPosition(pos);
+
+        node-> addChild(sprite,z);
 
     }
 
+
     Tile::~Tile(){}
+
+
 }

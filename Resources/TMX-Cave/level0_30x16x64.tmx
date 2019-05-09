@@ -12,9 +12,14 @@
     <property name="Hostile" type="bool" value="false"/>
     <property name="PE_Key" value="NA"/>
     <property name="PhysicsBodyShape" value="BB"/>
+    <property name="collissionDelegate" value=""/>
+    <property name="onContanct" type="bool" value="false"/>
     <property name="usePhysics" type="bool" value="false"/>
    </properties>
    <image width="64" height="64" source="Tile2.png"/>
+   <objectgroup draworder="index">
+    <object id="1" x="0" y="0" width="64" height="64"/>
+   </objectgroup>
   </tile>
   <tile id="4" type="TR-0">
    <properties>
@@ -23,8 +28,14 @@
     <property name="Hostile" type="bool" value="false"/>
     <property name="PE_Key" value="NA"/>
     <property name="PhysicsBodyShape" value="BB"/>
+    <property name="collissionDelegate" value=""/>
+    <property name="onContanct" type="bool" value="false"/>
+    <property name="usePhysics" type="bool" value="false"/>
    </properties>
    <image width="64" height="64" source="Tile5.png"/>
+   <objectgroup draworder="index">
+    <object id="1" x="0" y="0" width="64" height="64"/>
+   </objectgroup>
   </tile>
   <tile id="15" type="Acid">
    <properties>
@@ -33,9 +44,14 @@
     <property name="Hostile" type="bool" value="true"/>
     <property name="PE_Key" value="NA"/>
     <property name="PhysicsBodyShape" value="BB"/>
+    <property name="collissionDelegate" value=""/>
+    <property name="onContanct" type="bool" value="false"/>
     <property name="usePhysics" type="bool" value="false"/>
    </properties>
    <image width="64" height="64" source="Acid_Bottom.png"/>
+   <objectgroup draworder="index">
+    <object id="1" x="0" y="0" width="4" height="64"/>
+   </objectgroup>
   </tile>
   <tile id="16" type="AcidTop">
    <properties>
@@ -44,9 +60,14 @@
     <property name="Hostile" type="bool" value="true"/>
     <property name="PE_Key" value="AcideTop"/>
     <property name="PhysicsBodyShape" value="PE"/>
+    <property name="collissionDelegate" value=""/>
+    <property name="onContanct" type="bool" value="false"/>
     <property name="usePhysics" type="bool" value="false"/>
    </properties>
    <image width="64" height="64" source="Acid_Top.png"/>
+   <objectgroup draworder="index">
+    <object id="1" x="2" y="23" width="61" height="40"/>
+   </objectgroup>
   </tile>
   <tile id="22" type="SpikeWest">
    <properties>
@@ -73,6 +94,9 @@
     <property name="usePhysics" type="bool" value="false"/>
    </properties>
    <image width="64" height="64" source="Spike 2.png"/>
+   <objectgroup draworder="index">
+    <object id="1" x="27" y="2" width="36" height="60"/>
+   </objectgroup>
   </tile>
   <tile id="23" type="SpikeEast">
    <properties>
@@ -99,6 +123,9 @@
     <property name="usePhysics" type="bool" value="false"/>
    </properties>
    <image width="64" height="64" source="Spike 3 2.png"/>
+   <objectgroup draworder="index">
+    <object id="1" x="0" y="0" width="34" height="64"/>
+   </objectgroup>
   </tile>
   <tile id="24" type="SpikeSouth">
    <properties>
@@ -125,6 +152,9 @@
     <property name="usePhysics" type="bool" value="false"/>
    </properties>
    <image width="64" height="64" source="Spike 3.png"/>
+   <objectgroup draworder="index">
+    <object id="1" x="0" y="0" width="64" height="34"/>
+   </objectgroup>
   </tile>
   <tile id="25" type="SpikeNorth">
    <properties>
@@ -151,6 +181,9 @@
     <property name="usePhysics" type="bool" value="false"/>
    </properties>
    <image width="64" height="64" source="Spike.png"/>
+   <objectgroup draworder="index">
+    <object id="1" x="0" y="34" width="64" height="35"/>
+   </objectgroup>
   </tile>
  </tileset>
  <tileset firstgid="27" name="CaveLave" tilewidth="195" tileheight="530" tilecount="61" columns="0">
@@ -362,9 +395,6 @@
    <image width="63" height="95" source="LavaCave/png1x/objects/shrine-1.png"/>
   </tile>
  </tileset>
- <imagelayer id="6" name="Image" visible="0">
-  <image source="LavaCave/png2x/bg/bg.png" width="2048" height="1280"/>
- </imagelayer>
  <layer id="5" name="BG" width="30" height="16">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

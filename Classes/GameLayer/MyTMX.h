@@ -54,6 +54,7 @@ private:
 
     cocos2d::TMXTiledMap* tiled_map;
 
+
     #if IS_DESKTOP
     void onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event);
     #endif

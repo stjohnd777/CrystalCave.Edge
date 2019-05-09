@@ -13,6 +13,7 @@
 #include "GameAssets.h"
 
 #include "Utils.h"
+#include "PhysicsShapeCache.h"
 
 #include "BaseLayer.h"
 #include "WelcomeLayer.h"
@@ -21,8 +22,15 @@
 #include "OptionLayer.h"
 #include "GameLayer.h"
 
-
 #include "LabelManager.h"
 #include "SceneManager.h"
 #include "UserDataStore.h"
+
+#include "LunarModule.h"
+
+#include "Mine.h"
+#include "GLVertFence.h"
+#include "GLHorFence.h"
+#include "Lightning.h"
+
 

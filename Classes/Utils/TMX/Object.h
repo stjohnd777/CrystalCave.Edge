@@ -11,9 +11,12 @@
 #include "Element.h"
 
 namespace dsj {
-    
+
+    class ObjectGroup;
+
     class Object : public  Element {
 
+        GETTERSETTER(ObjectGroup*,parent,ParentObjectGroup)
         GETTERSETTER(int,id,Id)
         GETTERSETTER(std::string,name,Name)
         
@@ -25,6 +28,13 @@ namespace dsj {
         Object(const Object& obj);
 
         virtual ~Object();
+
+    public:
+        const std::string to_string();
+
+    private:
+        friend std::ostream& operator<<(std::ostream& strm,   Object& o);
+        
     };
 
 }

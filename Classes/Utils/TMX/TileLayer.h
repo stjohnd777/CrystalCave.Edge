@@ -12,29 +12,15 @@
 
 namespace dsj {
 
-/*
- <layer id="1" name="L0" width="30" height="16">
- <properties>
- <property name="Description">Example Tile Map</property>
- <property name="UsePhysicGroup" value="PHY0"/>
- </properties>
- <data encoding="csv">
- 5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,
- ...
- 25,25,25,25,25,25,25,25,25,25,5,5,5,5,5,5,5,5,5,5,25,25,25,25,25,25,25,25,25,25,
- ...
- 5,5,5,5,5,5,5,5,5,16,16,16,16,16,16,16,16,16,16,16,16,5,5,5,5,5,5,5,5,5
- </data>
- </layer>
- */
+ 
 class TileLayer : public Element {
 
-    
     GETTERSETTER(int,id,Id)
     GETTERSETTER(std::string,name,Name)
     GETTERSETTER(int,width,Width)
     GETTERSETTER(int,height,Height)
     GETTERSETTER(std::string,data,Data)
+    GETTERSETTER(int,z,Z)
 
 public:
 
@@ -44,15 +30,28 @@ public:
 
     TileLayer( const TileLayer &obj);
 
-    void forEach(std::function<void( Tile tile)> );
+    TileLayer& operator = (const TileLayer &t);
 
-    void render(cocos2d::Node* target);
+    //void forEach(std::function<void( Tile tile)> );
+
+    int getTileId(int row, int col) {
+        return _data[row][col];
+    }
+
+
+    void render(cocos2d::Node* target,int z = 0);
 
     ~TileLayer();
+
 protected:
 
-    std::map<Cell,int> mapTiles;
+    int** _data;
 
+public:
+    const std::string to_string();
+
+private:
+    friend std::ostream& operator<<(std::ostream& strm,  TileLayer& o);
 };
 
 }
