@@ -5,9 +5,13 @@
 //  Created by Daniel St. John on 4/17/19.
 //
 
+#include <string>
+#include <sstream>
+
 #include "MyTMX.h"
 #include "MyMacros.h"
 #include  "SimpleAudioEngine.h"
+#include "LabelManager.h"
 
 #include "TileMap.h"
 
@@ -25,7 +29,9 @@ cocos2d::Scene* MyTMX::scene(std::string tmx, Vec2 g){
 
     myTmxLayer->phyWorld ->setGravity(myTmxLayer -> m_gravity);
 
-    myTmxLayer->phyWorld->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+    if (DEBUG){
+        myTmxLayer->phyWorld->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+    }
 
     scene->addChild(myTmxLayer);
 
@@ -98,6 +104,66 @@ bool MyTMX::init(std::string tmx) {
     m_CtrlLayer->setShip(ship);
     m_CtrlLayer->setGameLayer(this);
     addChild(m_CtrlLayer,3000);
+
+
+
+    if (DEBUG) {
+        drawNode = DrawNode::create();
+
+        Color4F color(0, 1, 0, 1);
+        Size winSize = Director::getInstance()->getWinSize();
+        float dx = 64;
+        float dy = 64;
+
+        int cols = winSize.width / 64;
+        int rows = winSize.height / 64;
+
+        for (int i = 0; i <= rows ; i++){
+            drawNode -> drawSegment(
+                                    Vec2(0,dy*i),
+                                    Vec2(winSize.width,dy*i),
+                                    1,
+                                    color);
+        }
+
+
+        for (int i = 0; i <= cols ; i++){
+            drawNode -> drawSegment(
+                                    Vec2(i*dx, 0),
+                                    Vec2(i*dx, winSize.height),
+                                    1,
+                                    color);
+        }
+
+        LabelManager::getInstance()->setTarget(this);
+
+        for (int x = 0; x <= winSize.width ; x=x+dx){
+
+            for (int y = 0; y <= winSize.height ; y=y+dy){
+
+                Vec2 p(x,y);
+                drawNode -> drawPoint(p, 10, Color4F::RED);
+                std::stringstream ss;
+                ss << "(" << x << "," << y << ")";
+                //LabelManager::getInstance()->makePerminateLabel(ss.str().c_str(), p);
+
+                Label* l = Label::createWithBMFont(
+                                                   GameAssets::Fonts::BMF::ALPHA_NUM::ARIAL,
+                                                   ss.str().c_str());
+                l->setWidth( 200);
+                l->setColor(Color3B::ORANGE);
+                l->setAnchorPoint(Vec2(0,0));
+                l->setPosition(p);
+                l->setScale(1.5);
+                addChild(l);
+
+            }
+        }
+
+
+        addChild(drawNode,0);
+    }
+
 
     // TileMap
     dsj::TileMap* tileMap;

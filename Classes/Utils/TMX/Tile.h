@@ -11,6 +11,7 @@
 
 
 
+
 namespace dsj {
 
     class TileSet;
@@ -25,7 +26,14 @@ namespace dsj {
         GETTERSETTER(int, height,Height);
         GETTERSETTER(int, width,Width);
 
+
     public:
+
+        std::vector<std::function<void( Tile* sender)>> vistors ;
+
+        void executeVisitor(){
+            
+        };
 
         Tile();
 

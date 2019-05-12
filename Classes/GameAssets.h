@@ -10,17 +10,22 @@ using namespace cocos2d;
 
 namespace LayerLevel {
     enum {
+        BOTTOM,
         kBackground,
         kBackground1,
         kBackground2,
+        kGame0,
+        kGame2,
+        kGame3,
+        kGame4,
         kHud,
         kHud1,
         kHud2,
         kCtrl,
         kCtrl1,
         kCtrl2,
-        kGame,
-        kDlg
+        kDlg,
+        TOP
     };
 }
 

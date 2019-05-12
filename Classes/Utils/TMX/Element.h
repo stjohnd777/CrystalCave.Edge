@@ -18,12 +18,34 @@
 
 namespace dsj
 {
+    namespace ATTTIBUTE {
+        const char* const NAME = "name";
+        const char* const VALUE = "bool";
+        const char* const TYPE = "tyoe";
+    }
+
     namespace PROPERTY_TYPE {
         const char* const INT = "int";
         const char* const BOOL = "bool";
         const char* const FLOAT = "float";
         const char* const STRING = "sting";
         const char* const FILE = "file";
+    }
+
+    namespace CUSTOM_PROPERTIES {
+
+        const char* const IS_USE_PHYSICS = "isUsePhysics";
+        const char* const IS_DYNAMIC = "isDynamic";
+
+        const char* const PHY_BODY = "PhysicsBody";
+
+        namespace PHY_BODY_VALUE {
+            const char* const BOUNDING_BOX = "BOUNDING_BOX";
+            const char* const PHY_EDITOR = "PE";
+        }
+        const char* const PE_KEY =  "PE_Key";
+
+        const char* const IS_USE_ONCONTACT = "isUseOnContact";
     }
 
     namespace Elements {

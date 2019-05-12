@@ -25,13 +25,14 @@ namespace dsj {
 
     TileLayer::TileLayer(){}
 
-    TileLayer::TileLayer( XMLElement* elementLayer) :  Element(elementLayer){
+    TileLayer::TileLayer( XMLElement* elementLayer, int z) :  Element(elementLayer){
 
         cocos2d::log(" TileLayer::TileLayer Enter ");
 
+        zOder = z;
+        
         this-> id = std::stoi ( elementLayer->Attribute("id") );
         this-> name = elementLayer->Attribute("name");
-
         this-> width  = std::stoi ( elementLayer->Attribute("width") );
         this-> height = std::stoi (elementLayer->Attribute("height") );
 
@@ -46,24 +47,6 @@ namespace dsj {
         for ( int index = 0; index < cells.size() ; index++ ){
             vdata.push_back(std::stoi(cells[ index]));
         }
-
-
-//        _data = new int*[height];
-//        for(int i = 0; i < height; ++i){
-//            _data[i] = new int[width];
-//        }
-//
-//
-//        for(int row=0; row < height; row++)
-//        {
-//            for ( int col = 0 ; col < width ; col++)
-//            {
-//                int index = row * width + col;
-//                int tileID = std::stoi(cells[ index]);
-//                _data[row][col] = tileID;
-//            }
-//        }
-
         cocos2d::log(" TileLayer::TileLayer Exit ");
     }
 
@@ -75,16 +58,6 @@ namespace dsj {
         this->height = obj.height;
         this->data = obj.data;
         this->vdata = vdata;
-        //this->_data = new int*[width];
-//        for(int i = 0; i < width; ++i){
-//            this->_data[i] = new int[height];
-//        }
-
-//        for( int r = 0 ; r < height ; r++){
-//            for ( int c  =0 ; c < width ; c++){
-//                this->_data[r][c] = obj._data[r][c];
-//            }
-//        }
 
     }
 
@@ -96,84 +69,47 @@ namespace dsj {
         this->height = obj.height;
         this->data = obj.data;
         this->vdata = vdata;
-
-//        this->_data = new int*[width];
-//
-//        for(int i = 0; i < width; ++i)
-//        {
-//            this->_data[i] = new int[height];
-//        }
-//
-//        for( int r = 0 ; r < height ; r++)
-//        {
-//            for ( int c  =0 ; c < width ; c++)
-//            {
-//                this->_data[r][c] = obj._data[r][c];
-//            }
-//        }
         return *this;
     }
 
-    Tile* GetTileById(int tileId){
 
-        for ( int z = 0 ; z < TileMap::getInstance()->getTilesets().size(); z++)
-        {
-            TileSet* tileset =TileMap::getInstance()->getTilesets().at(z);
-            auto tile = tileset->GetById(tileId);
-            if (tile)
-            {
-                return tile;
-            }else {
-                cocos2d::log("miss");
-            }
-        }
+    // 10 x 5
+    //
+    // | 00 | 01 | 02 | 03 | ... | 09 |
+    // | 10 | 11 | 12 | 13 | ... | 19 |
+    // | 20 | 21 | 22 | 23 | ... | 29 |
+    // | 30 |   ..               | 39 |
+    // | 40 |   ..               | 49 |
+    //
+    int TileLayer::getTileId(int row, int col) {
+        int index = row* width + col;
+        return vdata.at(index);
     }
 
     void TileLayer::render(cocos2d::Node* target, int zz)
     {
-       cocos2d::log("TileLayer::render() Enter");
+       cocos2d::log("TileLayer::render(%i,%s) Enter",id,name.c_str());
+        for( int row = 0 ; row < height ; row++) {
 
-        for( int row = 0 ; row < height ; row++)
-        {
-            std::stringstream ss;
-            for ( int col  =0 ; col < width ; col++)
-            {
+            for ( int col  =0 ; col < width ; col++) {
 
-                int index = row * width + col;
-                int tileId = vdata.at(index); //_data[row][col];
+                int tileId = getTileId(row,col);
 
                 if ( tileId == 0 ){
+                    // No tile to render, empty space
                     continue;
                 }
 
-                ss << vdata.at(row*width +col)  << " ";
-
-                Tile* tile = GetTileById (tileId);
-
-                auto size = cocos2d::Director::getInstance()->getWinSize();
-
-//                int x = size.width * col;
-//                int y = size.height / height * row;
-
-                tile->render(target ,row, col,zz);
-
-//                for ( int z = 0 ; z < TileMap::getInstance()->getTilesets().size(); z++)
-//                {
-//                    TileSet* tileset =TileMap::getInstance()->getTilesets().at(z);
-//                    auto tile = tileset->GetById(tileId);
-//                    if (tile)
-//                    {
-//                        auto props = tileset->getProperties();
-//                        auto attrs = tileset->getAttributes();
-//                        tile->render(target ,height - row, col,zz);
-//                        break;
-//                    }
-//                }
+                // The TMX map produced has the tileId-1 off by one. The CSV export
+                // use the tileID proper. So here I am developing against the TMX. There
+                // force to use the csv, maily its simplicity. This would require tow files
+                // to achive my ends since the properties, attributes and object layers are
+                // the dynamic nature of the tile map. thus just hack this in for now
+                Tile* tile = TileMap::getInstance()->getTileById (tileId-1);
+                tile->render(target ,row, col,zOder);
             }
-            ss << "\n";
-            cocos2d::log("%s", ss.str().c_str());
         }
-
+        cocos2d::log("TileLayer::render(%i,%s) Exit",id,name.c_str());
     }
 
 
@@ -191,8 +127,7 @@ namespace dsj {
         {
             for ( int col = 0 ; col < width ; col++)
             {
-                //ss << "(" << row << ", " <<  col << "," << _data[row][col] << ")" << " ";
-                ss << "(" << row << ", " <<  col << "," << vdata.at(row * width +col) << ")" << " ";
+                ss << "[" << row << "][" <<  col << "]=" << vdata.at(row * width +col) << " ";
 
             }
             ss << "\n";
@@ -211,15 +146,6 @@ namespace dsj {
 
     TileLayer::~TileLayer()
     {
-//        cocos2d::log("TileLayer::~TileLayer() Enter");
-//        for(int i = 0; i < width; ++i)
-//        {
-//            cocos2d::log("TileLayer::~TileLayer() delete data[%i]", i);
-//            delete _data[i] ;
-//        }
-//        cocos2d::log("TileLayer::~TileLayer() delete _data");
-//        delete _data;
-
         cocos2d::log("TileLayer::~TileLayer() Exit");
     }
 }

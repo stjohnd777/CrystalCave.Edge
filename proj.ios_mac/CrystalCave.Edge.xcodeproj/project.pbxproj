@@ -750,8 +750,8 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				2BEB993E1FFDE29200BB5777 /* GameAssets.h */,
 				2B85D47B226653D7005F5DD1 /* MyMacros.h */,
+				2BEB993E1FFDE29200BB5777 /* GameAssets.h */,
 				2BEB99331FFDE28D00BB5777 /* AppDelegate.h */,
 				2BEB99351FFDE28E00BB5777 /* AppDelegate.cpp */,
 				2B5E00172274D2D500205A72 /* SillyMutts.h */,

@@ -7,12 +7,37 @@
 
 #include "Tile.h"
 #include "TileSet.h"
+#include "PhysicsShapeCache.h"
 
 #include <sstream>
 
  using namespace tinyxml2;
 
 namespace dsj {
+
+    bool stob(std::string s, bool throw_on_error = true)
+    {
+        auto result = false;    // failure to assert is false
+
+        std::istringstream is(s);
+        // first try simple integer conversion
+        is >> result;
+
+        if (is.fail())
+        {
+            // simple integer failed; try boolean
+            is.clear();
+            is >> std::boolalpha >> result;
+        }
+
+        if (is.fail() && throw_on_error)
+        {
+            throw std::invalid_argument(s.append(" is not convertable to bool"));
+        }
+
+        return result;
+    }
+
 
     Tile::Tile(){}
 
@@ -110,32 +135,70 @@ namespace dsj {
 
         Sprite* sprite;
         std::stringstream ss;
+
+        // use the TileMap properties to add this append field
         ss << "TMX-Cave/" << imageSource;
+
+        // first pass we do not optimize this the SpriteFrame and
+        // FrameCach, but will add this optimization and sprite sheet
+        // next pass
         auto image = ss.str();
         sprite = Sprite::create(image);
-
-//        SpriteFrame * spriteFrame= SpriteFrameCache::getInstance()->getSpriteFrameByName(image);
-//        if ( !spriteFrame) {
-//            sprite = Sprite::create(image);
-//            SpriteFrameCache::getInstance()->addSpriteFrame(sprite->getSpriteFrame(), image);
-//        }else {
-//            sprite = cocos2d::Sprite::createWithSpriteFrame(spriteFrame);
-//        }
-
         sprite->setAnchorPoint(cocos2d::Vec2(0,0));
 
         auto size = cocos2d::Director::getInstance()->getWinSize();
-//        int x = size.width * col;
-//        int y = (size.height / height) * row;
-
         int x = 64* col;
         int y = size.height -  64 * row - 64;
-
-//        float x = col * this->width;
-//        float y = row * this->height;
-        //cocos2d::Vec2 pos(x,y);
         cocos2d::Vec2 pos(x,y);
+
+        auto sprtieSize = sprite->getContentSize();
+
+        // TODO :: compute the scale using the intedned tile size
+        // then compute the scale factor.
+
+        sprite->setScale(4);
+        
+        auto isUsePhysics  = GetProperty(CUSTOM_PROPERTIES::IS_USE_PHYSICS );
+
+        if ( stob(isUsePhysics)){
+
+            cocos2d::PhysicsBody*  body ;
+
+
+            std::string shape = GetProperty(CUSTOM_PROPERTIES::PHY_BODY );
+            if ( shape.compare("BOUNDING_BOX") == 0){
+                auto spriteSize = sprite->getContentSize();
+                body = PhysicsBody::createBox(spriteSize);
+                sprite->setPhysicsBody(body);
+
+            }else if (shape.compare("PE")== 0){
+
+                auto shapeCache = PhysicsShapeCache::getInstance();
+                shapeCache->addShapesWithFile("crystal_cave.plist");
+                std::string keyPhysicsBody  = GetProperty(CUSTOM_PROPERTIES::PE_KEY);
+                body = shapeCache->createBodyWithName(keyPhysicsBody);
+                sprite->setPhysicsBody(body);
+
+            } else {
+
+            }
+
+
+            auto isDynamic  = GetProperty(CUSTOM_PROPERTIES::IS_DYNAMIC);
+            if ( stob(isDynamic)){
+
+                body->setDynamic(true);
+
+            }else {
+                body->setDynamic(false);
+            }
+
+        }
+
+
         sprite->setPosition(pos);
+
+
 
         cocos2d::log("render tile %s  (%i,%i)", image.c_str(),row,col);
 

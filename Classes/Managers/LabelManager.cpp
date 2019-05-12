@@ -33,17 +33,10 @@ void LabelManager::makeHitLabel(int hit, Point pos,Color3B color){
 
 
 
-
 void LabelManager::makeFadingLabel(const char *const msg, Point pos, Color3B color){
     auto font = GameAssets::Fonts::BMF::ALPHA_NUM::ARIAL;
     makeFadingLabel(msg, pos, color, Vec2(1, 0.5), font);
 }
-
-void LabelManager::makePerminateLabel(const char *const msg, Point pos, Color3B color){
-    auto font = GameAssets::Fonts::BMF::ALPHA_NUM::ARIAL;
-    makePerminateLabel(msg, pos, color, Vec2(1, 0.5), font);
-}
-
 
 void LabelManager::makeFadingLabel(const char *const msg, float percentWidth, float percentHeight, Color3B color,
                                    Point anchor){
@@ -53,55 +46,68 @@ void LabelManager::makeFadingLabel(const char *const msg, float percentWidth, fl
     makeFadingLabel(msg, pos, color, anchor, font);
 }
 
-void LabelManager::makePerminateLabel(const char *const msg, float percentWidth, float percentHeight, Color3B color,
-                                      Point anchor){
-    Size size = Director::getInstance()->getWinSize();
-    Point pos = Vec2(size.width*percentWidth,size.height*percentHeight);
-    auto font = GameAssets::Fonts::BMF::ALPHA_NUM::ARIAL;
-    makePerminateLabel(msg, pos, color, anchor,font);
-}
-
-
-
 void LabelManager::makeFadingLabel(const char *const msg, Point pos, Color3B color, Point anchor, const char *font){
-    
-    //int size = strlen(msg) +1;
+
     char szValue2[64] = {0};
     sprintf(szValue2,"%s",msg);
+
     Label* l = Label::createWithBMFont(font,szValue2);
     l->setWidth( 200);
     l->setColor(color);
     l->setAnchorPoint(anchor);
     l->setPosition(pos);
     l->setTag(GameAssets::Sprite::TEMP_LABEL);
-    
+
     // add to registry
     s_ActiveLabels.push_back(l);
-    
-    if (m_target == nullptr){
-        m_target = GameLayer::getInstance();
-    }
-    // add to game layer
+
+    assert(m_target);
+
     m_target->addChild(l,LayerLevel::kCtrl);
-    
+
+    m_DelayTime = 2;
     // remove your self
-    
-    DelayTime*  delayTimeAction = DelayTime::create(2);
+    DelayTime*  delayTimeAction = DelayTime::create(m_DelayTime);
     FadeOut* fadeOut = FadeOut::create(1);
-    
+
     std::function<void()> f_remove = std::bind(&LabelBMFont::removeFromParent,l) ;
     CallFunc* removeLabel =  CallFunc::create( f_remove );
 
     auto f_remove0 = std::bind( &LabelManager::removeFromRegistry,this,l);
     CallFuncN* removeLabelFromRegistry =  CallFuncN::create( f_remove0 ) ;
-  
+
     Sequence*   lableSequence = Sequence::create(delayTimeAction,fadeOut,removeLabelFromRegistry,removeLabel,NULL);
     l->runAction(lableSequence);
 
 }
 
-void LabelManager::makePerminateLabel(const char *const msg, Point pos, Color3B color, Point anchor, const char *font){
 
+
+void LabelManager::makePerminateLabel(
+                                      const char *const msg,
+                                      Point pos,
+                                      Color3B color){
+    auto font = GameAssets::Fonts::BMF::ALPHA_NUM::ARIAL;
+    makePerminateBMFLabel(msg, pos, color, Vec2(1, 0.5), font);
+}
+
+
+void LabelManager::makePerminateLabel(
+                                      const char *const msg,
+                                      float percentWidth,
+                                      float percentHeight,
+                                      Color3B color,
+                                      Point anchor){
+    
+    Size size = Director::getInstance()->getWinSize();
+    Point pos = Vec2(size.width*percentWidth,size.height*percentHeight);
+    auto font = GameAssets::Fonts::BMF::ALPHA_NUM::ARIAL;
+    makePerminateBMFLabel(msg, pos, color, anchor,font);
+}
+
+
+
+void LabelManager::makePerminateBMFLabel(const char *const msg, Point pos, Color3B color, Point anchor, const char *font){
 
     char szValue2[64] = {0};
     sprintf(szValue2,"%s",msg);
@@ -115,11 +121,13 @@ void LabelManager::makePerminateLabel(const char *const msg, Point pos, Color3B 
     // add to registry
     s_ActiveLabels.push_back(l);
 
-
     // add to game layer
     if (m_target == nullptr){
         m_target = GameLayer::getInstance();
     }
+
+    //l->setScale(4);
+
     // add to game layer
     m_target->addChild(l,LayerLevel::kCtrl);
 

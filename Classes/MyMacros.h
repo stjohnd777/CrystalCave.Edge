@@ -2,7 +2,7 @@
 
 #include "cocos2d.h"
 
-#define DEBUG 0
+#define DEBUG 1
 
 #define IS_MOBILE (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID )
 

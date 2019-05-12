@@ -20,25 +20,26 @@ class TileLayer : public Element {
     GETTERSETTER(int,width,Width)
     GETTERSETTER(int,height,Height)
     GETTERSETTER(std::string,data,Data)
-    GETTERSETTER(int,z,Z)
+
+    GETTERSETTER(int,zOder,Z)
 
 public:
 
+    std::vector<std::function<void( TileLayer* sender)>> vistors ;
+
+    void executeVisitor(){
+        
+    };
+
     TileLayer();
 
-    TileLayer(tinyxml2::XMLElement* elementLayer);
+    TileLayer(tinyxml2::XMLElement* elementLayer,int z);
 
     TileLayer( const TileLayer &obj);
 
     TileLayer& operator = (const TileLayer &t);
 
-    //void forEach(std::function<void( Tile tile)> );
-
-    int getTileId(int row, int col) {
-        int index = row* width + col;
-        return vdata.at(index);
-        //return _data[row][col];
-    }
+    int getTileId(int row, int col) ;
 
 
     void render(cocos2d::Node* target,int z = 0);

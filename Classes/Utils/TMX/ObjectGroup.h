@@ -18,6 +18,7 @@ namespace dsj {
         GETTERSETTER(std::string,name,Name)
         
     public:
+        
 
         // default constructor
         ObjectGroup();

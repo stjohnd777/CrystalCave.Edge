@@ -1,5 +1,9 @@
 #include "TileMap.h"
+
 #include <sstream>
+#include <array>
+#include <vector>
+#include <map>
 
 using namespace std;
 using namespace cocos2d;
@@ -50,6 +54,7 @@ namespace dsj {
 
         INSTANCE = this;
 
+
         this->pathTmx = pathTmx;
 
         XMLDocument doc;
@@ -82,11 +87,14 @@ namespace dsj {
 
         try {
             XMLElement* layerElement = elementRoot->FirstChildElement(Elements::LAYER);
+            int layerCounter = 10;
             while ( layerElement) {
-                auto layer = new TileLayer(layerElement);
+                int z = layerCounter;
+                auto layer = new TileLayer(layerElement,z);
                 std::string name = layer->getName();
                 m_layers[name] = layer;
                 layerElement = layerElement->NextSiblingElement(Elements::LAYER);
+                layerCounter++;
             }
         }catch(...){
             log("TileLayer Error");
@@ -145,10 +153,37 @@ namespace dsj {
         return v;
     }
 
-    Tile TileMap::getTile(int row , int col) {
+    Tile* TileMap::getTileById(int tileId) {
 
-        return nullptr;
+        Tile* theTile = nullptr;
+        for( auto pair : m_tilesets){
+            auto aTileSet = pair.second;
+            theTile = aTileSet->GetById(tileId);
+            if ( theTile){
+                break;
+            }
+        }
+        return theTile;
     }
+
+    std::vector<Tile*>  TileMap::getTilesAt(int row,int col) {
+
+        std::vector<Tile*> tiles;
+
+        for ( auto pair : m_layers ){
+            std::string layerName = pair.first;
+            TileLayer* layer = pair.second;
+            int tileId = layer->getTileId(row, col);
+            if ( tileId ==0){
+                continue;
+            }
+            Tile* aTile = getTileById(tileId);
+            tiles.push_back(aTile);
+        }
+        return tiles;
+    }
+
+
 
     Vec2 TileMap::GetPixelCoordinates(int row,int col){
         Vec2 cord( row * tileWidth, col * tileHieght);
@@ -175,7 +210,6 @@ namespace dsj {
 
         cocos2d::log(" TileMap::render Enter");
 
-        
         for (auto p : m_layers) {
             auto name = p.first;
             auto layer = p.second;

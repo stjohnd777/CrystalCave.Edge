@@ -34,6 +34,8 @@ public:
 
 private:
 
+    cocos2d::DrawNode * drawNode;
+
     bool isKeyDown;
     bool m_IsTouching;
     LunarModule* ship;

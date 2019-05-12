@@ -96,21 +96,14 @@ namespace dsj {
 
     Tile* TileSet::GetById(int id){
 
-        cocos2d::log("TileSet::GetById(%i) Enter", id);
-
-        auto tile =  tiles.at(id-1);
-        return tile;
-
-//        for (auto tile : tiles){
-//            if ( tile->getId() == id ){
-//                cocos2d::log("TileSet::GetById Exit");
-//                cocos2d::log("TileSet::GetById Found tile\n %s", tile->to_string().c_str());
-//                return tile;
-//            }
-//        }
-//        cocos2d::log("TileSet::GetById Not Found%i",id);
-//        cocos2d::log("TileSet::GetById Exit");
-//        return nullptr;
+        Tile* theTile = nullptr;
+        for( auto tile : tiles){
+            if( tile->getId() == id){
+                theTile = tile;
+                break;
+            }
+        }
+        return theTile;
     }
 
 

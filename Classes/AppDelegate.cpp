@@ -43,16 +43,20 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     // initialize director
     auto director = Director::getInstance();
+
     auto glview = director->getOpenGLView();
+
     if(!glview) {
         
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-        glview = GLViewImpl::createWithFullScreen("CrystalCave.c2dx.2.8");
-        glview->setFrameSize(1920, 1080);//glview->setFrameSize(1650, 1050)//glview->setFrameSize(1024, 768);
+        glview = GLViewImpl::createWithFullScreen("CrystalCave");
+        //glview->setFrameSize(1920, 1080);
+        glview->setFrameSize(1650, 1050);
+        //glview->setFrameSize(1024, 768);
 #endif
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM ==CC_PLATFORM_ANDROID )
-        glview = GLViewImpl::create("CrystalCave.c2dx.2.8");
+        glview = GLViewImpl::create("CrystalCave");
         glview->setDesignResolutionSize(1024 , 768, ResolutionPolicy::NO_BORDER);
 #endif
 
@@ -98,9 +102,12 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_packages();
 
     // load sprite sheet
+    
     //const char* plist = "images.plist";
     //const char* sheet = "images.png";
     //SpriteFrameCache::getInstance()->addSpriteFramesWithFile(plist,sheet);    // create a scene. it's an autorelease object
+
+    // load sounds
 
     Director::getInstance()->setContentScaleFactor(4);
     

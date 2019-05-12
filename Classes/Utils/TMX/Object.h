@@ -21,6 +21,13 @@ namespace dsj {
         GETTERSETTER(std::string,name,Name)
         
     public:
+
+        std::vector<std::function<void( Object* sender)>> vistors ;
+
+        void executeVisitor(){
+            
+        };
+
         Object();
 
         Object(tinyxml2::XMLElement* elementObjectGroup);

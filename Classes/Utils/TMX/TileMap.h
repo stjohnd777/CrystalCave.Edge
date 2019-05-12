@@ -34,6 +34,8 @@ namespace dsj {
 
    private :
 
+        cocos2d::DrawNode* drawNode;
+
         static TileMap* INSTANCE;
 
         GETTERSETTER(std::string,pathTmx,PathTmx)
@@ -69,7 +71,9 @@ namespace dsj {
 
         std::vector<ObjectGroup*> getObjectGroups();
 
-        Tile getTile(int row , int col);
+        Tile* getTileById(int tileId);
+
+        std::vector<Tile*> getTilesAt(int row,int col);
 
         cocos2d::Vec2 GetPixelCoordinates(int row,int col);
 

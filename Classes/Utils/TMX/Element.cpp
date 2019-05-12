@@ -19,7 +19,7 @@ namespace dsj
 
         assert(element);
 
-        std::vector<Property> properties;
+        std::vector<Property> v_properties;
 
         XMLElement* elementProperties = element->FirstChildElement(Elements::PROPERTIES);
 
@@ -33,14 +33,31 @@ namespace dsj
 
                 cocos2d::log("Element::ParseProperties Property Exists" );
 
-                const XMLAttribute* pAttrib= prop->FirstAttribute();
-                while (pAttrib) {
-                    const std::string name = pAttrib->Name();
-                    const std::string value = pAttrib->Value();
-                    Property p(name,"",value);
-                    properties.push_back(p);
-                    pAttrib=pAttrib->Next();
+                const XMLAttribute* attr= prop->FirstAttribute();
+
+                std::string name;
+                std::string type = "string";
+                std::string value;
+ 
+                while (attr) {
+
+                    std::string attr_name = attr->Name();
+                    if ( attr_name == "name"){
+                        name = attr->Value();
+                    }
+                    if ( attr_name == "type"){
+                        type = attr->Value();
+                    }
+                    if ( attr_name == "value"){
+                        value =attr->Value();
+                    }
+
+                    attr=attr->Next();
+
                 }
+                Property p(name,type,value);
+                v_properties.push_back(p);
+
                 prop = prop->NextSiblingElement(Elements::PROPERTY);
             }
         } else {
@@ -49,7 +66,7 @@ namespace dsj
 
         cocos2d::log("Element::ParseProperties Exit");
 
-        return properties;
+        return v_properties;
     }
 
     std::vector<Attribute> Element::ParseAttributes(tinyxml2::XMLElement* element) {
@@ -112,9 +129,11 @@ namespace dsj
     std::string Element::GetProperty (std::string key) {
         std::string value;
         for(auto p : m_properties) {
-            if ( p.getName() == key){
+            if ( p.getName().compare(key) == 0){
                 value = p.getValue();
                 break;
+            }else {
+                cocos2d::log("%s no value",key.c_str());
             }
         }
         return value;
