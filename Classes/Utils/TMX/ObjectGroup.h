@@ -6,9 +6,8 @@
 //
 #pragma once
 
-#include "external/tinyxml2/tinyxml2.h"
-#include "Element.h"
-#include "Object.h"
+#include "SillyMutts.h"
+#include <vector>
 
 namespace dsj {
 
@@ -33,10 +32,16 @@ namespace dsj {
 
         void forEach( std::function<void( Object* tileObject)> fnc );
 
+        std::vector<Object*> getObjectByName(std::string name);
+        std::vector<Object*> getObjectByType(std::string value);
+        std::vector<Object*> getObjectByProperty(std::string key, std::string value);
+
     protected:
         std::vector<Object*> m_objects;
 
     public:
+
+        void render(cocos2d::Node* node );
         
         const std::string to_string();
 

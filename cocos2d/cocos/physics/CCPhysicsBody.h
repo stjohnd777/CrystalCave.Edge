@@ -504,7 +504,7 @@ protected:
     virtual void setRotation(float rotation);
 
     virtual void setScale(float scaleX, float scaleY);
-    
+
     void update(float delta)override;
     
     void removeJoint(PhysicsJoint* joint);

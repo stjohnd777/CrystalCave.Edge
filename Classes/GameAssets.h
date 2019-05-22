@@ -3,6 +3,7 @@
 #include "cocos2d.h"
 
 #include <string>
+#include <vector>
 
 using namespace std;
 using namespace cocos2d;
@@ -31,6 +32,8 @@ namespace LayerLevel {
 
 namespace GameAssets {
 
+    //float MY_CONTENT_SCALE = 1;
+
     const char* const WELCOME_BACKGROUND           = "game.png" ;
     const char* const OPTIONS_BACKGROUND           = "Options.png";
     const char* const FAILED_BACKGROUND            = "GameOver.png";
@@ -38,56 +41,93 @@ namespace GameAssets {
     const char* const GAME_LAYER                   = "game.png";
     const char* const SUCCESS_BACKGROUND           = "game.png";
 
+
+    
+    namespace TAGS {
+
+        const int PLAYER = 999;
+
+        const int TR = 80;
+
+        const int SPIKE = 100;
+        const int ELECTRIC_FENCE_VERTICLE = 102;
+        const int ELECTRIC_FENCE_HORIZONTAL = 104;
+        const int LIGHTNING = 106;
+        const int SCANBEAM = 108;
+        const int MINE = 110;
+        const int SEEKER = 110;
+        const int ACID = 200;
+
+        const int  WELCOME_LAYER               = 1000;
+        const int  GAME_LAYER                  = 1002;
+        const int  HUD_LAYER                   = 1004;
+        const int  CTRL_LAYER                  = 1006;
+        const int  FAILED_LAYER                = 1008;
+        const int  SUCCESS_LAYER               = 1010;
+        const int  OPTIONS_LAYER               = 1012;
+
+        const int  TAG_HOSTILE                 = -1000;
+        
+        const int  TEMP_LABEL                  = 88;
+    }
+
+
     
     namespace Sound {
 
-        const char* const GAME_BACKGROUND_SOUND        =   "Sound/bg/000665981.wav";
+        const char* const GAME_BACKGROUND_SOUND        =   "Sound/bg/ominious_mood.wav";
 
         const char* const FAILED_SOUND                 =   "Sound/failed/game-over-evil.wav";
         const char* const GAME_OVER                    =   "Sound/failed/game-over.wav";
 
-        const char* const LEVEL_COMPLETE_SOUND         =   "Sound/Success/level-completed.wav";
+        const char* const LEVEL_COMPLETE               =   "Sound/Success/level-completed.wav";
 
-        const char* const BTN_SELECTED_SOUND           =   "Sound/bell-0104.wav";
+        const char* const BTN_SELECTED                 =   "Sound/bell-0104.wav";
 
-        const char* const GEM_PICKIP_SOUND             =   "Sound/debris.wav";
+        const char* const GEM_PICKUP                   =   "Sound/debris.wav";
 
         const char* const WAWAWA                       =   "Sound/Failed/wawawa.mp3";
         const char* const TADA                         =   "Sound/success/tada.mp3";
         const char* const ROCK_SLIDE                   =   "Sound/rockslide.mp3";
         const char* const SHOTGUN                      =   "Sound/shotgun.wav";
         const char* const WOOSH                        =   "Sound/woosh.wav";
-        const char* const THRUST                        =   "Sound/thrusters.wav";
-    }
+        const char* const THRUST                       =   "Sound/thrusters.wav";
+        const char* const BELL                         =   "Sound/bell-0104.wav";
 
-    
-    namespace Layer{
 
-        const int           TAG_GAME_LAYER                  = 1000;
-        const int           TAG_HUD_LAYER                   = 1100;
-        const int           TAG_CTRL_LAYER                  = 1200;
-
-        const int           TAG_WELCOME_LAYER               = 100;
-
-        const int           TAG_FAILED_LAYER                = 200;
-        const int           TAG_SUCCESS_LAYER               = 300;
-        const int           TAG_OPTIONS_LAYER               = 400;
+        const char* const EXPLOSION                     =   "Sound/explosion.wav";
+        const char* const DEBRIS                        =   "Sound/debris.wav";
+        const char* const SIREN                         =   "Sound/Alarms/Siren.wav";
+        const char* const COUNTDOWN                     =   "Sound/countdown.mp3";
+        const char* const PICK_UP                       =   "Sound/dingding.wav";
+        const char* const APPLAUSE                      =   "Sound/Success/applause.mp3";
+        const char* const FIRE_PROJECTILE               =   "Sound/lazer.wav";
+        const char* const ELECTRIC_0                    =   "Sound/elec.wav";
+        const char* const ELECTRIC_ARC                  =   "Sound/electric-arcing-dry.aiff";
 
     }
+
+
 
     namespace Sprite {
 
-        const int           TAG_HOSTILE                 = -1000;
-        const int           TEMP_LABEL                  = 1010;
+        const char* const Stalactite = "TMX-Cave/stalactite.png";
+        const char* const QuartzCrystalSouth = "TMX-Cave/QuartzCrystalSouth.png";
+        const char* const QuartzCrystalNorth = "TMX-Cave/QuartzCrystalNorth.png";
+        const char* const QuartzCrystalNorth3 = "TMX-Cave/QuartzCrystalNorth3.png";
+        const char* const QuartzCrystalNorthFliped3 ="TMX-Cave/QuartzCrystalNorthFliped3.png";
+        const char* const Geyzer = "TMX-Cave/geyzer.png";
+        const char* const FINISH = "vfinish.png";
+
 
         const char* const  BTN_BACK                     =  "SIFI_GUI/Normal/PreviousPage.png";
         const char* const  BTN_BACK_SEL                 =  "SIFI_GUI/Disabled/PreviousPage.png";
 
-        const char* const  BTN_NORTH                     =  "SIFI_GUI/Normal/UpArrow.png";
-        const char* const  BTN_NORTH_SEL                 =  "SIFI_GUI/Disabled/UpArrow.png";;
+        const char* const  BTN_NORTH                    =  "SIFI_GUI/Normal/UpArrow.png";
+        const char* const  BTN_NORTH_SEL                =  "SIFI_GUI/Disabled/UpArrow.png";;
 
-        const char* const  BTN_SOUTH                     = "SIFI_GUI/Normal/DownArrow.png";
-        const char* const  BTN_SOUTH_SEL                 = "SIFI_GUI/Disabled/DownArrow.png";
+        const char* const  BTN_SOUTH                    = "SIFI_GUI/Normal/DownArrow.png";
+        const char* const  BTN_SOUTH_SEL                = "SIFI_GUI/Disabled/DownArrow.png";
 
         const char* const  BTN_WEST                     =  "SIFI_GUI/Normal/LeftArrow.png";
         const char* const  BTN_WEST_SEL                 =  "SIFI_GUI/Disabled/LeftArrow.png";
@@ -95,8 +135,8 @@ namespace GameAssets {
         const char* const  BTN_EAST                     =  "SIFI_GUI/Normal/RightArrow.png";
         const char* const  BTN_EAST_SEL                 =  "SIFI_GUI/Disabled/RightArrow.png";
 
-        const char* const  BTN_CLOSE                     =  "SIFI_GUI/Normal/Close.png";
-        const char* const  BTN_CLOSE_SEL                 =  "SIFI_GUI/Disabled/Close.png";
+        const char* const  BTN_CLOSE                    =  "SIFI_GUI/Normal/Close.png";
+        const char* const  BTN_CLOSE_SEL                =  "SIFI_GUI/Disabled/Close.png";
 
         const char* const  BTN_EXIT                     =  "SIFI_GUI/Normal/Close.png";
         const char* const  BTN_EXIT_SEL                 =  "SIFI_GUI/Disabled/Close.png";
@@ -104,11 +144,22 @@ namespace GameAssets {
         const char* const  BTN_PLAY                     =  "SIFI_GUI/Normal/Play.png" ;
         const char* const  BTN_PLAY_SEL                 =  "SIFI_GUI/Disabled/Play.png";
 
-        const char* const  BTN_PAUSE                     =  "SIFI_GUI/Normal/Pause.png" ;
-        const char* const  BTN_PAUSE_SEL                 =  "SIFI_GUI/Disabled/Pause.png";
+        const char* const  BTN_PAUSE                    =  "SIFI_GUI/Normal/Pause.png" ;
+        const char* const  BTN_PAUSE_SEL                =  "SIFI_GUI/Disabled/Pause.png";
 
-        const char* const  BTN_SETTINGS                  =  "SIFI_GUI/Normal/Settings.png" ;
-        const char* const  BTN_SETTINGS_SEL              =  "SIFI_GUI/Disabled/Settings.png";
+        const char* const  BTN_SETTINGS                 =  "SIFI_GUI/Normal/Settings.png" ;
+        const char* const  BTN_SETTINGS_SEL             =  "SIFI_GUI/Disabled/Settings.png";
+
+    }
+
+    namespace PE_KEY {
+        const char* const QuartzCrystalSouth =  "QuartzCrystalNorthFliped";
+        const char* const QuartzCrystalNorth = "QuartzCrystalNorth";
+
+        const char* const QuartzCrystalNorthFliped3 = "QuartzCrystalNorthFliped3";
+        const char* const QuartzCrystalNorth3 = "QuartzCrystalNorth3";
+
+        const char* const Geyzer = "geyzer";
 
     }
 

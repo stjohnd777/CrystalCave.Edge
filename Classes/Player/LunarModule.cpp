@@ -14,7 +14,7 @@ using namespace CocosDenshion;
 #include "SimpleAudioEngine.h"
 
 
-const int LunarModule::TAG = 8745;
+const int LunarModule::TAG = GameAssets::TAGS::PLAYER;
 const int LunarModule::WEIGHT = 75; // hit pts
 const int LunarModule::HEALTH = 100;
 const float LunarModule::MASS = 75; //kg
@@ -26,9 +26,14 @@ const std::string LunarModule::HIT_SOUND = "debris.wav";
 const std::string LunarModule::DIE_SOUND = "wawawa.mp3";
 const std::string LunarModule::PNG ="red_falcon.png";
 
+
 float scale =  .75;
 
+LunarModule* LunarModule::INSTANCE = nullptr;
+
 bool LunarModule::init(){
+
+    INSTANCE = this;
     
     this->initWithFile(PNG);
     

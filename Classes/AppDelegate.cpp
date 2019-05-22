@@ -1,17 +1,23 @@
 #include "AppDelegate.h"
+
+
 #include "GameLayer.h"
 #include "WelcomeLayer.h"
 
 #include "MyTmx.h"
 
+#include "SoundManager.h"
+
+//#include "SimpleAudioEngine.h"
+//using namespace CocosDenshion;
 
 
 USING_NS_CC;
 
 static cocos2d::Size designResolutionSize = cocos2d::Size(1920, 1080);
-static cocos2d::Size smallResolutionSize = cocos2d::Size(480, 320);
-static cocos2d::Size mediumResolutionSize = cocos2d::Size(1024, 768);
-static cocos2d::Size largeResolutionSize = cocos2d::Size(2048, 1536);
+//static cocos2d::Size smallResolutionSize = cocos2d::Size(480, 320);
+//static cocos2d::Size mediumResolutionSize = cocos2d::Size(1024, 768);
+//static cocos2d::Size largeResolutionSize = cocos2d::Size(2048, 1536);
 
 AppDelegate::AppDelegate() {
 
@@ -57,12 +63,14 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM ==CC_PLATFORM_ANDROID )
         glview = GLViewImpl::create("CrystalCave");
-        glview->setDesignResolutionSize(1024 , 768, ResolutionPolicy::NO_BORDER);
+        glview->setDesignResolutionSize(1650 , 1050, ResolutionPolicy::NO_BORDER);
+        //glview->setDesignResolutionSize(1920 , 1080, ResolutionPolicy::NO_BORDER);
 #endif
 
     } else {
      
-        glview->setDesignResolutionSize(1024 , 768, ResolutionPolicy::NO_BORDER);
+        glview->setDesignResolutionSize(1650 , 1050, ResolutionPolicy::NO_BORDER);
+        //glview->setDesignResolutionSize(1920 , 1080, ResolutionPolicy::NO_BORDER);
     }
 
     director->setOpenGLView(glview);
@@ -74,30 +82,13 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->setAnimationInterval(1.0 / 60);
 
 
-    /*
-    Size frameSize = glview->getFrameSize();
-    // if the frame's height is larger than the height of medium size.
-    if (frameSize.height > mediumResolutionSize.height)
-    {
-        director->setContentScaleFactor(
-        MIN(largeResolutionSize.height/designResolutionSize.height, largeResolutionSize.width/designResolutionSize.width)
-        );
-    }
-    // if the frame's height is larger than the height of small size.
-    else if (frameSize.height > smallResolutionSize.height)
-    {
-        director->setContentScaleFactor(
-        MIN(mediumResolutionSize.height/designResolutionSize.height, mediumResolutionSize.width/designResolutionSize.width)
-        );
-    }
-    // if the frame's height is smaller than the height of medium size.
-    else
-    {
-        director->setContentScaleFactor(
-        MIN(smallResolutionSize.height/designResolutionSize.height, smallResolutionSize.width/designResolutionSize.width)
-        );
-    }
-    */
+
+//    Size frameSize = glview->getFrameSize();
+//    float scaleX = designResolutionSize.width / frameSize.width;
+//    float scaleY = designResolutionSize.height / frameSize.height;
+//    float f = MIN(scaleX,scaleY);
+//    director->setContentScaleFactor(f);
+
 
     register_all_packages();
 
@@ -108,11 +99,18 @@ bool AppDelegate::applicationDidFinishLaunching() {
     //SpriteFrameCache::getInstance()->addSpriteFramesWithFile(plist,sheet);    // create a scene. it's an autorelease object
 
     // load sounds
+    //SoundManager::PreLoadSound();
 
-    Director::getInstance()->setContentScaleFactor(4);
+
+    // PE
+    PhysicsShapeCache::getInstance()->addShapesWithFile("crystal_cave.plist");
+
+
+    //Director::getInstance()->setContentScaleFactor(4);
+    Director::getInstance()->setContentScaleFactor(1);
     
     //auto scene = WelcomeLayer::scene();
-    auto scene = MyTMX::scene("TMX-cave/level0_30x16x64.tmx");
+    auto scene = MyTMX::scene("TMX-cave/simplest.tmx");
 
     director->runWithScene(scene);
 

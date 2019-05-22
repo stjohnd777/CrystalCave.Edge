@@ -14,11 +14,11 @@
 /**
  *
  */
-class Ligthning : public HostileObject{
+class Lightning : public HostileObject{
     
 public:
     
-    static Ligthning* createWithParameters(
+    static Lightning* createWithParameters(
                                  cocos2d::Point a,
                                  cocos2d::Point b,
                                  float displacement,
@@ -26,10 +26,14 @@ public:
                                  int numberBolts,
                                  int thickness);
     
-    CREATE_FUNC(Ligthning);
+    CREATE_FUNC(Lightning);
     
     bool  init() override;
-    
+
+    // virtual function from HostileObject
+    void attack(float dt){
+
+    }
     
     /// Endpoint A Orgin ligthing beam
     CC_SYNTHESIZE(cocos2d::Point, a, PointA);
@@ -95,7 +99,7 @@ public:
     virtual void useOnContact() {
         setIsUsingOnContact(true);
         auto contactListener = cocos2d::EventListenerPhysicsContact::create();
-        contactListener->onContactBegin = CC_CALLBACK_1(Ligthning::onContactBegin, this);
+        contactListener->onContactBegin = CC_CALLBACK_1(Lightning::onContactBegin, this);
         this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this);
     }
     
@@ -117,11 +121,11 @@ public:
     
     void update(float dt) override;
     
-    ~Ligthning();
+    ~Lightning();
     
 private:
     
-    Ligthning();
+    Lightning();
     
     //cocos2d::Color4F* color;
     

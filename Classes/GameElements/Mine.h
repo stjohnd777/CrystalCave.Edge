@@ -28,18 +28,7 @@ public:
     
     bool  init() override;
 
-//    static Mine* create(
-//        cocos2d::Point spawnPoint,
-//        cocos2d::Point[] minePath,
-//        float warnRadus,
-//        bool isUsingPhysics = false,
-//        bool isUsingOnContact = false,
-//        bool isStationary = true)
-//    {
-//        return nullptr;
-//
-//    }
-
+ 
     static Mine* create(
                         cocos2d::Point spawnPoint,
                         cocos2d::Point mineLocation,
@@ -48,7 +37,7 @@ public:
                         bool isStationary = true);
 
 public:
-    
+
     
     /**
      * If a collision or proxiimity is broken then ...
@@ -67,17 +56,17 @@ public:
 public:
     
     // defined virtual in GameObject
-    virtual void takeDamage(int weight) ;
+    virtual void takeDamage(int weight) override;
     
     // defined virtual in GameObject
-    virtual void injured();
+    virtual void injured() override;
     
-    virtual void die();
+    virtual void die() override;
 
     virtual void warn();
 
     // defined virtual in GameObject
-    virtual void move(cocos2d::Point p,float dt){
+    virtual void move(cocos2d::Point p,float dt) override{
         this->runAction( cocos2d::MoveTo::create(dt, p) );
     }
     
@@ -87,19 +76,19 @@ public:
     /**
      * Add you self as physics body to the Physics Engine
      */
-    virtual void usePhysics();
+    virtual void usePhysics() override;
     
     
     /**
      * Add Contact listener to Chipmunck Engine
      */
-    virtual void useOnContact();
+    virtual void useOnContact() override;
     
     /**
      * Invoked by pyhsics engine on contact between colloiding object 
      * not bitmasked off in Chipmonk Engine
      */
-    virtual bool onContactBegin(cocos2d::PhysicsContact& contact);
+    virtual bool onContactBegin(cocos2d::PhysicsContact& contact) override;
     
     /**
      * Manual Collision Detection Rountine

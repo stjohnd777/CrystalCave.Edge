@@ -7,12 +7,13 @@
 #pragma once
 
 #include "cocos2d.h"
+//#include "Sillymutts.h"
 
 #include <string>
 #include <vector>
 #include <map>
-#include "external/tinyxml2/tinyxml2.h"
 
+#include "external/tinyxml2/tinyxml2.h"
 
 #include "Element.h"
 #include "ObjectGroup.h"
@@ -59,6 +60,37 @@ namespace dsj {
 
     public:
 
+
+//        std::vector<Object*> getObjectsByProperties(std::vector<Property> matchProps){
+//            std::vector<Object*> objs;
+//            return objs;
+//        }
+//        std::vector<Object*> getObjectsByAttributes(std::vector<Attribute> matchMatchAttry){
+//            std::vector<Object*> objs;
+//            return objs;
+//        }
+//
+//
+//        std::vector<Tile*> getTileByName(std::string name){
+//            std::vector<Tile*> objs;
+//            return objs;
+//        }
+//        std::vector<Tile*> gettileByType(std::string type){
+//            std::vector<Tile*> objs;
+//            return objs;
+//        }
+//        std::vector<Tile*> getTileByProperties(std::vector<Property> matchProps){
+//            std::vector<Tile*> objs;
+//            return objs;
+//        }
+//        std::vector<Tile*> getTileByAttributes(std::vector<Attribute> matchMatchAttry){
+//            std::vector<Tile*> objs;
+//            return objs;
+//        }
+
+
+
+
         TileLayer* getLayerByName(std::string name);
 
         TileSet*  getTilesetByName(std::string name);
@@ -78,10 +110,12 @@ namespace dsj {
         cocos2d::Vec2 GetPixelCoordinates(int row,int col);
 
         void forEachLayer(std::function<void( TileLayer* tileLayer)> );
-
         void forEachObjectGroup(std::function<void( ObjectGroup* objectGroup)> func);
-        
         void forEachTileSet( std::function<void( TileSet* tileSet)> func);
+
+
+        std::vector<Object*> getObjectsByName(std::string name);
+        std::vector<Object*> getObjectsByType(std::string type);
 
         void render(cocos2d::Node* target);
 

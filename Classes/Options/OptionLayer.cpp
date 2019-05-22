@@ -2,6 +2,7 @@
 #include "WelcomeLayer.h"
 #include "Utils.h"
 
+#include "SceneManager.h"
 #include "GameAssets.h"
 
 Scene* OptionLayer::scene()
@@ -14,7 +15,7 @@ Scene* OptionLayer::scene()
 
 bool OptionLayer::init() {
     
-    setTag(GameAssets::Layer::TAG_OPTIONS_LAYER);
+    setTag(GameAssets::TAGS::OPTIONS_LAYER);
     
     if ( ! Layer::init() )
     {
@@ -48,7 +49,6 @@ bool OptionLayer::init() {
     return true;
 }
 
-#include "SceneManager.h"
 OptionLayer::OptionLayer(){
 
     auto f = [](Ref* ref){

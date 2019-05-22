@@ -11,7 +11,7 @@
 
 #include "GLVertFence.h"
 #include "Mine.h"
-#include "Ligthning.h"
+#include "Lightning.h"
 
 using namespace cocos2d;
 
@@ -56,7 +56,7 @@ bool WelcomeLayer::init(std::string bg,std::string title) {
         return false;
     }
 
-    setTag(GameAssets::Layer::TAG_WELCOME_LAYER);
+    setTag(GameAssets::TAGS::WELCOME_LAYER);
     this->titleLabelString = title;
     this->backGroundImage = bg;
 
@@ -289,7 +289,7 @@ void WelcomeLayer::AddLigthning(Point a,
                              Color4F myColor ,
                              bool isRandomColor){
 
-    Ligthning* ligthning =  Ligthning::create();
+    Lightning* ligthning =  Lightning::create();
     ligthning->setGameLayer(this);
     ligthning->setPointA(a);
     ligthning->setPointB(b);

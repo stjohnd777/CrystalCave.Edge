@@ -87,13 +87,8 @@ public:
     
 public: // references
     
-    /**
-     * The Game Layer
-     */
+
     CC_SYNTHESIZE(cocos2d::Node*, m_GameLayer, GameLayer);
-    /**
-     * Player Game Object, Ship in Asteroids
-     */
     CC_SYNTHESIZE(GameObject*, m_Player, Player);
     
     
@@ -243,9 +238,9 @@ public: // inherited functionality
     void cleanUp(cocos2d::Node* sender);
     
     
-/**
- * Physics and Collision section
- */
+    /**
+     * Physics and Collision section
+     */
     
     CC_SYNTHESIZE(bool, m_IsUsingIndependentCollisionDetection, IsUsingIndependentCollisionDetection);
     

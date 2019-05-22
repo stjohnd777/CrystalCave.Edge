@@ -145,4 +145,11 @@ public:
     // ensure the game loop from entering the End(Failed)
     // sequence once
     bool canEnterDiedProcess = true;
+
+
+
+    bool onContactBegin(cocos2d::PhysicsContact& contact);
+    bool onPreSolve(cocos2d::PhysicsContact& contact);
+    bool onPostSolve(cocos2d::PhysicsContact& contact);
+    bool onContactSeperate(cocos2d::PhysicsContact& contact);
 };

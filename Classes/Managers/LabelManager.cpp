@@ -56,7 +56,7 @@ void LabelManager::makeFadingLabel(const char *const msg, Point pos, Color3B col
     l->setColor(color);
     l->setAnchorPoint(anchor);
     l->setPosition(pos);
-    l->setTag(GameAssets::Sprite::TEMP_LABEL);
+    l->setTag(GameAssets::TAGS::TEMP_LABEL);
 
     // add to registry
     s_ActiveLabels.push_back(l);
@@ -116,7 +116,7 @@ void LabelManager::makePerminateBMFLabel(const char *const msg, Point pos, Color
     l->setColor(color);
     l->setAnchorPoint(anchor);
     l->setPosition(pos);
-    l->setTag(GameAssets::Sprite::TEMP_LABEL);
+    l->setTag(GameAssets::TAGS::TEMP_LABEL);
 
     // add to registry
     s_ActiveLabels.push_back(l);

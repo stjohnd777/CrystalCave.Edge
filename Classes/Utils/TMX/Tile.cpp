@@ -5,15 +5,19 @@
 //  Created by Daniel St. John on 5/2/19.
 //
 
+//
+#include "GameAssets.h"
 #include "Tile.h"
 #include "TileSet.h"
 #include "PhysicsShapeCache.h"
+#include "Spike.h"
 
 #include <sstream>
 
- using namespace tinyxml2;
+using namespace tinyxml2;
 
 namespace dsj {
+
 
     bool stob(std::string s, bool throw_on_error = true)
     {
@@ -143,8 +147,29 @@ namespace dsj {
         // FrameCach, but will add this optimization and sprite sheet
         // next pass
         auto image = ss.str();
+
+//        std::string type = GetAttribute("type");
+//        if ( type.compare("SpikeWest" ) == 0
+//            ||type.compare("SpikeEast") == 0
+//            ||type.compare("SpikeNorth" ) == 0
+//            || type.compare("SpikeSouth") == 0)
+//        {
+//            sprite = Spike::create(image);
+//        } else {
+//            sprite = Sprite::create(image);
+//        }
+
         sprite = Sprite::create(image);
+        
+        // set anchore to be lower left corner
         sprite->setAnchorPoint(cocos2d::Vec2(0,0));
+
+        // TAG
+        int TAG = std::stoi(GetProperty("TAG"));
+        sprite->setTag(TAG);
+
+        // Add Tile* for future reference
+        sprite->setUserData(this);
 
         auto size = cocos2d::Director::getInstance()->getWinSize();
         int x = 64* col;
@@ -156,33 +181,46 @@ namespace dsj {
         // TODO :: compute the scale using the intedned tile size
         // then compute the scale factor.
 
-        sprite->setScale(4);
-        
+        //sprite->setScale(GameAssets::MY_CONTENT_SCALE);
+
+        // Handle the physics and body shapes
         auto isUsePhysics  = GetProperty(CUSTOM_PROPERTIES::IS_USE_PHYSICS );
 
-        if ( stob(isUsePhysics)){
+        if (stob(isUsePhysics)){
+
+
+
 
             cocos2d::PhysicsBody*  body ;
 
 
+
             std::string shape = GetProperty(CUSTOM_PROPERTIES::PHY_BODY );
+
             if ( shape.compare("BOUNDING_BOX") == 0){
                 auto spriteSize = sprite->getContentSize();
                 body = PhysicsBody::createBox(spriteSize);
+                body->setContactTestBitmask(1);
                 sprite->setPhysicsBody(body);
 
             }else if (shape.compare("PE")== 0){
 
-                auto shapeCache = PhysicsShapeCache::getInstance();
-                shapeCache->addShapesWithFile("crystal_cave.plist");
                 std::string keyPhysicsBody  = GetProperty(CUSTOM_PROPERTIES::PE_KEY);
-                body = shapeCache->createBodyWithName(keyPhysicsBody);
+                body =  PhysicsShapeCache::getInstance()->createBodyWithName(keyPhysicsBody);
+
+                auto spriteSize = sprite->getContentSize();
+                auto hack = PhysicsBody::createBox(sprtieSize);
+                body->setContactTestBitmask(hack->getContactTestBitmask());
+                body->setCollisionBitmask(hack->getCollisionBitmask());
+                body->setCategoryBitmask(hack->getCategoryBitmask());
+                body->setContactTestBitmask(1);
+
                 sprite->setPhysicsBody(body);
+
 
             } else {
 
             }
-
 
             auto isDynamic  = GetProperty(CUSTOM_PROPERTIES::IS_DYNAMIC);
             if ( stob(isDynamic)){

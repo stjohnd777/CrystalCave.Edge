@@ -35,7 +35,7 @@ bool FailedLayer::init() {
         return false;
     }
     
-    setTag(GameAssets::Layer::TAG_FAILED_LAYER);
+    setTag(GameAssets::TAGS::FAILED_LAYER);
     
     initBackGround();
  

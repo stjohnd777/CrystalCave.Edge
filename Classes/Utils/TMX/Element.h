@@ -21,7 +21,7 @@ namespace dsj
     namespace ATTTIBUTE {
         const char* const NAME = "name";
         const char* const VALUE = "bool";
-        const char* const TYPE = "tyoe";
+        const char* const TYPE = "type";
     }
 
     namespace PROPERTY_TYPE {
@@ -143,8 +143,14 @@ namespace dsj
         virtual ~Element();
 
         std::string GetProperty (std::string key);
+        bool  GetPropertyBool (std::string key) ;
+        int   GetPropertyInt (std::string key) ;
+        float GetPropertyFloat (std::string key) ;
 
         std::string GetAttribute (std::string key) ;
+        bool  GetAttributeBool (std::string key) ;
+        int   GetAttributeInt (std::string key) ;
+        float GetAttributeFloat (std::string key) ;
 
         const std::string to_string();
 

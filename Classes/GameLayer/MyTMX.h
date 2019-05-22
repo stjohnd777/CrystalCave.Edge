@@ -19,6 +19,13 @@
 
 
 class MyTMX : public cocos2d::Layer  {
+
+    GETTERSETTER(bool, m_isConstrainedToVer, IsConstrainedToVer)
+    GETTERSETTER(bool, m_isConstrainedToHor, IsConstrainedToHor)
+
+    GETTERSETTER(bool, m_isBoundingBoxed, IsBoundingBoxed)
+    GETTERSETTER(bool, m_isFollow, IsFollow)
+
     
 public:
 
@@ -57,9 +64,22 @@ private:
     cocos2d::TMXTiledMap* tiled_map;
 
 
+    void update (float dt);
+
+    void update2 (float dt);
+
+    void GameLoop(cocos2d::Ref* target);
+
+
     #if IS_DESKTOP
     void onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event);
     #endif
+
+
+    bool onContactBegin(cocos2d::PhysicsContact& contact);
+    bool onPreSolve(cocos2d::PhysicsContact& contact);
+    bool onPostSolve(cocos2d::PhysicsContact& contact);
+    bool onContactSeperate(cocos2d::PhysicsContact& contact);
 };
 
 

@@ -62,6 +62,39 @@ namespace dsj {
         }
     }
 
+
+    std::vector<Object*> ObjectGroup::getObjectByName(std::string name){
+        std::vector<Object*> objects;
+        for (auto o: m_objects){
+            if ( name.compare( o->GetAttribute(ATTTIBUTE::NAME)) == 0){
+                objects.push_back(o);
+            }
+        }
+        return objects;
+    }
+    std::vector<Object*> ObjectGroup::getObjectByType(std::string value){
+        std::vector<Object*> objects;
+        for (auto o: m_objects){
+            if ( value.compare( o->GetAttribute(ATTTIBUTE::TYPE)) == 0){
+                objects.push_back(o);
+            }
+        }
+        return objects;
+    }
+
+    std::vector<Object*> ObjectGroup::getObjectByProperty(std::string key, std::string value){
+        std::vector<Object*> objects;
+        for (auto o: m_objects){
+            if ( value.compare(GetProperty(key))){
+                objects.push_back(o);
+            }
+        }
+        return objects;
+    }
+
+
+
+
     ObjectGroup::~ObjectGroup(){
         cocos2d::log("ObjectGroup::~ObjectGroup() Enter");
         for ( auto o : m_objects){
@@ -85,6 +118,33 @@ namespace dsj {
         ss << "  " << "}";
 
         return ss.str();
+    }
+
+    void ObjectGroup::render(cocos2d::Node* target) {
+
+        if ( StringUtils::endsWith(getName(),"PHY") ) {
+
+            std::function<void(cocos2d::Node* target,Object*)> lambda =[&](cocos2d::Node* target,Object* o){
+                cocos2d::log("TODO PHY Lanbda");
+            };
+
+            for ( auto o : m_objects){
+                auto attr = o->getAttributes();
+                auto props = o->getProperties();
+                o->render(target, lambda);
+            }
+
+        }
+
+        if ( StringUtils::endsWith(getName(),"ELEMENTS") ){
+
+            std::function<void(cocos2d::Node* target,Object*)> lambda =&GameElementsFactory::HandleObjectRequest;
+            for ( auto o : m_objects){
+                auto attr = o->getAttributes();
+                auto props = o->getProperties();
+                o->render(target, lambda);
+            }
+        }
     }
 
     std::ostream& operator<<(std::ostream &strm,  ObjectGroup &t) {

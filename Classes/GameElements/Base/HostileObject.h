@@ -28,9 +28,9 @@ public:
      */
     virtual void takeDamage(int weight) = 0;
     
-    virtual void attack(float dt){}
+    virtual void attack(float dt) {};
     
-    void collision(float dt);
+    void collision(float dt) ;
     
     virtual ~HostileObject();
     

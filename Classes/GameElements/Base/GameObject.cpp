@@ -1,7 +1,7 @@
 
 #include "GameObject.h"
 
-
+#include <sstream>
 #include "SimpleAudioEngine.h"
 #include "GameAssets.h"
 #include "Utils.h"
@@ -52,7 +52,7 @@ void   GameObject::incrementHealth (int increment){
 
 /*
  * It is very nice idea to have a game mechanic that is inspired by BorderLands,
- * where every game object has a health bar that is visable when beinf attached,
+ * where every game object has a health bar that is visable when being attached,
  * or mouse overed, and hit point displayeyd on each hit, in seperate lable, then faded away
  * The health mechanism displays the bar and percent health, where the lables display the damage
  * taken
@@ -360,7 +360,6 @@ ParticleSystemQuad* GameObject::meteor(float scale,float duration){
     
 }
 
-
 ParticleSystemQuad* GameObject::rain(float scale,float duration){
     ParticleSystemQuad* particalSystem =CCParticleRain::create();
     particalSystem->setDuration(scale);
@@ -476,11 +475,6 @@ ParticleSystemQuad* GameObject::sun(float scale,float duration){
     
 }
 
-
-
-
-
-#include <sstream>
 
 void GameObject::animation(
                            std::string name,

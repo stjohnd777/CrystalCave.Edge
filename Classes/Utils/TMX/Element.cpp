@@ -7,6 +7,7 @@
 
 #include "Element.h"
 #include <sstream>
+#include "StringUtils.h"
 
 using namespace tinyxml2;
 
@@ -138,6 +139,16 @@ namespace dsj
         }
         return value;
     }
+    
+    bool Element::GetPropertyBool (std::string key) {
+        return StringUtils::stob(GetProperty(key));
+    }
+    int Element::GetPropertyInt (std::string key) {
+        return std::stoi(GetProperty(key));
+    }
+    float Element::GetPropertyFloat (std::string key) {
+        return std::stof(GetProperty(key));
+    }
 
     std::string Element::GetAttribute (std::string key) {
         std::string value;
@@ -148,6 +159,16 @@ namespace dsj
             }
         }
         return value;
+    }
+
+    bool Element::GetAttributeBool (std::string key) {
+        return StringUtils::stob(GetAttribute(key));
+    }
+    int Element::GetAttributeInt (std::string key) {
+        return std::stoi(GetAttribute(key));
+    }
+    float Element::GetAttributeFloat (std::string key) {
+        return std::stof(GetAttribute(key));
     }
 
     const std::string Element::to_string() {

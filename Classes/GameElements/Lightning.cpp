@@ -5,12 +5,12 @@
 //  Created by Daniel St. John on 3/29/15.
 //
 //
-#include "Ligthning.h"
+#include "Lightning.h"
 
 using namespace cocos2d;
 
 
-static Ligthning* createWithParameters(
+static Lightning* createWithParameters(
                                        cocos2d::Point a,
                                        cocos2d::Point b,
                                        float displacement,
@@ -18,7 +18,7 @@ static Ligthning* createWithParameters(
                                        int numberBolts,
                                        int thickness){
     
-    Ligthning * ligthning = Ligthning::create();
+    Lightning * ligthning = Lightning::create();
     
     ligthning->setPointA(a);
     ligthning->setPointB(b);
@@ -30,11 +30,11 @@ static Ligthning* createWithParameters(
     return ligthning;
 }
 
-Ligthning::Ligthning() :HostileObject(){
+Lightning::Lightning() :HostileObject(){
     init();
 }
 
-bool  Ligthning::init(){
+bool  Lightning::init(){
 
     m_GameLayer = nullptr;
     
@@ -48,16 +48,18 @@ bool  Ligthning::init(){
     return true;
 }
 
-void  Ligthning::start( float dt ){
+void  Lightning::start( float dt ){
     scheduleUpdate();
 }
 
-void Ligthning::update(float dt) {
+
+
+void Lightning::update(float dt) {
     
     drawOpenGL();
 }
 
-void Ligthning::drawLightning(Point p,Point q,float displacement)
+void Lightning::drawLightning(Point p,Point q,float displacement)
 {
     if ( displacement < detail) {
         
@@ -97,7 +99,7 @@ void Ligthning::drawLightning(Point p,Point q,float displacement)
     }
 }
 
-void Ligthning::drawOpenGL()
+void Lightning::drawOpenGL()
 {
     // do not crash, check is we have
     // game layer
@@ -124,7 +126,7 @@ void Ligthning::drawOpenGL()
 } 
 
 
-Ligthning::~Ligthning(){
+Lightning::~Lightning(){
     
     //delete color;
 };

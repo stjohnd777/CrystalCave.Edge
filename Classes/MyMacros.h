@@ -2,7 +2,7 @@
 
 #include "cocos2d.h"
 
-#define DEBUG 1
+#define DEBUG 0
 
 #define IS_MOBILE (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID )
 
@@ -194,3 +194,8 @@ static void LoadScene( \
 }
 
 
+
+//#define  DOES_COLLIDE(phyBody1,phyBody2)
+//(phyBody1->getCategoryBitmask() & phyBody2->getCollisionBitmask())
+//||
+//(phyBody2->getCategoryBitmask() &phyBody1->getCollisionBitmask())

@@ -1,3 +1,4 @@
+#include "GameAssets.h"
 #include "GameLayer.h"
 #include "HudLayer.h"
 #include "SuccessLayer.h"
@@ -11,7 +12,7 @@
 
 #include "GLVertFence.h"
 #include "Mine.h"
-#include "Ligthning.h"
+#include "Lightning.h"
 
 //#include "PhysicsShapeCache.h"
 
@@ -87,7 +88,7 @@ GameLayer* GameLayer::create(int lengths , Vec2 g)
 
 
 GameLayer::GameLayer(){
-    
+    Director::getInstance()->setContentScaleFactor(4);
 }
 
 
@@ -273,7 +274,7 @@ void GameLayer::AddLigthning(Point a,
                             Color4F myColor ,
                             bool isRandomColor){
     
-    Ligthning* ligthning =  Ligthning::create();
+    Lightning* ligthning =  Lightning::create();
     ligthning->setGameLayer(this);
     ligthning->setPointA(a);
     ligthning->setPointB(b);
@@ -351,15 +352,13 @@ void GameLayer::CreateCrystalCeilingFloor()
 
     if ( !shapeCache) {
         shapeCache = PhysicsShapeCache::getInstance();
-        shapeCache->addShapesWithFile("crystal_cave.plist");
+        //shapeCache->addShapesWithFile("crystal_cave.plist");
     }
     int worldWidth = Director::getInstance()->getWinSize().width * this->lenghts ;
-    int stalactiteWidth = Sprite::create("stalactite.png" )->getContentSize().width;
+    int stalactiteWidth = Sprite::create(GameAssets::Sprite::Stalactite)->getContentSize().width;
     int stalactiteSegments = 2 * worldWidth/stalactiteWidth;
     int nx = stalactiteSegments;
 
-    bool flipedX = Utils::FlipCoin();
-    char* keyPhysicsBody = nullptr;
     for ( int i = 0 ; i < nx ; i ++)
     {
         int choiceFloor = Utils::getRandomIntBetweenTopBottom(1, 4);
@@ -375,29 +374,25 @@ void GameLayer::CreateCrystalCeilingFloor()
             case 2:
 
                 if (flipedX) {
-                    keyPhysicsBody = "QuartzCrystalNorthFliped";
-                    crystalFloorPart =  Sprite::create("QuartzCrystalNorthFliped.png");
+                    bodyFloorPart = shapeCache->createBodyWithName(GameAssets::PE_KEY::QuartzCrystalSouth);
+                    crystalFloorPart =  Sprite::create(GameAssets::Sprite::QuartzCrystalSouth);
                 } else {
-                    keyPhysicsBody =  "QuartzCrystalNorth";
-                    crystalFloorPart =  Sprite::create("QuartzCrystalNorth.png");
+                    bodyFloorPart = shapeCache->createBodyWithName(GameAssets::PE_KEY::QuartzCrystalNorth);
+                    crystalFloorPart =  Sprite::create(GameAssets::Sprite::QuartzCrystalNorth);
                 }
-
-                bodyFloorPart = shapeCache->createBodyWithName(keyPhysicsBody);
                 break;
             case 3:
                 if (flipedX) {
-                    keyPhysicsBody = "QuartzCrystalNorthFliped3";
-                    crystalFloorPart= Sprite::create("QuartzCrystalNorthFliped3.png");
+                    bodyFloorPart = shapeCache->createBodyWithName(GameAssets::PE_KEY::QuartzCrystalNorthFliped3);
+                    crystalFloorPart= Sprite::create(GameAssets::Sprite::QuartzCrystalNorthFliped3);
                 } else {
-                    keyPhysicsBody =  "QuartzCrystalNorth3";
-                    crystalFloorPart= Sprite::create("QuartzCrystalNorth3.png");
+                    bodyFloorPart = shapeCache->createBodyWithName(GameAssets::PE_KEY::QuartzCrystalNorth3);
+                    crystalFloorPart= Sprite::create(GameAssets::Sprite::QuartzCrystalNorth3);
                 }
-                bodyFloorPart = shapeCache->createBodyWithName(keyPhysicsBody);
                 break;
             default:
-                keyPhysicsBody = "geyzer";
-                crystalFloorPart = Sprite::create("geyzer.png");
-                bodyFloorPart = shapeCache->createBodyWithName(keyPhysicsBody);
+                bodyFloorPart = shapeCache->createBodyWithName(GameAssets::PE_KEY::Geyzer);
+                crystalFloorPart = Sprite::create(GameAssets::Sprite::Geyzer);
                 break;
         }
 
@@ -423,12 +418,12 @@ void GameLayer::CreateCrystalCeilingFloor()
 
 
         // Crystal Ceiling
-        Sprite* crystalCiellingPart = Sprite::create("QuartzCrystalSouth.png");//stalactite.png" /*"QuartzCrystal.128.png"*/);
+        Sprite* crystalCiellingPart = Sprite::create(GameAssets::Sprite::QuartzCrystalSouth);
         crystalCiellingPart->setPosition(Point(xcoord,Director::getInstance()->getWinSize().height));
         crystalCiellingPart->setAnchorPoint(Vec2(.5,1));
         //crystalCiellingPart->setFlippedY(true);
 
-        auto bodyC = shapeCache->createBodyWithName("QuartzCrystalSouth");
+        auto bodyC = shapeCache->createBodyWithName(GameAssets::PE_KEY::QuartzCrystalSouth);
         bodyC->setContactTestBitmask(hack->getContactTestBitmask());
         bodyC->setCollisionBitmask(hack->getCollisionBitmask());
         bodyC->setCategoryBitmask(hack->getCategoryBitmask());
@@ -502,7 +497,8 @@ void GameLayer::CreateCrystalObsticals(){
 
     for( int currentLenght = 1 ; currentLenght < this->lenghts ; currentLenght++){
 
-        int numberMineOnThisLenght = 7 ;//Utils::getRandomIntBetweenTopBottom(minObsticlesPerLenght, maxObsticlesPerLength);
+        int numberMineOnThisLenght = 7 ;
+        //Utils::getRandomIntBetweenTopBottom(minObsticlesPerLenght, maxObsticlesPerLength);
 
         for ( int i = 0; i < numberMineOnThisLenght ; i++){
 
@@ -512,7 +508,8 @@ void GameLayer::CreateCrystalObsticals(){
 
             // AddBarrier();
 
-            Sprite* crystalBarrier = Sprite::create("QuartzCrystalNorthFliped3.png");//QuartzCrystal.2.128.png");
+            Sprite* crystalBarrier = Sprite::create(GameAssets::Sprite::QuartzCrystalNorthFliped3);
+
             crystalBarrier->setAnchorPoint(Vec2(.4,0));
             auto bodyCrystal = PhysicsBody::createBox(crystalBarrier->getContentSize());
             crystalBarrier->setPosition(r);
@@ -526,7 +523,7 @@ void GameLayer::CreateCrystalObsticals(){
 }
 
 void GameLayer::AddFinishLine(){
-    finsh = Sprite::create("vfinish.png");
+    finsh = Sprite::create(GameAssets::Sprite::FINISH);
     finsh->setPosition(this->lenghts * Director::getInstance()->getWinSize().width -128, Director::getInstance()->getWinSize().height/2);
     finsh->setScale(4, 4);
     addChild(finsh);
@@ -542,7 +539,7 @@ void GameLayer::AddLighting()
     int displacement = 200;
     int detail = 2;
     Color4F lightingColor(.5,  .5, .5, .8);
-    bool isRandom = true;
+    //bool isRandom = true;
 
     Size size = Director::getInstance()->getWinSize();
 
@@ -696,6 +693,120 @@ void GameLayer::onMouseScroll(Event *event) {
 #endif
 
 
+
+
+
+/**
+ * Two shapes just started touching for the first time this step.
+ *
+ *  Return true from the callback to process the collision normally
+ *  or false to cause Chipmunk to ignore the collision entirely.
+ *
+ *  If you return false, the preSolve() and postSolve() callbacks will
+ *  never be run, but you will still recieve a separate event when the
+ *  shapes stop overlapping.
+ */
+bool GameLayer::onContactBegin(cocos2d::PhysicsContact& contact){
+
+    //return true;
+    bool isContinueOnToNoramlProcessing = true;
+    auto nodeA = contact.getShapeA()->getBody()->getNode();
+    auto nodeB = contact.getShapeB()->getBody()->getNode();
+
+//    GameObject* go1 = dynamic_cast<GameObject*>(nodeA);
+//    GameObject* go2 = dynamic_cast<GameObject*>(nodeB);
+//
+//    if ( go1->getCategoryBitMask() & go2->getCollisionBitMask()
+//        ||
+//        go2->getCategoryBitMask() & go1->getCollisionBitMask()
+//        ) {
+//        std::string go1name1 = go1->getName();
+//        std::string go1name2 = go2->getName();
+//        go1->applyImpluse(Vec2(0,100000));
+//        go1->takeDamage(20);
+//        go2->applyImpluse(Vec2(0,-100000));
+//        go2->takeDamage(20);
+//
+//    } else {
+//        return isContinueOnToNoramlProcessing;
+//    }
+    return isContinueOnToNoramlProcessing;
+}
+
+
+
+/*
+ * Two shapes are touching during this step.
+ *
+ * Return false from the callback to make Chipmunk
+ * ignore the collision this step or true to process it normally.   *
+ */
+bool GameLayer::onPreSolve(cocos2d::PhysicsContact& contact){
+    bool isContinueOnToNoramlProcessing = true;
+    auto nodeA = contact.getShapeA()->getBody()->getNode();
+    auto nodeB = contact.getShapeB()->getBody()->getNode();
+
+//    GameObject* go1 = dynamic_cast<GameObject*>(nodeA);
+//    GameObject* go2 = dynamic_cast<GameObject*>(nodeB);
+//
+//    if ( go1 && go2){
+//        // TODO
+//        //        std::string go1name1 = go1->getName();
+//        //        int tagA = go1->getTag();
+//        //        std::string go1name2 = go2->getName();
+//        //        int tagB = go2->getTag();
+//
+//    } else {
+//        return isContinueOnToNoramlProcessing;
+//    }
+    return isContinueOnToNoramlProcessing;
+}
+
+/*
+ Two shapes are touching and their collision response has been processed.
+ You can retrieve the collision impulse or kinetic energy at this time
+ if you want to use it to calculate sound volumes or damage amounts.
+ */
+bool GameLayer::onPostSolve(cocos2d::PhysicsContact& contact){
+    bool isContinueOnToNoramlProcessing = true;
+    //    auto nodeA = contact.getShapeA()->getBody()->getNode();
+    //    auto nodeB = contact.getShapeB()->getBody()->getNode();
+    //
+    //    GameObject* go1 = dynamic_cast<GameObject*>(nodeA);
+    //    GameObject* go2 = dynamic_cast<GameObject*>(nodeB);
+    //
+    //    if ( go1 && go2){
+    //        std::string go1name1 = go1->getName();
+    //        std::string go1name2 = go2->getName();
+    //    } else {
+    //        return isContinueOnToNoramlProcessing;
+    //    }
+    return isContinueOnToNoramlProcessing;
+}
+
+/*
+ *Two shapes have just stopped touching for the first time this step.
+ * To ensure that begin()/separate() are always called in balanced pairs,
+ * it will also be called when removing a shape while its in contact with
+ * something or when deallocating the space.
+ */
+bool GameLayer::onContactSeperate(cocos2d::PhysicsContact& contact){
+    bool isContinueOnToNoramlProcessing = true;
+    //    auto nodeA = contact.getShapeA()->getBody()->getNode();
+    //    auto nodeB = contact.getShapeB()->getBody()->getNode();
+    //
+    //    GameObject* go1 = dynamic_cast<GameObject*>(nodeA);
+    //    GameObject* go2 = dynamic_cast<GameObject*>(nodeB);
+    //
+    //    if ( go1 && go2){
+    //        std::string go1name1 = go1->getName();
+    //        std::string go1name2 = go2->getName();
+    //
+    //    } else {
+    //        return isContinueOnToNoramlProcessing;
+    //    }
+    return isContinueOnToNoramlProcessing;
+}
 
 
 

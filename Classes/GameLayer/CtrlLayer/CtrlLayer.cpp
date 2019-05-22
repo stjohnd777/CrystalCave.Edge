@@ -45,7 +45,7 @@ bool CtrlLayer::init() {
     if ( ! Layer::init() ){
         return false;
     }
-    setTag(GameAssets::Layer::TAG_CTRL_LAYER);
+    setTag(GameAssets::TAGS::CTRL_LAYER);
     setName("CTRL");
     initControlLayer();
     return true;
@@ -174,8 +174,8 @@ void CtrlLayer::initControlLayer(){
 
     Point pLabelThrust =Point(100,Utils::getMidPoint().y);
     m_LabelThrust->setPosition(pLabelThrust);
-    m_LabelThrust->setTag(GameAssets::Sprite::TEMP_LABEL);
-    ctrlNode->addChild(m_LabelThrust);//,LayerLevel::kCtrl);
+    m_LabelThrust->setTag(GameAssets::TAGS::TEMP_LABEL);
+    ctrlNode->addChild(m_LabelThrust);
 
 
     addChild(ctrlNode);

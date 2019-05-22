@@ -37,6 +37,11 @@ namespace dsj {
         virtual ~Object();
 
     public:
+
+        void render(
+            cocos2d::Node* target ,
+            std::function<void(cocos2d::Node*,dsj::Object*)> lambda) ;
+        
         const std::string to_string();
 
     private:

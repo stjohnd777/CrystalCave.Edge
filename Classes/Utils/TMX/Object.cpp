@@ -36,6 +36,11 @@ namespace dsj {
         this->name = obj.name;
     }
 
+    void Object::render(cocos2d::Node* target ,std::function<void(cocos2d::Node*,Object* )> objectHandler) {
+
+        objectHandler(target,this);
+
+    }
     Object::~Object() { }
 
 

@@ -45,7 +45,7 @@ bool HudLayer::init()
         SceneManager::getInstance()->Welcome();
     });
 
-    setTag(GameAssets::Layer::TAG_HUD_LAYER);
+    setTag(GameAssets::TAGS::HUD_LAYER);
 
     memset(szHiLevel,        0, LEN_HILEVEL_DISPLAY_BUFFER    *sizeof(char));
 

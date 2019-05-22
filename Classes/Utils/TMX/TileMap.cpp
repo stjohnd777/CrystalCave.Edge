@@ -89,7 +89,7 @@ namespace dsj {
             XMLElement* layerElement = elementRoot->FirstChildElement(Elements::LAYER);
             int layerCounter = 10;
             while ( layerElement) {
-                int z = layerCounter;
+                int z = layerCounter + 5;
                 auto layer = new TileLayer(layerElement,z);
                 std::string name = layer->getName();
                 m_layers[name] = layer;
@@ -185,6 +185,7 @@ namespace dsj {
 
 
 
+
     Vec2 TileMap::GetPixelCoordinates(int row,int col){
         Vec2 cord( row * tileWidth, col * tileHieght);
         return cord;
@@ -206,11 +207,31 @@ namespace dsj {
         }
     }
 
+
+
+    std::vector<Object*> TileMap::getObjectsByName(std::string name){
+        std::vector<Object*> objs;
+        for ( auto og : m_objectGroups){
+            auto _objs = og.second->getObjectByName(name);
+            objs.insert(objs.end(), _objs.begin(), _objs.end());
+        }
+        return objs;
+    }
+    std::vector<Object*> TileMap::getObjectsByType(std::string type){
+        std::vector<Object*> objs;
+        for ( auto og : m_objectGroups){
+            auto _objs = og.second->getObjectByType(type);
+            objs.insert(objs.end(), _objs.begin(), _objs.end());
+        }
+        return objs;
+    }
+
     void  TileMap::render(cocos2d::Node* target){
 
         cocos2d::log(" TileMap::render Enter");
 
         for (auto p : m_layers) {
+            cocos2d::log(" TileMap::render layer %s",p.first.c_str());
             auto name = p.first;
             auto layer = p.second;
 
@@ -219,6 +240,20 @@ namespace dsj {
 
             layer->render(target);
         }
+
+        for (auto p : m_objectGroups) {
+
+            cocos2d::log(" TileMap::render object groups %s",p.first.c_str());
+            auto name = p.first;
+            auto objectGroup = p.second;
+
+            auto props = objectGroup->getProperties();
+            auto attrs = objectGroup->getAttributes();
+
+            objectGroup->render(target);
+        }
+
+
         cocos2d::log(" TileMap::render Exit");
     }
 

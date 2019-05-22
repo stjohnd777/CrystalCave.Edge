@@ -7,14 +7,18 @@
 
 #pragma once
 
-#include "Element.h"
+//#include "SillyMutts.h"
 
+#include "MyMacros.h"
+#include "Element.h"
+#include "PhysicsShapeCache.h"
 
 
 
 namespace dsj {
 
     class TileSet;
+    
     
     class Tile : public Element {
 
@@ -39,7 +43,7 @@ namespace dsj {
 
         Tile(tinyxml2::XMLElement* elementTile);
 
-        Tile ( const Tile& obj);
+        Tile ( const dsj::Tile& obj);
 
         void render(cocos2d::Node* node,int row, int col, int z );
 
@@ -48,6 +52,7 @@ namespace dsj {
         const std::string to_string();
 
     private:
+
         friend std::ostream& operator<<(std::ostream&, const Tile&);
     };
 }

@@ -21,6 +21,12 @@ public:
     
     static const std::string PNG;
 
+    static LunarModule* getInstance(){
+        assert(INSTANCE);
+        return INSTANCE;
+    }
+    static LunarModule* INSTANCE;
+
 public:
     
     CREATE_FUNC(LunarModule);
