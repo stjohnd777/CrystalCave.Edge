@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="left-up" width="104" height="32" tilewidth="64" tileheight="64" infinite="0" nextlayerid="11" nextobjectid="36">
  <properties>
-  <property name="root_image" value="TMX-Cave"/>
+  <property name="isBoundingBox" type="bool" value="false"/>
+  <property name="isDebug" type="bool" value="false"/>
+  <property name="isFollow" type="bool" value="true"/>
+  <property name="isScrollX" type="bool" value="true"/>
+  <property name="isScrollY" type="bool" value="true"/>
  </properties>
  <tileset firstgid="1" name="Tiles" tilewidth="128" tileheight="128" tilecount="15" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
