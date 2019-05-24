@@ -165,30 +165,30 @@ void  GameObject::useHealthLabel(){
     m_healthLabel = Label::createWithBMFont(font,m_szHealth);
     m_healthLabel->setAnchorPoint(Vec2(0,0.5));
     m_healthLabel->setColor(Color3B::YELLOW);
-    //m_healthLabel->retain();
+ 
     m_healthLabel->setPosition(pos);
     m_healthLabel->setZOrder(9999);
-    //m_healthLabel->retain();
-    //getGameLayer()->
+ 
     addChild(m_healthLabel);
     
  
 
     m_healthBar = Sprite::create("box.red.32.32.png");
-    m_healthBarScale = 1;
-    m_healthBar->setScaleX(m_healthBarScale);
-    m_healthBar->setPosition(pos);
-    //m_healthBar->retain();
-    m_healthBar->setAnchorPoint(Vec2(0,0.5));
-    //getGameLayer()->
-    addChild(m_healthBar);
+    if (m_healthBar){
+        m_healthBarScale = 1;
+        m_healthBar->setScaleX(m_healthBarScale);
+        m_healthBar->setPosition(pos);
+        m_healthBar->setAnchorPoint(Vec2(0,0.5));
+        addChild(m_healthBar);
+    }
     
     m_hollow = Sprite::create("box.red.hollow.32.32.png");
-    m_hollow->setScaleX(m_healthBarScale);
-    m_hollow->setPosition(pos);
-    m_hollow->setAnchorPoint(Vec2(0,.5));
-    //getGameLayer()->
-    addChild(m_hollow);
+    if (m_hollow){
+        m_hollow->setScaleX(m_healthBarScale);
+        m_hollow->setPosition(pos);
+        m_hollow->setAnchorPoint(Vec2(0,.5));
+        addChild(m_hollow);
+    }
 
 
     schedule( schedule_selector(GameObject::updateLabels) );

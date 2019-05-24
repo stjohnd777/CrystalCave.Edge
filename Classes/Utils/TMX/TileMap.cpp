@@ -58,7 +58,8 @@ namespace dsj {
         this->pathTmx = pathTmx;
 
         XMLDocument doc;
-        doc.LoadFile( pathTmx.c_str());
+        int retCode = doc.LoadFile( pathTmx.c_str());
+        assert(retCode == 0);
 
         auto elementRoot =doc.RootElement();
         this->element = elementRoot;

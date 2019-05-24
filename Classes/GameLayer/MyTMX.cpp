@@ -67,9 +67,7 @@ MyTMX* MyTMX::create(std::string tmx)
 #include "external/tinyxml2/tinyxml2.h"
 #include "Utils.h"
 
-//#include "LunarModule.h"
-//#include "HudLayer.h"
-//#include "CtrlLayer.h"
+ 
 
 bool MyTMX::init(std::string tmx) {
 
@@ -293,22 +291,9 @@ void MyTMX::GameLoop ( Ref* target){
     
     if ( m_isFollow) {
         
-//        if ( ship->getPosition().x <  Director::getInstance()->getWinSize().width /2){
-//           ship->stopActionByTag(FOLLOW_ACTION_TAG);
-//        }else {
-//
-//            if ( ! ship->getActionByTag(FOLLOW_ACTION_TAG) ) {
-//                if ( m_isFollow){
-//                    Follow* follow = Follow::create(ship);
-//                    FOLLOW_ACTION_TAG = 989;
-//                    follow->setTag(FOLLOW_ACTION_TAG);
-//                    this->runAction(follow);
-//                }
-//            }
-//        }
         
     
-        if ( m_isScrolX) {
+        if ( m_isScrolX && !m_isScrolY) {
             // move the hud, controls and background
             Point offestShip = Vec2(ship->getPosition().x - Director::getInstance()->getWinSize().width /2 , 0);
             
@@ -331,9 +316,11 @@ void MyTMX::GameLoop ( Ref* target){
         }
         
         
-        if ( m_isScrolY) {
+        if ( m_isScrolX && m_isScrolY) {
             // move the hud, controls and background
-            Point offestShip = Vec2(0,ship->getPosition().y - Director::getInstance()->getWinSize().height /2 );
+            Point offestShip = Vec2(
+                                    ship->getPosition().x - Director::getInstance()->getWinSize().width /2,
+                                    ship->getPosition().y - Director::getInstance()->getWinSize().height /2 );
             
             // move control
             m_CtrlLayer->setPosition( offestShip);
@@ -346,10 +333,6 @@ void MyTMX::GameLoop ( Ref* target){
                 getChildByName("BG")->setPosition(Utils::getMidPoint() +  offestShip);
             }
             
-            // scrole only in X
-            Point p = getPosition();
-            p.x = p.x + ship->getPosition().x - Director::getInstance()->getWinSize().width/2;
-            setPosition(p);
         }
         
         

@@ -215,6 +215,10 @@
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
+		CD06D3092298B4210041E43E /* simplest.tmx in Resources */ = {isa = PBXBuildFile; fileRef = CD06D3052298B4200041E43E /* simplest.tmx */; };
+		CD06D30A2298B4210041E43E /* simplest_long.tmx in Resources */ = {isa = PBXBuildFile; fileRef = CD06D3062298B4200041E43E /* simplest_long.tmx */; };
+		CD06D30B2298B4210041E43E /* simplest2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = CD06D3072298B4210041E43E /* simplest2.tmx */; };
+		CD06D30C2298B4210041E43E /* simplest_full.tmx in Resources */ = {isa = PBXBuildFile; fileRef = CD06D3082298B4210041E43E /* simplest_full.tmx */; };
 		CDF7873D229748AB00B5B1D5 /* HudLayer2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDF7873C229748AB00B5B1D5 /* HudLayer2.cpp */; };
 		CDF7873E229748AB00B5B1D5 /* HudLayer2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDF7873C229748AB00B5B1D5 /* HudLayer2.cpp */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
@@ -417,6 +421,10 @@
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CD06D3052298B4200041E43E /* simplest.tmx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = simplest.tmx; sourceTree = "<group>"; };
+		CD06D3062298B4200041E43E /* simplest_long.tmx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = simplest_long.tmx; sourceTree = "<group>"; };
+		CD06D3072298B4210041E43E /* simplest2.tmx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = simplest2.tmx; sourceTree = "<group>"; };
+		CD06D3082298B4210041E43E /* simplest_full.tmx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = simplest_full.tmx; sourceTree = "<group>"; };
 		CDF7873A229748AA00B5B1D5 /* HudLayer2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HudLayer2.h; sourceTree = "<group>"; };
 		CDF7873C229748AB00B5B1D5 /* HudLayer2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HudLayer2.cpp; sourceTree = "<group>"; };
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -519,6 +527,10 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				CD06D3082298B4210041E43E /* simplest_full.tmx */,
+				CD06D3062298B4200041E43E /* simplest_long.tmx */,
+				CD06D3052298B4200041E43E /* simplest.tmx */,
+				CD06D3072298B4210041E43E /* simplest2.tmx */,
 				46880B8319C43A87006E1F66 /* Classes */,
 				46880B7519C43A67006E1F66 /* Resources */,
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
@@ -979,9 +991,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B730E68226CC7DD005DCD3F /* crystal_cav.pes in Resources */,
+				CD06D3092298B4210041E43E /* simplest.tmx in Resources */,
+				CD06D30A2298B4210041E43E /* simplest_long.tmx in Resources */,
+				CD06D30B2298B4210041E43E /* simplest2.tmx in Resources */,
+				CD06D30C2298B4210041E43E /* simplest_full.tmx in Resources */,
 				2B5E00282274E38900205A72 /* box.red.hollow.32.32.png in Resources */,
+				2B85D47E2267F951005F5DD1 /* TMX-Cave in Resources */,
 				2B5E00222274E36E00205A72 /* box.red.hollow.64.64.png in Resources */,
+				2B730E68226CC7DD005DCD3F /* crystal_cav.pes in Resources */,
 				1A88B2641FC3D9C9005C14AE /* Images.xcassets in Resources */,
 				2B5E000E2273A03E00205A72 /* game.png in Resources */,
 				2B5E001F2274E0F800205A72 /* Sound in Resources */,
@@ -1004,7 +1021,6 @@
 				2BDAC165225AFE2500CA02D9 /* Acid.png in Resources */,
 				2BEB987E1FFDE27500BB5777 /* Success.jpeg in Resources */,
 				2BEB98B41FFDE27500BB5777 /* animation_explosion.plist in Resources */,
-				2B85D47E2267F951005F5DD1 /* TMX-Cave in Resources */,
 				2B3E108E2272819C00A792CF /* space_mine.png in Resources */,
 				2BDAC16A225C299D00CA02D9 /* stalactite.png in Resources */,
 				2BEB98841FFDE27500BB5777 /* animation_explosion.png in Resources */,

@@ -8,6 +8,8 @@
 #include <iterator>
 //#include "GameObjectsManager.h"
 
+using namespace cocos2d;
+
 LabelManager * LabelManager::INSTANCE = nullptr;
 
 
@@ -48,6 +50,9 @@ void LabelManager::makeFadingLabel(const char *const msg, float percentWidth, fl
 
 void LabelManager::makeFadingLabel(const char *const msg, Point pos, Color3B color, Point anchor, const char *font){
 
+    if ( m_target == nullptr){
+        return;
+    }
     char szValue2[64] = {0};
     sprintf(szValue2,"%s",msg);
 
@@ -61,6 +66,7 @@ void LabelManager::makeFadingLabel(const char *const msg, Point pos, Color3B col
     // add to registry
     s_ActiveLabels.push_back(l);
 
+    
     assert(m_target);
 
     m_target->addChild(l,LayerLevel::kCtrl);

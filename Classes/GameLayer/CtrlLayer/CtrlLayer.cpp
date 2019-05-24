@@ -76,22 +76,28 @@ void CtrlLayer::initControlLayer(){
 
 #if IS_MOBILE
 
-    float scale = 3;
-    sprite = Sprite::create("north.png");
+    float scale = 1;
+    sprite = Sprite::create(GameAssets::Sprite::BTN_NORTH);
     // North and South
     Vector<MenuItem*> vMeniItemsNS;
 
     // North
-    auto imiThrustNorth = MenuItemImage::create("north.png","north.png",[&](Ref* sender){
-        m_ship->applyThrush(Vec2(0,-1), getThrustPercentage());
-    });
+    auto imiThrustNorth = MenuItemImage::create(
+        GameAssets::Sprite::BTN_NORTH,
+        GameAssets::Sprite::BTN_NORTH_SEL,
+        [&](Ref* sender){
+            m_ship->applyThrush(Vec2(0,-1), getThrustPercentage());
+        });
     imiThrustNorth->setScale(scale);
     vMeniItemsNS.pushBack(imiThrustNorth);
     
     // South
-    auto imiThrustSouth = MenuItemImage::create("south.png","south.png",[&](Ref* sender){
-        m_ship->applyThrush(Vec2(0,1), getThrustPercentage());
-    });
+    auto imiThrustSouth = MenuItemImage::create(
+        GameAssets::Sprite::BTN_SOUTH,
+        GameAssets::Sprite::BTN_SOUTH_SEL,
+        [&](Ref* sender){
+            m_ship->applyThrush(Vec2(0,1), getThrustPercentage());
+        });
     imiThrustSouth->setScale(scale);
     vMeniItemsNS.pushBack(imiThrustSouth);
     
@@ -105,9 +111,12 @@ void CtrlLayer::initControlLayer(){
     
     // East
     Vector<MenuItem*> vMenuIemsE;
-    auto imiThrustEast = MenuItemImage::create("east.png","east.png",[&](Ref* sender){
-        m_ship->applyThrush(Vec2(1,0),  getThrustPercentage());
-    });
+    auto imiThrustEast = MenuItemImage::create(
+                                               GameAssets::Sprite::BTN_EAST ,
+                                               GameAssets::Sprite::BTN_EAST_SEL,
+        [&](Ref* sender){
+            m_ship->applyThrush(Vec2(1,0),  getThrustPercentage());
+        });
     imiThrustEast->setScale(scale);
     vMenuIemsE.pushBack(imiThrustEast);
     auto menuEast = Menu::createWithArray(vMenuIemsE);
@@ -117,9 +126,12 @@ void CtrlLayer::initControlLayer(){
 
     // West
     Vector<MenuItem*> vMenuItemW;
-    auto imiThrustWest = MenuItemImage::create("west.png","west.png",[&](Ref* sender){
-        m_ship->applyThrush(Vec2(-1,0),  getThrustPercentage());
-    });
+    auto imiThrustWest = MenuItemImage::create(
+                                               GameAssets::Sprite::BTN_WEST,
+                                               GameAssets::Sprite::BTN_WEST_SEL,
+         [&](Ref* sender){
+             m_ship->applyThrush(Vec2(-1,0),  getThrustPercentage());
+         });
     imiThrustWest->setScale(scale);
     vMenuItemW.pushBack(imiThrustWest);
     auto pMenuThrustWest = Menu::createWithArray(vMenuItemW);
@@ -133,21 +145,16 @@ void CtrlLayer::initControlLayer(){
     m_slider = ui::Slider::create();
 
     m_slider->loadBarTexture("SIFI_GUI/Misc/LoadingBarBackground.png" );
-    //m_slider->loadBarTexture("slider.64.256.png");
-
-    //m_slider->loadSlidBallTextures("SIFI_GUI/Normal/Base.png","SIFI_GUI/Diabled/Base.png"    );
     m_slider->loadSlidBallTextures("box.red.64.64.png", "box.red.64.64.png", "");
 
     m_slider->loadProgressBarTexture("SIFI_GUI/Misc/LoadingBarFill.png");
-    //m_slider->loadProgressBarTexture("slider.64.256.png");
     Utils::setSize(m_slider, 600 , 100);
 
     Point pointSliderThrust = Vec2(100,Utils::getMidPoint().y);
     m_slider->setPosition(pointSliderThrust);
     m_slider->setPercent(50);
-    //m_slider->setOpacity(100);
+    m_slider->setOpacity(200);
 
-    //m_slider->setScale(2, 4);
 
     m_slider->addEventListener( [&](Ref* sender,ui::Slider::EventType percentChanged){
         ui::Slider* slider = dynamic_cast<ui::Slider * >(sender);
