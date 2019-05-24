@@ -106,7 +106,7 @@ bool MyTMX::init(std::string tmx) {
     GameElementsFactory::getInstance()->setGameLayer(this);
 
     // HUD
-    auto m_HudLayer =  HudLayer2::create();
+    m_HudLayer =  HudLayer2::create();
     m_HudLayer->setShip(ship);
     m_HudLayer->setGameLayer(this);
     addChild(m_HudLayer,100);
@@ -141,17 +141,19 @@ bool MyTMX::init(std::string tmx) {
     }
 
     // TODO : pull from map properties
-    m_isFollow = false;
-    m_isConstrainedToVer = false;
-    m_isConstrainedToHor = false;
+    m_isFollow = tileMap->GetPropertyBool("isFollow");
+    m_isScrolX = tileMap->GetPropertyBool("isScrollX");
+    m_isScrolY = tileMap->GetPropertyBool("isScrollY");
 
     if ( m_isFollow){
         Follow* follow = Follow::create(ship);
+        FOLLOW_ACTION_TAG = 989;
+        follow->setTag(FOLLOW_ACTION_TAG);
         this->runAction(follow);
     }
 
     // TODO :: pull from map
-    m_isBoundingBoxed = false;
+    m_isBoundingBoxed = tileMap->GetPropertyBool("isBoundingBox");
     // boundry
     if ( m_isBoundingBoxed){
         auto sizeWindowView = Director::getInstance()->getWinSize();
@@ -170,7 +172,8 @@ bool MyTMX::init(std::string tmx) {
     Vec2 posPlayer(x,y);
     ship->setPosition(posPlayer);
 
-    if (DEBUG) {
+    bool isDebug = tileMap->GetPropertyBool("isDebug");
+    if (isDebug) {
         drawNode = DrawNode::create();
         Color4F color(0, 1, 0, 1);
         Size winSize = Director::getInstance()->getWinSize();
@@ -286,6 +289,74 @@ void MyTMX::GameLoop ( Ref* target){
         CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::GAME_OVER);
         SceneManager::getInstance()->Failed();
     }
+    
+    
+    if ( m_isFollow) {
+        
+//        if ( ship->getPosition().x <  Director::getInstance()->getWinSize().width /2){
+//           ship->stopActionByTag(FOLLOW_ACTION_TAG);
+//        }else {
+//
+//            if ( ! ship->getActionByTag(FOLLOW_ACTION_TAG) ) {
+//                if ( m_isFollow){
+//                    Follow* follow = Follow::create(ship);
+//                    FOLLOW_ACTION_TAG = 989;
+//                    follow->setTag(FOLLOW_ACTION_TAG);
+//                    this->runAction(follow);
+//                }
+//            }
+//        }
+        
+    
+        if ( m_isScrolX) {
+            // move the hud, controls and background
+            Point offestShip = Vec2(ship->getPosition().x - Director::getInstance()->getWinSize().width /2 , 0);
+            
+            //this->setPosition(offestShip);
+            // move control
+            m_CtrlLayer->setPosition( offestShip);
+            
+            // move HUB
+            m_HudLayer->setPosition(offestShip);
+            
+            // move BG
+            if ( getChildByName("BG")) {
+                getChildByName("BG")->setPosition(Utils::getMidPoint() +  offestShip);
+            }
+            
+            // scrole only in X
+            Point p = getPosition();
+            p.y = p.y + ship->getPosition().y - Director::getInstance()->getWinSize().height/2;
+            setPosition(p);
+        }
+        
+        
+        if ( m_isScrolY) {
+            // move the hud, controls and background
+            Point offestShip = Vec2(0,ship->getPosition().y - Director::getInstance()->getWinSize().height /2 );
+            
+            // move control
+            m_CtrlLayer->setPosition( offestShip);
+            
+            // move HUB
+            m_HudLayer->setPosition(offestShip);
+            
+            // move BG
+            if ( getChildByName("BG")) {
+                getChildByName("BG")->setPosition(Utils::getMidPoint() +  offestShip);
+            }
+            
+            // scrole only in X
+            Point p = getPosition();
+            p.x = p.x + ship->getPosition().x - Director::getInstance()->getWinSize().width/2;
+            setPosition(p);
+        }
+        
+        
+        
+    }
+    
+    
     
 }
 

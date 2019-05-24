@@ -140,13 +140,14 @@ void CtrlLayer::initControlLayer(){
 
     m_slider->loadProgressBarTexture("SIFI_GUI/Misc/LoadingBarFill.png");
     //m_slider->loadProgressBarTexture("slider.64.256.png");
-
+    Utils::setSize(m_slider, 600 , 100);
 
     Point pointSliderThrust = Vec2(100,Utils::getMidPoint().y);
     m_slider->setPosition(pointSliderThrust);
     m_slider->setPercent(50);
+    //m_slider->setOpacity(100);
 
-    m_slider->setScale(2, 4);
+    //m_slider->setScale(2, 4);
 
     m_slider->addEventListener( [&](Ref* sender,ui::Slider::EventType percentChanged){
         ui::Slider* slider = dynamic_cast<ui::Slider * >(sender);

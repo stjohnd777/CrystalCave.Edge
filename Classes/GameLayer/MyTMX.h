@@ -21,11 +21,13 @@
 //int Z_HUD = 100;
 class MyTMX : public cocos2d::Layer  {
 
-    GETTERSETTER(bool, m_isConstrainedToVer, IsConstrainedToVer)
-    GETTERSETTER(bool, m_isConstrainedToHor, IsConstrainedToHor)
-
-    GETTERSETTER(bool, m_isBoundingBoxed, IsBoundingBoxed)
     GETTERSETTER(bool, m_isFollow, IsFollow)
+    GETTERSETTER(bool, m_isScrolX, IsScrolX)
+    GETTERSETTER(bool, m_isScrolY, IsScrolY)
+    GETTERSETTER(bool, m_isBoundingBoxed, IsBoundingBoxed)
+    
+    GETTERSETTER(int, FOLLOW_ACTION_TAG, _FOLLOW_ACTION_TAG)
+
 
     
 public:
@@ -47,7 +49,7 @@ private:
     bool isKeyDown;
     bool m_IsTouching;
     LunarModule* ship;
-    //HudLayer* m_HudLayer;
+    HudLayer2* m_HudLayer;
     CtrlLayer* m_CtrlLayer;
     cocos2d::EventKeyboard::KeyCode gkeyCode ;
 

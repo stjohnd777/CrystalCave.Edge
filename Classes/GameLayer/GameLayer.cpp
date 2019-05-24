@@ -304,6 +304,7 @@ void GameLayer::thrust(float dt)  {
 void GameLayer::update(float dt)  {
 
     Size size = Director::getInstance()->getWinSize();
+   
     // Level end success
     if ( finsh->getBoundingBox().intersectsRect( ship->getBoundingBox()) && canEnterFinishedProcess){
 
@@ -324,6 +325,7 @@ void GameLayer::update(float dt)  {
         CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::GAME_OVER);
         SceneManager::getInstance()->Failed();
     }
+    
     // keep the ship level
     ship->setRotation(0);
 
