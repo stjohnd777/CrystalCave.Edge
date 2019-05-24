@@ -14,7 +14,10 @@
 
 USING_NS_CC;
 
-static cocos2d::Size designResolutionSize = cocos2d::Size(1920, 1080);
+
+//static cocos2d::Size designResolutionSize = cocos2d::Size(2048, 1536);
+//static cocos2d::Size designResolutionSize = cocos2d::Size(1920, 1080);
+static cocos2d::Size designResolutionSize = cocos2d::Size(1650, 1050);
 //static cocos2d::Size smallResolutionSize = cocos2d::Size(480, 320);
 //static cocos2d::Size mediumResolutionSize = cocos2d::Size(1024, 768);
 //static cocos2d::Size largeResolutionSize = cocos2d::Size(2048, 1536);
@@ -54,23 +57,21 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     if(!glview) {
         
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
+#if IS_DESKTOP
         glview = GLViewImpl::createWithFullScreen("CrystalCave");
-        //glview->setFrameSize(1920, 1080);
-        glview->setFrameSize(1650, 1050);
-        //glview->setFrameSize(1024, 768);
+        glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height,ResolutionPolicy::NO_BORDER);
 #endif
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM ==CC_PLATFORM_ANDROID )
+#if IS_MOBILE
         glview = GLViewImpl::create("CrystalCave");
-        glview->setDesignResolutionSize(1650 , 1050, ResolutionPolicy::NO_BORDER);
-        //glview->setDesignResolutionSize(1920 , 1080, ResolutionPolicy::NO_BORDER);
 #endif
 
-    } else {
+    }
+    else
+    { // how does one get here?
      
-        glview->setDesignResolutionSize(1650 , 1050, ResolutionPolicy::NO_BORDER);
-        //glview->setDesignResolutionSize(1920 , 1080, ResolutionPolicy::NO_BORDER);
+         glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height,ResolutionPolicy::NO_BORDER);
+
     }
 
     director->setOpenGLView(glview);
@@ -81,13 +82,16 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
 
-
-
-//    Size frameSize = glview->getFrameSize();
-//    float scaleX = designResolutionSize.width / frameSize.width;
-//    float scaleY = designResolutionSize.height / frameSize.height;
-//    float f = MIN(scaleX,scaleY);
-//    director->setContentScaleFactor(f);
+    isUseContentScale = false;
+    if ( isUseContentScale){
+        Size frameSize = glview->getFrameSize();
+        float scaleX = designResolutionSize.width / frameSize.width;
+        float scaleY = designResolutionSize.height / frameSize.height;
+        float f = MAX (scaleX,scaleY);
+        director->setContentScaleFactor(f);
+    }
+    //Director::getInstance()->setContentScaleFactor(4);
+    //Director::getInstance()->setContentScaleFactor(1);
 
 
     register_all_packages();
@@ -105,9 +109,6 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // PE
     PhysicsShapeCache::getInstance()->addShapesWithFile("crystal_cave.plist");
 
-
-    //Director::getInstance()->setContentScaleFactor(4);
-    Director::getInstance()->setContentScaleFactor(1);
     
     //auto scene = WelcomeLayer::scene();
     auto scene = MyTMX::scene("TMX-cave/simplest.tmx");

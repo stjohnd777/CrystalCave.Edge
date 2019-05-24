@@ -1,7 +1,10 @@
 #pragma once
 
 #include <string>
+
 #include "cocos2d.h"
+
+#include "MyMacros.h"
 #include "GameObject.h"
 #include "GameAssets.h"
 
@@ -20,20 +23,20 @@ public:
     bool init();
 
 
-    CC_SYNTHESIZE(cocos2d::Sprite*, pSpriteBackground, BackgroundSprite)
+    GETTERSETTER(cocos2d::Sprite*, pSpriteBackground, BackgroundSprite)
     /**
     * return the screen size
     */
-    CC_SYNTHESIZE(cocos2d::Size, winSize, WindowSize);
+    GETTERSETTER(cocos2d::Size, winSize, WindowSize);
     
     /**
      * The Game Layer
      */
-    CC_SYNTHESIZE(cocos2d::Layer*, m_GameLayer, GameLayer);
+    GETTERSETTER(cocos2d::Layer*, m_GameLayer, GameLayer);
     /**
      * Player Game Object, Ship in Asteroids
      */
-    CC_SYNTHESIZE(GameObject*, m_Player, Player);
+    GETTERSETTER(GameObject*, m_Player, Player);
 
     
     /**
@@ -46,7 +49,7 @@ public:
     /**
      * Back menu item in top left corner 
      */
-    void initBackMenu(std::function<void (Ref*)> f  );
+    void initBackMenu( std::function<void (Ref*)> f  , int size = 64);
     
     
 };

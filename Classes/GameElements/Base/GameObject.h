@@ -37,6 +37,13 @@ protected:
     
 public:
     
+    void setSizeInPercentageScene(float percentage);
+    void setSizeInPercentageScene(float percentageX, float percentageY);
+    void setSize(float x, float y);
+    void setSize(cocos2d::Size s);
+    
+    
+    
     // Bounding Box Test: The shapes are not colliding if their bounding boxes are not overlapping.
     
     // Category Mask Test: The categories of each shape are bitwise ANDed against the
@@ -233,7 +240,6 @@ public: // inherited functionality
     void explosion();
     
     void sparkel();
-    
     
     void cleanUp(cocos2d::Node* sender);
     

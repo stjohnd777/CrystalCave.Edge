@@ -65,7 +65,11 @@ bool HudLayer::init()
     containerLevel->initWithFile("SIFI_GUI/Misc/ItemContainer.png");
     containerLevel->setAnchorPoint(Vec2(0.0,1.0));
     containerLevel->setPosition(Vec2( 0, screenSize.height -100 ));
-    containerLevel->setScale(5, 1);
+    
+    //containerLevel->setScale(5, 1);
+    Utils::setSizeInPercentageScene(containerLevel, 64* 4, .64 * 2);
+    
+    
     containerLevel->setOpacity(176);
     this->addChild(containerLevel,1900);
     int offset = containerLevel->getContentSize().height /2;

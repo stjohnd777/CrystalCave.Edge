@@ -215,6 +215,8 @@
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
+		CDF7873D229748AB00B5B1D5 /* HudLayer2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDF7873C229748AB00B5B1D5 /* HudLayer2.cpp */; };
+		CDF7873E229748AB00B5B1D5 /* HudLayer2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDF7873C229748AB00B5B1D5 /* HudLayer2.cpp */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
@@ -415,6 +417,8 @@
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CDF7873A229748AA00B5B1D5 /* HudLayer2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HudLayer2.h; sourceTree = "<group>"; };
+		CDF7873C229748AB00B5B1D5 /* HudLayer2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HudLayer2.cpp; sourceTree = "<group>"; };
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -695,6 +699,8 @@
 		2BDAC150225ADDCF00CA02D9 /* HUD */ = {
 			isa = PBXGroup;
 			children = (
+				CDF7873C229748AB00B5B1D5 /* HudLayer2.cpp */,
+				CDF7873A229748AA00B5B1D5 /* HudLayer2.h */,
 				2BEB99271FFDE28700BB5777 /* HudLayer.cpp */,
 				2BEB993C1FFDE29100BB5777 /* HudLayer.h */,
 			);
@@ -1056,6 +1062,7 @@
 				2B94B5E52287D129001E9E8E /* ColliderComponent.cpp in Sources */,
 				2B85D48422681E96005F5DD1 /* MyMacros.h in Sources */,
 				2B7602852290C13900BED2FC /* GLBeam.cpp in Sources */,
+				CDF7873D229748AB00B5B1D5 /* HudLayer2.cpp in Sources */,
 				2BEB99491FFDE29700BB5777 /* GLVertFence.cpp in Sources */,
 				2B7E8B48227DEC4A0099AD4B /* ObjectGroup.cpp in Sources */,
 				1AF87B781F6F77F7007BE51C /* AppController.mm in Sources */,
@@ -1173,6 +1180,7 @@
 				2BEB994C1FFDE29700BB5777 /* SceneManager.cpp in Sources */,
 				2BEB99741FFDE29700BB5777 /* WelcomeLayer.cpp in Sources */,
 				2B94B5F5228A8D11001E9E8E /* ParticleSystemManager.cpp in Sources */,
+				CDF7873E229748AB00B5B1D5 /* HudLayer2.cpp in Sources */,
 				2B7602862290C13900BED2FC /* GLBeam.cpp in Sources */,
 				2BEB99781FFDE29700BB5777 /* Utils.cpp in Sources */,
 				2B85D4832267F9F6005F5DD1 /* MyTMX.cpp in Sources */,

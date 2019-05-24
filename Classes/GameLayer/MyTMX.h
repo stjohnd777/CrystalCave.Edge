@@ -14,10 +14,11 @@
 
 #include "MyMacros.h"
 #include "LunarModule.h"
-#include "HudLayer.h"
+#include "HudLayer2.h"
 #include "CtrlLayer.h"
 
-
+//int Z_PLAYER = 50;
+//int Z_HUD = 100;
 class MyTMX : public cocos2d::Layer  {
 
     GETTERSETTER(bool, m_isConstrainedToVer, IsConstrainedToVer)
@@ -46,7 +47,7 @@ private:
     bool isKeyDown;
     bool m_IsTouching;
     LunarModule* ship;
-    HudLayer* m_HudLayer;
+    //HudLayer* m_HudLayer;
     CtrlLayer* m_CtrlLayer;
     cocos2d::EventKeyboard::KeyCode gkeyCode ;
 

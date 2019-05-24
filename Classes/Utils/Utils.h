@@ -10,10 +10,9 @@
 
 
 /**
- @brief General Utilitites 
- 
-
-
+ * A Collection of commonly needed routines
+ *
+ @brief General Utilitites
  */
 class Utils {
 
@@ -30,36 +29,55 @@ public:
      */
     static std::string getPlatform();
     
-    static const char*  const platformString();
 
-    static bool FlipCoin();
     /**
-     Return
+     Return Window Size
      */
     static cocos2d::Size getWindowSize();
-    
+    /**
+     Return midpoint Window
+     */
     static cocos2d::Point getMidPoint();
     
 
     //////////////// Random ////////////////////////
     
+    /**
+     Return bool random
+     */
+    static bool FlipCoin();
+    /**
+     Return random int bwtween (bottom,top)
+     */
     static int getRandomIntBetweenTopBottom(int bottom, int top);
-    
+    /**
+     Return random float bwtween (bottom,top)
+     */
     static float getRandomFloatBetweenTopBottom(float bottom, float top);
-    
+    /**
+     Return x on the scene bwtween (0,width)
+     */
     static int getRandomX();
-    
+    /**
+     Return y on the scene bwtween (height)
+     */
     static int getRandomY();
-    
+    /**
+     Return xpoint scene bwtween (0-width,0-height)
+     */
     static cocos2d::Point getRandomPointOnScene();
     
+    /**
+     Return xpoint scene bwtween (0-width, height + 100)
+     */
     static cocos2d::Point getRandomPointAboveScene();
     
-    // rest call to random.org
+    /**
+     Return n random int between (floor,celling)
+     */
     static std::vector<int> getRandumNumbers(int n, int floor, int celling);
 
-    
-     //////////////// Intesection ////////////////////////
+    //////////////// Intesection ////////////////////////
     static cocos2d::Rect getBoundingRect(cocos2d::Sprite *s);
     
     static bool isOutOfSceneBounds(cocos2d::Sprite *s);
@@ -70,16 +88,18 @@ public:
     
     static bool isInterscting(cocos2d::Sprite *s,cocos2d::Rect targetRectT);
     
-
-    // device introspection
-    static void deviceInfo() ;
+     //////////////// Scaling ////////////////////////
     
-
-    //////////////// HTML View ////////////////////////
-
-    static void displayHtmlPage(std::string uri){};
+    static cocos2d::Node* SetSizeInPercentageScene(std::string path, float percentage);
     
-    static void removeHtmlPage(){};
+    static cocos2d::Node* SetSizeInPercentageScene(cocos2d::Node* node, float percentage);
     
+    
+    static cocos2d::Node* setSizeInPercentageScene(std::string path, float percentageX, float percentageY);
+    
+    static cocos2d::Node* setSizeInPercentageScene( cocos2d::Node* node, float percentageX, float percentageY);
+    
+    static void  setSize(cocos2d::Node* node,float x, float y);
+
 };
 

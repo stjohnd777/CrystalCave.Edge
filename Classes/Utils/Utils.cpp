@@ -39,9 +39,7 @@ std::string Utils::getPlatform(){
     return platform;
 }
 
-bool Utils::FlipCoin(){
-    return Utils::getRandomIntBetweenTopBottom( 0, 100) > 50;
-}
+///////////////////////////////////////////////////////////////////
 
 cocos2d::Size Utils::getWindowSize(){
     cocos2d::Size winSize = Director::getInstance()->getWinSize();
@@ -53,6 +51,11 @@ cocos2d::Point Utils::getMidPoint(){
     return Vec2(winSize.width/2,winSize.height/2);
 }
 
+///////////////////////////////////////////////////////////////////
+
+bool Utils::FlipCoin(){
+    return Utils::getRandomIntBetweenTopBottom( 0, 100) > 50;
+}
 
 int Utils::getRandomIntBetweenTopBottom(int bottom, int top){
     if ( bottom == top){
@@ -92,6 +95,21 @@ cocos2d::Point Utils::getRandomPointAboveScene(){
     return Vec2(x,size.height+ 100);
 }
 
+std::vector<int> Utils::getRandumNumbers(int n, int floor, int celling)
+{
+    std::vector<int> results;
+    
+    int delta = celling -floor;
+    for (int index = 0; index < n; index++) {
+        int r = rand() * delta;
+        results.push_back( r);
+        //RandomHelper::random_int( floor,celling) );
+    }
+    
+    return results;
+}
+
+///////////////////////////////////////////////////////////////////
 
 cocos2d::Rect Utils::getBoundingRect(Sprite *s){
     
@@ -138,20 +156,57 @@ bool Utils::isInterscting(cocos2d::Sprite *t, cocos2d::Rect targetRectS )
     return targetRectT.intersectsRect(targetRectS);
 }
 
+///////////////////////////////////////////////////////////////////
 
-
-std::vector<int> Utils::getRandumNumbers(int n, int floor, int celling)
-{
-    std::vector<int> results;
-  
-    int delta = celling -floor;
-    for (int index = 0; index < n; index++) {
-        int r = rand() * delta;
-        results.push_back( r);
-        //RandomHelper::random_int( floor,celling) );
-    }
-
-    return results;
+Node* Utils::SetSizeInPercentageScene(std::string path, float percentage){
+    
+    auto node = Sprite::create(path);
+    Size me = node->getContentSize();
+    Size size = Director::getInstance()->getWinSize();
+    float scaleX = percentage* size.width/me.width;
+    node->setScaleX(scaleX);
+    float scaleY = percentage*size.height/me.height;
+    node -> setScaleY(scaleY);
+    return node;
+    
 }
 
+Node* Utils::SetSizeInPercentageScene(Node* node, float percentage){
+    
+    Size me = node->getContentSize();
+    Size size = Director::getInstance()->getWinSize();
+    float scaleX = percentage* size.width/me.width;
+    node->setScaleX(scaleX);
+    float scaleY = percentage*size.height/me.height;
+    node -> setScaleY(scaleY);
+    return node;
+    
+}
+
+Node* Utils::setSizeInPercentageScene(std::string path, float percentageX, float percentageY){
+    
+    auto node = Sprite::create(path);
+    Size me = node->getContentSize();
+    Size size = Director::getInstance()->getWinSize();
+    float scaleX = percentageX* size.width/me.width;
+    node->setScaleX(scaleX);
+    float scaleY = percentageY*size.height/me.height;
+    node->setScaleY(scaleY);
+    return node;
+}
+
+Node* Utils::setSizeInPercentageScene(Node* node, float percentageX, float percentageY){
+    
+    Size me = node->getContentSize();
+    Size size = Director::getInstance()->getWinSize();
+    float scaleX = percentageX* size.width/me.width;
+    node->setScaleX(scaleX);
+    float scaleY = percentageY*size.height/me.height;
+    node->setScaleY(scaleY);
+    return node;
+}
+
+void Utils::setSize(Node* node,float x, float y){
+    node->setScale( x/ node->getContentSize().width,  y/node->getContentSize().height);
+}
 

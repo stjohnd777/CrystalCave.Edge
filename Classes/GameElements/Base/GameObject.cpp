@@ -38,6 +38,38 @@ usesInfoLabel ( false)
 
 }
 
+void GameObject::setSizeInPercentageScene(float percentage){
+    
+    Size me = getContentSize();
+    Size size = Director::getInstance()->getWinSize();
+    float scaleX = percentage* size.width/me.width;
+    setScaleX(scaleX);
+    float scaleY = percentage*size.height/me.height;
+    setScaleY(scaleY);
+    
+}
+
+void GameObject::setSizeInPercentageScene(float percentageX, float percentageY){
+    
+    Size me = getContentSize();
+    Size size = Director::getInstance()->getWinSize();
+    float scaleX = percentageX* size.width/me.width;
+    setScaleX(scaleX);
+    float scaleY = percentageY*size.height/me.height;
+    setScaleY(scaleY);
+}
+
+void GameObject::setSize(float x, float y){
+    GameObject::setScale( x/ getContentSize().width,  y/getContentSize().height);
+}
+
+void  GameObject::setSize(cocos2d::Size s){
+    // TODO
+    setScale( s.width/ this->getContentSize().width,  s.height/ this->getContentSize().height);
+}
+
+
+
 void GameObject::decrementHealth (int decrement){
     
     setHealth (getHealth() - decrement);

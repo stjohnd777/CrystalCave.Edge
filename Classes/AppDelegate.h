@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 
+#include "MyMacros.h"
 /**
 @brief    The cocos2d Application.
 
@@ -10,6 +11,13 @@ The reason for implement as private inheritance is to hide some interface call b
 */
 class  AppDelegate : private cocos2d::Application
 {
+    
+    
+    
+    GETTERSETTER(bool,isUseContentScale, IsUseContentScale)
+    GETTERSETTER(float, contentScaleX, ContentScaleX)
+    GETTERSETTER(float, contentScaleY, ContentScaleY)
+    
 public:
     AppDelegate();
     virtual ~AppDelegate();

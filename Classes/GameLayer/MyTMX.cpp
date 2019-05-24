@@ -98,20 +98,19 @@ bool MyTMX::init(std::string tmx) {
     ship->useInfoLabel();
     ship->getPhysicsBody()->setRotationEnable(false);
     ship->setGameLayer(this);
+    //Utils::setSize(ship, 64, 64);
     ship->setScale(.25, .25);
-
-
-    addChild(ship,99);
+    addChild(ship,50);
 
     GameElementsFactory::getInstance()->setPlayer(ship);
     GameElementsFactory::getInstance()->setGameLayer(this);
 
     // HUD
-//    m_HudLayer =  HudLayer::create();
-//    m_HudLayer->setShip(ship);
-//    m_HudLayer->setGameLayer(this);
-//    addChild(m_HudLayer,1000);
-    //m_HudLayer->startTracking();
+    auto m_HudLayer =  HudLayer2::create();
+    m_HudLayer->setShip(ship);
+    m_HudLayer->setGameLayer(this);
+    addChild(m_HudLayer,100);
+    m_HudLayer->startTracking();
 
     // CTRL
     m_CtrlLayer =  CtrlLayer::create();

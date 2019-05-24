@@ -1,5 +1,5 @@
+#include "Utils.h"
 #include "BaseLayer.h"
-//#include "Constants.h"
 #include "SceneManager.h"
 
 using namespace cocos2d;
@@ -65,13 +65,15 @@ void BaseLayer::strechBackgroundToScreen(std::string backgroundPath, int z, floa
     
 }
 
-void BaseLayer::initBackMenu(std::function<void (Ref*)> f ){
+void BaseLayer::initBackMenu(std::function<void (Ref*)> f ,int size){
 
     int windowWidth = Director::getInstance()->getWinSize().width;
     int windowHeight =  Director::getInstance()->getWinSize().height;
 
     auto spriteBack = Sprite::create(GameAssets::Sprite::BTN_BACK);
+    Utils::setSize(spriteBack,size,size);
     auto spriteBackSel =Sprite::create(GameAssets::Sprite::BTN_BACK_SEL);
+    Utils::setSize(spriteBackSel,size,size);
 
     auto offsetWidth = spriteBack->getContentSize().width /2;
     auto offsetHeight = spriteBack->getContentSize().height /2;

@@ -104,6 +104,7 @@ namespace dsj
         Property(std::string name,std::string type,std::string value ):
         name(name),type(type),value(value){}
 
+
         int getIntValue(){
             return std::stoi( getValue());
         }
