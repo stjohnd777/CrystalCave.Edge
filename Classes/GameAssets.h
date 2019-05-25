@@ -47,16 +47,23 @@ namespace GameAssets {
 
         const int PLAYER = 999;
 
+        // Fixture  [0-100] with Physics Body non-dynamic
         const int TR = 80;
+        const int TR_TOP = 81;
 
-        const int SPIKE = 100;
-        const int ELECTRIC_FENCE_VERTICLE = 102;
-        const int ELECTRIC_FENCE_HORIZONTAL = 104;
-        const int LIGHTNING = 106;
-        const int SCANBEAM = 108;
-        const int MINE = 110;
-        const int SEEKER = 110;
-        const int ACID = 200;
+        // Hostile object with PhysicsBody non-dynamic [100-200]
+        const int SPIKE                     = 100;
+        const int MINE                      = 140;
+        const int ACID                      = 150;
+        const int LAVA                      = 150;
+        
+        const int ELECTRIC_FENCE_VERTICLE   = 110;
+        const int ELECTRIC_FENCE_HORIZONTAL = 120;
+        const int LIGHTNING                 = 130;
+        const int SCANBEAM                  = 160;
+        
+        const int SEEKER                    = 170;
+      
 
         const int  WELCOME_LAYER               = 1000;
         const int  GAME_LAYER                  = 1002;
@@ -66,7 +73,6 @@ namespace GameAssets {
         const int  SUCCESS_LAYER               = 1010;
         const int  OPTIONS_LAYER               = 1012;
 
-        const int  TAG_HOSTILE                 = -1000;
         
         const int  TEMP_LABEL                  = 88;
     }

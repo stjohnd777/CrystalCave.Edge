@@ -578,61 +578,41 @@ void GameObject::explosion(){
     
     CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("explosion.wav");
     
-    std::string name ="explosion";
-    std::string animationSheet = "animation_explosion.png";
     std::string plist = "animation_explosion.plist";
-    std::string subject = "e";
-    int length = 49;
-    float dt =  .1;
-    bool isForEver = false;
+    SpriteFrameCache::getInstance()->addSpriteFramesWithFile(plist);
     
-    CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1);
-    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("explosion.wav");
-    //animationSpriteSheet(name,animationSheet,plist,subject,length,dt,isForEver);
-
+    std::string animationSheet = "animation_explosion.png";
+    SpriteBatchNode* spriteBatch = SpriteBatchNode::create(animationSheet);
+    spriteBatch->setPosition(getPosition());
+ 
     Sprite * tempExp = Sprite::create();
     tempExp->setPosition(getPosition());
     getGameLayer()->addChild(tempExp,99);
-    SpriteBatchNode* spriteBatch = SpriteBatchNode::create(animationSheet);
-    //spriteBatch->setScale(2);
     tempExp->addChild(spriteBatch);
 
-    SpriteFrameCache::getInstance()->addSpriteFramesWithFile(plist);
-    
+    int length = 49;
+    std::string subject = "e";
     Vector<SpriteFrame*> v;
     for(int i = 0; i < length; i++) {
         std::stringstream ss;
         ss << subject << "_"  << i << ".png";
         std::string name = ss.str();
         auto frame = SpriteFrameCache::getInstance()->getSpriteFrameByName( name );
-
         v.pushBack(frame);
     }
-    
 
-    
+    float dt =  .1;
     Animation* idleanimation = Animation::createWithSpriteFrames(v, dt);
-    
-    
-    
-    if (isForEver){
-        auto an = Animate::create(idleanimation);
-        tempExp->runAction( RepeatForever::create( an)  );
-    }else {
-        
-        
-        CallFunc* cleanUp = CallFunc::create([&](){
-            //tempExp->removeFromParentAndCleanup(true);
-        });
-        
-        Sequence * seq = Sequence::create(Animate::create(idleanimation),cleanUp,nullptr);
-        tempExp->runAction( seq  );
-        //tempExp->runAction(  Animate::create(idleanimation)  );
-    }
-    
 
+        
+    CallFunc* cleanUp = CallFunc::create([&](){
+        //tempExp->removeFromParentAndCleanup(true);
+    });
+    
+    Sequence * seq = Sequence::create(Animate::create(idleanimation),cleanUp,nullptr);
+    tempExp->runAction( seq  );
+ 
 }
-
 
 
 void GameObject::sparkel(){

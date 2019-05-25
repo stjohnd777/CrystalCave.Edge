@@ -242,25 +242,50 @@ public:
              */
             auto size = Director::getInstance()->getWinSize();
 
-            int X =  obj->GetAttributeInt("x");
-            int Y =  obj->GetAttributeInt("y");
-            int width = obj->GetAttributeInt("width");
-            int height = obj->GetAttributeInt("height");
+ 
+            
+            int     X           =  obj->GetAttributeInt("x");
+            int     Y           =  obj->GetAttributeInt("y");
+            int     width       = obj->GetAttributeInt("width");
+            int     height      = obj->GetAttributeInt("height");
+            
+            bool    isMoving    = obj->GetPropertyBool("IsMoving");
+            float   dt          = obj->GetPropertyFloat("dt");
+            bool    isVertical  = obj->GetPropertyBool("IsVert");
 
-
-            Point spawnPoint = Vec2(X+width/2,Y) ;
-            Point mineLocation = spawnPoint;
-            bool IsMoving = obj->GetPropertyBool("IsMoving");
+            Point spawnPoint ;
+            Point mineLocation;
+            if ( isVertical) {
+                 auto Y0 = size.height - Y;
+                  spawnPoint = Vec2( X,Y0) ;
+                  mineLocation = spawnPoint;
+             } else {
+                 auto Y0 = size.height - Y;
+                 spawnPoint = Vec2( X, Y0 ) ;
+                 mineLocation = spawnPoint;
+            }
+           
             std::vector<Point> points;
-            points.push_back( Vec2(X+width/2,  Y + height));
-            points.push_back( Vec2(X+width/2,Y));
+            if ( isMoving) {
+                if ( isVertical) {
+                    auto Y0 =size.height - Y;
+                    points.push_back( Vec2(X,  Y0)  );
+                    points.push_back( Vec2(X  ,Y0 - height ) );
+                }else {
+                    auto Y0 =size.height - Y;
+                    points.push_back( Vec2( X , Y0 ) ) ;
+                    points.push_back( Vec2( X + width , Y0 ) );
+                }
+            }
+            
 
             bool isUsingPhysics = obj->GetPropertyBool("isUsingPhysics");
             bool isUsingOnContact = obj->GetPropertyBool("isUsingOnContact");
 
             auto mine = getInstance()->AddMine( spawnPoint ,
                                                 mineLocation,
-                                                IsMoving ,
+                                                isMoving ,
+                                                dt,
                                                 points,
                                                 isUsingPhysics,
                                                 isUsingOnContact);
@@ -276,6 +301,7 @@ public:
                   Point spawnPoint ,
                   Point mineLocation,
                   bool IsMoving ,
+                  float dt,
                   std::vector<Point> points,
                   bool isUsingPhysics = false,
                   bool isUsingOnContact = false){
@@ -291,20 +317,19 @@ public:
         body->setDynamic(false);
         mine->setPhysicsBody(body);
 
-        //if ( IsMoving){
 
-            cocos2d::Vector<FiniteTimeAction *> moves;
-            for (auto point : points){
-                 MoveTo * move = MoveTo::create(1,point);
-                moves.pushBack(move);
-            }
-            MoveTo * orginal = MoveTo::create(1,spawnPoint);
-            moves.pushBack(orginal);
+        cocos2d::Vector<FiniteTimeAction *> moves;
+        for (auto point : points){
+             MoveTo * move = MoveTo::create(dt,point);
+            moves.pushBack(move);
+        }
+        MoveTo * orginal = MoveTo::create(dt,spawnPoint);
+        moves.pushBack(orginal);
 
-            Sequence * seq = Sequence::create(moves);
-            RepeatForever* repeatForEver = RepeatForever::create(seq);
-            mine->runAction(repeatForEver);
-        //}
+        Sequence * seq = Sequence::create(moves);
+        RepeatForever* repeatForEver = RepeatForever::create(seq);
+        mine->runAction(repeatForEver);
+
 
         return mine;
 

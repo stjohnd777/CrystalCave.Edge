@@ -111,7 +111,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     
     //auto scene = WelcomeLayer::scene();
-    auto scene = MyTMX::scene("TMX-cave/simplest_full.tmx");
+    auto scene = MyTMX::scene("TMX-cave/simplest_long.tmx");
 
     director->runWithScene(scene);
 

@@ -1,0 +1,25 @@
+DONE :Thruster Partical Effect
+DONE: Move TAGS to GameAssets
+DONE:Min Move Vertical
+DONE: Address Default Exposion Animation on ship TakeDamage
+DONE: Acid top gives give and has body
+
+
+IN PROGRESS: SoundManager, Sounc is missing on Ship Hits
+IN PROGRESS: Pause button back button
+IN PROGRESS: Injured, fire and smoke effect h=base oin Health
+IN PROGRESS: Seperate of the Randam and TMX
+
+
+TODO: Z-order clarification on ship and env BG < electric < spike + TR + crystal < ship < acid < CRTL < HUB
+TODO: SceneManagement TMX
+
+TODO: Follow(y) in the image of Follow(y)
+TODO: Follow(x,y) World Edge Stop Follow, using larg wall may be good enough
+
+TODO: Wall collosion velcoity check and prorted damage
+
+TODO: Does the particle effect clean it self up when finished, Do I have to clean up the particle effect?
+
+SHELFED : Thruster Animation
+SHELFED: Mine Move Path {p0,p1,...pn}

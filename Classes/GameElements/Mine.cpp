@@ -9,7 +9,7 @@ using namespace cocos2d;
 using namespace std;
 
 const std::string Mine::IDENTITY = "Mine";
-const int Mine::TAG = 200;
+const int Mine::TAG = GameAssets::TAGS::MINE;// 200;
 const int Mine::MAX_HEALTH = 200;
 const int Mine::WEIGTH = 75;
 const float Mine::MASS = 100;

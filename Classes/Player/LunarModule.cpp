@@ -46,6 +46,7 @@ bool LunarModule::init(){
     setWeight(WEIGHT);
     setMaxHealth(HEALTH);
     setHealth(HEALTH);
+    
     usePhysics();
     useOnContact();
     
@@ -73,30 +74,29 @@ void LunarModule::applyThrush(Vec2 force, float percentage){
 
     if (this) {
 
-        float offset = 128 / 2 * .1;
-        Point posBust = this->getPosition();
+        Point posBust =  this->getPosition();
         if ( force.x > 0){
-            posBust.x = posBust.x - (getContentSize().width  + offset);
+            posBust.x = this->getPosition().x - 64 ;
         }
         if ( force.x < 0){
-            posBust.x = posBust.x + (getContentSize().width + offset);
+            posBust.x = posBust.x + 64 ;
         }
         if ( force.y > 0){
-            posBust.y = posBust.y - (getContentSize().width  + offset);
+            posBust.y = posBust.y - 64 ;
         }
         if ( force.y < 0){
-            posBust.y = posBust.y + (getContentSize().width  + offset);
+            posBust.y = posBust.y +64;
         }
 
-        //auto particalEffectBurst = smoke(1, .5);
-
-        ParticleSystemQuad* particalEffectBurst =ParticleSmoke::create();
-        particalEffectBurst->setDuration(1);
-        particalEffectBurst->setScale(.5);
+        ParticleSystemQuad* particalEffectBurst = ParticleSmoke::create();
+        particalEffectBurst->setDuration(.1);
+        //particalEffectBurst->setScale(.5);
         particalEffectBurst->setPosition(posBust);
         getGameLayer()->addChild(particalEffectBurst);
+        
+        // TODO :: is this needed
         DelayTime*  delayTimeAction = DelayTime::create(2*1);
-        CallFunc*   removeAndCleanUp =    CallFunc::create( std::bind(&ParticleSmoke::removeFromParent,particalEffectBurst));
+        CallFunc*   removeAndCleanUp = CallFunc::create(std::bind(&ParticleSmoke::removeFromParent,particalEffectBurst));
         Sequence*   seq = Sequence::create(delayTimeAction,removeAndCleanUp,nullptr);
 
         particalEffectBurst->runAction(seq);
@@ -108,7 +108,7 @@ void LunarModule::applyThrush(Vec2 force, float percentage){
 
 
 void LunarModule::update(float dt) {
-    
+    log("LunarModule:update");
 };
 
 
@@ -124,8 +124,8 @@ void LunarModule::update(float dt) {
  * Take Damage
  */
 void LunarModule::takeDamage(int weight){
-    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("bell-0104.wav");
-    explosion();
+    log("LunarModule:takeDamage");
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(LunarModule::HIT_SOUND.c_str());
     decrementHealth(weight);
     if ( getHealth() <=0){
         die();
@@ -137,12 +137,15 @@ void LunarModule::takeDamage(int weight){
  * give default of nothing
  */
  void LunarModule::injured() {
+     log("LunarModule:injured");
+     
  };
 
 /**
  * Object do you death sequence
  */
  void LunarModule::die() {
+     log("LunarModule::die");
      explosion();
  };
 
@@ -173,14 +176,21 @@ void LunarModule::useOnContact() {
  */
 bool LunarModule::onContactBegin(cocos2d::PhysicsContact& contact) {
     
-//    PhysicsBody *a = contact.getShapeA()->getBody();
-//    Node* nodeA = a->getNode();
-//    int tagA =a->getTag();
-//    
-//    PhysicsBody *b = contact.getShapeB()->getBody();
-//    Node* nodeB = b->getNode();
-//    int tagB = b->getTag();
-//    
+    PhysicsBody *a = contact.getShapeA()->getBody();
+    Node* nodeA = a->getNode();
+    int tagA =a->getTag();
+
+    PhysicsBody *b = contact.getShapeB()->getBody();
+    Node* nodeB = b->getNode();
+    int tagB = b->getTag();
+    
+    if ( tagA == LunarModule::TAG ){
+        log("LunarModule::onContactBegin");
+    }
+    if ( tagB == LunarModule::TAG ){
+        log("LunarModule::onContactBegin");
+    }
+//
 //            Projectile* projectile = NULL;
 //            Seeker * seeker = NULL;
 //    
