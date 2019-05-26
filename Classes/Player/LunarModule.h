@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <vector>
 #include "cocos2d.h"
 #include "GameObject.h"
 
@@ -83,6 +84,7 @@ public:
     
 public:
     
+    cocos2d::Vector<cocos2d::SpriteFrame*> vectorSpriteFrames ;
     /**
      * uses Physics engine
      */

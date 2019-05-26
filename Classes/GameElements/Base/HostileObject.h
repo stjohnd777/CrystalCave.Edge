@@ -11,7 +11,7 @@ class HostileObject : public GameObject {
     
 public:
     
-    static std::vector<HostileObject*> * m_ActiveTargets;
+    //static std::vector<HostileObject*> * m_ActiveTargets;
     
     static unsigned int DefalutChipmunkCategoryTarget ;
     

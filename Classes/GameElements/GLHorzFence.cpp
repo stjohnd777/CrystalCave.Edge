@@ -63,24 +63,15 @@ void GLHorzFence::start(Node* node ,float dt){
 
     if (showBeamOrgin) {
 
-        int scale = 2;
-        //west = Sprite::createWithSpriteFrameName("west.elecfence.32x32.png");
-//        west = Sprite::create(GameAssets::Sprite::PNG_ALIEN_PROJECTILE);
-//        west->setScale(scale);
-//        addChild(west,99);
         auto pw =Vec2( beamWest, initY );
         west->setPosition(pw);
-        
-        //east = Sprite::createWithSpriteFrameName("east.elecfence.32x32.png");
-//        east = Sprite::create(GameAssets::Sprite::PNG_ALIEN_PROJECTILE);
-//        east->setScale(2);
-//        addChild(east,99);
+ 
         auto pe = Vec2( beamEast  , initY );
         east->setPosition(pe);
 
     }
-    node->addChild(this,99);
-    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("elec.wav", true);
+    node->addChild(this,z);
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Sound/elec.wav", true);
     
     scheduleUpdate();
 

@@ -216,6 +216,18 @@
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
 		CD06D4C22298C8790041E43E /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C12298C8780041E43E /* TODO */; };
+		CD06D4CA2299C39C0041E43E /* thruster4.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C42299C39B0041E43E /* thruster4.png */; };
+		CD06D4CB2299C39C0041E43E /* thruster4.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C42299C39B0041E43E /* thruster4.png */; };
+		CD06D4CC2299C39C0041E43E /* thruster1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C52299C39C0041E43E /* thruster1.png */; };
+		CD06D4CD2299C39C0041E43E /* thruster1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C52299C39C0041E43E /* thruster1.png */; };
+		CD06D4CE2299C39C0041E43E /* thruster2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C62299C39C0041E43E /* thruster2.png */; };
+		CD06D4CF2299C39C0041E43E /* thruster2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C62299C39C0041E43E /* thruster2.png */; };
+		CD06D4D02299C39C0041E43E /* thruster0.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C72299C39C0041E43E /* thruster0.png */; };
+		CD06D4D12299C39C0041E43E /* thruster0.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C72299C39C0041E43E /* thruster0.png */; };
+		CD06D4D22299C39C0041E43E /* thruster5.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C82299C39C0041E43E /* thruster5.png */; };
+		CD06D4D32299C39C0041E43E /* thruster5.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C82299C39C0041E43E /* thruster5.png */; };
+		CD06D4D42299C39C0041E43E /* thruster3.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C92299C39C0041E43E /* thruster3.png */; };
+		CD06D4D52299C39C0041E43E /* thruster3.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C92299C39C0041E43E /* thruster3.png */; };
 		CDF7873D229748AB00B5B1D5 /* HudLayer2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDF7873C229748AB00B5B1D5 /* HudLayer2.cpp */; };
 		CDF7873E229748AB00B5B1D5 /* HudLayer2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDF7873C229748AB00B5B1D5 /* HudLayer2.cpp */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
@@ -419,6 +431,12 @@
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CD06D4C12298C8780041E43E /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		CD06D4C42299C39B0041E43E /* thruster4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster4.png; sourceTree = "<group>"; };
+		CD06D4C52299C39C0041E43E /* thruster1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster1.png; sourceTree = "<group>"; };
+		CD06D4C62299C39C0041E43E /* thruster2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster2.png; sourceTree = "<group>"; };
+		CD06D4C72299C39C0041E43E /* thruster0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster0.png; sourceTree = "<group>"; };
+		CD06D4C82299C39C0041E43E /* thruster5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster5.png; sourceTree = "<group>"; };
+		CD06D4C92299C39C0041E43E /* thruster3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster3.png; sourceTree = "<group>"; };
 		CDF7873A229748AA00B5B1D5 /* HudLayer2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HudLayer2.h; sourceTree = "<group>"; };
 		CDF7873C229748AB00B5B1D5 /* HudLayer2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HudLayer2.cpp; sourceTree = "<group>"; };
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -758,6 +776,7 @@
 		2BEB99801FFE9BC300BB5777 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				CD06D4C32299C3850041E43E /* Thruster */,
 				2BEB97F61FFDE26400BB5777 /* animation_explosion.plist */,
 				2BEB97DE1FFDE25B00BB5777 /* animation_explosion.png */,
 			);
@@ -847,6 +866,19 @@
 				503AE10417EB98FF00D1A890 /* Prefix.pch */,
 			);
 			name = mac;
+			sourceTree = "<group>";
+		};
+		CD06D4C32299C3850041E43E /* Thruster */ = {
+			isa = PBXGroup;
+			children = (
+				CD06D4C72299C39C0041E43E /* thruster0.png */,
+				CD06D4C52299C39C0041E43E /* thruster1.png */,
+				CD06D4C62299C39C0041E43E /* thruster2.png */,
+				CD06D4C92299C39C0041E43E /* thruster3.png */,
+				CD06D4C42299C39B0041E43E /* thruster4.png */,
+				CD06D4C82299C39C0041E43E /* thruster5.png */,
+			);
+			path = Thruster;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -982,21 +1014,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD06D4CA2299C39C0041E43E /* thruster4.png in Resources */,
 				2B5E00282274E38900205A72 /* box.red.hollow.32.32.png in Resources */,
 				2B85D47E2267F951005F5DD1 /* TMX-Cave in Resources */,
 				2B5E00222274E36E00205A72 /* box.red.hollow.64.64.png in Resources */,
 				2B730E68226CC7DD005DCD3F /* crystal_cav.pes in Resources */,
+				CD06D4D22299C39C0041E43E /* thruster5.png in Resources */,
 				1A88B2641FC3D9C9005C14AE /* Images.xcassets in Resources */,
 				2B5E000E2273A03E00205A72 /* game.png in Resources */,
 				CD06D4C22298C8790041E43E /* TODO in Resources */,
 				2B5E001F2274E0F800205A72 /* Sound in Resources */,
 				2BDAC15E225AFE2500CA02D9 /* Spike.png in Resources */,
+				CD06D4CE2299C39C0041E43E /* thruster2.png in Resources */,
 				2BC09FF7226A7E9E0089757F /* star-space-x.png in Resources */,
 				2B3E108022701C7700A792CF /* west.elecfence.128x128.png in Resources */,
+				CD06D4D42299C39C0041E43E /* thruster3.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				2B5E0037227544BD00205A72 /* box.red.32.32.png in Resources */,
 				2BEB98D41FFDE27500BB5777 /* red_falcon.png in Resources */,
 				2B3E107D22701BF900A792CF /* bottom.elecfence.128x128.png in Resources */,
+				CD06D4D02299C39C0041E43E /* thruster0.png in Resources */,
 				2BDAC167225C244800CA02D9 /* space-cave.jpg in Resources */,
 				2BEB98461FFDE27500BB5777 /* vfinish.png in Resources */,
 				1AF87B891F6F781D007BE51C /* LaunchScreenBackground.png in Resources */,
@@ -1010,6 +1047,7 @@
 				2BEB987E1FFDE27500BB5777 /* Success.jpeg in Resources */,
 				2BEB98B41FFDE27500BB5777 /* animation_explosion.plist in Resources */,
 				2B3E108E2272819C00A792CF /* space_mine.png in Resources */,
+				CD06D4CC2299C39C0041E43E /* thruster1.png in Resources */,
 				2BDAC16A225C299D00CA02D9 /* stalactite.png in Resources */,
 				2BEB98841FFDE27500BB5777 /* animation_explosion.png in Resources */,
 				1AF87B881F6F781D007BE51C /* LaunchScreen.storyboard in Resources */,
@@ -1029,12 +1067,14 @@
 			files = (
 				2B5E00292274E38900205A72 /* box.red.hollow.32.32.png in Resources */,
 				2BC09FF8226A7E9E0089757F /* star-space-x.png in Resources */,
+				CD06D4CF2299C39C0041E43E /* thruster2.png in Resources */,
 				2B3E108122701C7700A792CF /* west.elecfence.128x128.png in Resources */,
 				2B85D47F2267F951005F5DD1 /* TMX-Cave in Resources */,
 				2BEB98471FFDE27500BB5777 /* vfinish.png in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
 				2B730E69226CC7DD005DCD3F /* crystal_cav.pes in Resources */,
 				2B730E6E226CC8E1005DCD3F /* crystal_cave.plist in Resources */,
+				CD06D4CD2299C39C0041E43E /* thruster1.png in Resources */,
 				2B5E00232274E36E00205A72 /* box.red.hollow.64.64.png in Resources */,
 				2BDAC168225C244800CA02D9 /* space-cave.jpg in Resources */,
 				2B5E0038227544BD00205A72 /* box.red.32.32.png in Resources */,
@@ -1042,7 +1082,11 @@
 				2B3E107E22701BF900A792CF /* bottom.elecfence.128x128.png in Resources */,
 				2BEB98851FFDE27500BB5777 /* animation_explosion.png in Resources */,
 				2BDAC16B225C299D00CA02D9 /* stalactite.png in Resources */,
+				CD06D4D32299C39C0041E43E /* thruster5.png in Resources */,
 				2BEB987F1FFDE27500BB5777 /* Success.jpeg in Resources */,
+				CD06D4CB2299C39C0041E43E /* thruster4.png in Resources */,
+				CD06D4D12299C39C0041E43E /* thruster0.png in Resources */,
+				CD06D4D52299C39C0041E43E /* thruster3.png in Resources */,
 				2BEB98B51FFDE27500BB5777 /* animation_explosion.plist in Resources */,
 				2BEB999F1FFF247900BB5777 /* SIFI_GUI in Resources */,
 				2B3E108422701CD400A792CF /* top.elecfence.128x128.png in Resources */,

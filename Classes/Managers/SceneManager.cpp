@@ -7,7 +7,7 @@
 //
 
 #include "SceneManager.h"
-#include  "SimpleAudioEngine.h"
+#include "SoundManager.h"
 
 #include "WelcomeLayer.h"
 #include "FailedLayer.h"
@@ -65,7 +65,7 @@ void SceneManager::Success()
 
 
 void SceneManager::Exit(){
-    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("bell-0104.wav", false);
+    SoundManager::bell();
     Director::getInstance()->end();
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     exit(0);

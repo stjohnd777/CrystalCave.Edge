@@ -252,31 +252,34 @@ bool MyTMX::init(std::string tmx) {
     listenerKey->onKeyReleased = CC_CALLBACK_2(MyTMX::onKeyReleased , this);
     this->_eventDispatcher->addEventListenerWithSceneGraphPriority(listenerKey, this);
 #endif
+    
+    finsh = this->getChildByTag(12345);
+    
+    //assert(finsh);
 
     return true;
 }
 
-Node* finsh;
-bool canEnterDiedProcess = true;
-bool canEnterFinishedProcess = true;
+
 void MyTMX::GameLoop ( Ref* target){
 
 
-    finsh = this->getChildByTag(12345);
     Size size = Director::getInstance()->getWinSize();
     //Level end success
-    if ( canEnterFinishedProcess && finsh->getBoundingBox().intersectsRect( ship->getBoundingBox())){
+    if ( finsh) {
+        if ( canEnterFinishedProcess && finsh->getBoundingBox().intersectsRect( ship->getBoundingBox())){
 
-        GameLayer::level ++;
-        canEnterFinishedProcess = false;
+            GameLayer::level ++;
+            canEnterFinishedProcess = false;
 
-        unscheduleAllCallbacks();
-        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::TADA, false);
+            unscheduleAllCallbacks();
+            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::TADA, false);
 
-        auto scene = MyTMX::scene("TMX-cave/simplest2.tmx");
-        TransitionFlipAngular *animation = TransitionFlipAngular::create(.5,  scene);
-        Director::getInstance()->replaceScene(animation);
-        //SceneManager::getInstance()->Success();
+            auto scene = MyTMX::scene("TMX-cave/simplest2.tmx");
+            TransitionFlipAngular *animation = TransitionFlipAngular::create(.5,  scene);
+            Director::getInstance()->replaceScene(animation);
+            //SceneManager::getInstance()->Success();
+        }
     }
 
     // Level End Failure

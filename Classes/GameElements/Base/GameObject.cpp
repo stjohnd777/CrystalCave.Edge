@@ -654,29 +654,31 @@ void  GameObject::animationManual(
                      std::string subject,
                      int length,
                      float dt,
-                     bool isForEver )
-
-{
-//    Vector<SpriteFrame*> animFrames(length);
-//    char str[100] = {0};
-//    for(int i = 1; i < length; i++)
-//    {
+                     bool isForEver ) {
+    
+//    
+//    Vector<SpriteFrame*> vectorSpriteFrames ;
+// 
+//    for(int i = 0; i < length; i++) {
 //        std::stringstream ss;
-//        ss << subject << "_"  << i << ".png";
+//        ss << subject << i  << i << ".png";
 //        std::string name = ss.str();
 //        
-//        Image* image = Image::initWithImageFile(name.c_str());
-//        Texture2D* texture= Texture2D::initWithImage(image);
-//        cocos2d::Sprite* sprite = cocos2d::Sprite::createWithTexture(texture);
-//        sprite->initWithFile(name);
-//        Rect r = sprite->getContentSize();
-//        
-//        auto frame = SpriteFrame::create(name,r);
-//        animFrames.pushBack(frame);
+//        auto sprite = Sprite::create(name);
+//        auto spriteFrame = sprite->getSpriteFrame();
+//        vectorSpriteFrames.pushBack(spriteFrame);
 //       }
-//                                         
-//        auto animation = Animation::createWithSpriteFrames(animFrames, dt);
-//       auto animate = Animate::create(animation);
+//    
+//    auto animation = Animation::createWithSpriteFrames(vectorSpriteFrames, dt);
+//    
+//    Sprite * tempExp = Sprite::create();
+//    tempExp->setPosition(getPosition());
+//    this->addChild(tempExp,99);
+//    
+//    Animation* idleanimation = Animation::createWithSpriteFrames(v, dt);
+//    CallFunc* cleanUp = CallFunc::create([&](){});
+//    Sequence * seq = Sequence::create(Animate::create(animation),cleanUp,nullptr);
+//    tempExp->runAction( seq );
     
 }
                                          

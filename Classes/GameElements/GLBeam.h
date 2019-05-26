@@ -14,29 +14,37 @@ class GLBeam : public Node {
 
 public:
 
-    CREATE_FUNC(GLBeam)
+    //CREATE_FUNC(GLBeam)
     
     static GLBeam* create(
             Point orgin,
+            Point terminate,
             int dispersion,
             int limitLeft,
             int limitRight,
-            float velocity =1,
-            float offOnRate = -1);
+            float velocity =1, // /pixels/sec
+            float offOnRate = -1); // toggle on/off offOnRate seconds
     
     GLBeam();
     
-    bool init() override;
+    //bool init() override;
     
     
     bool init(Point orgin,
+              Point termination,  // beams orgin
               int dispersion,
               int limitLeft,
               int limitRight,
               float velocity,
-              float offOnRate );
+              float offOnRate // toggle on/off offOnRate seconds
+              );
     
 public:
+    
+    /**
+     * Damage taken on contact
+     */
+    ATTR(int, WEIGHT_GLBEAM, WEIGHT_GLBEAM,10);
     
     /**
      * The Game Layer
@@ -46,6 +54,9 @@ public:
      * Player Game Object, Ship in Asteroids
      */
     ATTR(GameObject*, m_player, Player,nullptr);
+    
+    
+    ATTR(char*, m_SourceBeam, SourceBeam,nullptr);
     
 public:
 
@@ -68,6 +79,10 @@ public:
      * Point where the Beam orginates from
      */
     CC_SYNTHESIZE(Point, m_orgin, Orgin);
+    /**
+     * Point where the Beam ends from
+     */
+    CC_SYNTHESIZE(Point, m_termination, Termination);
     
     /**
      * Beam spot light width
@@ -137,10 +152,6 @@ private:
      */
     bool m_increasing = true;
     
-    /**
-     * Damage taken on contact
-     */
-    int WEIGHT_GLBEAM = 10;
     
     /**
      * Which direction is bean moving, positive x or neg

@@ -45,7 +45,8 @@ namespace GameAssets {
     
     namespace TAGS {
 
-        const int PLAYER = 999;
+        const int PLAYER = 10;
+        const int PLAYER_PROJECTILE = 12;
 
         // Fixture  [0-100] with Physics Body non-dynamic
         const int TR = 80;
@@ -88,9 +89,6 @@ namespace GameAssets {
 
         const char* const LEVEL_COMPLETE               =   "Sound/Success/level-completed.wav";
 
-        const char* const BTN_SELECTED                 =   "Sound/bell-0104.wav";
-
-        const char* const GEM_PICKUP                   =   "Sound/debris.wav";
 
         const char* const WAWAWA                       =   "Sound/Failed/wawawa.mp3";
         const char* const TADA                         =   "Sound/success/tada.mp3";
@@ -99,6 +97,8 @@ namespace GameAssets {
         const char* const WOOSH                        =   "Sound/woosh.wav";
         const char* const THRUST                       =   "Sound/thrusters.wav";
         const char* const BELL                         =   "Sound/bell-0104.wav";
+        const char* const ALARM                        =   "Sound/alarm.wav";
+        
 
 
         const char* const EXPLOSION                     =   "Sound/explosion.wav";
@@ -109,13 +109,28 @@ namespace GameAssets {
         const char* const APPLAUSE                      =   "Sound/Success/applause.mp3";
         const char* const FIRE_PROJECTILE               =   "Sound/lazer.wav";
         const char* const ELECTRIC_0                    =   "Sound/elec.wav";
-        const char* const ELECTRIC_ARC                  =   "Sound/electric-arcing-dry.aiff";
+        const char* const ELECTRIC_1                    =   "Sound/electric-arcing-dry.aiff";
+        
+        
+//        std::vector<const char* const> GetAllSoundEffect(){
+//
+//            std::vector<const char* const> snds =
+//            {
+//                FAILED_SOUND,GAME_OVER,LEVEL_COMPLETE
+//                ,WAWAWA,TADA,ROCK_SLIDE,SHOTGUN,WOOSH,THRUST,BELL
+//                ,EXPLOSION,DEBRIS,COUNTDOWN,APPLAUSE,FIRE_PROJECTILE,ELECTRIC_0,ELECTRIC_1
+//            };
+//            return snds;
+//        }
 
     }
 
 
 
     namespace Sprite {
+        
+        
+        const char* const  MINE = "space_mine.png";
 
         const char* const Stalactite = "TMX-Cave/stalactite.png";
         const char* const QuartzCrystalSouth = "TMX-Cave/QuartzCrystalSouth.png";

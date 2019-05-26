@@ -51,6 +51,7 @@
 #include "Mine.h"
 #include "GLVertFence.h"
 #include "GLHorzFence.h"
+#include "GLBeam.h"
 #include "Lightning.h"
 #include "Spike.h"
 #include "GameElementsFactory.h"

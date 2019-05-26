@@ -43,6 +43,10 @@ public:
     MyTMX();
 
 private:
+    
+    cocos2d::Node* finsh = nullptr;
+    bool canEnterDiedProcess = true;
+    bool canEnterFinishedProcess = true;
 
     cocos2d::DrawNode * drawNode;
 

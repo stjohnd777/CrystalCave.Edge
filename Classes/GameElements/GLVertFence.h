@@ -127,6 +127,8 @@ public:
 public:
 
     float scaleBookends;
+    
+     ATTR(int ,  z, Z, 10);
 
     // The bottom of the beam,
     ATTR(int ,  beamTop, BeamBottom,0);

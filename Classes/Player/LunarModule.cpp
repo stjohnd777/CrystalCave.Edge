@@ -6,12 +6,13 @@
 //
 //
 #include "GameAssets.h"
+#include "SoundManager.h"
 #include "LunarModule.h"
 #include "SimpleAudioEngine.h"
 
 using namespace cocos2d;
-using namespace CocosDenshion;
-#include "SimpleAudioEngine.h"
+//using namespace CocosDenshion;
+//#include "SimpleAudioEngine.h"
 
 
 const int LunarModule::TAG = GameAssets::TAGS::PLAYER;
@@ -50,6 +51,18 @@ bool LunarModule::init(){
     usePhysics();
     useOnContact();
     
+    
+    for(int i = 0; i < 5; i++) {
+        std::stringstream ss;
+        
+        ss << "⁨Animations⁩/Thruster⁩/thruster" << i << ".png";
+        std::string name = ss.str();
+        auto sprite = Sprite::create();
+        sprite->initWithFile(name);
+        auto spriteFrame = sprite->getSpriteFrame();
+        vectorSpriteFrames.pushBack(spriteFrame);
+    }
+    
     return true;
 }
 
@@ -63,9 +76,8 @@ void LunarModule::thrushOff(){
 
 void LunarModule::applyThrush(Vec2 force, float percentage){
     
-    //CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume();
-    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::WOOSH, false);
-    //CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1);
+ 
+    SoundManager::playEffect(GameAssets::Sound::WOOSH);
 
     float forcex = ( percentage * MAX_THRUST) * force.x;
     float forcey = ( percentage * MAX_THRUST) * force.y;
@@ -81,16 +93,32 @@ void LunarModule::applyThrush(Vec2 force, float percentage){
         if ( force.x < 0){
             posBust.x = posBust.x + 64 ;
         }
+        
         if ( force.y > 0){
             posBust.y = posBust.y - 64 ;
+            
+        
+            auto animation = Animation::createWithSpriteFrames(vectorSpriteFrames, 1/60);
+            Sprite * thrustContainer = Sprite::create();
+            thrustContainer->setTag(777);
+            thrustContainer->setPosition(getPosition());
+            thrustContainer->setPosition(Vec2(0,-64));
+            this->addChild(thrustContainer,1000);
+            CallFunc* cleanUp = CallFunc::create([&](){
+                this->removeChildByTag(777);
+               
+            });
+            Sequence * seq = Sequence::create(Animate::create(animation),cleanUp,nullptr);
+            thrustContainer->runAction( seq );
+            
         }
+        
         if ( force.y < 0){
             posBust.y = posBust.y +64;
         }
 
         ParticleSystemQuad* particalEffectBurst = ParticleSmoke::create();
         particalEffectBurst->setDuration(.1);
-        //particalEffectBurst->setScale(.5);
         particalEffectBurst->setPosition(posBust);
         getGameLayer()->addChild(particalEffectBurst);
         
@@ -109,6 +137,7 @@ void LunarModule::applyThrush(Vec2 force, float percentage){
 
 void LunarModule::update(float dt) {
     log("LunarModule:update");
+    injured();
 };
 
 
@@ -125,7 +154,7 @@ void LunarModule::update(float dt) {
  */
 void LunarModule::takeDamage(int weight){
     log("LunarModule:takeDamage");
-    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(LunarModule::HIT_SOUND.c_str());
+    SoundManager::debris();
     decrementHealth(weight);
     if ( getHealth() <=0){
         die();

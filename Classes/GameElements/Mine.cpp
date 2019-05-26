@@ -1,7 +1,7 @@
+
+#include "SoundManager.h"
 #include "Mine.h"
 #include "Utils.h"
-
-#include "SimpleAudioEngine.h"
 
 #include <string>
 
@@ -16,8 +16,8 @@ const float Mine::MASS = 100;
 
 #include "GameObject.h"
 
-const std::string Mine::PNG= "space_mine.png" ;
-const std::string Mine::SND_EXPLODE="Sound/shotgun.wav";
+const std::string Mine::PNG= GameAssets::Sprite::MINE ;
+const std::string Mine::SND_EXPLODE= GameAssets::Sound::SHOTGUN;
 
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32  )
 pthread_mutex_t Mine::lock= PTHREAD_MUTEX_INITIALIZER;
@@ -31,7 +31,6 @@ Mine* Mine::create(
     bool isStationary ){
     
     Mine* mine = Mine::create();
-    mine->setIsStationary(isStationary);
     mine->spawnPoint = spawnPoint;
     mine->mineLocation = mineLocation;
     return mine;
@@ -50,39 +49,30 @@ bool  Mine::init()
 }
 
 
-void Mine::collisionOccured()
-{
-    explodeMine();
+void Mine::start( ) {
+    
+    setPosition(getSpawnPoint());
+    
+    if (getIsUsingPhysics()){
+        usePhysics();
+    }
+    
+    if ( getIsUsingOnContact()){
+        useOnContact();
+    }
+    
+    scheduleUpdate();
+    
+    setStatus(IN_PLAY);
 }
 
 
 void Mine::explodeMine(){
-    
-    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(SND_EXPLODE.c_str(), false);
-
+    SoundManager::playEffect(SND_EXPLODE);
     GameObject::sun(5, .5);
-
-    GameObject::explosion();
-
-    if ( getPlayer() != nullptr)
-    {
-        if ( Utils::isInterscting(this, getPlayer()->getBoundingBox()) ){
-            getPlayer()->takeDamage(WEIGTH);
-        }
-    }
-
     cleanUp();
-
 }
 
-
-
-void Mine::injured() {
-}
-
-void Mine::die(){
-     explodeMine();
-}
 
 void Mine::takeDamage(int weight){
     setHealth ( getHealth() - weight);
@@ -91,11 +81,42 @@ void Mine::takeDamage(int weight){
     }
 }
 
-void Mine::warn() {
-    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("000570954.caf", false);
-    FiniteTimeAction* actionBlink   = Blink::create(1, 10);
-    this->runAction(actionBlink);
+
+void Mine::update(float dt){
+    manualCollisionCheck(dt);
+    manualWarningProximityCheck();
+    injured();
+}
+
+
+void Mine::manualWarningProximityCheck() {
+    
+    float distanceWarn = 2 * getContentSize().width;
+    auto p = getPlayer()->getPosition();
+    auto m = getPosition();
+    float d =  m.getDistance(p);
+    if ( d < distanceWarn) {
+        SoundManager::bell();
+    }
 };
+
+/**
+ * Manual Collision Detection Rountine
+ */
+void Mine::manualCollisionCheck(float dt){
+    
+    if ( getPlayer()->getBoundingBox().intersectsRect( getBoundingBox())){
+        log("Mine::collision");
+        getPlayer()->takeDamage(WEIGTH);
+        explodeMine();
+        return;
+    }
+}
+
+void Mine::injured() {
+}
+
+
 
 
 void Mine::usePhysics(){
@@ -118,6 +139,8 @@ void Mine::useOnContact(){
 */
 bool Mine::onContactBegin(cocos2d::PhysicsContact& contact)
 {
+    log("Mine::onContactBegin");
+    
     PhysicsBody *a = contact.getShapeA()->getBody();
     Node* nodeA = a->getNode();
     int tagA =a->getTag();
@@ -125,71 +148,32 @@ bool Mine::onContactBegin(cocos2d::PhysicsContact& contact)
     PhysicsBody *b = contact.getShapeB()->getBody();
     Node* nodeB = b->getNode();
     int tagB = b->getTag();
+    
+    if ( tagA ==  TAG ){
+        
+        log("Mine::onContactBegin");
+        
+        if (tagB == getPlayer()->getTag()){
+             log("Mine::onContactBegin(Mine,Player)");
+        }
+        if (tagB == GameAssets::TAGS::PLAYER_PROJECTILE){
+              log("Mine::onContactBegin(Mine,PlayerProjectile)");
+        }
+
+    }
+    if ( tagB ==  TAG ){
+        log("Mine::onContactBegin");
+        if (tagA == getPlayer()->getTag()){
+              log("Mine::onContactBegin(Player,Mine)");
+        }
+        if (tagA == GameAssets::TAGS::PLAYER_PROJECTILE){
+                log("Mine::onContactBegin(PlayerProjectile,mine)");
+        }
+    }
 
     return true;
 }
 
-/**
- * Manual Collision Detection Rountine
- */
-void Mine::collision(float dt){
-
-    if ( getPlayer()->getBoundingBox().intersectsRect( getBoundingBox())){
-        collisionOccured();
-        return;
-    }
-
-}
-
-void Mine::update(float dt){
-    collision(dt);
-
-}
-
-void Mine::start( ) {
-
-    setPosition(getSpawnPoint());
-    
-    if (getIsUsingPhysics()){
-        usePhysics();
-    }
-    
-    if ( getIsUsingOnContact()){
-        useOnContact();
-    }
-    
-//    if ( ! m_IsStationary ){
-//        // constant velocity move
-//        FiniteTimeAction* actionMove    = MoveTo::create(2, getMineLocation() );
-//        FiniteTimeAction* delay         = DelayTime::create(3);
-//        FiniteTimeAction* actionBlink   = Blink::create(1, 10);
-//        FiniteTimeAction* actionExploed = CallFunc::create( [&]() {explodeMine();} );
-//        FiniteTimeAction* actionCleanUp = CallFunc::create( [&]() {cleanUp();} );
-//
-//        this->runAction( Sequence::create(actionMove,delay,actionBlink, actionExploed,actionCleanUp,nullptr) );
-//    }
-
-    // manual collision/pximity alarm and detonition trigger
-    scheduleUpdate();
-
-//    std::string name = "mine_idel";
-//    std::string animationSheet = "mine.png";
-//    std::string plist = "mine.plist";
-//    std::string subject = "mine";
-//    int length =10;
-//    float dt =  .25;
-//    bool isForEver = true;
-//    animationSpriteSheet(
-//                              name,
-//                              animationSheet,
-//                              plist,
-//                              subject,
-//                              length,
-//                              dt,
-//                              isForEver );
-    
-    setStatus(IN_PLAY);
-}
 
 
 void Mine::cleanUp(){

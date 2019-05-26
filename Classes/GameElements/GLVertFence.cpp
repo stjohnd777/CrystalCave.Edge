@@ -72,13 +72,10 @@ void GLVertFence::start(Node* node ,float dt){
 
     if (showBeamOrgin) {
 
-        //top = Sprite::createWithSpriteFrameName("top.elecfence.32x32.png");
         top = Sprite::create("top.elecfence.128x128.png");
         top->setScale(4);
         m_GameLayer->addChild(top,1000);
 
-
-        //bottom = Sprite::createWithSpriteFrameName("bottom.elecfence.32x32.png");
         bottom = Sprite::create("bottom.elecfence.128x128.png");
         bottom->setScale(4);
         m_GameLayer->addChild(bottom,1000);
@@ -101,9 +98,9 @@ void GLVertFence::start(Node* node ,float dt){
                             );
     }
 
-    m_GameLayer->addChild(this,1000);
+    m_GameLayer->addChild(this,z);
 
-    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("elec.wav", true);
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Sound/elec.wav", true);
 
     scheduleUpdate();
 

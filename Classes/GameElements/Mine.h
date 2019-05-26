@@ -37,41 +37,31 @@ public:
                         bool isStationary = true);
 
 public:
-
-    
-    /**
-     * If a collision or proxiimity is broken then ...
-     */
-    void collisionOccured();
-    
-    void explodeMine();
-    
-    CC_SYNTHESIZE(bool, m_IsStationary, IsStationary);
     
     CC_SYNTHESIZE(cocos2d::Point, spawnPoint, SpawnPoint);
     
     CC_SYNTHESIZE(cocos2d::Point, mineLocation, MineLocation);
     
-
-public:
+    
+    virtual void start();
+    
+    
+    virtual void update(float dt) override;
+    
+    /**
+     * Manual Collision Detection Rountine
+     */
+    void manualCollisionCheck(float dt);
+    
+    void manualWarningProximityCheck();
+    
+    void explodeMine();
     
     // defined virtual in GameObject
     virtual void takeDamage(int weight) override;
     
     // defined virtual in GameObject
     virtual void injured() override;
-    
-    virtual void die() override;
-
-    virtual void warn();
-
-    // defined virtual in GameObject
-    virtual void move(cocos2d::Point p,float dt) override{
-        this->runAction( cocos2d::MoveTo::create(dt, p) );
-    }
-    
-    
-public:
     
     /**
      * Add you self as physics body to the Physics Engine
@@ -90,16 +80,7 @@ public:
      */
     virtual bool onContactBegin(cocos2d::PhysicsContact& contact) override;
     
-    /**
-     * Manual Collision Detection Rountine
-     */
-    void collision(float dt);
 
-public:
-    
-    virtual void update(float dt) override;
-    
-    virtual void start();
     
 public:
     
