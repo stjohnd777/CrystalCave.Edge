@@ -5,15 +5,19 @@
 //  Created by Daniel St. John on 9/1/14.
 //
 //
+#include "MyTMX.h"
+
+#include <string>
 
 #include "SceneManager.h"
 #include "SoundManager.h"
+#include "GameManager.h"
 
 #include "WelcomeLayer.h"
 #include "FailedLayer.h"
 #include "SuccessLayer.h"
 #include "OptionLayer.h"
-#include "GameLayer.h"
+
 
 using namespace cocos2d;
 
@@ -23,34 +27,35 @@ SceneManager *SceneManager::getInstance() {
     if( INSTANCE == NULL)
     {
         INSTANCE = new SceneManager();
+        INSTANCE->gameManager =  GameManager::getInstance();
     }
     return INSTANCE;
 }
 
 
 void  SceneManager::Welcome(){
-
-    Scene *pScene = getScene(WELCOME_LAYER);
+    auto pScene = WelcomeLayer::scene();
     TransitionFlipAngular *animation = TransitionFlipAngular::create(.5,  pScene);
     Director::getInstance()->replaceScene(animation);
 }
 
 void SceneManager::Options(){
-    Scene *pScene = getScene(OPTIONS_LAYER);
+    auto pScene = OptionLayer::scene();
     TransitionFlipAngular *animation = TransitionFlipAngular::create(.5,  pScene);
     Director::getInstance()->replaceScene(animation);
 }
 
 
 void SceneManager::Game(int level) {
-    Scene *pScene = getScene(GAME_LAYER);
+    std::string tmx = gameManager->getTmx(level);
+    auto pScene =  MyTMX::scene(tmx);
     TransitionFlipAngular *animation = TransitionFlipAngular::create(.5,  pScene);
     Director::getInstance()->replaceScene(animation);
 }
 
 void SceneManager::Failed()
 {
-    Scene *pScene = getScene(FAILURE_LAYER);
+    Scene *pScene =FailedLayer::scene();
     TransitionFlipAngular *animation = TransitionFlipAngular::create(.5,  pScene);
     Director::getInstance()->replaceScene(animation);
 }
@@ -58,7 +63,7 @@ void SceneManager::Failed()
 
 void SceneManager::Success()
 {
-    Scene *pScene = getScene(SUCCESS_LAYER);
+    Scene *pScene =  SuccessLayer::scene();
     TransitionFlipAngular *animation = TransitionFlipAngular::create(.5,  pScene);
     Director::getInstance()->replaceScene(animation);
 }
@@ -72,36 +77,3 @@ void SceneManager::Exit(){
 #endif
 }
 
-Scene*SceneManager::getScene(int layerId)
-{
-    setCurrentScene(layerId);
-    
-    Scene* theScene = NULL;
-    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("bell-0104.wav", false);
-    switch (layerId) {
-        case WELCOME_LAYER:
-            theScene = WelcomeLayer::scene();
-            break;
-        case GAME_LAYER:
-            theScene =  GameLayer::scene();
-            break;
-        case OPTIONS_LAYER:
-            theScene = OptionLayer::scene();
-            break;
-        case ADVANCED_OPTIONS:
-            //theScene = AdvanceOptionLayer::scene();
-            break;
-        case FAILURE_LAYER:
-            theScene =  FailedLayer::scene();
-            break;
-
-        case SUCCESS_LAYER:
-            theScene =  SuccessLayer::scene();
-            break;
-        default:;
-            theScene = WelcomeLayer::scene();
-            break;
-    }
-    
-    return theScene;
-}

@@ -1,7 +1,8 @@
 #include "GLBeam.h"
 
-#include "GameLayer.h"
 #include <string>
+
+#include  "GameAssets.h"
 #include  "Utils.h"
 #include "LabelManager.h"
 

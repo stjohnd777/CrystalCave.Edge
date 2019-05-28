@@ -38,7 +38,7 @@
 #include "FailedLayer.h"
 #include "SuccessLayer.h"
 #include "OptionLayer.h"
-#include "GameLayer.h"
+
 
 #include "LabelManager.h"
 #include "SceneManager.h"

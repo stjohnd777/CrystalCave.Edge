@@ -1,6 +1,7 @@
 #pragma once
 
 #include "cocos2d.h"
+#include "GameManager.h"
 
 class SceneManager {
 
@@ -33,8 +34,8 @@ public:
     void Exit();
 
 private:
-
-    cocos2d::Scene* getScene(int layerId);
+    
+    GameManager* gameManager;
 
 private :
 

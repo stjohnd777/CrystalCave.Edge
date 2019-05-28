@@ -5,7 +5,6 @@
 #include "GameAssets.h"
 #include "SuccessLayer.h"
 #include "SimpleAudioEngine.h"
-#include "GameLayer.h"
 #include "SceneManager.h"
 
 
@@ -33,7 +32,7 @@ bool SuccessLayer::init() {
 
 
     std::stringstream ss;
-    ss << "Level " << (GameLayer::level) -1 <<  " Completed !! ";
+    ss << "Level " << GameManager::getInstance()->getLevel() <<  " Completed !! ";
 
     const char* font = GameAssets::Fonts::TTF::MarkerFelt;
     auto title = std::string(ss.str());
@@ -68,6 +67,8 @@ bool SuccessLayer::init() {
 
 bool SuccessLayer::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event)
 {
-    SceneManager::getInstance()->Game(GameLayer::level);
+    int lastLEvel = GameManager::getInstance()->getLevel();
+    GameManager::getInstance()->setLevel(lastLEvel +1);
+    SceneManager::getInstance()->Game(GameManager::getInstance()->getLevel());
     return true;
 }

@@ -1,6 +1,5 @@
 #include "Utils.h"
  
-#include "GameLayer.h"
 #include "SimpleAudioEngine.h"
 #include "LabelManager.h"
 

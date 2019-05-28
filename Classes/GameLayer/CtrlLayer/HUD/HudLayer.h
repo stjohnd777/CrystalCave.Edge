@@ -13,8 +13,8 @@
 #define LEN_SHIELD_DISPLAY_BUFFER       255
 
 #include "cocos2d.h"
+
 #include "BaseLayer.h"
-#include "GameLayer.h"
 #include "LunarModule.h"
 
 class HudLayer : public BaseLayer {
@@ -22,6 +22,7 @@ class HudLayer : public BaseLayer {
 public:
 
     static HudLayer* INSTANCE ;
+    
 public:
 
     GETTERSETTER(LunarModule*,m_ship,Ship)
@@ -93,18 +94,7 @@ public:
     void menuPauseCallback(cocos2d::Ref* pSender);
     
 private:
-
-//    cocos2d::Sprite* getContainer(){
-//        Size screenSize = Director::getInstance()->getWinSize();
-//        auto container = Sprite::create();
-//        container->initWithFile("SIFI_GUI/Misc/ItemContainer.png");
-//        container->setAnchorPoint(Vec2( .5, 0));
-//        container->setPosition(Vec2(screenSize.width/2, 0));
-//        container->setScale(5, 1);
-//        container->setOpacity(176);
-//        return container;
-//    }
-
+    
     Label * pausedlabel ;
     
     long startTime;

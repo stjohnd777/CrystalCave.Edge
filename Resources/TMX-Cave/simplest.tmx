@@ -75,8 +75,8 @@
     <property name="canTakeDamage" type="bool" value="false"/>
     <property name="health" value="INF"/>
     <property name="isDynamic" type="bool" value="false"/>
-    <property name="isUseOnContact" type="bool" value="false"/>
-    <property name="isUsePhysics" type="bool" value="false"/>
+    <property name="isUseOnContact" type="bool" value="true"/>
+    <property name="isUsePhysics" type="bool" value="true"/>
    </properties>
    <image width="64" height="64" source="Acid_Top.png"/>
    <objectgroup draworder="index">
@@ -400,20 +400,18 @@
     <property name="steps" type="int" value="7"/>
    </properties>
   </object>
-  <object id="12" name="Mine" type="Mine" x="256" y="230" width="64" height="614">
+  <object id="12" name="Mine" type="Mine" x="300" y="230" width="20" height="614">
    <properties>
     <property name="IsMoving" type="bool" value="true"/>
+    <property name="IsVert" type="bool" value="true"/>
+    <property name="dt" type="float" value="1"/>
     <property name="isUsingOnContact" type="bool" value="false"/>
     <property name="isUsingPhysics" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="28" name="ScanBeam" type="ScanBeam" x="993.333" y="270.667">
-   <point/>
-  </object>
   <object id="31" name="SpawnPlayer" type="SpawnPlayer" x="30" y="680">
    <point/>
   </object>
-  <object id="33" name="TRANS" type="TRANS" x="1588" y="604" width="88" height="176"/>
-  <object id="34" name="TRANS" type="TRANS" x="1600" y="608" width="88" height="176"/>
+  <object id="34" name="TRANS" type="TRANS" x="1600" y="608" width="64" height="176"/>
  </objectgroup>
 </map>

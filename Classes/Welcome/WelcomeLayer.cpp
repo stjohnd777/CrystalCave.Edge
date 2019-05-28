@@ -5,7 +5,7 @@
 
 #include "WelcomeLayer.h"
 #include "OptionLayer.h"
-#include "GameLayer.h"
+
 #include "Utils.h"
 #include "SceneManager.h"
 
@@ -66,7 +66,8 @@ bool WelcomeLayer::init(std::string bg,std::string title) {
 
 
    this->play = [&](Ref* sender){
-        SceneManager::getInstance()->Game(GameLayer::level);
+        int level = GameManager::getInstance()->getLevel();
+        SceneManager::getInstance()->Game(level);
     };
 
    this->settings = [&](Ref* sender){
@@ -98,15 +99,15 @@ int titleLableZOdered = 1;
 
 void WelcomeLayer::initLabels() {
 
-    const char* font1 = GameAssets::Fonts::TTF::MarkerFelt;
-    //GameAssets::Fonts::TTF::ABDUCTION;
+    // const char* font1 = GameAssets::Fonts::TTF::MarkerFelt;
+    // GameAssets::Fonts::TTF::ABDUCTION;
     // create title in center layer and
-    auto title = titleLabelString + std::string(" by SillyMutts");
-    auto* pLabel = Label::createWithTTF(title, font1, 78);
-    //auto* pLabel = Label::createWithBMFont(font1, title);
-    //pLabel->enableGlow(Color4B::GREEN);
-    pLabel->enableShadow();
-    pLabel->enableOutline(Color4B::RED);
+    auto title = titleLabelString ;
+    auto* pLabel = Label::createWithBMFont( GameAssets::Fonts::BMF::ALPHA_NUM::FUTURA_48,title);
+    pLabel->setScale(3);
+    //Label::createWithTTF(title, font1, 78);
+    //pLabel->enableShadow();
+    //pLabel->enableOutline(Color4B::RED);
 
     //auto* pLabel = Label::createWithSystemFont(titleLabelString,"System",titleLableFontSize);
     Size size = Director::getInstance()->getWinSize();
@@ -117,7 +118,7 @@ void WelcomeLayer::initLabels() {
     string co = "SillyMutts Game Studios";
     auto* pTitleCO = Label::createWithBMFont( font,co);
     pTitleCO->enableShadow();
-    pTitleCO->setScale(2);
+    pTitleCO->setScale(1.5);
     pTitleCO->setPosition( Vec2(size.width / 2, size.height / 3) );
     this->addChild(pTitleCO, 99);
 
@@ -126,14 +127,14 @@ void WelcomeLayer::initLabels() {
     auto* pLogo = Label::createWithBMFont( font,logo);
     pLogo->enableShadow();
     pLogo->setScale(1.5);
-    pLogo->setPosition( Vec2(size.width / 2, size.height / 3 -25) );
+    pLogo->setPosition( Vec2(size.width / 2, size.height / 3 -100) );
     this->addChild(pLogo, 99);
 
-    string s = "St.John System LLC";
+    string s = "St.John Systems LLC";
     auto* ss = Label::createWithBMFont( font,s);
     ss->enableShadow();
     ss->setScale(.75);
-    ss->setPosition( Vec2(size.width / 2, size.height / 3 - 50) );
+    ss->setPosition( Vec2(size.width / 2, size.height / 3 - 200) );
     this->addChild(ss, 99);
     
 }
@@ -143,13 +144,16 @@ void WelcomeLayer::initMenu() {
     Size size = Director::getInstance()->getWinSize();
 
     // Exit
-    std::string exitNormal = GameAssets::Sprite::BTN_EXIT;
-    std::string exitSelected =  GameAssets::Sprite::BTN_EXIT_SEL;
-    auto pCloseItem = MenuItemImage::create(exitNormal, exitSelected,this->exit);
+    auto pCloseItem = MenuItemImage::create(
+                    GameAssets::Sprite::BTN_EXIT,
+                    GameAssets::Sprite::BTN_EXIT_SEL,
+                    this->exit);
+    pCloseItem->setAnchorPoint(Vec2(0,1));
+    Utils::setSize(pCloseItem, 64, 64);
     
     Menu* pCloseMenu = Menu::create(pCloseItem, nullptr);
-    Point closePossition = Vec2( pCloseItem->getContentSize().width  +10, Director::getInstance()->getWinSize().height - pCloseItem->getContentSize().height  );
-    pCloseMenu->alignItemsVertically();
+    pCloseMenu->setAnchorPoint(Vec2(0,1));
+    Point closePossition (5,Director::getInstance()->getWinSize().height - 5);
     pCloseMenu->setPosition(closePossition);
     this->addChild(pCloseMenu,5);
 
@@ -157,8 +161,10 @@ void WelcomeLayer::initMenu() {
     // Play
     string play =GameAssets::Sprite::BTN_PLAY;
     string play_sel =GameAssets::Sprite::BTN_PLAY_SEL;
-    MenuItemImage *pPlayItem = MenuItemImage::create(play,play_sel,this->play );
-    pPlayItem->setScale(3);
+    MenuItemImage *pPlayItem = MenuItemImage::create(
+                  GameAssets::Sprite::BTN_PLAY,
+                  GameAssets::Sprite::BTN_PLAY,
+                  this->play );
     Menu* pPlayMenu = Menu::create(pPlayItem, nullptr);
     Point playPossition = Vec2(size.width / 2, size.height /2);
     pPlayMenu->alignItemsHorizontallyWithPadding(32);
@@ -166,19 +172,17 @@ void WelcomeLayer::initMenu() {
     addChild(pPlayMenu);
 
     // Options
-    std::string up =  GameAssets::Sprite::BTN_SETTINGS;
-    std::string down =   GameAssets::Sprite::BTN_SETTINGS_SEL;
-    Sprite* hack = Sprite::create(up);
-    Point pos = Vec2( hack->getContentSize().width /2 * 2 , 100);
-
-    MenuItemImage *pConfigItem = MenuItemImage::create(down.c_str(),up.c_str(),[&](Ref* sender){
-        auto scene = OptionLayer::scene();
-        Director::getInstance()->runWithScene(scene);
-    });
-
+    MenuItemImage *pConfigItem = MenuItemImage::create(
+                  GameAssets::Sprite::BTN_SETTINGS,
+                  GameAssets::Sprite::BTN_SETTINGS_SEL,
+                 [&](Ref* sender){
+                    auto scene = OptionLayer::scene();
+                    Director::getInstance()->runWithScene(scene);
+                 });
+    pConfigItem->setAnchorPoint(Vec2(0,0));
+    Utils::setSize(pConfigItem, 64, 64);
     Menu* pOptionsMenu = Menu::create(pConfigItem, NULL);
-    pOptionsMenu->alignItemsVerticallyWithPadding(32);
-    pOptionsMenu->setPosition(pos);
+    pOptionsMenu->setPosition(Vec2(5,5));
     this->addChild(pOptionsMenu,5);
     
 }
@@ -187,7 +191,7 @@ void WelcomeLayer::CreateCrystalCeilingFloor()
 {
 
     int worldWidth = Director::getInstance()->getWinSize().width ;
-    int stalactiteWidth = Sprite::create("stalactite.png" )->getContentSize().width;
+    int stalactiteWidth = Sprite::create("TMX-Cave/stalactite.png" )->getContentSize().width;
     int stalactiteSegments = 2 * worldWidth/stalactiteWidth;
     int nx = stalactiteSegments;
 
@@ -205,49 +209,54 @@ void WelcomeLayer::CreateCrystalCeilingFloor()
             case 2:
 
                 if (flipedX) {
-                    crystalFloorPart =  Sprite::create("QuartzCrystalNorthFliped.png");
+                    crystalFloorPart =  Sprite::create("TMX-Cave/QuartzCrystalNorthFliped.png");
                 } else {
-                    crystalFloorPart =  Sprite::create("QuartzCrystalNorth.png");
+                    crystalFloorPart =  Sprite::create("TMX-Cave/QuartzCrystalNorth.png");
                 }
                 break;
             case 3:
                 if (flipedX) {
-                    crystalFloorPart= Sprite::create("QuartzCrystalNorthFliped3.png");
+                    crystalFloorPart= Sprite::create("TMX-Cave/QuartzCrystalNorthFliped3.png");
                 } else {
-                    crystalFloorPart= Sprite::create("QuartzCrystalNorth3.png");
+                    crystalFloorPart= Sprite::create("TMX-Cave/QuartzCrystalNorth3.png");
                 }
                 break;
             default:
 
-                crystalFloorPart = Sprite::create("geyzer.png");
+                crystalFloorPart = Sprite::create("TMX-Cave/geyzer.png");
                 break;
         }
+        
+        if ( crystalFloorPart) {
 
-        crystalFloorPart->setAnchorPoint(Vec2(.5,0));
-        int xcoord = i * crystalFloorPart->getContentSize().width/2;
-        Vec2 pos =  Vec2(xcoord,0);
-        crystalFloorPart->setPosition(pos);
-        // Crystal Floor Part Randomization Size
-        float scaleXFloorPart = 4 * Utils::getRandomFloatBetweenTopBottom(.5, 2);
-        float scaleYfloorPart = 4 * Utils::getRandomFloatBetweenTopBottom(.5, 2);
-        crystalFloorPart->setScale(scaleXFloorPart, scaleYfloorPart);
-        addChild(crystalFloorPart);
+            crystalFloorPart->setAnchorPoint(Vec2(.5,0));
+            int xcoord = i * crystalFloorPart->getContentSize().width/2;
+            Vec2 pos =  Vec2(xcoord,0);
+            crystalFloorPart->setPosition(pos);
+            // Crystal Floor Part Randomization Size
+            float scaleXFloorPart =  Utils::getRandomFloatBetweenTopBottom(.5, 2);
+            float scaleYfloorPart =  Utils::getRandomFloatBetweenTopBottom(.5, 2);
+            crystalFloorPart->setScale(scaleXFloorPart, scaleYfloorPart);
+            addChild(crystalFloorPart);
 
 
-        // Crystal Ceiling
-        Sprite* crystalCiellingPart = Sprite::create("stalactite.png" );
-        crystalCiellingPart->setPosition(Point(xcoord,Director::getInstance()->getWinSize().height));
-        crystalCiellingPart->setAnchorPoint(Vec2(.5,1));
+            // Crystal Ceiling
+            Sprite* crystalCiellingPart = Sprite::create("TMX-Cave/stalactite.png" );
+            crystalCiellingPart->setPosition(Point(xcoord,Director::getInstance()->getWinSize().height));
+            crystalCiellingPart->setAnchorPoint(Vec2(.5,1));
 
-        float scaleXCeilingPart = 4* Utils::getRandomFloatBetweenTopBottom(1, 3);
-        float scaleCeilingPart = 4 * Utils::getRandomFloatBetweenTopBottom(1, 3);
+            float scaleXCeilingPart =  Utils::getRandomFloatBetweenTopBottom(1, 3);
+            float scaleCeilingPart =   Utils::getRandomFloatBetweenTopBottom(1, 3);
 
-        crystalCiellingPart->setScale(scaleXCeilingPart, scaleCeilingPart);
-        if ( Utils::getRandomFloatBetweenTopBottom(0, 1) < .5){
-            crystalCiellingPart->setFlippedX(true);
+            crystalCiellingPart->setScale(scaleXCeilingPart, scaleCeilingPart);
+            if ( Utils::getRandomFloatBetweenTopBottom(0, 1) < .5){
+                crystalCiellingPart->setFlippedX(true);
+            }
+
+            addChild(crystalCiellingPart);
+        } else {
+            log("Missing Sprite");
         }
-
-        addChild(crystalCiellingPart);
     }
 
 }
@@ -329,7 +338,7 @@ void WelcomeLayer::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event) {
     bool play = false;
     switch(keyCode){
         case EventKeyboard::KeyCode::KEY_ESCAPE:
-            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("bell-0104.wav", false);
+            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::BELL, false);
             Director::getInstance()->end();
             break;
         case EventKeyboard::KeyCode::KEY_ENTER:
@@ -345,10 +354,12 @@ void WelcomeLayer::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event) {
     }
     
     if ( play){
-        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("bell-0104.wav", false);
-        Scene* scene = GameLayer::scene();
-        TransitionCrossFade *animation = TransitionCrossFade::create(.5,  scene);
-        Director::getInstance()->replaceScene(animation);
+        SceneManager::getInstance()->Game(GameManager::getInstance()->getLevel());
+//
+//        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("bell-0104.wav", false);
+//        Scene* scene = GameLayer::scene();
+//        TransitionCrossFade *animation = TransitionCrossFade::create(.5,  scene);
+//        Director::getInstance()->replaceScene(animation);
     }
 }
 

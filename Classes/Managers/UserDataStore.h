@@ -11,7 +11,6 @@
 #include <string>
 #include <map>
 
-#include "MyMacros.h"
 #include "cocos2d.h"
 
 namespace dsj {
@@ -61,7 +60,9 @@ namespace dsj {
     private:
 
         int m_Score;
+        
         int m_Level;
+        
         float m_Sensitivity;
         
         static UserData* INSTANCE;

@@ -41,9 +41,12 @@ bool HudLayer::init()
         return false;
     }
 
+    int tileSize = 64;
+    int Z_HUD = 100;
+    
     initBackMenu([](Ref* ref) {
         SceneManager::getInstance()->Welcome();
-    });
+    }, tileSize);
 
     setTag(GameAssets::TAGS::HUD_LAYER);
 
@@ -58,69 +61,57 @@ bool HudLayer::init()
     Size screenSize = Director::getInstance()->getWinSize();
 
     string HUD_FONT = GameAssets::Fonts::BMF::ALPHA_NUM::FUTURA_48;
-
-
-    // CURRENT LEVEL
+    
+    
+    Vec2 upperLeft(0.0, 1.0);
+    Vec2 loweRight(1.0, 1.0);
+    Vec2 loweLeft(0.0, 0.0);
+    Vec2 upperRight(1.0, 1.0);
+    
     auto containerLevel = Sprite::create();
     containerLevel->initWithFile("SIFI_GUI/Misc/ItemContainer.png");
-    containerLevel->setAnchorPoint(Vec2(0.0,1.0));
-    containerLevel->setPosition(Vec2( 0, screenSize.height -100 ));
-    
-    //containerLevel->setScale(5, 1);
-    Utils::setSizeInPercentageScene(containerLevel, 64* 4, .64 * 2);
-    
-    
+    containerLevel->setAnchorPoint(upperLeft);
+    containerLevel->setPosition(Vec2( 0, screenSize.height ));
+    Utils::setSize(containerLevel, 5 * tileSize ,  2 * tileSize);
     containerLevel->setOpacity(176);
-    this->addChild(containerLevel,1900);
-    int offset = containerLevel->getContentSize().height /2;
+    this->addChild(containerLevel,Z_HUD);
+
     sprintf(szLevel,"Level :  %i", 0);
     setLevelLabel( Label::createWithBMFont(HUD_FONT,szLevel));
-    getLevelLabel()->setAnchorPoint(Vec2(0.0,.50));
-    getLevelLabel()->setPosition(Vec2( 0 + 100 , screenSize.height - offset -100 ));
-    getLevelLabel()->setScale(4);
-    //getLevelLabel()->setColor(Color3B::GREEN);
-    //getLevelLabel()->enableOutline(Color4B::RED, 2);
-    this->addChild( getLevelLabel(),2000);
+    getLevelLabel()->setAnchorPoint(Vec2( .5, .5));
+    getLevelLabel()->setPosition(Vec2(  (5 * tileSize)/2  , screenSize.height - (2 * tileSize)/2  ));
+    this->addChild( getLevelLabel(),Z_HUD+1);
 
 
     // HEALTH
     auto containerHealth = Sprite::create();
     containerHealth->initWithFile("SIFI_GUI/Misc/ItemContainer.png");
     containerHealth->setAnchorPoint(Vec2(.5,1));
-    containerHealth->setPosition(Vec2( screenSize.width /2, screenSize.height -100 ));
-    containerHealth->setScale(5, 1);
+    containerHealth->setPosition(Vec2( screenSize.width /2, screenSize.height ));
+    Utils::setSize(containerHealth, 6 * tileSize ,  2 * tileSize);
     containerHealth->setOpacity(176);
-    this->addChild(containerHealth,1900);
+    this->addChild(containerHealth,Z_HUD);
     setHealthDisplay ( Label::createWithBMFont( HUD_FONT, szHealth) );
-    getHealthDisplay()->setScale(4);
     getHealthDisplay()->setAnchorPoint(Vec2(.5,.5));
-    getHealthDisplay()->setPosition( Vec2( screenSize.width /2, screenSize.height - offset - 100 ));
-    //getHealthDisplay()->enableOutline(Color4B::RED, 2);
-    //getHealthDisplay()->setColor( Color3B::GREEN);
-
-    this->addChild(getHealthDisplay(),2000);
+    getHealthDisplay()->setPosition( Vec2( screenSize.width /2, screenSize.height - (2 * tileSize)/2  ));
+    this->addChild(getHealthDisplay(),Z_HUD+1);
     setHealth(100);
 
 
-
     // SCORE
-    auto posScoreLabel = Vec2( screenSize.width, screenSize.height -100 );
+    auto posScoreLabel = Vec2( screenSize.width, screenSize.height );
     auto anchorPointScoreLabel = Vec2(1,1);
     auto containerScore = Sprite::create();
     containerScore->initWithFile("SIFI_GUI/Misc/ItemContainer.png");
     containerScore->setAnchorPoint(anchorPointScoreLabel);
     containerScore->setPosition(posScoreLabel);
-    containerScore->setScale(5, 1);
+    Utils::setSize(containerScore, 5 * tileSize ,  2 * tileSize);
     containerScore->setOpacity(176);
-    this->addChild(containerScore,1900);
-
+    this->addChild(containerScore,Z_HUD);
     setScoreLabel( Label::createWithBMFont(HUD_FONT,"Score : 10,000"));
-    getScoreLabel()->setAnchorPoint( Vec2(1,.5));
-    getScoreLabel()->setPosition(Vec2( screenSize.width -100, screenSize.height -offset -100  ));
-    getScoreLabel()->setScale(4);
-    //getScoreLabel()->setColor(Color3B::GREEN);
-
-    this->addChild( getScoreLabel(),2000);
+    getScoreLabel()->setAnchorPoint( Vec2(.5,.5));
+    getScoreLabel()->setPosition(Vec2( screenSize.width - (5 * tileSize)/2  , screenSize.height - (2 * tileSize)/2  ));
+    this->addChild( getScoreLabel(),Z_HUD+1);
 
 
     // PLayTime
@@ -128,27 +119,25 @@ bool HudLayer::init()
     containerTime->initWithFile("SIFI_GUI/Misc/ItemContainer.png");
     containerTime->setAnchorPoint(Vec2( .5, 0));
     containerTime->setPosition(Vec2(screenSize.width/2, 0));
-    containerTime->setScale(5, 1);
+    Utils::setSize(containerTime, 6 * tileSize ,  2 * tileSize);
     containerTime->setOpacity(176);
     this->addChild(containerTime,1900);
-
     startTime = millisecondNow();
     setPlayTimeDisplay (Label::createWithBMFont(HUD_FONT, szPlayTime));
-    getPlayTimeDisplay()->setScale(4);
-    getPlayTimeDisplay()->setAnchorPoint(Vec2( .5, 0));
-    getPlayTimeDisplay()->setPosition(Vec2(screenSize.width/2, 0));
-    //getPlayTimeDisplay()->setColor(Color3B::GREEN);
-    //getPlayTimeDisplay()->enableOutline(Color4B::RED, 2);
+    getPlayTimeDisplay()->setAnchorPoint(Vec2( .5, .5));
+    getPlayTimeDisplay()->setPosition(Vec2(screenSize.width/2, (2 * tileSize)/2 ));
     this->addChild(getPlayTimeDisplay(),2000);
 
     // Pause/Play
     auto pause =  Sprite::create();
-    pause->initWithFile(GameAssets::Sprite::BTN_PAUSE);// "SIFI_GUI/Misc/Pause.png");
+    pause->initWithFile(GameAssets::Sprite::BTN_PAUSE);
+    Utils::setSize(pause,64,64);
     pause->setAnchorPoint(Vec2(1,1));
     MenuItemSprite* itemPause = MenuItemSprite::create(pause,pause,NULL);
     itemPause->setAnchorPoint(Vec2(1,1));
     auto play = Sprite::create();
-    play->initWithFile(GameAssets::Sprite::BTN_PLAY);//"SIFI_GUI/Misc/Play.png");
+    play->initWithFile(GameAssets::Sprite::BTN_PLAY);
+    Utils::setSize(play,64,64);
     play->setAnchorPoint(Vec2(1,1));
     MenuItemSprite* itemPlay = MenuItemSprite::create(play,play,NULL);
     itemPlay->setAnchorPoint(Vec2(1,1));
@@ -164,7 +153,7 @@ bool HudLayer::init()
             Director::getInstance()->pause();
             const char * msg = "Game Paused";
             pausedlabel = (Label*)Label::createWithBMFont (GameAssets::Fonts::BMF::ALPHA_NUM::FUTURA_48,msg) ;
-            pausedlabel->setScale(5);
+     
             pausedlabel->setPosition(Utils::getMidPoint());
             addChild(pausedlabel);
             action = false;
@@ -245,7 +234,8 @@ void HudLayer::update(float dt){
 //    int level = 1; //PersistenceManager::getInstance()->getLevel();
 //    std::stringstream ss;
 //    ss << "Current Level:") << std::to_string(GameLayer::level);
-    setLevel(GameLayer::level);
+//    GameManager::getInstance()->setLevel(<#int var#>)
+//    setLevel(GameLayer::level);
 
 //    int highLevel = 13 ;//PersistenceManager::getInstance()->getHiLevel();
 //    setHiLevel(highLevel);
@@ -269,7 +259,7 @@ void HudLayer::reset()
     
 }
 
-Label * pausedlabel ;
+//Label * pausedlabel ;
 void HudLayer::menuPauseCallback(Ref* pSender)
 {
     static bool action = true;

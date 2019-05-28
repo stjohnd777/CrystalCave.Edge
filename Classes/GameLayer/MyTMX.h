@@ -14,7 +14,7 @@
 
 #include "MyMacros.h"
 #include "LunarModule.h"
-#include "HudLayer2.h"
+#include "HudLayer.h"
 #include "CtrlLayer.h"
 
 //int Z_PLAYER = 50;
@@ -53,7 +53,7 @@ private:
     bool isKeyDown;
     bool m_IsTouching;
     LunarModule* ship;
-    HudLayer2* m_HudLayer;
+    HudLayer* m_HudLayer;
     CtrlLayer* m_CtrlLayer;
     cocos2d::EventKeyboard::KeyCode gkeyCode ;
 

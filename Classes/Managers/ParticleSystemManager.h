@@ -1,7 +1,6 @@
 #pragma once
 
 #include "cocos2d.h"
-#include "GameLayer.h"
 
 using namespace cocos2d;
 
@@ -95,7 +94,7 @@ public:
      * Should be set by the game layer of game 
      * object contracting the service fro this class
      */
-    static GameLayer* m_GameLayer;
+    static Node* m_GameLayer;
 
     /**
      * Add Smoke to GameLayer

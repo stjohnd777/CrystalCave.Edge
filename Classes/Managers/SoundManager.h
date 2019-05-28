@@ -20,6 +20,7 @@ public:
 
         auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 
+        // TODO : solve problem with resolving GameAssets::Sound::GetAllSoundEffect()
 //        for ( auto sndFile : GameAssets::Sound::GetAllSoundEffect() ){
 //           audio->preloadEffect(sndFile);
 //        }

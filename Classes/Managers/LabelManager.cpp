@@ -1,5 +1,5 @@
 #include "LabelManager.h"
-#include "GameLayer.h"
+ 
 #include "SimpleAudioEngine.h"
 #include "HostileObject.h"
 //#include "Utils.h"
@@ -127,17 +127,8 @@ void LabelManager::makePerminateBMFLabel(const char *const msg, Point pos, Color
     // add to registry
     s_ActiveLabels.push_back(l);
 
-    // add to game layer
-    if (m_target == nullptr){
-        m_target = GameLayer::getInstance();
-    }
-
-    //l->setScale(4);
-
-    // add to game layer
+    assert(m_target);
     m_target->addChild(l,LayerLevel::kCtrl);
-
-
 }
 
 

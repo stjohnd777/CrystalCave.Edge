@@ -75,9 +75,7 @@
 		2B7602A52290EDD800BED2FC /* BaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99341FFDE28D00BB5777 /* BaseLayer.cpp */; };
 		2B7602A62290EDD800BED2FC /* WelcomeLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB993F1FFDE29300BB5777 /* WelcomeLayer.cpp */; };
 		2B7602A72290EDD800BED2FC /* OptionLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB991D1FFDE28400BB5777 /* OptionLayer.cpp */; };
-		2B7602A82290EDD800BED2FC /* HudLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99271FFDE28700BB5777 /* HudLayer.cpp */; };
 		2B7602A92290EDD800BED2FC /* CtrlLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99401FFDE29300BB5777 /* CtrlLayer.cpp */; };
-		2B7602AA2290EDD800BED2FC /* GameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99121FFDE28100BB5777 /* GameLayer.cpp */; };
 		2B7602AB2290EDD800BED2FC /* FailedLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99301FFDE28B00BB5777 /* FailedLayer.cpp */; };
 		2B7602AC2290EDD800BED2FC /* SuccessLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99451FFDE29600BB5777 /* SuccessLayer.cpp */; };
 		2B7602AD2290EDD800BED2FC /* GameObjectComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B94B5F6228AF416001E9E8E /* GameObjectComponent.cpp */; };
@@ -153,8 +151,6 @@
 		2BEB98B51FFDE27500BB5777 /* animation_explosion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BEB97F61FFDE26400BB5777 /* animation_explosion.plist */; };
 		2BEB98D41FFDE27500BB5777 /* red_falcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BEB98061FFDE26A00BB5777 /* red_falcon.png */; };
 		2BEB98D51FFDE27500BB5777 /* red_falcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BEB98061FFDE26A00BB5777 /* red_falcon.png */; };
-		2BEB99471FFDE29700BB5777 /* GameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99121FFDE28100BB5777 /* GameLayer.cpp */; };
-		2BEB99481FFDE29700BB5777 /* GameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99121FFDE28100BB5777 /* GameLayer.cpp */; };
 		2BEB99491FFDE29700BB5777 /* GLVertFence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99131FFDE28100BB5777 /* GLVertFence.cpp */; };
 		2BEB994A1FFDE29700BB5777 /* GLVertFence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99131FFDE28100BB5777 /* GLVertFence.cpp */; };
 		2BEB994B1FFDE29700BB5777 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99141FFDE28100BB5777 /* SceneManager.cpp */; };
@@ -171,8 +167,6 @@
 		2BEB99581FFDE29700BB5777 /* HostileObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB991E1FFDE28400BB5777 /* HostileObject.cpp */; };
 		2BEB99591FFDE29700BB5777 /* Mine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99201FFDE28500BB5777 /* Mine.cpp */; };
 		2BEB995A1FFDE29700BB5777 /* Mine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99201FFDE28500BB5777 /* Mine.cpp */; };
-		2BEB995F1FFDE29700BB5777 /* HudLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99271FFDE28700BB5777 /* HudLayer.cpp */; };
-		2BEB99601FFDE29700BB5777 /* HudLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99271FFDE28700BB5777 /* HudLayer.cpp */; };
 		2BEB99611FFDE29700BB5777 /* Lightning.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99291FFDE28800BB5777 /* Lightning.cpp */; };
 		2BEB99621FFDE29700BB5777 /* Lightning.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99291FFDE28800BB5777 /* Lightning.cpp */; };
 		2BEB99631FFDE29700BB5777 /* Friendly.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB992A1FFDE28900BB5777 /* Friendly.cpp */; };
@@ -228,8 +222,9 @@
 		CD06D4D32299C39C0041E43E /* thruster5.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C82299C39C0041E43E /* thruster5.png */; };
 		CD06D4D42299C39C0041E43E /* thruster3.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C92299C39C0041E43E /* thruster3.png */; };
 		CD06D4D52299C39C0041E43E /* thruster3.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C92299C39C0041E43E /* thruster3.png */; };
-		CDF7873D229748AB00B5B1D5 /* HudLayer2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDF7873C229748AB00B5B1D5 /* HudLayer2.cpp */; };
-		CDF7873E229748AB00B5B1D5 /* HudLayer2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDF7873C229748AB00B5B1D5 /* HudLayer2.cpp */; };
+		CD3C624E229B0F2E000A79FE /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD3C624C229B0F2E000A79FE /* GameManager.cpp */; };
+		CDF7873D229748AB00B5B1D5 /* HudLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDF7873C229748AB00B5B1D5 /* HudLayer.cpp */; };
+		CDF7873E229748AB00B5B1D5 /* HudLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDF7873C229748AB00B5B1D5 /* HudLayer.cpp */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
@@ -372,7 +367,6 @@
 		2BEB97F61FFDE26400BB5777 /* animation_explosion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = animation_explosion.plist; sourceTree = "<group>"; };
 		2BEB98061FFDE26A00BB5777 /* red_falcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_falcon.png; sourceTree = "<group>"; };
 		2BEB99111FFDE28100BB5777 /* OptionLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionLayer.h; sourceTree = "<group>"; };
-		2BEB99121FFDE28100BB5777 /* GameLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLayer.cpp; sourceTree = "<group>"; };
 		2BEB99131FFDE28100BB5777 /* GLVertFence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLVertFence.cpp; sourceTree = "<group>"; };
 		2BEB99141FFDE28100BB5777 /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
 		2BEB99151FFDE28100BB5777 /* Mine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mine.h; sourceTree = "<group>"; };
@@ -389,8 +383,6 @@
 		2BEB99211FFDE28500BB5777 /* FailedLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FailedLayer.h; sourceTree = "<group>"; };
 		2BEB99221FFDE28500BB5777 /* GLHorzFence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLHorzFence.h; sourceTree = "<group>"; };
 		2BEB99241FFDE28600BB5777 /* CtrlLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CtrlLayer.h; sourceTree = "<group>"; };
-		2BEB99271FFDE28700BB5777 /* HudLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HudLayer.cpp; sourceTree = "<group>"; };
-		2BEB99281FFDE28800BB5777 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		2BEB99291FFDE28800BB5777 /* Lightning.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lightning.cpp; sourceTree = "<group>"; };
 		2BEB992A1FFDE28900BB5777 /* Friendly.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Friendly.cpp; sourceTree = "<group>"; };
 		2BEB992B1FFDE28900BB5777 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
@@ -406,7 +398,6 @@
 		2BEB99381FFDE28F00BB5777 /* LabelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelManager.h; sourceTree = "<group>"; };
 		2BEB993A1FFDE29000BB5777 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
 		2BEB993B1FFDE29100BB5777 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
-		2BEB993C1FFDE29100BB5777 /* HudLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HudLayer.h; sourceTree = "<group>"; };
 		2BEB993D1FFDE29200BB5777 /* LunarModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LunarModule.h; sourceTree = "<group>"; };
 		2BEB993E1FFDE29200BB5777 /* GameAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameAssets.h; sourceTree = "<group>"; };
 		2BEB993F1FFDE29300BB5777 /* WelcomeLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WelcomeLayer.cpp; sourceTree = "<group>"; };
@@ -437,8 +428,10 @@
 		CD06D4C72299C39C0041E43E /* thruster0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster0.png; sourceTree = "<group>"; };
 		CD06D4C82299C39C0041E43E /* thruster5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster5.png; sourceTree = "<group>"; };
 		CD06D4C92299C39C0041E43E /* thruster3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster3.png; sourceTree = "<group>"; };
-		CDF7873A229748AA00B5B1D5 /* HudLayer2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HudLayer2.h; sourceTree = "<group>"; };
-		CDF7873C229748AB00B5B1D5 /* HudLayer2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HudLayer2.cpp; sourceTree = "<group>"; };
+		CD3C624C229B0F2E000A79FE /* GameManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameManager.cpp; sourceTree = "<group>"; };
+		CD3C624D229B0F2E000A79FE /* GameManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
+		CDF7873A229748AA00B5B1D5 /* HudLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HudLayer.h; sourceTree = "<group>"; };
+		CDF7873C229748AB00B5B1D5 /* HudLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HudLayer.cpp; sourceTree = "<group>"; };
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -631,8 +624,6 @@
 			children = (
 				2BDAC150225ADDCF00CA02D9 /* HUD */,
 				2BDAC1472259A22300CA02D9 /* CtrlLayer */,
-				2BEB99281FFDE28800BB5777 /* GameLayer.h */,
-				2BEB99121FFDE28100BB5777 /* GameLayer.cpp */,
 				2B85D4802267F9F6005F5DD1 /* MyTMX.cpp */,
 				2B85D4812267F9F6005F5DD1 /* MyTMX.h */,
 			);
@@ -663,6 +654,8 @@
 				2B94B5EF2288FAF9001E9E8E /* SoundManager.h */,
 				2B5E00192274D40800205A72 /* UserDataStore.cpp */,
 				2B5E00182274D40700205A72 /* UserDataStore.h */,
+				CD3C624C229B0F2E000A79FE /* GameManager.cpp */,
+				CD3C624D229B0F2E000A79FE /* GameManager.h */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -720,10 +713,8 @@
 		2BDAC150225ADDCF00CA02D9 /* HUD */ = {
 			isa = PBXGroup;
 			children = (
-				CDF7873C229748AB00B5B1D5 /* HudLayer2.cpp */,
-				CDF7873A229748AA00B5B1D5 /* HudLayer2.h */,
-				2BEB99271FFDE28700BB5777 /* HudLayer.cpp */,
-				2BEB993C1FFDE29100BB5777 /* HudLayer.h */,
+				CDF7873C229748AB00B5B1D5 /* HudLayer.cpp */,
+				CDF7873A229748AA00B5B1D5 /* HudLayer.h */,
 			);
 			name = HUD;
 			path = CtrlLayer/HUD;
@@ -1110,7 +1101,7 @@
 				2B94B5E52287D129001E9E8E /* ColliderComponent.cpp in Sources */,
 				2B85D48422681E96005F5DD1 /* MyMacros.h in Sources */,
 				2B7602852290C13900BED2FC /* GLBeam.cpp in Sources */,
-				CDF7873D229748AB00B5B1D5 /* HudLayer2.cpp in Sources */,
+				CDF7873D229748AB00B5B1D5 /* HudLayer.cpp in Sources */,
 				2BEB99491FFDE29700BB5777 /* GLVertFence.cpp in Sources */,
 				2B7E8B48227DEC4A0099AD4B /* ObjectGroup.cpp in Sources */,
 				1AF87B781F6F77F7007BE51C /* AppController.mm in Sources */,
@@ -1128,14 +1119,12 @@
 				2BEB99691FFDE29700BB5777 /* FailedLayer.cpp in Sources */,
 				2BEB99751FFDE29700BB5777 /* CtrlLayer.cpp in Sources */,
 				2B94B5F02288FAF9001E9E8E /* SoundManager.cpp in Sources */,
-				2BEB99471FFDE29700BB5777 /* GameLayer.cpp in Sources */,
 				2BEB99731FFDE29700BB5777 /* WelcomeLayer.cpp in Sources */,
 				2B94B5EA2287E61A001E9E8E /* Spike.cpp in Sources */,
 				2B7E8B50227DEC4A0099AD4B /* Object.cpp in Sources */,
 				2BEB99611FFDE29700BB5777 /* Lightning.cpp in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
 				2BEB99551FFDE29700BB5777 /* OptionLayer.cpp in Sources */,
-				2BEB995F1FFDE29700BB5777 /* HudLayer.cpp in Sources */,
 				2B7602892290C41C00BED2FC /* Player.cpp in Sources */,
 				2B94B5F4228A8D11001E9E8E /* ParticleSystemManager.cpp in Sources */,
 				2B7E8B44227DEC4A0099AD4B /* Element.cpp in Sources */,
@@ -1143,6 +1132,7 @@
 				2B94B5FA228AF418001E9E8E /* GameObjectComponent.cpp in Sources */,
 				1AF87B8A1F6F7822007BE51C /* main.m in Sources */,
 				2B7E8B4E227DEC4A0099AD4B /* TileMap.cpp in Sources */,
+				CD3C624E229B0F2E000A79FE /* GameManager.cpp in Sources */,
 				2BEB99591FFDE29700BB5777 /* Mine.cpp in Sources */,
 				2BEB99711FFDE29700BB5777 /* GLFence.cpp in Sources */,
 				2B94B5FC228AF418001E9E8E /* GameObjectDescriptor.cpp in Sources */,
@@ -1183,9 +1173,7 @@
 				2B7602A52290EDD800BED2FC /* BaseLayer.cpp in Sources */,
 				2B7602A62290EDD800BED2FC /* WelcomeLayer.cpp in Sources */,
 				2B7602A72290EDD800BED2FC /* OptionLayer.cpp in Sources */,
-				2B7602A82290EDD800BED2FC /* HudLayer.cpp in Sources */,
 				2B7602A92290EDD800BED2FC /* CtrlLayer.cpp in Sources */,
-				2B7602AA2290EDD800BED2FC /* GameLayer.cpp in Sources */,
 				2B7602AB2290EDD800BED2FC /* FailedLayer.cpp in Sources */,
 				2B7602AC2290EDD800BED2FC /* SuccessLayer.cpp in Sources */,
 				2B7602AD2290EDD800BED2FC /* GameObjectComponent.cpp in Sources */,
@@ -1228,7 +1216,7 @@
 				2BEB994C1FFDE29700BB5777 /* SceneManager.cpp in Sources */,
 				2BEB99741FFDE29700BB5777 /* WelcomeLayer.cpp in Sources */,
 				2B94B5F5228A8D11001E9E8E /* ParticleSystemManager.cpp in Sources */,
-				CDF7873E229748AB00B5B1D5 /* HudLayer2.cpp in Sources */,
+				CDF7873E229748AB00B5B1D5 /* HudLayer.cpp in Sources */,
 				2B7602862290C13900BED2FC /* GLBeam.cpp in Sources */,
 				2BEB99781FFDE29700BB5777 /* Utils.cpp in Sources */,
 				2B85D4832267F9F6005F5DD1 /* MyTMX.cpp in Sources */,
@@ -1236,11 +1224,9 @@
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				2BC0A00F226C27B50089757F /* PhysicsShapeCache.cpp in Sources */,
 				2B94B5E62287D129001E9E8E /* ColliderComponent.cpp in Sources */,
-				2BEB99601FFDE29700BB5777 /* HudLayer.cpp in Sources */,
 				2B7E8B51227DEC4A0099AD4B /* Object.cpp in Sources */,
 				2BEB996E1FFDE29700BB5777 /* BaseLayer.cpp in Sources */,
 				2B94B601228B814F001E9E8E /* GameObject_.cpp in Sources */,
-				2BEB99481FFDE29700BB5777 /* GameLayer.cpp in Sources */,
 				2BEB99761FFDE29700BB5777 /* CtrlLayer.cpp in Sources */,
 				2BEB996C1FFDE29700BB5777 /* GLHorzFence.cpp in Sources */,
 				2B94B5FB228AF418001E9E8E /* GameObjectComponent.cpp in Sources */,

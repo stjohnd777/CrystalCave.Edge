@@ -1,7 +1,10 @@
 #pragma once
 
-#include "cocos2d.h"
 #include <vector>
+
+#include "cocos2d.h"
+
+#include "MyMacros.h"
 
 class LabelManager {
     
@@ -9,13 +12,11 @@ public:
     
     static LabelManager* getInstance();
 
-    // 2
-    CC_SYNTHESIZE(float, m_DelayTime, DelayTime);
-
-    // 1
-    CC_SYNTHESIZE(float, m_FadeTime, FadeTime);
+    GETTERSETTER(cocos2d::Node*, m_target, Target);
     
-    CC_SYNTHESIZE(cocos2d::Node*, m_target, Target);
+    GETTERSETTER(float, m_DelayTime, DelayTime);
+    GETTERSETTER(float, m_FadeTime, FadeTime);
+   
     
     std::vector< cocos2d::Label* >    s_ActiveLabels;
 

@@ -12,7 +12,7 @@
 
 #include "GameAssets.h"
 #include "SimpleAudioEngine.h"
-#include "GameLayer.h"
+
 #include "Utils.h"
 
 #include <string>

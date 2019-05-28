@@ -8,4 +8,4 @@
 
 #include "ParticleSystemManager.h"
 
-GameLayer* ParticleSystemManager::m_GameLayer;
+Node* ParticleSystemManager::m_GameLayer;

@@ -38,6 +38,7 @@ namespace dsj {
         m_Level = 1;
     }
 
+    
     void UserData::setIsPlayingBackgoundMusic(bool b){
         UserDefault::getInstance()->setBoolForKey(KEY_ISPLAYBGMUSIC.c_str(),b);
         UserDefault::getInstance()->flush();

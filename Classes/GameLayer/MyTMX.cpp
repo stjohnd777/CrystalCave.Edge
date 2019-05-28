@@ -71,7 +71,8 @@ MyTMX* MyTMX::create(std::string tmx)
 
 bool MyTMX::init(std::string tmx) {
 
-
+    LabelManager::getInstance()->setTarget(this);
+   
     CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(GameAssets::Sound::GAME_BACKGROUND_SOUND, true);
 
 
@@ -104,19 +105,19 @@ bool MyTMX::init(std::string tmx) {
     GameElementsFactory::getInstance()->setGameLayer(this);
 
     // HUD
-    m_HudLayer =  HudLayer2::create();
+    m_HudLayer =  HudLayer::create();
     m_HudLayer->setShip(ship);
     m_HudLayer->setGameLayer(this);
-    addChild(m_HudLayer,100);
+    addChild(m_HudLayer,100); // TODO :: ZOrder HUB
     m_HudLayer->startTracking();
 
     // CTRL
     m_CtrlLayer =  CtrlLayer::create();
     m_CtrlLayer->setShip(ship);
     m_CtrlLayer->setGameLayer(this);
-    m_CtrlLayer->setScale(.25);
-    m_CtrlLayer->setOpacity(128);
-    addChild(m_CtrlLayer,3000);
+    //m_CtrlLayer->setScale(.25);
+    m_CtrlLayer->setOpacity(128); // TODO :: ZOrder Opacit
+    addChild(m_CtrlLayer,3000); // TODO :: ZOrder CTRL
 
     auto contactListener = EventListenerPhysicsContact::create();
     contactListener->onContactBegin = CC_CALLBACK_1(MyTMX::onContactBegin, this);
@@ -255,7 +256,7 @@ bool MyTMX::init(std::string tmx) {
     
     finsh = this->getChildByTag(12345);
     
-    //assert(finsh);
+    assert(finsh);
 
     return true;
 }
@@ -269,16 +270,10 @@ void MyTMX::GameLoop ( Ref* target){
     if ( finsh) {
         if ( canEnterFinishedProcess && finsh->getBoundingBox().intersectsRect( ship->getBoundingBox())){
 
-            GameLayer::level ++;
             canEnterFinishedProcess = false;
-
             unscheduleAllCallbacks();
-            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::TADA, false);
-
-            auto scene = MyTMX::scene("TMX-cave/simplest2.tmx");
-            TransitionFlipAngular *animation = TransitionFlipAngular::create(.5,  scene);
-            Director::getInstance()->replaceScene(animation);
-            //SceneManager::getInstance()->Success();
+            SoundManager::tada();
+            SceneManager::getInstance()->Success();
         }
     }
 
@@ -286,8 +281,8 @@ void MyTMX::GameLoop ( Ref* target){
     if(ship->getHealth() <= 0 && canEnterDiedProcess){
         canEnterDiedProcess = false;
         unscheduleAllCallbacks();
-        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::FAILED_SOUND, false);
-        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::GAME_OVER);
+        SoundManager::wawawa();
+        SoundManager::gameover();
         SceneManager::getInstance()->Failed();
     }
     

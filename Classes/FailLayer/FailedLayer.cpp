@@ -5,7 +5,6 @@
 #include "WelcomeLayer.h"
 #include "OptionLayer.h"
 #include "FailedLayer.h"
-#include "GameLayer.h"
 
 #include "SceneManager.h"
 
@@ -80,7 +79,7 @@ void FailedLayer::initBackGround(){
 
 bool FailedLayer::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event)
 {
-    SceneManager::getInstance()->Game(GameLayer::level);
+    SceneManager::getInstance()->Game(GameManager::getInstance()->getLevel());
     return true;
 }
 
@@ -114,11 +113,8 @@ void FailedLayer::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
             break;
     }
     if ( play){
-        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("bell-0104.wav", false);
-        Scene* scene = GameLayer::scene();
-        TransitionCrossFade *animation = TransitionCrossFade::create(.5,  scene);
-        Director::getInstance()->replaceScene(animation);
-        Director::getInstance()->replaceScene(animation);
+        
+        SceneManager::getInstance()->Game(GameManager::getInstance()->getLevel());
     }
 }
 

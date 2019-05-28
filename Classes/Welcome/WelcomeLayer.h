@@ -24,6 +24,7 @@ private:
                                     int detail,
                                     Color4F myColor ,
                       bool isRandomColor);
+    
 
 
     void initLabels();

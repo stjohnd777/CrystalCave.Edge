@@ -1,13 +1,15 @@
 #include "AppDelegate.h"
 
 
-#include "GameLayer.h"
-#include "WelcomeLayer.h"
 
-#include "MyTmx.h"
 
 #include "SoundManager.h"
+#include "SceneManager.h"
+#include "PhysicsShapeCache.h"
 
+
+//#include "WelcomeLayer.h"
+//#include "MyTmx.h"
 //#include "SimpleAudioEngine.h"
 //using namespace CocosDenshion;
 
@@ -100,20 +102,20 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     //const char* plist = "images.plist";
     //const char* sheet = "images.png";
-    //SpriteFrameCache::getInstance()->addSpriteFramesWithFile(plist,sheet);    // create a scene. it's an autorelease object
+    //SpriteFrameCache::getInstance()->addSpriteFramesWithFile(plist,sheet);
 
     // load sounds
-    //SoundManager::PreLoadSound();
+    SoundManager::PreLoadSound();
 
 
     // PE
     PhysicsShapeCache::getInstance()->addShapesWithFile("crystal_cave.plist");
 
     
+    SceneManager::getInstance()->Welcome();
     //auto scene = WelcomeLayer::scene();
-    auto scene = MyTMX::scene("TMX-cave/simplest_long.tmx");
-
-    director->runWithScene(scene);
+    //auto scene = MyTMX::scene("TMX-cave/simplest_long.tmx");
+    //director->runWithScene(scene);
 
     return true;
 }
