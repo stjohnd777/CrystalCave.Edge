@@ -6,6 +6,7 @@
 #include "SuccessLayer.h"
 #include "SimpleAudioEngine.h"
 #include "SceneManager.h"
+#include "GameManager.h"
 
 
 using namespace cocos2d;
@@ -50,15 +51,14 @@ bool SuccessLayer::init() {
     this->addChild(pTime);
 
 
-    
- 
-    
     auto singleTouchListener = EventListenerTouchOneByOne::create();
     singleTouchListener->setSwallowTouches(true);
     singleTouchListener->onTouchBegan = CC_CALLBACK_2(SuccessLayer::onTouchBegan, this);
 
 
     getEventDispatcher()->addEventListenerWithSceneGraphPriority(singleTouchListener, this);
+    
+    GameManager::getInstance()->LevelComplete();
 
     return true;
 }
@@ -67,8 +67,10 @@ bool SuccessLayer::init() {
 
 bool SuccessLayer::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event)
 {
-    int lastLEvel = GameManager::getInstance()->getLevel();
-    GameManager::getInstance()->setLevel(lastLEvel +1);
-    SceneManager::getInstance()->Game(GameManager::getInstance()->getLevel());
+    //int lastLEvel = GameManager::getInstance()->getLevel();
+    //GameManager::getInstance()->setLevel(lastLEvel +1);
+    //SceneManager::getInstance()->Game(GameManager::getInstance()->getLevel());
+    
+    GameManager::getInstance()->LoadNextLevel();
     return true;
 }

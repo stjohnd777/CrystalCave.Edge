@@ -125,6 +125,31 @@ namespace dsj {
         if ( StringUtils::endsWith(getName(),"PHY") ) {
 
             std::function<void(cocos2d::Node* target,Object*)> lambda =[&](cocos2d::Node* target,Object* o){
+                
+                auto type = o->GetAttribute("type");
+                if ( type.compare("static") == 0 ){
+                     std::string shape = GetProperty(CUSTOM_PROPERTIES::PHY_BODY );
+                    if ( shape.compare("BOUNDING_BOX") == 0){
+                        
+                        int x = o->GetAttributeInt("x");
+                        int y = Director::getInstance()->getWinSize().height - o->GetAttributeInt("y");
+                        
+                        int width = o->GetAttributeInt("width");
+                        int height = o->GetAttributeInt("height");
+                        
+                        auto body = PhysicsBody::createBox(Size(width,height));
+                        body->setContactTestBitmask(1);
+                        body->setDynamic(false);
+                        
+                        auto s = Sprite::create();
+                        s->setAnchorPoint(Vec2(0,0));
+                        s->setPhysicsBody(body);
+                        s->setPosition(Vec2(x,y));
+                        target->addChild(s);
+                        
+                    }
+                    
+                }
                 cocos2d::log("TODO PHY Lanbda");
             };
 

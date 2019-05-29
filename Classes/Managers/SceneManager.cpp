@@ -27,7 +27,6 @@ SceneManager *SceneManager::getInstance() {
     if( INSTANCE == NULL)
     {
         INSTANCE = new SceneManager();
-        INSTANCE->gameManager =  GameManager::getInstance();
     }
     return INSTANCE;
 }
@@ -46,8 +45,7 @@ void SceneManager::Options(){
 }
 
 
-void SceneManager::Game(int level) {
-    std::string tmx = gameManager->getTmx(level);
+void SceneManager::Game(std::string tmx ) {
     auto pScene =  MyTMX::scene(tmx);
     TransitionFlipAngular *animation = TransitionFlipAngular::create(.5,  pScene);
     Director::getInstance()->replaceScene(animation);

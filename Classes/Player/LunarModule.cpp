@@ -136,7 +136,7 @@ void LunarModule::applyThrush(Vec2 force, float percentage){
 
 
 void LunarModule::update(float dt) {
-    log("LunarModule:update");
+    //log("LunarModule:update");
     injured();
 };
 
@@ -153,7 +153,7 @@ void LunarModule::update(float dt) {
  * Take Damage
  */
 void LunarModule::takeDamage(int weight){
-    log("LunarModule:takeDamage");
+    //log("LunarModule:takeDamage");
     SoundManager::debris();
     decrementHealth(weight);
     if ( getHealth() <=0){
@@ -166,7 +166,7 @@ void LunarModule::takeDamage(int weight){
  * give default of nothing
  */
  void LunarModule::injured() {
-     log("LunarModule:injured");
+     //log("LunarModule:injured");
      
  };
 
@@ -174,7 +174,7 @@ void LunarModule::takeDamage(int weight){
  * Object do you death sequence
  */
  void LunarModule::die() {
-     log("LunarModule::die");
+     //log("LunarModule::die");
      explosion();
  };
 
@@ -219,27 +219,7 @@ bool LunarModule::onContactBegin(cocos2d::PhysicsContact& contact) {
     if ( tagB == LunarModule::TAG ){
         log("LunarModule::onContactBegin");
     }
-//
-//            Projectile* projectile = NULL;
-//            Seeker * seeker = NULL;
-//    
-//            if ( tagA == TAG_SEEKER && tagB == GameAssets::Sprite::TAG_PROJECTILE ){
-//                projectile = dynamic_cast<Projectile*>(nodeA);
-//                seeker = dynamic_cast<Seeker*>(nodeB);
-//                if (seeker) {
-//                    seeker->hit(projectile->getWeight());
-//                }
-//                return true;
-//            }else if ( tagB ==TAG_SEEKER && tagA == GameAssets::Sprite::TAG_PROJECTILE){
-//                projectile = dynamic_cast<Projectile*>(nodeA);
-//                seeker = dynamic_cast<Seeker*>(nodeB);
-//                if (seeker) {
-//                    seeker->hit(projectile->getWeight());
-//                }
-//                return true;
-//    
-//            }
-//     //not interested
+    
     return false;
     
 };

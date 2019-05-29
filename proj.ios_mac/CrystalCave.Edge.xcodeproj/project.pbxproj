@@ -31,8 +31,8 @@
 		2B3E108F2272819C00A792CF /* space_mine.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B3E108C2272819C00A792CF /* space_mine.png */; };
 		2B5E000E2273A03E00205A72 /* game.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E000C2273A03E00205A72 /* game.png */; };
 		2B5E00132273C5BA00205A72 /* game.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E000C2273A03E00205A72 /* game.png */; };
-		2B5E001A2274D40800205A72 /* UserDataStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B5E00192274D40800205A72 /* UserDataStore.cpp */; };
-		2B5E001B2274D40800205A72 /* UserDataStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B5E00192274D40800205A72 /* UserDataStore.cpp */; };
+		2B5E001A2274D40800205A72 /* UserData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B5E00192274D40800205A72 /* UserData.cpp */; };
+		2B5E001B2274D40800205A72 /* UserData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B5E00192274D40800205A72 /* UserData.cpp */; };
 		2B5E001F2274E0F800205A72 /* Sound in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E001E2274E0F700205A72 /* Sound */; };
 		2B5E00202274E0F800205A72 /* Sound in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E001E2274E0F700205A72 /* Sound */; };
 		2B5E00222274E36E00205A72 /* box.red.hollow.64.64.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E00212274E36E00205A72 /* box.red.hollow.64.64.png */; };
@@ -71,7 +71,7 @@
 		2B7602A12290EDD800BED2FC /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99141FFDE28100BB5777 /* SceneManager.cpp */; };
 		2B7602A22290EDD800BED2FC /* LabelManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99171FFDE28200BB5777 /* LabelManager.cpp */; };
 		2B7602A32290EDD800BED2FC /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B94B5EE2288FAF8001E9E8E /* SoundManager.cpp */; };
-		2B7602A42290EDD800BED2FC /* UserDataStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B5E00192274D40800205A72 /* UserDataStore.cpp */; };
+		2B7602A42290EDD800BED2FC /* UserData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B5E00192274D40800205A72 /* UserData.cpp */; };
 		2B7602A52290EDD800BED2FC /* BaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99341FFDE28D00BB5777 /* BaseLayer.cpp */; };
 		2B7602A62290EDD800BED2FC /* WelcomeLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB993F1FFDE29300BB5777 /* WelcomeLayer.cpp */; };
 		2B7602A72290EDD800BED2FC /* OptionLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB991D1FFDE28400BB5777 /* OptionLayer.cpp */; };
@@ -222,6 +222,9 @@
 		CD06D4D32299C39C0041E43E /* thruster5.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C82299C39C0041E43E /* thruster5.png */; };
 		CD06D4D42299C39C0041E43E /* thruster3.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C92299C39C0041E43E /* thruster3.png */; };
 		CD06D4D52299C39C0041E43E /* thruster3.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C92299C39C0041E43E /* thruster3.png */; };
+		CD1E44D1229E0C1A002AAE51 /* LevelSelectLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD1E44CF229E0C1A002AAE51 /* LevelSelectLayer.cpp */; };
+		CD1E44D4229E1660002AAE51 /* GameLevelInfo.xml in Resources */ = {isa = PBXBuildFile; fileRef = CD1E44D3229E1660002AAE51 /* GameLevelInfo.xml */; };
+		CD1E44D5229E1660002AAE51 /* GameLevelInfo.xml in Resources */ = {isa = PBXBuildFile; fileRef = CD1E44D3229E1660002AAE51 /* GameLevelInfo.xml */; };
 		CD3C624E229B0F2E000A79FE /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD3C624C229B0F2E000A79FE /* GameManager.cpp */; };
 		CDF7873D229748AB00B5B1D5 /* HudLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDF7873C229748AB00B5B1D5 /* HudLayer.cpp */; };
 		CDF7873E229748AB00B5B1D5 /* HudLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDF7873C229748AB00B5B1D5 /* HudLayer.cpp */; };
@@ -303,8 +306,8 @@
 		2B3E108C2272819C00A792CF /* space_mine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = space_mine.png; sourceTree = "<group>"; };
 		2B5E000C2273A03E00205A72 /* game.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game.png; sourceTree = "<group>"; };
 		2B5E00172274D2D500205A72 /* SillyMutts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SillyMutts.h; sourceTree = "<group>"; };
-		2B5E00182274D40700205A72 /* UserDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDataStore.h; sourceTree = "<group>"; };
-		2B5E00192274D40800205A72 /* UserDataStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserDataStore.cpp; sourceTree = "<group>"; };
+		2B5E00182274D40700205A72 /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
+		2B5E00192274D40800205A72 /* UserData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserData.cpp; sourceTree = "<group>"; };
 		2B5E001E2274E0F700205A72 /* Sound */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sound; sourceTree = "<group>"; };
 		2B5E00212274E36E00205A72 /* box.red.hollow.64.64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box.red.hollow.64.64.png; sourceTree = "<group>"; };
 		2B5E00252274E38900205A72 /* box.red.hollow.32.32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box.red.hollow.32.32.png; sourceTree = "<group>"; };
@@ -428,6 +431,9 @@
 		CD06D4C72299C39C0041E43E /* thruster0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster0.png; sourceTree = "<group>"; };
 		CD06D4C82299C39C0041E43E /* thruster5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster5.png; sourceTree = "<group>"; };
 		CD06D4C92299C39C0041E43E /* thruster3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster3.png; sourceTree = "<group>"; };
+		CD1E44CF229E0C1A002AAE51 /* LevelSelectLayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LevelSelectLayer.cpp; sourceTree = "<group>"; };
+		CD1E44D0229E0C1A002AAE51 /* LevelSelectLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelSelectLayer.h; sourceTree = "<group>"; };
+		CD1E44D3229E1660002AAE51 /* GameLevelInfo.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GameLevelInfo.xml; sourceTree = "<group>"; };
 		CD3C624C229B0F2E000A79FE /* GameManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameManager.cpp; sourceTree = "<group>"; };
 		CD3C624D229B0F2E000A79FE /* GameManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
 		CDF7873A229748AA00B5B1D5 /* HudLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HudLayer.h; sourceTree = "<group>"; };
@@ -652,8 +658,8 @@
 				2BEB99381FFDE28F00BB5777 /* LabelManager.h */,
 				2B94B5EE2288FAF8001E9E8E /* SoundManager.cpp */,
 				2B94B5EF2288FAF9001E9E8E /* SoundManager.h */,
-				2B5E00192274D40800205A72 /* UserDataStore.cpp */,
-				2B5E00182274D40700205A72 /* UserDataStore.h */,
+				2B5E00192274D40800205A72 /* UserData.cpp */,
+				2B5E00182274D40700205A72 /* UserData.h */,
 				CD3C624C229B0F2E000A79FE /* GameManager.cpp */,
 				CD3C624D229B0F2E000A79FE /* GameManager.h */,
 			);
@@ -786,6 +792,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CD1E44D2229E162B002AAE51 /* conf */,
 				2B5E001E2274E0F700205A72 /* Sound */,
 				521A8EA819F11F5000D177D7 /* fonts */,
 				2BEB999D1FFF247800BB5777 /* SIFI_GUI */,
@@ -819,6 +826,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CD1E44CD229E0BF4002AAE51 /* LevelSelect */,
 				2B85D47B226653D7005F5DD1 /* MyMacros.h */,
 				2BEB993E1FFDE29200BB5777 /* GameAssets.h */,
 				2BEB99331FFDE28D00BB5777 /* AppDelegate.h */,
@@ -870,6 +878,23 @@
 				CD06D4C82299C39C0041E43E /* thruster5.png */,
 			);
 			path = Thruster;
+			sourceTree = "<group>";
+		};
+		CD1E44CD229E0BF4002AAE51 /* LevelSelect */ = {
+			isa = PBXGroup;
+			children = (
+				CD1E44CF229E0C1A002AAE51 /* LevelSelectLayer.cpp */,
+				CD1E44D0229E0C1A002AAE51 /* LevelSelectLayer.h */,
+			);
+			path = LevelSelect;
+			sourceTree = "<group>";
+		};
+		CD1E44D2229E162B002AAE51 /* conf */ = {
+			isa = PBXGroup;
+			children = (
+				CD1E44D3229E1660002AAE51 /* GameLevelInfo.xml */,
+			);
+			path = conf;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1011,6 +1036,7 @@
 				2B5E00222274E36E00205A72 /* box.red.hollow.64.64.png in Resources */,
 				2B730E68226CC7DD005DCD3F /* crystal_cav.pes in Resources */,
 				CD06D4D22299C39C0041E43E /* thruster5.png in Resources */,
+				CD1E44D4229E1660002AAE51 /* GameLevelInfo.xml in Resources */,
 				1A88B2641FC3D9C9005C14AE /* Images.xcassets in Resources */,
 				2B5E000E2273A03E00205A72 /* game.png in Resources */,
 				CD06D4C22298C8790041E43E /* TODO in Resources */,
@@ -1070,6 +1096,7 @@
 				2BDAC168225C244800CA02D9 /* space-cave.jpg in Resources */,
 				2B5E0038227544BD00205A72 /* box.red.32.32.png in Resources */,
 				2B3E10892271381500A792CF /* GameOver001.png in Resources */,
+				CD1E44D5229E1660002AAE51 /* GameLevelInfo.xml in Resources */,
 				2B3E107E22701BF900A792CF /* bottom.elecfence.128x128.png in Resources */,
 				2BEB98851FFDE27500BB5777 /* animation_explosion.png in Resources */,
 				2BDAC16B225C299D00CA02D9 /* stalactite.png in Resources */,
@@ -1107,9 +1134,10 @@
 				1AF87B781F6F77F7007BE51C /* AppController.mm in Sources */,
 				2BEB99791FFDE29700BB5777 /* SuccessLayer.cpp in Sources */,
 				2BEB994B1FFDE29700BB5777 /* SceneManager.cpp in Sources */,
-				2B5E001A2274D40800205A72 /* UserDataStore.cpp in Sources */,
+				2B5E001A2274D40800205A72 /* UserData.cpp in Sources */,
 				2B7E8B4A227DEC4A0099AD4B /* Tile.cpp in Sources */,
 				2BEB99571FFDE29700BB5777 /* HostileObject.cpp in Sources */,
+				CD1E44D1229E0C1A002AAE51 /* LevelSelectLayer.cpp in Sources */,
 				2B94B605229062B6001E9E8E /* GameElementsFactory.cpp in Sources */,
 				2BEB996B1FFDE29700BB5777 /* GLHorzFence.cpp in Sources */,
 				2B85D4822267F9F6005F5DD1 /* MyTMX.cpp in Sources */,
@@ -1169,7 +1197,7 @@
 				2B7602A12290EDD800BED2FC /* SceneManager.cpp in Sources */,
 				2B7602A22290EDD800BED2FC /* LabelManager.cpp in Sources */,
 				2B7602A32290EDD800BED2FC /* SoundManager.cpp in Sources */,
-				2B7602A42290EDD800BED2FC /* UserDataStore.cpp in Sources */,
+				2B7602A42290EDD800BED2FC /* UserData.cpp in Sources */,
 				2B7602A52290EDD800BED2FC /* BaseLayer.cpp in Sources */,
 				2B7602A62290EDD800BED2FC /* WelcomeLayer.cpp in Sources */,
 				2B7602A72290EDD800BED2FC /* OptionLayer.cpp in Sources */,
@@ -1237,7 +1265,7 @@
 				2BEB99701FFDE29700BB5777 /* AppDelegate.cpp in Sources */,
 				2BEB99561FFDE29700BB5777 /* OptionLayer.cpp in Sources */,
 				2BEB994A1FFDE29700BB5777 /* GLVertFence.cpp in Sources */,
-				2B5E001B2274D40800205A72 /* UserDataStore.cpp in Sources */,
+				2B5E001B2274D40800205A72 /* UserData.cpp in Sources */,
 				2B94B5EB2287E61A001E9E8E /* Spike.cpp in Sources */,
 				2BEB99521FFDE29700BB5777 /* GameObject.cpp in Sources */,
 			);

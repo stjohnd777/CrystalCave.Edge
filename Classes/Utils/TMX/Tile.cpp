@@ -188,12 +188,7 @@ namespace dsj {
 
         if (stob(isUsePhysics)){
 
-
-
-
             cocos2d::PhysicsBody*  body ;
-
-
 
             std::string shape = GetProperty(CUSTOM_PROPERTIES::PHY_BODY );
 

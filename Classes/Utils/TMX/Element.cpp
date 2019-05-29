@@ -144,7 +144,7 @@ namespace dsj
         bool ret = false;
         auto v = GetProperty(key);
         if ( v.length() > 0 ){
-          ret = StringUtils::stob(GetProperty(key));
+          ret = StringUtils::stob(v);
         }
         return ret;
     }

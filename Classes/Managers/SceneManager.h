@@ -1,7 +1,8 @@
 #pragma once
 
+#include <string>
 #include "cocos2d.h"
-#include "GameManager.h"
+ 
 
 class SceneManager {
 
@@ -25,17 +26,13 @@ public:
 
     void Options();
 
-    void Game(int level);
+    void Game(std::string level);
 
     void Failed();
 
     void Success();
 
     void Exit();
-
-private:
-    
-    GameManager* gameManager;
 
 private :
 

@@ -5,19 +5,22 @@
 //  Created by Daniel St. John on 10/6/15.
 //
 //
+#include "UserData.h"
+
 #include <string>
 #include <sstream>
 using namespace std;
 
-#include "UserDataStore.h"
+
 
 using namespace cocos2d;
 
-namespace dsj {
+
     
     UserData* UserData::INSTANCE = nullptr;
     
     const std::string UserData::KEY_ISPLAYBGMUSIC ="ISPLAYINGBGMUSIC";
+    const std::string UserData::KEY_RESUME_LEVEL = "KEY_RESUME_LEVEL";
 
     const std::string UserData::KEY_SCORE = "CURRENT_SCORE";
     const std::string UserData::KEY_LEVEL = "CURRENT_LEVEL";
@@ -47,6 +50,52 @@ namespace dsj {
     bool UserData::getIsPlayingBackgoundMusic(){
         return UserDefault::getInstance()->getBoolForKey(KEY_ISPLAYBGMUSIC.c_str());
     }
+    
+    
+    int UserData::getResumeLevel(){
+        int level = UserDefault::getInstance()->getIntegerForKey(KEY_RESUME_LEVEL.c_str(),0);
+        return level;
+    }
+    
+    
+    void UserData::setResumeLevel(int level){
+        UserDefault::getInstance()->setIntegerForKey(KEY_RESUME_LEVEL.c_str(),level);
+    }
+    
+    
+    void  UserData::saveLevelStats(
+                        int level,
+                        int levelTime,
+                        int score,
+                        int stars,
+                        bool isCompleted
+                                   ){
+        
+        std::stringstream ss;
+        ss << "IS_LEVEL_" << level <<  "_OPEN";
+        const char* is_open_key = ss.str().c_str();
+        UserDefault::getInstance()->setBoolForKey(is_open_key, true);
+        ss.clear();
+        
+    }
+    
+    
+    bool UserData::isLevelOpen(int level) {
+        std::stringstream ss;
+        ss << "IS_LEVEL_" << level <<  "_OPEN";
+        const char* key = ss.str().c_str();
+        bool isOpen = UserDefault::getInstance()->getBoolForKey(key,false);
+        return isOpen;
+    }
+    
+    
+    
+    void save(){
+        cocos2d::UserDefault::getInstance()->flush();
+    }
+    
+    
+    
 
 
     void UserData::setScore(int score){
@@ -70,6 +119,13 @@ namespace dsj {
     }
 
 
+    
+    
+    
+    
+    
+    
+    
     void UserData::setHighScore( int highScore)
     {
         std:string key = UserData::KEY_HISCORE;
@@ -81,7 +137,7 @@ namespace dsj {
     {
         int ret = 0;
         std:string key = UserData::KEY_HISCORE;
-        int persistedHighScore = UserDefault::getInstance()->getIntegerForKey(key.c_str(),10000);
+        int persistedHighScore = UserDefault::getInstance()->getIntegerForKey(key.c_str(),0);
         int currentScore = getScore();
 
         if( currentScore > persistedHighScore){
@@ -118,5 +174,4 @@ namespace dsj {
     }
 
 
-}
-//NS_DSJ_END
+ 

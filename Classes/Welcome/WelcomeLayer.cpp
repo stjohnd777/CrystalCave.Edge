@@ -8,6 +8,7 @@
 
 #include "Utils.h"
 #include "SceneManager.h"
+#include "GameManager.h"
 
 #include "GLVertFence.h"
 #include "Mine.h"
@@ -19,8 +20,8 @@ using namespace cocos2d;
 #include <string>
 using namespace std;
 
-#include "SimpleAudioEngine.h"
-using namespace CocosDenshion;
+//#include "SimpleAudioEngine.h"
+//using namespace CocosDenshion;
 
 
 Scene*WelcomeLayer::scene() {
@@ -66,8 +67,10 @@ bool WelcomeLayer::init(std::string bg,std::string title) {
 
 
    this->play = [&](Ref* sender){
+        //  resume last level
         int level = GameManager::getInstance()->getLevel();
-        SceneManager::getInstance()->Game(level);
+        auto tmx =  GameManager::getInstance()->getTmx(level);
+        SceneManager::getInstance()->Game(tmx);
     };
 
    this->settings = [&](Ref* sender){
@@ -354,12 +357,15 @@ void WelcomeLayer::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event) {
     }
     
     if ( play){
-        SceneManager::getInstance()->Game(GameManager::getInstance()->getLevel());
-//
-//        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("bell-0104.wav", false);
-//        Scene* scene = GameLayer::scene();
-//        TransitionCrossFade *animation = TransitionCrossFade::create(.5,  scene);
-//        Director::getInstance()->replaceScene(animation);
+        
+        GameManager::getInstance()->LoadFirstLevel();
+
+        
+        //GameManager::getInstance()->ResumeLevel();
+        
+        
+        //SceneManager::getInstance()->LevelSelect();
+      
     }
 }
 

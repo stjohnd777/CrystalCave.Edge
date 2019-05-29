@@ -1,24 +1,59 @@
-DONE :Thruster Partical Effect
+DONE :Thruster
 DONE: Move TAGS to GameAssets
 DONE: Min Move Vertical
 DONE: Address Default Exposion Animation on ship TakeDamage
 DONE: Acid top gives give and has body
+DONE: SoundManager, Sounc is missing on Ship Hits
+DONE: SceneManagement TMX
+DONE: Seperate of the Randam and TMX
 
 
-IN PROGRESS: SoundManager, Sounc is missing on Ship Hits
-IN PROGRESS: Pause button back button
+BUG : QuartzCrystalNorthFliped.png Missing
+
+
 IN PROGRESS: Injured, fire and smoke effect h=base oin Health
-IN PROGRESS: Seperate of the Randam and TMX
+IN PROGRESS: LABEL MANAGER AND ALL HITS
+IN PROGRESS: Pause button back button
+IN PROGRESS: Persistence
+                Last Level Player
+                Develop Score system
+                Health + Time + Pickups
 
 
-TODO: Z-order clarification on ship and env BG < electric < spike + TR + crystal < ship < acid < CRTL < HUB
-TODO: SceneManagement TMX
+IN PROGRESS: PickUp
+                Health
+                Gems
+Leveling up
+    shild
+    health
+    speed
+    fire
+
+
+Mechanics:
+   Three Lives to Game
+
+Feature:
+    HyperSpace
+    Injured, fire and smoke effect base oin Health
+    Scene Shake
+
+
+TODO : TMX Layer is cocos2d::Layer
+TODO : TMX PHY OBJECT LAYER BB and PE for large level
+TODO : Refined Z-ordering, for example clarification and overide ablity on TMX layer,
+       example:   BG < electric < spike + TR + crystal < ship < acid < CRTL < HUD
+
+
+TODO : OPTIONS
+       BG SOUND
+       SOUND LEVEL
+       SHOW PHY
+       SHOW GRID
 
 TODO: Follow(y) in the image of Follow(y)
 TODO: Follow(x,y) World Edge Stop Follow, using larg wall may be good enough
-
 TODO: Wall collosion velcoity check and prorted damage
-
 TODO: Does the particle effect clean it self up when finished, Do I have to clean up the particle effect?
 
 SHELFED : Thruster Animation

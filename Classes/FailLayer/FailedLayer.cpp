@@ -7,6 +7,7 @@
 #include "FailedLayer.h"
 
 #include "SceneManager.h"
+#include "GameManager.h"
 
 
 using namespace cocos2d;
@@ -79,7 +80,11 @@ void FailedLayer::initBackGround(){
 
 bool FailedLayer::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event)
 {
-    SceneManager::getInstance()->Game(GameManager::getInstance()->getLevel());
+    // Resume last level 
+    int level = GameManager::getInstance()->getLevel();
+    auto tmx = GameManager::getInstance()->getTmx(level);
+    SceneManager::getInstance()->Game(tmx);
+    
     return true;
 }
 
@@ -114,7 +119,9 @@ void FailedLayer::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
     }
     if ( play){
         
-        SceneManager::getInstance()->Game(GameManager::getInstance()->getLevel());
+        int resumeLevel = GameManager::getInstance()->getResumeLevel();
+        std::string tmx =  GameManager::getInstance()->getTmx(resumeLevel);
+        SceneManager::getInstance()->Game(tmx);
     }
 }
 

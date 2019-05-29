@@ -13,6 +13,8 @@
 #include "SimpleAudioEngine.h"
 #include "LabelManager.h"
 #include "SceneManager.h"
+#include "GameManager.h"
+
 #include "GameElementsFactory.h"
 
 #include "TileMap.h"
@@ -130,7 +132,8 @@ bool MyTMX::init(std::string tmx) {
     // TileMap
     dsj::TileMap* tileMap;
     try {
-        //tileMap = new dsj::TileMap("TMX-Cave/level0_30x16x64.tmx");
+        int level = GameManager::getInstance()->getResumeLevel();
+        std:string tmx = GameManager::getInstance()->getTmx(level);
         tileMap = new dsj::TileMap(tmx);//"TMX-Cave/simplest2.tmx");
         log("%s", tileMap->to_string().c_str());
         tileMap->render(this);
@@ -256,7 +259,7 @@ bool MyTMX::init(std::string tmx) {
     
     finsh = this->getChildByTag(12345);
     
-    assert(finsh);
+    //assert(finsh);
 
     return true;
 }
