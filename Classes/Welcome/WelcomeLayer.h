@@ -1,5 +1,7 @@
 #pragma once
 
+#include <functional>
+
 #include "cocos2d.h"
 #include "BaseLayer.h"
 
@@ -44,8 +46,9 @@ private:
     std::string titleLabelString ;
     std::string backGroundImage ;
 
-    function<void( cocos2d::Ref* sender)> play ;
-    function<void( cocos2d::Ref* sender)> settings;
-    function<void( cocos2d::Ref* sender)> exit ;
+    std::function<void( cocos2d::Ref* sender)> play ;
+    std::function<void( cocos2d::Ref* sender)> levelSelect ;
+    std::function<void( cocos2d::Ref* sender)> settings;
+    std::function<void( cocos2d::Ref* sender)> exit ;
 };
 

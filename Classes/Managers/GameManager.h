@@ -76,6 +76,7 @@ public:
     
     
     
+    
     //void LoadNextLevel() ;
     void  LoadFirstLevel() {
         m_level = 0;
@@ -102,6 +103,14 @@ public:
         SceneManager::getInstance()->Game(tmx);
     }
     
+    //void LoadLevel(int level) ;
+    void  LoadLevel(int level) {
+        m_level = level;
+        std::string tmx = levels[m_level];
+        SceneManager::getInstance()->Game(tmx);
+        
+    }
+    
     int getLevel() {
         return m_level;
     }
@@ -112,22 +121,17 @@ public:
   
 
 private :
-    
-    //void LoadLevel(int level) ;
-    void  LoadLevel(int level) {
-        m_level = level;
-        std::string tmx = levels[m_level];
-        SceneManager::getInstance()->Game(tmx);
-        
-    }
+
     
     
     int  m_level  = 0;
     
     //GameManager();
     GameManager (){
+        levels.push_back("TMX-Cave/test_phy.tmx");
         levels.push_back("TMX-Cave/simplest.tmx");
         levels.push_back("TMX-Cave/template.tmx");
+        levels.push_back("TMX-Cave/level001.tmx");
         levels.push_back("TMX-Cave/simplest_long.tmx");
         levels.push_back("TMX-Cave/simplest_full.tmx");
     }
@@ -136,9 +140,9 @@ private :
 };
 
 
-//
+
 //class LevalInfo {
-//    GETTERSETTER(std::string, m_name, Name)
+//
 //    GETTERSETTER(int, m_order, Order)
 //    GETTERSETTER(std::string, m_desc, Desc)
 //    GETTERSETTER(std::string, m_tmx, PathTMX)
@@ -147,4 +151,13 @@ private :
 //    GETTERSETTER(int , m_levelScore, LevelScore)
 //    GETTERSETTER(int, m_starts, Stars)
 //
+//};
+//
+//
+//class LevalStats {
+//    GETTERSETTER(std::string, m_name, Name)
+//    GETTERSETTER(bool, m_isLocked, IsLocked)
+//    GETTERSETTER(std::time_t, m_completedOn, CompletedOn)
+//    GETTERSETTER(int , m_levelScore, LevelScore)
+//    GETTERSETTER(int, m_starts, Stars)
 //};

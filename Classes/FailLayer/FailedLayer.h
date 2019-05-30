@@ -25,13 +25,13 @@ private:
 //    void onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event *event);
     
     
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32   || CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-    void onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event);
-    void onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event);
-    void onMouseDown(Event *event);
-    void onMouseUp(Event *event);
-    void onMouseMove(Event *event);
-    void onMouseScroll(Event *event);
+#if IS_DESKTOP
+    void onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event);
+    void onKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event);
+    void onMouseDown(cocos2d::Event *event);
+    void onMouseUp(cocos2d::Event *event);
+    void onMouseMove(cocos2d::Event *event);
+    void onMouseScroll(cocos2d::Event *event);
 #endif
 };
 

@@ -1,3 +1,4 @@
+#include "GameAssets.h"
 #include "Utils.h"
 #include "BaseLayer.h"
 #include "SceneManager.h"
@@ -5,31 +6,31 @@
 using namespace cocos2d;
 
 
-BaseLayer* BaseLayer::create()
-{
-    BaseLayer* baseLayer = new BaseLayer();
-    if ( baseLayer && baseLayer->init())
-    {
-        baseLayer->autorelease();
-    }else{
-        delete baseLayer;
-        baseLayer = nullptr;
+//BaseLayer* BaseLayer::create()
+//{
+//    BaseLayer* baseLayer = new BaseLayer();
+//    if ( baseLayer && baseLayer->init())
+//    {
+//        baseLayer->autorelease();
+//    }else{
+//        delete baseLayer;
+//        baseLayer = nullptr;
+//
+//    }
+//    return baseLayer;
+//}
 
-    }
-    return baseLayer;
-}
-
-
-bool BaseLayer::init() {
-    
-    if (!Layer::init() )
-    {
-        return false;
-    }
-    winSize = Director::getInstance()->getWinSize();
-    
-    return true;
-}
+//
+//bool BaseLayer::init() {
+//    
+//    if (!Layer::init() )
+//    {
+//        return false;
+//    }
+//    winSize = Director::getInstance()->getWinSize();
+//    
+//    return true;
+//}
 
 
 void BaseLayer::strechBackgroundToScreen(std::string backgroundPath, int z){
@@ -37,7 +38,7 @@ void BaseLayer::strechBackgroundToScreen(std::string backgroundPath, int z){
     Size size = Director::getInstance()->getWinSize();
     pSpriteBackground = Sprite::create(backgroundPath);
     if (pSpriteBackground){
-        pSpriteBackground->setZOrder(0);
+
         float scaleX = size.width/pSpriteBackground->getContentSize().width;
         pSpriteBackground->setScaleX(scaleX);
         float scaleY = size.height/pSpriteBackground->getContentSize().height;
@@ -54,7 +55,7 @@ void BaseLayer::strechBackgroundToScreen(std::string backgroundPath, int z, floa
     Size size = Director::getInstance()->getWinSize();
     pSpriteBackground = Sprite::create(backgroundPath);
     if (pSpriteBackground){
-        pSpriteBackground->setZOrder(0);
+    
         float scaleX = percentage *size.width/pSpriteBackground->getContentSize().width;
         pSpriteBackground->setScaleX(scaleX);
         float scaleY = percentage * size.height/pSpriteBackground->getContentSize().height;

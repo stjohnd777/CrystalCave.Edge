@@ -95,7 +95,7 @@ public:
     
 private:
     
-    Label * pausedlabel ;
+    cocos2d::Label * pausedlabel ;
     
     long startTime;
 
