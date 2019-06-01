@@ -97,7 +97,8 @@ namespace GameAssets {
         const char* const WOOSH                        =   "Sound/woosh.wav";
         const char* const THRUST                       =   "Sound/thrusters.wav";
         const char* const BELL                         =   "Sound/bell-0104.wav";
-        const char* const ALARM                        =   "Sound/alarm.wav";
+        const char* const ALARM                        =   "Sound/Alarm/alarm.wav";
+        const char* const ALARMS                        =   "Sound/Alarm/alarms.wav";
         
 
 
@@ -139,6 +140,8 @@ namespace GameAssets {
         const char* const QuartzCrystalNorthFliped3 ="TMX-Cave/QuartzCrystalNorthFliped3.png";
         const char* const Geyzer = "TMX-Cave/geyzer.png";
         const char* const FINISH = "vfinish.png";
+        
+        
 
 
         const char* const  BTN_BACK                     =  "SIFI_GUI/Normal/PreviousPage.png";
@@ -170,6 +173,19 @@ namespace GameAssets {
 
         const char* const  BTN_SETTINGS                 =  "SIFI_GUI/Normal/Settings.png" ;
         const char* const  BTN_SETTINGS_SEL             =  "SIFI_GUI/Disabled/Settings.png";
+        
+        
+        const char* const  LEVEL_BG                     =  "SIFI_GUI/Window/Window.png";
+        
+        const char* const  BTN_MENU                     =  "SIFI_GUI/Normal/Menu.png" ;
+        const char* const  BTN_MENU_SEL                 =  "SIFI_GUI/Disabled/Menu.png";
+        
+        const char* const  BTN_LOCKED                   =  "SIFI_GUI/Normal/Locked.png" ;
+        const char* const  BTN_LOCKED_SEL               =  "SIFI_GUI/Disabled/Locked.png";
+        
+        const char* const  STAR_ON                      =  "SIFI_GUI/GameIcon/StarON.png" ;
+        const char* const  STAR_OFF                     =  "SIFI_GUI/GameIcon/StarOFF.png";
+      
 
     }
 

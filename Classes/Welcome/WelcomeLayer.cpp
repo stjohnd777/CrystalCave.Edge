@@ -72,6 +72,11 @@ bool WelcomeLayer::init(std::string bg,std::string title) {
         auto tmx =  GameManager::getInstance()->getTmx(level);
         SceneManager::getInstance()->Game(tmx);
     };
+    
+    this->levelSelect = [&](Ref* sender){
+ 
+        SceneManager::getInstance()->LevelSelect();
+    };
 
    this->settings = [&](Ref* sender){
        SceneManager::getInstance()->Options();
@@ -162,18 +167,28 @@ void WelcomeLayer::initMenu() {
 
 
     // Play
-    string play =GameAssets::Sprite::BTN_PLAY;
-    string play_sel =GameAssets::Sprite::BTN_PLAY_SEL;
     MenuItemImage *pPlayItem = MenuItemImage::create(
                   GameAssets::Sprite::BTN_PLAY,
-                  GameAssets::Sprite::BTN_PLAY,
+                  GameAssets::Sprite::BTN_PLAY_SEL,
                   this->play );
     Menu* pPlayMenu = Menu::create(pPlayItem, nullptr);
-    Point playPossition = Vec2(size.width / 2, size.height /2);
+    Point playPossition = Vec2(size.width / 2 + 128, size.height /2);
     pPlayMenu->alignItemsHorizontallyWithPadding(32);
     pPlayMenu->setPosition(playPossition);
     addChild(pPlayMenu);
-
+    
+    
+    // Level Select
+    MenuItemImage *pSelectItem = MenuItemImage::create(
+                  GameAssets::Sprite::BTN_MENU,
+                  GameAssets::Sprite::BTN_MENU_SEL,
+                  this->levelSelect );
+    Menu* pSelectMenu = Menu::create(pSelectItem, nullptr);
+    Point selectPossition = Vec2(size.width / 2  - 128 , size.height /2);
+    pSelectMenu->setPosition(selectPossition);
+    addChild(pSelectMenu);
+    
+    
     // Options
     MenuItemImage *pConfigItem = MenuItemImage::create(
                   GameAssets::Sprite::BTN_SETTINGS,
@@ -359,11 +374,7 @@ void WelcomeLayer::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event) {
     if ( play){
         
         GameManager::getInstance()->LoadFirstLevel();
-
-        
         //GameManager::getInstance()->ResumeLevel();
-        
-        
         //SceneManager::getInstance()->LevelSelect();
       
     }

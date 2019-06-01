@@ -27,7 +27,12 @@ public:
     
     //std::string  getTmx(int level);
     std::string  getTmx(int level){
-        return levels[level];
+        
+        std::string tmx = "Not Defined";
+        if ( level < levels.size() ) {
+            tmx = levels[level];
+        }
+        return tmx;
     }
     
     //bool isLevelOpen(int level);
@@ -76,6 +81,7 @@ public:
     
     
     
+    
     //void LoadNextLevel() ;
     void  LoadFirstLevel() {
         m_level = 0;
@@ -98,8 +104,16 @@ public:
         m_level ++;
         UserData::getInstance()->setResumeLevel(m_level);
         UserData::getInstance()->saveLevelStats(m_level, 0, 0, 0, 0);
+         std::string tmx = levels[m_level];
+        SceneManager::getInstance()->Game(tmx);
+    }
+    
+    //void LoadLevel(int level) ;
+    void  LoadLevel(int level) {
+        m_level = level;
         std::string tmx = levels[m_level];
         SceneManager::getInstance()->Game(tmx);
+        
     }
     
     int getLevel() {
@@ -112,33 +126,28 @@ public:
   
 
 private :
-    
-    //void LoadLevel(int level) ;
-    void  LoadLevel(int level) {
-        m_level = level;
-        std::string tmx = levels[m_level];
-        SceneManager::getInstance()->Game(tmx);
-        
-    }
+
     
     
     int  m_level  = 0;
     
     //GameManager();
     GameManager (){
+        levels.push_back("TMX-Cave/test_phy.tmx");//0
         levels.push_back("TMX-Cave/simplest.tmx");
         levels.push_back("TMX-Cave/template.tmx");
+        levels.push_back("TMX-Cave/level001.tmx");
         levels.push_back("TMX-Cave/simplest_long.tmx");
-        levels.push_back("TMX-Cave/simplest_full.tmx");
+        levels.push_back("TMX-Cave/simplest_full.tmx"); //5
     }
     
     std::vector<std::string> levels ;
 };
 
 
-//
+
 //class LevalInfo {
-//    GETTERSETTER(std::string, m_name, Name)
+//
 //    GETTERSETTER(int, m_order, Order)
 //    GETTERSETTER(std::string, m_desc, Desc)
 //    GETTERSETTER(std::string, m_tmx, PathTMX)
@@ -147,4 +156,13 @@ private :
 //    GETTERSETTER(int , m_levelScore, LevelScore)
 //    GETTERSETTER(int, m_starts, Stars)
 //
+//};
+//
+//
+//class LevalStats {
+//    GETTERSETTER(std::string, m_name, Name)
+//    GETTERSETTER(bool, m_isLocked, IsLocked)
+//    GETTERSETTER(std::time_t, m_completedOn, CompletedOn)
+//    GETTERSETTER(int , m_levelScore, LevelScore)
+//    GETTERSETTER(int, m_starts, Stars)
 //};

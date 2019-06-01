@@ -97,4 +97,6 @@ public:
      * Physics engine notification of contact
      */
     bool onContactBegin(cocos2d::PhysicsContact& contact) ;
+    
+    bool stop();
 };

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="2019.05.08" orientation="orthogonal" renderorder="left-up" width="104" height="104" tilewidth="64" tileheight="64" infinite="0" nextlayerid="16" nextobjectid="42">
+<map version="1.2" tiledversion="2019.05.08" orientation="orthogonal" renderorder="left-up" width="104" height="104" tilewidth="64" tileheight="64" infinite="0" nextlayerid="17" nextobjectid="89">
  <properties>
   <property name="isBoundingBox" type="bool" value="false"/>
   <property name="isDebug" type="bool" value="false"/>
@@ -16,7 +16,7 @@
     <property name="TAG" type="int" value="80"/>
     <property name="isDynamic" type="bool" value="false"/>
     <property name="isUseOnContact" type="bool" value="false"/>
-    <property name="isUsePhysics" type="bool" value="true"/>
+    <property name="isUsePhysics" type="bool" value="false"/>
    </properties>
    <image width="64" height="64" source="Tile2.png"/>
    <objectgroup draworder="index">
@@ -30,7 +30,7 @@
     <property name="TAG" type="int" value="82"/>
     <property name="isDynamic" type="bool" value="false"/>
     <property name="isUseOnContact" type="bool" value="false"/>
-    <property name="isUsePhysics" type="bool" value="true"/>
+    <property name="isUsePhysics" type="bool" value="false"/>
    </properties>
    <image width="64" height="64" source="Tile5.png"/>
    <objectgroup draworder="index">
@@ -767,6 +767,246 @@
     <property name="showBeamBoundry" type="int" value="0"/>
     <property name="speedPixelPerSecond" type="int" value="0"/>
     <property name="steps" type="int" value="7"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="16" name="L0-PHY">
+  <properties>
+   <property name="PhysicsBody" value="BOUNDING_BOX"/>
+  </properties>
+  <object id="42" name="top1" type="static" x="0" y="0" width="1663" height="192">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="43" name="left" type="static" x="0" y="192" width="63" height="383">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="44" name="static" type="static" x="1" y="960.667" width="1150.67" height="4605.67">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="45" name="static" type="static" x="0" y="5566" width="766" height="1088">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="46" name="static" type="static" x="769.697" y="6145.45" width="5881.82" height="512.121">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="47" name="static" type="static" x="5496.97" y="3072.73" width="1154.55" height="3066.67">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="48" name="static" type="static" x="1660.61" y="4351.52" width="703.03" height="639.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="49" name="static" type="static" x="2687.88" y="2943.94" width="703.03" height="639.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="50" name="static" type="static" x="3712.12" y="2940.91" width="751.515" height="639.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="51" name="static" type="static" x="4700" y="2943.94" width="669.697" height="639.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="52" name="static" type="static" x="4677.88" y="2108.61" width="697.454" height="639.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="53" name="static" type="static" x="3712.12" y="2107.58" width="703.03" height="639.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="54" name="static" type="static" x="2684.61" y="2108.55" width="707.333" height="639.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="55" name="static" type="static" x="1665.27" y="2113.64" width="703.03" height="639.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="56" name="static" type="static" x="1663.64" y="1280.3" width="703.03" height="639.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="57" name="static" type="static" x="2687.88" y="1280.3" width="703.03" height="639.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="58" name="static" type="static" x="3706.06" y="1277.27" width="703.03" height="639.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="59" name="static" type="static" x="4680.24" y="1272.24" width="690.545" height="639.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="60" name="static" type="static" x="5502.48" y="1664.3" width="959.03" height="1273.39">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="61" name="static" type="static" x="6596.48" y="932.303" width="55.03" height="2139.39">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="62" name="static" type="static" x="6402.48" y="1080.3" width="57.03" height="583.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="63" name="static" type="static" x="5950.48" y="320.303" width="515.03" height="765.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="64" name="static" type="static" x="5824.48" y="323.303" width="125.03" height="765.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="65" name="static" type="static" x="6468.48" y="1.303" width="187.03" height="703.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="66" name="static" type="static" x="5950.48" y="-2.697" width="515.03" height="319.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="67" name="static" type="static" x="1666.48" y="-2.697" width="4285.03" height="65.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="68" name="static" type="static" x="1786.48" y="253.303" width="129.03" height="827.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="69" name="static" type="static" x="2113.48" y="2.303" width="129.03" height="701.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="70" name="static" type="static" x="2369.48" y="254.303" width="129.03" height="827.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="71" name="static" type="static" x="2627.48" y="66.303" width="185.03" height="633.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="72" name="static" type="static" x="3009.48" y="192.303" width="379.03" height="511.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="73" name="static" type="static" x="3589.48" y="64.303" width="117.03" height="693.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="74" name="static" type="static" x="3915.49" y="256.303" width="179.03" height="825.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="75" name="static" type="static" x="4351.49" y="62.303" width="129.03" height="383.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="76" name="static" type="static" x="4351.48" y="642.303" width="129.03" height="439.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="77" name="static" type="static" x="4733.48" y="194.303" width="129.03" height="889.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="78" name="static" type="static" x="5439.48" y="66.303" width="129.03" height="509.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="79" name="static" type="static" x="5379.48" y="704.303" width="251.03" height="381.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="80" name="static" type="static" x="4871.48" y="190.303" width="371.03" height="135.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="81" name="static" type="static" x="5057.48" y="450.303" width="129.03" height="317.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="82" name="static" type="static" x="5193.48" y="450.303" width="243.03" height="123.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="83" name="static" type="static" x="3.485" y="962.303" width="5375.03" height="123.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="84" name="static" type="static" x="767.485" y="832.303" width="445.03" height="127.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="85" name="static" type="static" x="1601.48" y="196.303" width="59.03" height="381.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="86" name="static" type="static" x="1603.48" y="830.303" width="61.03" height="127.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="87" name="static" type="static" x="1667.48" y="892.303" width="115.03" height="67.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
+   </properties>
+  </object>
+  <object id="88" name="static" type="static" x="1923.48" y="896.303" width="443.03" height="61.394">
+   <properties>
+    <property name="PhysicsBody" value="BOUNDING_BOX"/>
    </properties>
   </object>
  </objectgroup>

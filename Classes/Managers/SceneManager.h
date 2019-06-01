@@ -25,6 +25,8 @@ public:
     void Welcome();
 
     void Options();
+    
+    void LevelSelect();
 
     void Game(std::string level);
 

@@ -6,7 +6,7 @@
 
 #include "MyMacros.h"
 #include "GameObject.h"
-#include "GameAssets.h"
+
 
 #include <functional>
 
@@ -18,9 +18,9 @@ class BaseLayer : public cocos2d::Layer {
 public:
 
 
-    static BaseLayer* create();
+    //static BaseLayer* create();
 
-    bool init();
+    //bool init();
 
 
     GETTERSETTER(cocos2d::Sprite*, pSpriteBackground, BackgroundSprite)

@@ -5,7 +5,6 @@
 //  Created by Daniel St. John on 9/1/14.
 //
 //
-#include "MyTMX.h"
 
 #include <string>
 
@@ -17,6 +16,8 @@
 #include "FailedLayer.h"
 #include "SuccessLayer.h"
 #include "OptionLayer.h"
+#include "LevelSelectLayer.h"
+#include "MyTMX.h"
 
 
 using namespace cocos2d;
@@ -44,6 +45,12 @@ void SceneManager::Options(){
     Director::getInstance()->replaceScene(animation);
 }
 
+
+void SceneManager::LevelSelect(  ) {
+    auto pScene =  LevelSelectLayer::scene();
+    TransitionFlipAngular *animation = TransitionFlipAngular::create(.5,  pScene);
+    Director::getInstance()->replaceScene(animation);
+}
 
 void SceneManager::Game(std::string tmx ) {
     auto pScene =  MyTMX::scene(tmx);

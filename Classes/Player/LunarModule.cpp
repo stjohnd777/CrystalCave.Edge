@@ -165,10 +165,69 @@ void LunarModule::takeDamage(int weight){
  * injured behavior optional, like a limping ship, and
  * give default of nothing
  */
+bool isOnFire = false;
+float duration = -1;
+int injuredTag = 38374;
+int soundId = 0;
+int soundIdAlarms = 0;
  void LunarModule::injured() {
      //log("LunarModule:injured");
      
- };
+     // DAMAGED
+     if ( getHealth() < 50 && isOnFire == false) {
+         
+         isOnFire = true;
+         float scale =    1; //100/ getHealth();
+         ParticleSystemQuad* particalSystem =ParticleFire::create();
+         particalSystem->setDuration(duration);
+         particalSystem->setScale(scale);
+         particalSystem->setTag(injuredTag);
+         particalSystem->setPosition(Vec2::ZERO);
+         this->addChild(particalSystem);
+         soundId = SoundManager::alarm(true);
+ 
+         float interval = 17;
+         unsigned int repeat = 0;
+         float delay = 0;
+         const std::string key = "alarm";
+         
+         this->schedule([&](float dt){
+              soundId = SoundManager::alarm(true);
+         }, interval, repeat, delay, key);
+        
+     }
+     // RECOVERED
+     else if ( getHealth() > 50 && ( isOnFire || soundId != 0 || soundIdAlarms !=0) ) {
+ 
+         isOnFire = false;
+         if (soundId != 0){
+             this->unschedule("alram");
+             SoundManager::stopEffect(soundId);
+             soundId = 0;
+         }
+         if (soundIdAlarms!=0){
+             this->unschedule("alrams");
+             SoundManager::stopEffect(soundIdAlarms);
+             soundIdAlarms = 0;
+            
+         }
+         auto fireEffect =  this->getChildByTag(injuredTag);
+         if ( fireEffect!= nullptr){
+             this->getChildByTag(injuredTag)->removeFromParentAndCleanup(true);
+         }
+        
+     }
+     
+     
+     // CRITICAL
+     if ( getHealth()  <  10  && isOnFire){
+         float scale = 2;//100/ getHealth();
+         auto effect = this->getChildByTag(injuredTag);
+         if ( effect) {
+            effect ->setScale(scale);
+         }
+     }
+ }
 
 /**
  * Object do you death sequence
@@ -177,6 +236,31 @@ void LunarModule::takeDamage(int weight){
      //log("LunarModule::die");
      explosion();
  };
+
+
+bool LunarModule::stop(){
+    
+    isOnFire = false;
+    if (soundId != 0){
+        this->unschedule("alram");
+        SoundManager::stopEffect(soundId);
+        soundId = 0;
+    }
+    if (soundIdAlarms!=0){
+        this->unschedule("alrams");
+        SoundManager::stopEffect(soundIdAlarms);
+        soundIdAlarms = 0;
+        
+    }
+    auto fireEffect =  this->getChildByTag(injuredTag);
+    if ( fireEffect!= nullptr){
+        this->getChildByTag(injuredTag)->removeFromParentAndCleanup(true);
+    }
+    
+    unscheduleAllCallbacks();
+    
+    return true;
+}
 
 
 /**

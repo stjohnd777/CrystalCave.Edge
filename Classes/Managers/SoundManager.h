@@ -17,39 +17,69 @@ class SoundManager {
 public:
 
     static void PreLoadSound(){
-
-        auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+        //auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 
         // TODO : solve problem with resolving GameAssets::Sound::GetAllSoundEffect()
-//        for ( auto sndFile : GameAssets::Sound::GetAllSoundEffect() ){
-//           audio->preloadEffect(sndFile);
-//        }
-
+        /*
+        for ( auto sndFile : GameAssets::Sound::GetAllSoundEffect() ){
+           audio->preloadEffect(sndFile);
+        }
+        */
     }
 
     static void playBackgroundMusic(std::string loop,float volume = .4)
     {
-        CocosDenshion::SimpleAudioEngine::getInstance()->setBackgroundMusicVolume( volume);
+        CocosDenshion::SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(volume);
         CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(loop.c_str(), true);
     }
-    
-
-    static void playEffect(std::string effect)
-    {
-        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(effect.c_str());
-    }
-
-
     static void stopBackgroundMusic()
     {
         CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
     }
+    
 
-    static void alarm()
+    static int playEffect(std::string effect,bool loop = false)
     {
-        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::ALARM);
+        return CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(effect.c_str(),loop);
     }
 
+    static void stopEffect(int soundId)
+    {
+        CocosDenshion::SimpleAudioEngine::getInstance()->stopEffect( soundId);
+    }
+
+    static int alarm(bool loop = false)
+    {
+        return CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::ALARM,loop);
+    }
+    
+    
+    static int alarms(bool loop = false)
+    {
+        return CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::ALARMS,loop);
+    }
+    
+    static int siren(bool loop = false)
+    {
+        return CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::SIREN,loop);
+    }
+    
+    
+    static int electric(bool loop = false)
+    {
+        return CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::ELECTRIC_0,loop);
+    }
+    static int electric_arc(bool loop = false)
+    {
+        return CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::ELECTRIC_1),loop;
+    }
+    
+
+    
+    static void projectile_weapon()
+    {
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::FIRE_PROJECTILE);
+    }
     static void bell()
     {
         CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::BELL);
@@ -89,10 +119,6 @@ public:
     {
         CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::ROCK_SLIDE);
     }
-    static void siren()
-    {
-        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::SIREN);
-    }
 
     static void countdown()
     {
@@ -121,20 +147,5 @@ public:
     {
         CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::BELL);
     }
-
-    static void projectile_weapon()
-    {
-        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::FIRE_PROJECTILE);
-    }
-    static void electric()
-    {
-        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::ELECTRIC_0);
-    }
-    static void electric_arc()
-    {
-        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(GameAssets::Sound::ELECTRIC_1);
-    }
-
-
-
+    
 };

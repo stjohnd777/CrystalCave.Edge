@@ -4,20 +4,23 @@
 //
 //  Created by Daniel St. John on 4/17/19.
 //
+#include "TileMap.h"
 
 #include <string>
 #include <sstream>
 
-#include "MyTMX.h"
+#include "Utils.h"
 #include "MyMacros.h"
 #include "SimpleAudioEngine.h"
 #include "LabelManager.h"
 #include "SceneManager.h"
 #include "GameManager.h"
-
+#include "MyTMX.h"
 #include "GameElementsFactory.h"
 
-#include "TileMap.h"
+#include "external/tinyxml2/tinyxml2.h"
+
+
 
 using namespace cocos2d;
 
@@ -63,11 +66,6 @@ MyTMX* MyTMX::create(std::string tmx)
     }
     return pRet;
 }
-
-
-#include  <sstream>
-#include "external/tinyxml2/tinyxml2.h"
-#include "Utils.h"
 
  
 
@@ -132,8 +130,6 @@ bool MyTMX::init(std::string tmx) {
     // TileMap
     dsj::TileMap* tileMap;
     try {
-        int level = GameManager::getInstance()->getResumeLevel();
-        std:string tmx = GameManager::getInstance()->getTmx(level);
         tileMap = new dsj::TileMap(tmx);//"TMX-Cave/simplest2.tmx");
         log("%s", tileMap->to_string().c_str());
         tileMap->render(this);
@@ -271,8 +267,11 @@ void MyTMX::GameLoop ( Ref* target){
     Size size = Director::getInstance()->getWinSize();
     //Level end success
     if ( finsh) {
+        
         if ( canEnterFinishedProcess && finsh->getBoundingBox().intersectsRect( ship->getBoundingBox())){
 
+            ship->stop();
+            
             canEnterFinishedProcess = false;
             unscheduleAllCallbacks();
             SoundManager::tada();
@@ -282,11 +281,29 @@ void MyTMX::GameLoop ( Ref* target){
 
     // Level End Failure
     if(ship->getHealth() <= 0 && canEnterDiedProcess){
+        
         canEnterDiedProcess = false;
-        unscheduleAllCallbacks();
+        //unscheduleAllCallbacks();
         SoundManager::wawawa();
-        SoundManager::gameover();
+       // SoundManager::gameover();
+        
+        float interval = 1;
+        unsigned int repeat = 1;
+        float delay = 1;
+        const std::string key = "exitGame";
+        
+      
+        // scheduled once
+        this->schedule([&](float dt){
+            unscheduleAllCallbacks();
+            ship->stop();
+            SoundManager::gameover();
+             SceneManager::getInstance()->Failed();
+        }, interval, repeat, delay, key);
+        
+        
         SceneManager::getInstance()->Failed();
+    
     }
     
     

@@ -32,7 +32,7 @@ private:
 
     cocos2d::Label* m_LabelThrust;
 
-    ui::Slider* m_slider;
+    cocos2d::ui::Slider* m_slider;
 
     cocos2d::Sprite* finsh ;
 
