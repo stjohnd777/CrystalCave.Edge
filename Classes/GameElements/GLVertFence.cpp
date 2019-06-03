@@ -5,8 +5,9 @@
 
 #include  "Utils.h"
 #include "LabelManager.h"
+#include "SoundManager.h"
 
-#include "SimpleAudioEngine.h"
+
 
 using namespace cocos2d;
 using namespace std;
@@ -100,8 +101,9 @@ void GLVertFence::start(Node* node ,float dt){
 
     m_GameLayer->addChild(this,z);
 
-    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Sound/elec.wav", true);
 
+    SoundManager::electric();
+    
     scheduleUpdate();
 
 

@@ -2,7 +2,7 @@
 #include "GameObject.h"
 
 #include <sstream>
-#include "SimpleAudioEngine.h"
+#include "SoundManager.h"
 #include "GameAssets.h"
 #include "Utils.h"
 
@@ -266,6 +266,9 @@ ParticleSystemQuad*  GameObject::randumParticalEffect(float scale,float duration
 ParticleSystemQuad*  GameObject::explosion(float scale,float duration){
     
     // TODO make effect tied to target type
+    
+    SoundManager::explosion();
+    
     ParticleSystemQuad* particalSystem = ParticleExplosion::create();
     particalSystem->setPosition(getPosition());
     particalSystem->setDuration(duration);

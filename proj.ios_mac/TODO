@@ -7,7 +7,10 @@ DONE: SoundManager, Sounc is missing on Ship Hits
 DONE: SceneManagement TMX
 DONE: Seperate of the Randam and TMX
 DONE : TMX PHY OBJECT LAYER BB and PE for large level
-DONE : app is minimized or forced into the background stop audio playback.  applicationDidEnterBackground() and applicationWillEnterForeground().  
+DONE : app is minimized or forced into the background stop audio playback.  applicationDidEnterBackground() and applicationWillEnterForeground().
+DONE: Follow(y) in the image of Follow(y)
+DONE Feature :Injured, Fire and Smoke Based on Health
+DONE: Injured, fire and smoke effect h=base oin Health
 
 BUG : QuartzCrystalNorthFliped.png Missing
 BUG : AcidTop PE not correct
@@ -17,7 +20,7 @@ BUG: Pause button back button
 TODO : Death Sequence Need some more dramatic experience and do not transition to failed scene immediately
 
 
-IN PROGRESS: Injured, fire and smoke effect h=base oin Health
+
 
 TODO Persistence
 DONE :Last Level Player
@@ -32,7 +35,6 @@ TODO HUD :Add level name and desc to the HUD
 
 TDOD: New Feature:
      HyperSpace ( another button and key)
-     Injured, Fire and Smoke Based on Health
      Scene Shake
      PickUp  Health  Gems
      Leveling up
@@ -67,7 +69,7 @@ TODO : Refined Z-ordering, for example clarification and overide ablity on TMX l
        example:   BG < electric < spike + TR + crystal < ship < acid < CRTL < HUD
 
 
-TODO: Follow(y) in the image of Follow(y)
+
 TODO: Follow(x,y) World Edge Stop Follow, using larg wall may be good enough
 TODO: Wall collosion velcoity check and prorted damage
 TODO: Does the particle effect clean it self up when finished, Do I have to clean up the particle effect?

@@ -9,6 +9,7 @@
 #include "SoundManager.h"
 #include "LunarModule.h"
 #include "SimpleAudioEngine.h"
+#include "LabelManager.h"
 
 using namespace cocos2d;
 //using namespace CocosDenshion;
@@ -155,6 +156,9 @@ void LunarModule::update(float dt) {
 void LunarModule::takeDamage(int weight){
     //log("LunarModule:takeDamage");
     SoundManager::debris();
+    
+    LabelManager::getInstance()->makeHitLabel(weight, getPosition());
+    
     decrementHealth(weight);
     if ( getHealth() <=0){
         die();

@@ -1,19 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<level pos="1" name="move" type="learn">
-    <desc>learn to move</desc>
-    <completed>0</completed>
-    <rating>0</rating>
-    <time>0</time>
+
+<level pos="0" name="Move" type="seq">
+    <desc>PHY Objects</desc>
+    <tmx>TMX-Cave/test_phy.tmx</tmx>
 </level>
-<level pos="2" name="mine" type="learn">
-    <desc>learn about the mine</desc>
-    <completed>0</completed>
-    <rating>0</rating>
-    <time>0</time>
+
+<level pos="1" name="One Scene" type="seq">
+    <desc>Simplest</desc>
+    <tmx>TMX-Cave/simplest.tmx</tmx>
 </level>
-<level pos="3" name="electric_fence" type="learn">
-    <desc>learn about the electric fence</desc>
-    <completed>0</completed>
-    <rating>0</rating>
-    <time>0</time>
+
+<level pos="2" name="Large Follow X" type="seq">
+    <desc>Follow X</desc>
+    <tmx>TMX-Cave/simplest_long.tmx</tmx>
 </level>
+
+<level pos="3" name="Large Follow Y" type="seq">
+    <desc>Follow Y</desc>
+    <tmx>TMX-Cave/simplest_vert.tmx</tmx>
+</level>
+
+
+<level pos="4" name="Template" type="seq">
+    <desc>Template</desc>
+    <tmx>TMX-Cave/template.tmx</tmx>
+</level>
+
+<level pos="5" name="Electric Fence" type="seq">
+    <desc>learn about the electric</desc>
+    <tmx>TMX-Cave/level001.tmx</tmx>
+</level>
+
+<level pos="6" name="Large Level X,,Y" type="seq">
+    <desc>Follow X Y</desc>
+    <tmx>TMX-Cave/simplest_full.tmx</tmx>
+</level>
+
+
+ 
+  
+ 

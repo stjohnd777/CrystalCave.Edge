@@ -194,8 +194,7 @@ void WelcomeLayer::initMenu() {
                   GameAssets::Sprite::BTN_SETTINGS,
                   GameAssets::Sprite::BTN_SETTINGS_SEL,
                  [&](Ref* sender){
-                    auto scene = OptionLayer::scene();
-                    Director::getInstance()->runWithScene(scene);
+                     SceneManager::getInstance()->Options();
                  });
     pConfigItem->setAnchorPoint(Vec2(0,0));
     Utils::setSize(pConfigItem, 64, 64);

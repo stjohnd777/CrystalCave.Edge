@@ -18,7 +18,7 @@
 //GameManager *GameManager::INSTANCE = NULL;
 
 
-//GameManager* GameManager::getInstance()
+//static GameManager::GameManager* getInstance()
 //{
 //    static GameManager *INSTANCE = new GameManager();
 //    

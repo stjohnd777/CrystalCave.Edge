@@ -42,9 +42,9 @@ public:
     /**
      * Scale the image to the sceen size and place using the z-order z
      */
-    void strechBackgroundToScreen(std::string path,int z);
+    cocos2d::Node* strechBackgroundToScreen(std::string path,int z);
 
-    void strechBackgroundToScreen(std::string backgroundPath, int z, float percentage);
+     cocos2d::Node* strechBackgroundToScreen(std::string backgroundPath, int z, float percentage);
     
     /**
      * Back menu item in top left corner 

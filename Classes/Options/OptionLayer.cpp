@@ -30,20 +30,20 @@ bool OptionLayer::init() {
 
     //initBackMenu(1);
 
-//    /////////////////////////////////////////////////////////////////////////////////////////////
-//    // Background Sound On Off
-//    /////////////////////////////////////////////////////////////////////////////////////////////
-//    MenuItemFont* pSoundText = MenuItemFont::create("Music");
-//    itemOn = MenuItemImage::create("sound.png", "sound.png", this, NULL);
-//    itemOff = MenuItemImage::create("mute.png", "mute.png", this, NULL);
-//    itemToggleMusic = MenuItemToggle::createWithTarget(
-//            this, menu_selector(OptionLayer::menuBackgroundMusicCallback), itemOn,itemOff, NULL);
-//
-//
-//    Menu* menu = Menu::create(pSoundText,itemToggleMusic, NULL);
-//    menu->alignItemsVerticallyWithPadding(32);
-//    menu->setPosition( ccp(Utils::getMidPoint().x, Utils::getWindowSize().height /2) );
-//    addChild(menu, 1);
+    /////////////////////////////////////////////////////////////////////////////////////////////
+    // Background Sound On Off
+    /////////////////////////////////////////////////////////////////////////////////////////////
+    MenuItemFont* pSoundText = MenuItemFont::create("Music");
+    itemOn = MenuItemImage::create(GameAssets::Sprite::BTN_SOUND, GameAssets::Sprite::BTN_SOUND, this, nullptr);
+    itemOff = MenuItemImage::create(GameAssets::Sprite::BTN_SOUND_SEL, GameAssets::Sprite::BTN_SOUND_SEL, this, nullptr);
+    itemToggleMusic = MenuItemToggle::createWithTarget(
+            this, menu_selector(OptionLayer::menuBackgroundMusicCallback), itemOn,itemOff, NULL);
+
+
+    Menu* menu = Menu::create(pSoundText,itemToggleMusic, NULL);
+    menu->alignItemsVerticallyWithPadding(32);
+    menu->setPosition( ccp(Utils::getMidPoint().x, Utils::getWindowSize().height /2) );
+    addChild(menu, 1);
 
     setData();
     return true;

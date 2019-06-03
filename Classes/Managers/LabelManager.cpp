@@ -58,7 +58,7 @@ void LabelManager::makeFadingLabel(const char *const msg, Point pos, Color3B col
 
     Label* l = Label::createWithBMFont(font,szValue2);
     l->setWidth( 200);
-    l->setColor(color);
+    //l->setColor(color);
     l->setAnchorPoint(anchor);
     l->setPosition(pos);
     l->setTag(GameAssets::TAGS::TEMP_LABEL);
@@ -69,7 +69,7 @@ void LabelManager::makeFadingLabel(const char *const msg, Point pos, Color3B col
     
     assert(m_target);
 
-    m_target->addChild(l,LayerLevel::kCtrl);
+    m_target->addChild(l,LayerLevel::TOP);
 
     m_DelayTime = 2;
     // remove your self

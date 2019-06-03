@@ -148,6 +148,7 @@ bool MyTMX::init(std::string tmx) {
         FOLLOW_ACTION_TAG = 989;
         follow->setTag(FOLLOW_ACTION_TAG);
         this->runAction(follow);
+        
     }
 
     // TODO :: pull from map
@@ -263,8 +264,10 @@ bool MyTMX::init(std::string tmx) {
 
 void MyTMX::GameLoop ( Ref* target){
 
-
+    LabelManager::getInstance()->setTarget(this);
+    
     Size size = Director::getInstance()->getWinSize();
+    
     //Level end success
     if ( finsh) {
         
@@ -287,21 +290,23 @@ void MyTMX::GameLoop ( Ref* target){
         SoundManager::wawawa();
        // SoundManager::gameover();
         
-        float interval = 1;
+        float interval = 2;
         unsigned int repeat = 1;
-        float delay = 1;
+        float delay = 2;
         const std::string key = "exitGame";
         
       
         // scheduled once
-        this->schedule([&](float dt){
-            unscheduleAllCallbacks();
-            ship->stop();
-            SoundManager::gameover();
-             SceneManager::getInstance()->Failed();
-        }, interval, repeat, delay, key);
+//        this->schedule([&](float dt){
+//            unscheduleAllCallbacks();
+//            ship->stop();
+//            SoundManager::gameover();
+//            SceneManager::getInstance()->Failed();
+//        }, interval, repeat, delay, key);
         
-        
+    
+        unscheduleAllCallbacks();
+        ship->stop();
         SceneManager::getInstance()->Failed();
     
     }
@@ -311,6 +316,7 @@ void MyTMX::GameLoop ( Ref* target){
         
         
     
+        // only X
         if ( m_isScrolX && !m_isScrolY) {
             // move the hud, controls and background
             Point offestShip = Vec2(ship->getPosition().x - Director::getInstance()->getWinSize().width /2 , 0);
@@ -334,25 +340,68 @@ void MyTMX::GameLoop ( Ref* target){
         }
         
         
-        if ( m_isScrolX && m_isScrolY) {
+//        // both X and Y
+//        if ( m_isScrolX && m_isScrolY) {
+//            // move the hud, controls and background
+//            Point offestShip = Vec2(
+//                                    ship->getPosition().x - Director::getInstance()->getWinSize().width /2,
+//                                    ship->getPosition().y - Director::getInstance()->getWinSize().height /2 );
+//
+//            // move control
+//            m_CtrlLayer->setPosition( offestShip);
+//
+//            // move HUB
+//            m_HudLayer->setPosition(offestShip);
+//
+//            // move BG
+//            if ( getChildByName("BG")) {
+//                getChildByName("BG")->setPosition(Utils::getMidPoint() +  offestShip);
+//            }
+//
+//        }
+        
+        
+        // only Y
+        if (! m_isScrolX && m_isScrolY) {
+            
+            if ( ship->getPosition().y > Director::getInstance()->getWinSize().height ) {
+                auto ation = Director::getInstance()->getActionManager()->getActionByTag( FOLLOW_ACTION_TAG, this);
+                ation->stop();
+                
+            }else  {
+                auto action = Director::getInstance()->getActionManager()->getActionByTag( FOLLOW_ACTION_TAG, this);
+                if ( action == nullptr){
+                    Follow* follow = Follow::create(ship);
+                    FOLLOW_ACTION_TAG = 989;
+                    follow->setTag(FOLLOW_ACTION_TAG);
+                    this->runAction(follow);
+                } 
+            }
             // move the hud, controls and background
-            Point offestShip = Vec2(
-                                    ship->getPosition().x - Director::getInstance()->getWinSize().width /2,
-                                    ship->getPosition().y - Director::getInstance()->getWinSize().height /2 );
+            Point offestShip = Vec2(0,ship->getPosition().y - Director::getInstance()->getWinSize().height /2 );
+            
+        
             
             // move control
             m_CtrlLayer->setPosition( offestShip);
-            
+                
             // move HUB
             m_HudLayer->setPosition(offestShip);
+                
+            // scrole only in y
+            Point p = getPosition();
+            p.x = p.x + ship->getPosition().x - Director::getInstance()->getWinSize().width/2;
+            setPosition(p);
+      
             
             // move BG
             if ( getChildByName("BG")) {
                 getChildByName("BG")->setPosition(Utils::getMidPoint() +  offestShip);
             }
-            
         }
+  
         
+    
         
         
     }

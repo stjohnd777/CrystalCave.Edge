@@ -11,22 +11,22 @@ using namespace cocos2d;
 
 namespace LayerLevel {
     enum {
-        BOTTOM,
-        kBackground,
-        kBackground1,
-        kBackground2,
-        kGame0,
-        kGame2,
-        kGame3,
-        kGame4,
-        kHud,
-        kHud1,
-        kHud2,
-        kCtrl,
-        kCtrl1,
-        kCtrl2,
-        kDlg,
-        TOP
+        BOTTOM = -10,
+        kBackground = 0,
+        kBackground1 = 2,
+        kBackground2 = 3,
+        kGame0 = 100,
+        kGame2 = 102,
+        kGame3 = 104,
+        kGame4  = 106,
+        kHud  = 200,
+        kHud1= 202,
+        kHud2 = 204,
+        kCtrl = 1000,
+        kCtrl1 = 1002,
+        kCtrl2 = 1004,
+        kDlg= 2000,
+        TOP  = 10000
     };
 }
 
@@ -174,6 +174,12 @@ namespace GameAssets {
         const char* const  BTN_SETTINGS                 =  "SIFI_GUI/Normal/Settings.png" ;
         const char* const  BTN_SETTINGS_SEL             =  "SIFI_GUI/Disabled/Settings.png";
         
+        const char* const  BTN_RELOAD                 =  "SIFI_GUI/Normal/Reload.png" ;
+        const char* const  BTN_RELOAD_SEL             =  "SIFI_GUI/Disabled/Reload.png";
+        
+        const char* const  BTN_SOUND                 =  "SIFI_GUI/Normal/Sound.png" ;
+        const char* const  BTN_SOUND_SEL             =  "SIFI_GUI/Disabled/Sound.png";
+        
         
         const char* const  LEVEL_BG                     =  "SIFI_GUI/Window/Window.png";
         
@@ -185,6 +191,14 @@ namespace GameAssets {
         
         const char* const  STAR_ON                      =  "SIFI_GUI/GameIcon/StarON.png" ;
         const char* const  STAR_OFF                     =  "SIFI_GUI/GameIcon/StarOFF.png";
+        
+        const char* const  DLG_MED                      =  "SIFI_GUI/Window/MediumDialogBox.png";
+        const char* const  DLG_WIDE                     =  "SIFI_GUI/Window/WideDialogBox.png";
+        const char* const  WINDOW                       =  "SIFI_GUI/Window/Window.png";
+        
+        const char* const  WINDOW_MED                  =  "SIFI_GUI/Window/WindowMedium.png";
+        const char* const  WINDOW_POPUP                =  "SIFI_GUI/Window/WindowPopup.png";
+        const char* const  WINDOW_TALL                 =  "SIFI_GUI/Window/WindowTall.png";
       
 
     }

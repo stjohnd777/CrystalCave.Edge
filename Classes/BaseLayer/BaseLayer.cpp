@@ -33,7 +33,7 @@ using namespace cocos2d;
 //}
 
 
-void BaseLayer::strechBackgroundToScreen(std::string backgroundPath, int z){
+ cocos2d::Node* BaseLayer::strechBackgroundToScreen(std::string backgroundPath, int z){
 
     Size size = Director::getInstance()->getWinSize();
     pSpriteBackground = Sprite::create(backgroundPath);
@@ -45,12 +45,13 @@ void BaseLayer::strechBackgroundToScreen(std::string backgroundPath, int z){
         pSpriteBackground->setScaleY(scaleY);
         pSpriteBackground->setPosition( Vec2(size.width/2, size.height/2) );
         pSpriteBackground->setName("BG");
-        this->addChild(pSpriteBackground, 0);
+        this->addChild(pSpriteBackground, z);
     }
+     return pSpriteBackground;
  
 }
 
-void BaseLayer::strechBackgroundToScreen(std::string backgroundPath, int z, float percentage){
+ cocos2d::Node* BaseLayer::strechBackgroundToScreen(std::string backgroundPath, int z, float percentage){
     
     Size size = Director::getInstance()->getWinSize();
     pSpriteBackground = Sprite::create(backgroundPath);
@@ -61,8 +62,10 @@ void BaseLayer::strechBackgroundToScreen(std::string backgroundPath, int z, floa
         float scaleY = percentage * size.height/pSpriteBackground->getContentSize().height;
         pSpriteBackground->setScaleY(scaleY);
         pSpriteBackground->setPosition( Vec2(size.width/2, size.height/2) );
-        this->addChild(pSpriteBackground, 0);
+        this->addChild(pSpriteBackground, z);
     }
+     
+     return pSpriteBackground;
     
 }
 
