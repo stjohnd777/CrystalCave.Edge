@@ -39,8 +39,10 @@ bool  GLHorzFence::init( int initYPixel, int minYPixel, int maxYPixel,
     tempH = nullptr;
 
     this->initY =initYPixel;
+    
     this->minY=minYPixel;
     this-> maxY =maxYPixel;
+    
     this-> beamWidth=beamWidthInPixels;
     this-> step  = steps;
     this-> beamEast=beamEastXPixel;
@@ -61,11 +63,16 @@ bool  GLHorzFence::init( int initYPixel, int minYPixel, int maxYPixel,
 
 void GLHorzFence::start(Node* node ,float dt){
 
+    
     if (showBeamOrgin) {
 
+        west = Sprite::create("TMX-Cave/steelball.png");
+        node->addChild(west,1000);
         auto pw =Vec2( beamWest, initY );
         west->setPosition(pw);
  
+        east = Sprite::create("TMX-Cave/steelball.png");
+        node->addChild(east,1000);
         auto pe = Vec2( beamEast  , initY );
         east->setPosition(pe);
 

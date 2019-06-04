@@ -340,25 +340,25 @@ void MyTMX::GameLoop ( Ref* target){
         }
         
         
-//        // both X and Y
-//        if ( m_isScrolX && m_isScrolY) {
-//            // move the hud, controls and background
-//            Point offestShip = Vec2(
-//                                    ship->getPosition().x - Director::getInstance()->getWinSize().width /2,
-//                                    ship->getPosition().y - Director::getInstance()->getWinSize().height /2 );
-//
-//            // move control
-//            m_CtrlLayer->setPosition( offestShip);
-//
-//            // move HUB
-//            m_HudLayer->setPosition(offestShip);
-//
-//            // move BG
-//            if ( getChildByName("BG")) {
-//                getChildByName("BG")->setPosition(Utils::getMidPoint() +  offestShip);
-//            }
-//
-//        }
+        // both X and Y
+        if ( m_isScrolX && m_isScrolY) {
+            // move the hud, controls and background
+            Point offestShip = Vec2(
+                                    ship->getPosition().x - Director::getInstance()->getWinSize().width /2,
+                                    ship->getPosition().y - Director::getInstance()->getWinSize().height /2 );
+
+            // move control
+            m_CtrlLayer->setPosition( offestShip);
+
+            // move HUB
+            m_HudLayer->setPosition(offestShip);
+
+            // move BG
+            if ( getChildByName("BG")) {
+                getChildByName("BG")->setPosition(Utils::getMidPoint() +  offestShip);
+            }
+
+        }
         
         
         // only Y

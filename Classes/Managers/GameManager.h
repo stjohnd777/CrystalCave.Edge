@@ -18,7 +18,6 @@
 
 #include "external/tinyxml2/tinyxml2.h"
 
-
 class LevelInfo {
     
     public :
@@ -142,6 +141,10 @@ public:
     }
     
     
+    LevelInfo*  GetCurrentLevelInfo() {
+        return level_info[m_level];
+    }
+    
     LevelInfo*  GetLevelInfo(int pos) {
         return level_info[pos];
     }
@@ -179,7 +182,8 @@ private :
         assert(retCode == 0);
         auto elementRoot =doc.RootElement();
         
-        auto levelElement = elementRoot->FirstChildElement("level");
+        int counter = 0;
+        auto levelElement = elementRoot->NextSiblingElement("level");
         while(levelElement){
             
             int pos = levelElement->IntAttribute("pos");
@@ -190,11 +194,12 @@ private :
             auto tmx = levelElement->FirstChildElement("tmx")->GetText();
             
             auto levelInof = new LevelInfo(pos,name,type,desc,tmx);
-            level_info[pos] =levelInof;
+            level_info[counter] =levelInof;
             
             levels.push_back(tmx);
             //log("pso=%d name=%s type=%s  tmx=%s",pos,name.c_str(),type.c_str(),tmx.c_str());
             
+            counter++;
             levelElement = levelElement->NextSiblingElement("level");
         }
         

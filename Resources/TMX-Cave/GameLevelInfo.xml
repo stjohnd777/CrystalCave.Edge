@@ -10,12 +10,12 @@
     <tmx>TMX-Cave/simplest.tmx</tmx>
 </level>
 
-<level pos="2" name="Large Follow X" type="seq">
+<level pos="2" name="Large Follow(X)" type="seq">
     <desc>Follow X</desc>
     <tmx>TMX-Cave/simplest_long.tmx</tmx>
 </level>
 
-<level pos="3" name="Large Follow Y" type="seq">
+<level pos="3" name="Large Follow(Y)" type="seq">
     <desc>Follow Y</desc>
     <tmx>TMX-Cave/simplest_vert.tmx</tmx>
 </level>
@@ -26,13 +26,13 @@
     <tmx>TMX-Cave/template.tmx</tmx>
 </level>
 
-<level pos="5" name="Electric Fence" type="seq">
+<level pos="5" name="Level 01" type="seq">
     <desc>learn about the electric</desc>
     <tmx>TMX-Cave/level001.tmx</tmx>
 </level>
 
-<level pos="6" name="Large Level X,,Y" type="seq">
-    <desc>Follow X Y</desc>
+<level pos="6" name="Follow(X,Y)" type="seq">
+    <desc>Follow(X,Y)</desc>
     <tmx>TMX-Cave/simplest_full.tmx</tmx>
 </level>
 

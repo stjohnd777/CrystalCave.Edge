@@ -6,6 +6,7 @@
 #include <strstream>
 #include <vector>
 
+#include "GameManager.h"
 #include "SceneManager.h"
 #include  "LabelManager.h"
 #include "Utils.h"
@@ -40,6 +41,10 @@ bool HudLayer::init()
     {
         return false;
     }
+    
+    
+    LevelInfo*  level_info = GameManager::getInstance()->GetCurrentLevelInfo();
+    assert(level_info);
 
     int tileSize = 64;
     int Z_HUD = 100;
@@ -96,6 +101,11 @@ bool HudLayer::init()
     getHealthDisplay()->setPosition( Vec2( screenSize.width /2, screenSize.height - (2 * tileSize)/2  ));
     this->addChild(getHealthDisplay(),Z_HUD+1);
     setHealth(100);
+    
+    auto name = Label::createWithBMFont(HUD_FONT,level_info->getName());
+    name->setAnchorPoint(Vec2(.5,1));
+    name->setPosition(Vec2( screenSize.width /2, screenSize.height -  tileSize -10  ));
+    this->addChild(name,Z_HUD+1);
 
 
     // SCORE

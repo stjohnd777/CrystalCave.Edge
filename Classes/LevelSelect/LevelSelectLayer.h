@@ -91,15 +91,30 @@ public:
                 levelSprite->setAnchorPoint(Vec2(0,1));
                 levelSprite->setPosition(p);
               
-                stringstream ss;
+                
                 std::string tmx = GameManager::getInstance()->getTmx(level);
-                ss << "Order " << level << ":" <<  tmx << std::endl << "Name" <<   std::endl << "Deccription:  " << std::endl << "Score : 10000" <<  std::endl << "Time: 12345 sec" << std::endl;
+                
+                auto level_info = GameManager::getInstance()->GetLevelInfo(level);
+            
+                if (level_info == nullptr){
+                    continue;
+                }
+                
+                //stringstream ss;
+               // ss << "Order " << level << ":" <<  tmx << std::endl << "Name" <<   std::endl << "Deccription:  " << std::endl << "Score : 10000" <<  std::endl << "Time: 12345 sec" << std::endl;
                 string font =  GameAssets::Fonts::BMF::ALPHA_NUM::FUTURA_48;
-                string co =  ss.str();
-                auto* levelLabel = Label::createWithBMFont( font,co);
+                string level_name = level_info->getName(); // ss.str();
+                auto* levelLabel = Label::createWithBMFont( font,level_name);
                 levelLabel->setAnchorPoint(Vec2(.5,1));
                 levelLabel->setPosition( Vec2(sizeLevelSprite.width/2, sizeLevelSprite.height/2 ) );
                 levelSprite->addChild(levelLabel, 99);
+                
+                string level_tmx = level_info->getPathTMX(); // ss.str();
+                auto* ltmxLabel = Label::createWithBMFont( font,level_tmx);
+                ltmxLabel->setAnchorPoint(Vec2(.5,1));
+                ltmxLabel->setPosition( Vec2(sizeLevelSprite.width/2, sizeLevelSprite.height/2 -50) );
+                levelSprite->addChild(ltmxLabel, 99);
+                
                 
 
                 bool isLevelOpen = GameManager::getInstance()->isLevelOpen(level);

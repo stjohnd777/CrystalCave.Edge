@@ -73,11 +73,11 @@ void GLVertFence::start(Node* node ,float dt){
 
     if (showBeamOrgin) {
 
-        top = Sprite::create("top.elecfence.128x128.png");
+        top = Sprite::create("TMX-Cave/steelball.png");
         top->setScale(4);
         m_GameLayer->addChild(top,1000);
 
-        bottom = Sprite::create("bottom.elecfence.128x128.png");
+        bottom = Sprite::create("TMX-Cave/steelball.png.png");
         bottom->setScale(4);
         m_GameLayer->addChild(bottom,1000);
 

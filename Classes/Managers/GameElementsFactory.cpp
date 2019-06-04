@@ -202,8 +202,8 @@ void GameElementsFactory::HandleObjectRequest(cocos2d::Node *target, dsj::Object
         
         int posLine = Y - height / 2;
         int initYPixel = posLine;
-        int minYPixel = posLine + height / 2;
-        int maxYPixel = posLine - height / 2;
+        int minYPixel = posLine - height / 2;
+        int maxYPixel = posLine + height / 2;
         
         int steps = obj->GetPropertyInt("steps");
         int beamWidthInPixels = 64;
