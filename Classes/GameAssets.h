@@ -38,7 +38,7 @@ namespace GameAssets {
     const char* const OPTIONS_BACKGROUND           = "Options.png";
     const char* const FAILED_BACKGROUND            = "GameOver.png";
     const char* const FAILED_BACKGROUND_2          = "game.png";
-    const char* const GAME_LAYER                   = "game.png";
+    const char* const GAME_LAYER_BACKGROUND                   = "star-space-x.png";//game.png";
     const char* const SUCCESS_BACKGROUND           = "game.png";
 
 

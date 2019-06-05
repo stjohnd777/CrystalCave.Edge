@@ -15,6 +15,7 @@
 #include "LabelManager.h"
 #include "SceneManager.h"
 #include "GameManager.h"
+#include "SoundManager.h"
 #include "MyTMX.h"
 #include "GameElementsFactory.h"
 
@@ -73,11 +74,10 @@ bool MyTMX::init(std::string tmx) {
 
     LabelManager::getInstance()->setTarget(this);
    
-    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(GameAssets::Sound::GAME_BACKGROUND_SOUND, true);
-
+    SoundManager::playBackgroundMusic(GameAssets::Sound::GAME_BACKGROUND_SOUND);
 
     Size size = Director::getInstance()->getWinSize();
-    auto pSpriteBackground = Sprite::create("game.png");
+    auto pSpriteBackground = Sprite::create(GameAssets::GAME_LAYER_BACKGROUND);
     if (pSpriteBackground){
         pSpriteBackground->setZOrder(0);
         float scaleX = size.width/pSpriteBackground->getContentSize().width;

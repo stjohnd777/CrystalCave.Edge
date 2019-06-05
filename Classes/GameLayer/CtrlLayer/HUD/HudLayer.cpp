@@ -102,9 +102,10 @@ bool HudLayer::init()
     this->addChild(getHealthDisplay(),Z_HUD+1);
     setHealth(100);
     
+    // name
     auto name = Label::createWithBMFont(HUD_FONT,level_info->getName());
     name->setAnchorPoint(Vec2(.5,1));
-    name->setPosition(Vec2( screenSize.width /2, screenSize.height -  tileSize -10  ));
+    name->setPosition(Vec2( screenSize.width /2, screenSize.height -  2 * tileSize   ));
     this->addChild(name,Z_HUD+1);
 
 
