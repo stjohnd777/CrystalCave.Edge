@@ -21,8 +21,6 @@
 		294D0D641D0D56D500F7F5D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294D0D631D0D56D500F7F5D4 /* CoreText.framework */; };
 		2B3E10882271381500A792CF /* GameOver001.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B3E10862271381400A792CF /* GameOver001.png */; };
 		2B3E10892271381500A792CF /* GameOver001.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B3E10862271381400A792CF /* GameOver001.png */; };
-		2B3E108E2272819C00A792CF /* space_mine.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B3E108C2272819C00A792CF /* space_mine.png */; };
-		2B3E108F2272819C00A792CF /* space_mine.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B3E108C2272819C00A792CF /* space_mine.png */; };
 		2B5E000E2273A03E00205A72 /* game.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E000C2273A03E00205A72 /* game.png */; };
 		2B5E00132273C5BA00205A72 /* game.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E000C2273A03E00205A72 /* game.png */; };
 		2B5E001A2274D40800205A72 /* UserData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B5E00192274D40800205A72 /* UserData.cpp */; };
@@ -99,8 +97,6 @@
 		2B7E8B50227DEC4A0099AD4B /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E8B42227DEC4A0099AD4B /* Object.cpp */; };
 		2B7E8B51227DEC4A0099AD4B /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E8B42227DEC4A0099AD4B /* Object.cpp */; };
 		2B7E8B60228149D10099AD4B /* MyTMX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B85D4802267F9F6005F5DD1 /* MyTMX.cpp */; };
-		2B85D47E2267F951005F5DD1 /* TMX-Cave in Resources */ = {isa = PBXBuildFile; fileRef = 2B85D47D2267F951005F5DD1 /* TMX-Cave */; };
-		2B85D47F2267F951005F5DD1 /* TMX-Cave in Resources */ = {isa = PBXBuildFile; fileRef = 2B85D47D2267F951005F5DD1 /* TMX-Cave */; };
 		2B85D4822267F9F6005F5DD1 /* MyTMX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B85D4802267F9F6005F5DD1 /* MyTMX.cpp */; };
 		2B85D4832267F9F6005F5DD1 /* MyTMX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B85D4802267F9F6005F5DD1 /* MyTMX.cpp */; };
 		2B85D48422681E96005F5DD1 /* MyMacros.h in Sources */ = {isa = PBXBuildFile; fileRef = 2B85D47B226653D7005F5DD1 /* MyMacros.h */; };
@@ -126,8 +122,6 @@
 		2BC0A00F226C27B50089757F /* PhysicsShapeCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0A00C226C27B50089757F /* PhysicsShapeCache.cpp */; };
 		2BDAC167225C244800CA02D9 /* space-cave.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2BDAC166225C244700CA02D9 /* space-cave.jpg */; };
 		2BDAC168225C244800CA02D9 /* space-cave.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2BDAC166225C244700CA02D9 /* space-cave.jpg */; };
-		2BEB98461FFDE27500BB5777 /* vfinish.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BEB97BF1FFDE24600BB5777 /* vfinish.png */; };
-		2BEB98471FFDE27500BB5777 /* vfinish.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BEB97BF1FFDE24600BB5777 /* vfinish.png */; };
 		2BEB987E1FFDE27500BB5777 /* Success.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2BEB97DB1FFDE25A00BB5777 /* Success.jpeg */; };
 		2BEB987F1FFDE27500BB5777 /* Success.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2BEB97DB1FFDE25A00BB5777 /* Success.jpeg */; };
 		2BEB98841FFDE27500BB5777 /* animation_explosion.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BEB97DE1FFDE25B00BB5777 /* animation_explosion.png */; };
@@ -209,9 +203,10 @@
 		CD06D4D42299C39C0041E43E /* thruster3.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C92299C39C0041E43E /* thruster3.png */; };
 		CD06D4D52299C39C0041E43E /* thruster3.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C92299C39C0041E43E /* thruster3.png */; };
 		CD1E44D1229E0C1A002AAE51 /* LevelSelectLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD1E44CF229E0C1A002AAE51 /* LevelSelectLayer.cpp */; };
-		CD1E44D4229E1660002AAE51 /* GameLevelInfo.xml in Resources */ = {isa = PBXBuildFile; fileRef = CD1E44D3229E1660002AAE51 /* GameLevelInfo.xml */; };
-		CD1E44D5229E1660002AAE51 /* GameLevelInfo.xml in Resources */ = {isa = PBXBuildFile; fileRef = CD1E44D3229E1660002AAE51 /* GameLevelInfo.xml */; };
 		CD3C624E229B0F2E000A79FE /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD3C624C229B0F2E000A79FE /* GameManager.cpp */; };
+		CDCCB96D22A96983001AE79D /* TMX in Resources */ = {isa = PBXBuildFile; fileRef = CDCCB96C22A96983001AE79D /* TMX */; };
+		CDCCB96E22A96A3C001AE79D /* TMX in Resources */ = {isa = PBXBuildFile; fileRef = CDCCB96C22A96983001AE79D /* TMX */; };
+		CDCCB97222A9BCD2001AE79D /* QuartzCrystalNorthFliped3.png in Resources */ = {isa = PBXBuildFile; fileRef = CDCCB97122A9BCD2001AE79D /* QuartzCrystalNorthFliped3.png */; };
 		CDF7873D229748AB00B5B1D5 /* HudLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDF7873C229748AB00B5B1D5 /* HudLayer.cpp */; };
 		CDF7873E229748AB00B5B1D5 /* HudLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDF7873C229748AB00B5B1D5 /* HudLayer.cpp */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
@@ -285,11 +280,7 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		294D0D631D0D56D500F7F5D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
-		2B3E107C22701BF900A792CF /* bottom.elecfence.128x128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottom.elecfence.128x128.png; sourceTree = "<group>"; };
-		2B3E107F22701C7700A792CF /* west.elecfence.128x128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = west.elecfence.128x128.png; sourceTree = "<group>"; };
-		2B3E108222701CD400A792CF /* top.elecfence.128x128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top.elecfence.128x128.png; sourceTree = "<group>"; };
 		2B3E10862271381400A792CF /* GameOver001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameOver001.png; sourceTree = "<group>"; };
-		2B3E108C2272819C00A792CF /* space_mine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = space_mine.png; sourceTree = "<group>"; };
 		2B5E000C2273A03E00205A72 /* game.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game.png; sourceTree = "<group>"; };
 		2B5E00172274D2D500205A72 /* SillyMutts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SillyMutts.h; sourceTree = "<group>"; };
 		2B5E00182274D40700205A72 /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
@@ -322,7 +313,6 @@
 		2B7E8B43227DEC4A0099AD4B /* Element.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Element.h; sourceTree = "<group>"; };
 		2B7E8B56227E1DE00099AD4B /* TileMap.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TileMap.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B85D47B226653D7005F5DD1 /* MyMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMacros.h; sourceTree = "<group>"; };
-		2B85D47D2267F951005F5DD1 /* TMX-Cave */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "TMX-Cave"; sourceTree = "<group>"; };
 		2B85D4802267F9F6005F5DD1 /* MyTMX.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyTMX.cpp; sourceTree = "<group>"; };
 		2B85D4812267F9F6005F5DD1 /* MyTMX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTMX.h; sourceTree = "<group>"; };
 		2B94B5E32287D129001E9E8E /* ColliderComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ColliderComponent.cpp; sourceTree = "<group>"; };
@@ -344,12 +334,7 @@
 		2BC09FF5226A7E9E0089757F /* star-space-x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-space-x.png"; sourceTree = "<group>"; };
 		2BC0A00C226C27B50089757F /* PhysicsShapeCache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicsShapeCache.cpp; sourceTree = "<group>"; };
 		2BC0A00D226C27B50089757F /* PhysicsShapeCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsShapeCache.h; sourceTree = "<group>"; };
-		2BDAC155225AFE2000CA02D9 /* Spike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spike.png; sourceTree = "<group>"; };
-		2BDAC156225AFE2000CA02D9 /* AcidTop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AcidTop.png; sourceTree = "<group>"; };
-		2BDAC15C225AFE2400CA02D9 /* Acid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Acid.png; sourceTree = "<group>"; };
 		2BDAC166225C244700CA02D9 /* space-cave.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "space-cave.jpg"; sourceTree = "<group>"; };
-		2BDAC169225C299D00CA02D9 /* stalactite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stalactite.png; sourceTree = "<group>"; };
-		2BEB97BF1FFDE24600BB5777 /* vfinish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vfinish.png; sourceTree = "<group>"; };
 		2BEB97DB1FFDE25A00BB5777 /* Success.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Success.jpeg; sourceTree = "<group>"; };
 		2BEB97DE1FFDE25B00BB5777 /* animation_explosion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animation_explosion.png; sourceTree = "<group>"; };
 		2BEB97E61FFDE25E00BB5777 /* GameOver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameOver.png; sourceTree = "<group>"; };
@@ -419,9 +404,10 @@
 		CD06D4C92299C39C0041E43E /* thruster3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster3.png; sourceTree = "<group>"; };
 		CD1E44CF229E0C1A002AAE51 /* LevelSelectLayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LevelSelectLayer.cpp; sourceTree = "<group>"; };
 		CD1E44D0229E0C1A002AAE51 /* LevelSelectLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelSelectLayer.h; sourceTree = "<group>"; };
-		CD1E44D3229E1660002AAE51 /* GameLevelInfo.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GameLevelInfo.xml; sourceTree = "<group>"; };
 		CD3C624C229B0F2E000A79FE /* GameManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameManager.cpp; sourceTree = "<group>"; };
 		CD3C624D229B0F2E000A79FE /* GameManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
+		CDCCB96C22A96983001AE79D /* TMX */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TMX; sourceTree = "<group>"; };
+		CDCCB97122A9BCD2001AE79D /* QuartzCrystalNorthFliped3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QuartzCrystalNorthFliped3.png; sourceTree = "<group>"; };
 		CDF7873A229748AA00B5B1D5 /* HudLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HudLayer.h; sourceTree = "<group>"; };
 		CDF7873C229748AB00B5B1D5 /* HudLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HudLayer.cpp; sourceTree = "<group>"; };
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -524,6 +510,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				CDCCB97122A9BCD2001AE79D /* QuartzCrystalNorthFliped3.png */,
 				CD06D4C12298C8780041E43E /* TODO */,
 				46880B8319C43A87006E1F66 /* Classes */,
 				46880B7519C43A67006E1F66 /* Resources */,
@@ -769,6 +756,9 @@
 		2BEB99831FFE9D6300BB5777 /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				2BC09FF5226A7E9E0089757F /* star-space-x.png */,
+				2B3E10862271381400A792CF /* GameOver001.png */,
+				2B5E000C2273A03E00205A72 /* game.png */,
 				2BEB97DB1FFDE25A00BB5777 /* Success.jpeg */,
 				2BEB97E61FFDE25E00BB5777 /* GameOver.png */,
 			);
@@ -778,32 +768,19 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CD1E44D2229E162B002AAE51 /* conf */,
+				CDCCB96C22A96983001AE79D /* TMX */,
 				2B5E001E2274E0F700205A72 /* Sound */,
 				521A8EA819F11F5000D177D7 /* fonts */,
 				2BEB999D1FFF247800BB5777 /* SIFI_GUI */,
-				2B85D47D2267F951005F5DD1 /* TMX-Cave */,
 				2BEB99801FFE9BC300BB5777 /* Animations */,
 				2BEB99831FFE9D6300BB5777 /* Backgrounds */,
-				2B5E000C2273A03E00205A72 /* game.png */,
-				2B3E108C2272819C00A792CF /* space_mine.png */,
-				2B3E10862271381400A792CF /* GameOver001.png */,
 				2B730E6C226CC8E1005DCD3F /* crystal_cave.plist */,
 				2B730E66226CC7DC005DCD3F /* crystal_cav.pes */,
-				2BC09FF5226A7E9E0089757F /* star-space-x.png */,
-				2BDAC169225C299D00CA02D9 /* stalactite.png */,
 				2BDAC166225C244700CA02D9 /* space-cave.jpg */,
-				2BDAC15C225AFE2400CA02D9 /* Acid.png */,
-				2BDAC156225AFE2000CA02D9 /* AcidTop.png */,
-				2BDAC155225AFE2000CA02D9 /* Spike.png */,
 				2B5E0036227544BD00205A72 /* box.red.32.32.png */,
 				2B5E00252274E38900205A72 /* box.red.hollow.32.32.png */,
 				2B5E00212274E36E00205A72 /* box.red.hollow.64.64.png */,
-				2B3E107C22701BF900A792CF /* bottom.elecfence.128x128.png */,
-				2B3E108222701CD400A792CF /* top.elecfence.128x128.png */,
-				2B3E107F22701C7700A792CF /* west.elecfence.128x128.png */,
 				2BEB98061FFDE26A00BB5777 /* red_falcon.png */,
-				2BEB97BF1FFDE24600BB5777 /* vfinish.png */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -873,14 +850,6 @@
 				CD1E44D0229E0C1A002AAE51 /* LevelSelectLayer.h */,
 			);
 			path = LevelSelect;
-			sourceTree = "<group>";
-		};
-		CD1E44D2229E162B002AAE51 /* conf */ = {
-			isa = PBXGroup;
-			children = (
-				CD1E44D3229E1660002AAE51 /* GameLevelInfo.xml */,
-			);
-			path = conf;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1023,19 +992,17 @@
 				CD06D4D42299C39C0041E43E /* thruster3.png in Resources */,
 				CD06D4CA2299C39C0041E43E /* thruster4.png in Resources */,
 				CD06D4D22299C39C0041E43E /* thruster5.png in Resources */,
-				2B3E108E2272819C00A792CF /* space_mine.png in Resources */,
 				2B5E00282274E38900205A72 /* box.red.hollow.32.32.png in Resources */,
 				2B5E0037227544BD00205A72 /* box.red.32.32.png in Resources */,
+				CDCCB97222A9BCD2001AE79D /* QuartzCrystalNorthFliped3.png in Resources */,
 				2B5E00222274E36E00205A72 /* box.red.hollow.64.64.png in Resources */,
-				2B85D47E2267F951005F5DD1 /* TMX-Cave in Resources */,
-				CD1E44D4229E1660002AAE51 /* GameLevelInfo.xml in Resources */,
+				CDCCB96D22A96983001AE79D /* TMX in Resources */,
 				1A88B2641FC3D9C9005C14AE /* Images.xcassets in Resources */,
 				2B5E000E2273A03E00205A72 /* game.png in Resources */,
 				2B5E001F2274E0F800205A72 /* Sound in Resources */,
 				2BC09FF7226A7E9E0089757F /* star-space-x.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				2BDAC167225C244800CA02D9 /* space-cave.jpg in Resources */,
-				2BEB98461FFDE27500BB5777 /* vfinish.png in Resources */,
 				1AF87B891F6F781D007BE51C /* LaunchScreenBackground.png in Resources */,
 				2BEB98941FFDE27500BB5777 /* GameOver.png in Resources */,
 				2B730E6D226CC8E1005DCD3F /* crystal_cave.plist in Resources */,
@@ -1059,6 +1026,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDCCB96E22A96A3C001AE79D /* TMX in Resources */,
 				2B5E00132273C5BA00205A72 /* game.png in Resources */,
 				2BEB987F1FFDE27500BB5777 /* Success.jpeg in Resources */,
 				2BDAC168225C244800CA02D9 /* space-cave.jpg in Resources */,
@@ -1067,7 +1035,6 @@
 				2BC09FF8226A7E9E0089757F /* star-space-x.png in Resources */,
 				2BEB98D51FFDE27500BB5777 /* red_falcon.png in Resources */,
 				2B5E00292274E38900205A72 /* box.red.hollow.32.32.png in Resources */,
-				2B3E108F2272819C00A792CF /* space_mine.png in Resources */,
 				CD06D4D12299C39C0041E43E /* thruster0.png in Resources */,
 				CD06D4CD2299C39C0041E43E /* thruster1.png in Resources */,
 				CD06D4CF2299C39C0041E43E /* thruster2.png in Resources */,
@@ -1076,12 +1043,9 @@
 				CD06D4D32299C39C0041E43E /* thruster5.png in Resources */,
 				2B5E0038227544BD00205A72 /* box.red.32.32.png in Resources */,
 				2B5E00232274E36E00205A72 /* box.red.hollow.64.64.png in Resources */,
-				2BEB98471FFDE27500BB5777 /* vfinish.png in Resources */,
-				2B85D47F2267F951005F5DD1 /* TMX-Cave in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
 				2BEB98851FFDE27500BB5777 /* animation_explosion.png in Resources */,
 				2BEB98B51FFDE27500BB5777 /* animation_explosion.plist in Resources */,
-				CD1E44D5229E1660002AAE51 /* GameLevelInfo.xml in Resources */,
 				2B730E6E226CC8E1005DCD3F /* crystal_cave.plist in Resources */,
 				2BEB999F1FFF247900BB5777 /* SIFI_GUI in Resources */,
 				2B5E00202274E0F800205A72 /* Sound in Resources */,

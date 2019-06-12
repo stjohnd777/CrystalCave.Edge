@@ -176,9 +176,20 @@ private :
     GameManager (){
         
         using namespace tinyxml2;
+        using namespace cocos2d;
+        
+        
+//        auto testPath2 = Sprite::create("TMX-Cave/man.png");
+//        std::string s2 = FileUtils::getInstance()->getStringFromFile("TMX-Cave/GameLevelInfo.xml");
+//        auto searchPaths = FileUtils::getInstance()->getSearchPaths();
+//        FileUtils::getInstance()->isDirectoryExist("/Resources/TMX-Cave/", [&] (bool exists) {
+//            log("exists %d",exists);
+//        });
+        
         
         XMLDocument doc;
-        int retCode = doc.LoadFile( "TMX-Cave/GameLevelInfo.xml");
+        //int retCode = doc.LoadFile( "TMX2/GameLevelInfo.xml");
+        int retCode = doc.LoadFile( "TMX/GameLevelInfo.xml");
         assert(retCode == 0);
         auto elementRoot =doc.RootElement();
         

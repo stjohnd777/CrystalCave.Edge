@@ -131,15 +131,17 @@ namespace GameAssets {
     namespace Sprite {
         
         
-        const char* const  MINE = "space_mine.png";
+        const char* const  MINE = "TMX/space_mine.png";
 
-        const char* const Stalactite = "TMX-Cave/stalactite.png";
-        const char* const QuartzCrystalSouth = "TMX-Cave/QuartzCrystalSouth.png";
-        const char* const QuartzCrystalNorth = "TMX-Cave/QuartzCrystalNorth.png";
-        const char* const QuartzCrystalNorth3 = "TMX-Cave/QuartzCrystalNorth3.png";
-        const char* const QuartzCrystalNorthFliped3 ="TMX-Cave/QuartzCrystalNorthFliped3.png";
-        const char* const Geyzer = "TMX-Cave/geyzer.png";
-        const char* const FINISH = "vfinish.png";
+        const char* const Stalactite = "TMX/stalactite.png";
+        const char* const QuartzCrystalSouth = "TMX/QuartzCrystalSouth.png";
+        const char* const QuartzCrystalNorth = "TMX/QuartzCrystalNorth.png";
+        const char* const QuartzCrystalNorth3 = "TMX/QuartzCrystalNorth3.png";
+        const char* const QuartzCrystalNorthFlipped = "TMX/QuartzCrystalNorthFliped.png";
+        const char* const QuartzCrystalNorthFliped3 ="TMX/QuartzCrystalNorthFliped3.png";
+        const char* const Geyzer = "TMX/geyzer.png";
+        const char* const FINISH = "TMX/vfinish.png";
+        const char* const STEAL_BALL = "TMX/steelball.png";
         
         
 

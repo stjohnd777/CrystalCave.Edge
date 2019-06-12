@@ -4,6 +4,7 @@
 
 #include "GameAssets.h"
 #include "LabelManager.h"
+#include "SoundManager.h"
 #include "Utils.h"
 
 #include "SimpleAudioEngine.h"
@@ -66,19 +67,19 @@ void GLHorzFence::start(Node* node ,float dt){
     
     if (showBeamOrgin) {
 
-        west = Sprite::create("TMX-Cave/steelball.png");
+        west = Sprite::create(GameAssets::Sprite::STEAL_BALL);
         node->addChild(west,1000);
         auto pw =Vec2( beamWest, initY );
         west->setPosition(pw);
  
-        east = Sprite::create("TMX-Cave/steelball.png");
+        east = Sprite::create(GameAssets::Sprite::STEAL_BALL);
         node->addChild(east,1000);
         auto pe = Vec2( beamEast  , initY );
         east->setPosition(pe);
 
     }
     node->addChild(this,z);
-    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Sound/elec.wav", true);
+    SoundManager::electric();
     
     scheduleUpdate();
 

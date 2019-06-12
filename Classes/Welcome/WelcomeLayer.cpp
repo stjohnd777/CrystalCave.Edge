@@ -20,10 +20,6 @@ using namespace cocos2d;
 #include <string>
 using namespace std;
 
-//#include "SimpleAudioEngine.h"
-//using namespace CocosDenshion;
-
-
 Scene*WelcomeLayer::scene() {
     
     Scene *scene = Scene::create();
@@ -208,7 +204,10 @@ void WelcomeLayer::CreateCrystalCeilingFloor()
 {
 
     int worldWidth = Director::getInstance()->getWinSize().width ;
-    int stalactiteWidth = Sprite::create("TMX-Cave/stalactite.png" )->getContentSize().width;
+    auto stalactite= Sprite::create( GameAssets::Sprite::Stalactite );
+    //auto stalactite2= Sprite::create( "stalactite.png");
+    //int stalactiteWidth2 = stalactite2->getContentSize().width;
+    int stalactiteWidth = stalactite->getContentSize().width;
     int stalactiteSegments = 2 * worldWidth/stalactiteWidth;
     int nx = stalactiteSegments;
 
@@ -226,21 +225,21 @@ void WelcomeLayer::CreateCrystalCeilingFloor()
             case 2:
 
                 if (flipedX) {
-                    crystalFloorPart =  Sprite::create("TMX-Cave/QuartzCrystalNorthFliped.png");
+                    crystalFloorPart =  Sprite::create(GameAssets::Sprite::QuartzCrystalNorthFlipped );
                 } else {
-                    crystalFloorPart =  Sprite::create("TMX-Cave/QuartzCrystalNorth.png");
+                    crystalFloorPart =  Sprite::create(GameAssets::Sprite::QuartzCrystalNorth  );
                 }
                 break;
             case 3:
                 if (flipedX) {
-                    crystalFloorPart= Sprite::create("TMX-Cave/QuartzCrystalNorthFliped3.png");
+                    crystalFloorPart= Sprite::create(GameAssets::Sprite::QuartzCrystalNorthFliped3 );
                 } else {
-                    crystalFloorPart= Sprite::create("TMX-Cave/QuartzCrystalNorth3.png");
+                    crystalFloorPart= Sprite::create(GameAssets::Sprite::QuartzCrystalNorth3);
                 }
                 break;
             default:
 
-                crystalFloorPart = Sprite::create("TMX-Cave/geyzer.png");
+                crystalFloorPart = Sprite::create(GameAssets::Sprite::Geyzer  );
                 break;
         }
         
@@ -258,7 +257,7 @@ void WelcomeLayer::CreateCrystalCeilingFloor()
 
 
             // Crystal Ceiling
-            Sprite* crystalCiellingPart = Sprite::create("TMX-Cave/stalactite.png" );
+            Sprite* crystalCiellingPart = Sprite::create(GameAssets::Sprite::Stalactite );
             crystalCiellingPart->setPosition(Point(xcoord,Director::getInstance()->getWinSize().height));
             crystalCiellingPart->setAnchorPoint(Vec2(.5,1));
 

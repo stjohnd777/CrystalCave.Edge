@@ -141,15 +141,12 @@ namespace dsj
     }
     
     bool Element::GetPropertyBool (std::string key) {
-        bool ret = false;
         auto v = GetProperty(key);
-        if ( v.length() > 0 ){
-          ret = StringUtils::stob(v);
-        }
-        return ret;
+        return v.empty() ? false : StringUtils::stob(v);
     }
     int Element::GetPropertyInt (std::string key) {
-        return std::stoi(GetProperty(key));
+        auto value = GetProperty(key);
+        return value.empty() ? 0 : std::stoi(value);
     }
     float Element::GetPropertyFloat (std::string key) {
         return std::stof(GetProperty(key));

@@ -141,7 +141,8 @@ namespace dsj {
         std::stringstream ss;
 
         // use the TileMap properties to add this append field
-        ss << "TMX-Cave/" << imageSource;
+        //ss << "TMX-Cave/" << imageSource;
+        ss << "TMX/" << imageSource;
 
         // first pass we do not optimize this the SpriteFrame and
         // FrameCach, but will add this optimization and sprite sheet
@@ -165,7 +166,7 @@ namespace dsj {
         sprite->setAnchorPoint(cocos2d::Vec2(0,0));
 
         // TAG
-        int TAG = std::stoi(GetProperty("TAG"));
+        int TAG = GetPropertyInt("TAG");
         sprite->setTag(TAG);
 
         // Add Tile* for future reference
@@ -184,9 +185,9 @@ namespace dsj {
         //sprite->setScale(GameAssets::MY_CONTENT_SCALE);
 
         // Handle the physics and body shapes
-        auto isUsePhysics  = GetProperty(CUSTOM_PROPERTIES::IS_USE_PHYSICS );
+        bool isUsePhysics  = GetPropertyBool(CUSTOM_PROPERTIES::IS_USE_PHYSICS );
 
-        if (stob(isUsePhysics)){
+        if (isUsePhysics){
 
             cocos2d::PhysicsBody*  body ;
 

@@ -73,11 +73,11 @@ void GLVertFence::start(Node* node ,float dt){
 
     if (showBeamOrgin) {
 
-        top = Sprite::create("TMX-Cave/steelball.png");
+        top = Sprite::create(GameAssets::Sprite::STEAL_BALL);
         //top->setScale(4);
         m_GameLayer->addChild(top,1000);
 
-        bottom = Sprite::create("TMX-Cave/steelball.png");
+        bottom = Sprite::create(GameAssets::Sprite::STEAL_BALL);
         //bottom->setScale(4);
         m_GameLayer->addChild(bottom,1000);
 
