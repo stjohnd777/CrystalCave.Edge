@@ -140,49 +140,49 @@ bool HudLayer::init()
     this->addChild(getPlayTimeDisplay(),2000);
 
     // Pause/Play
-    auto pause =  Sprite::create();
-    pause->initWithFile(GameAssets::Sprite::BTN_PAUSE);
-    Utils::setSize(pause,64,64);
-    pause->setAnchorPoint(Vec2(1,1));
-    MenuItemSprite* itemPause = MenuItemSprite::create(pause,pause,NULL);
-    itemPause->setAnchorPoint(Vec2(1,1));
-    auto play = Sprite::create();
-    play->initWithFile(GameAssets::Sprite::BTN_PLAY);
-    Utils::setSize(play,64,64);
-    play->setAnchorPoint(Vec2(1,1));
-    MenuItemSprite* itemPlay = MenuItemSprite::create(play,play,NULL);
-    itemPlay->setAnchorPoint(Vec2(1,1));
-
-    Vector<MenuItem*> menuItems;
-    menuItems.pushBack(itemPause);
-    menuItems.pushBack(itemPlay);
-    std::function<void(Ref*)> callback = [&](Ref* pSender)
-    {
-        static bool action = true;
-        if ( action)
-        {
-            Director::getInstance()->pause();
-            const char * msg = "Game Paused";
-            pausedlabel = (Label*)Label::createWithBMFont (GameAssets::Fonts::BMF::ALPHA_NUM::FUTURA_48,msg) ;
-     
-            pausedlabel->setPosition(Utils::getMidPoint());
-            addChild(pausedlabel);
-            action = false;
-        }else {
-            Director::getInstance()->resume();
-            pausedlabel->removeFromParentAndCleanup(true);
-            action = true;
-
-        }
-        //action = !action;
-    };
-    itemTogglePlayPause = MenuItemToggle::createWithCallback(callback,menuItems);
-
-    Menu* menu = Menu::create(itemTogglePlayPause, NULL);
-
-    menu->setAnchorPoint(Vec2(1,.5));
-    menu->setPosition(Vec2( screenSize.width   , screenSize.height /2) );
-    addChild(menu, 2000);
+//    auto pause =  Sprite::create();
+//    pause->initWithFile(GameAssets::Sprite::BTN_PAUSE);
+//    Utils::setSize(pause,64,64);
+//    pause->setAnchorPoint(Vec2(1,1));
+//    MenuItemSprite* itemPause = MenuItemSprite::create(pause,pause,NULL);
+//    itemPause->setAnchorPoint(Vec2(1,1));
+//    auto play = Sprite::create();
+//    play->initWithFile(GameAssets::Sprite::BTN_PLAY);
+//    Utils::setSize(play,64,64);
+//    play->setAnchorPoint(Vec2(1,1));
+//    MenuItemSprite* itemPlay = MenuItemSprite::create(play,play,NULL);
+//    itemPlay->setAnchorPoint(Vec2(1,1));
+//
+//    Vector<MenuItem*> menuItems;
+//    menuItems.pushBack(itemPause);
+//    menuItems.pushBack(itemPlay);
+//    std::function<void(Ref*)> callback = [&](Ref* pSender)
+//    {
+//        static bool action = true;
+//        if ( action)
+//        {
+//            Director::getInstance()->pause();
+//            const char * msg = "Game Paused";
+//            pausedlabel = (Label*)Label::createWithBMFont (GameAssets::Fonts::BMF::ALPHA_NUM::FUTURA_48,msg) ;
+//
+//            pausedlabel->setPosition(Utils::getMidPoint());
+//            addChild(pausedlabel);
+//            action = false;
+//        }else {
+//            Director::getInstance()->resume();
+//            pausedlabel->removeFromParentAndCleanup(true);
+//            action = true;
+//
+//        }
+//        //action = !action;
+//    };
+//    itemTogglePlayPause = MenuItemToggle::createWithCallback(callback,menuItems);
+//
+//    Menu* menu = Menu::create(itemTogglePlayPause, NULL);
+//
+//    menu->setAnchorPoint(Vec2(1,.5));
+//    menu->setPosition(Vec2( screenSize.width   , screenSize.height /2) );
+//    addChild(menu, 2000);
 
     scheduleUpdate();
     

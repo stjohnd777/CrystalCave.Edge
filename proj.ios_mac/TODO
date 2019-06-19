@@ -11,25 +11,25 @@ DONE : app is minimized or forced into the background stop audio playback.  appl
 DONE: Follow(y) in the image of Follow(y)
 DONE Feature :Injured, Fire and Smoke Based on Health
 DONE: Injured, fire and smoke effect h=base oin Health
+HIDE IT ==> BUG: Pause button back button
 
 BUG : QuartzCrystalNorthFliped.png Missing
 BUG : AcidTop PE not correct
 BUG : LabelManager and hit points for all hostiles
-BUG: Pause button back button
+
 
 TODO : Death Sequence Need some more dramatic experience and do not transition to failed scene immediately
 
 
+TODO : PERSISTENCE
+    TODO Persistence
+    DONE :Last Level Player
+    TODO Develop Score system  Health + Time + Pickups
+    GameManager and UserData and Reading xml level ocnfig
+    GameManager/UserData stats dave/retireve
 
-
-TODO Persistence
-DONE :Last Level Player
-TODO Develop Score system  Health + Time + Pickups
-
-GameManager and UserData and Reading xml level ocnfig
-GameManager/UserData stats dave/retireve
-
-TODO HUD :Add level name and desc to the HUD
+TODO : HUD
+    TODO HUD :Add level name and desc to the HUD
 
 
 
@@ -61,6 +61,14 @@ SHOW GRID
 Mechanics:
    Three Lives to Game
 
+TODO: Environement and Polishing
+    TODO: Animations/PArticle Effect
+        Lava Animation + Particle Effect
+        Acid + Particle Effect
+        Thrustrer + Particle Effect
+        Ship Explosion + Particle Effect
+    TODO :Lighting
+        SI : project
 
 
 TODO : TMX Layer is cocos2d::Layer

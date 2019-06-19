@@ -30,8 +30,94 @@ namespace LayerLevel {
     };
 }
 
-namespace GameAssets {
 
+struct ObjectDescriptor {
+    
+//     static const int ROWS = 8;
+//     static const char* const NAME ; // = "Name";
+    
+//    ObjectDescriptor() : Name("Name") {}
+//    static const char* const TYPE = "Type";
+//    static const char* const VISABLE = "Visable";
+//    static const char* const X = "X";
+//    static const char* const Y = "Y";
+//    static const char* const Width= "Width";
+//    static const char* const Height= "Height";
+//    static const char* const Rotation= "Rotation";
+    
+    char* Name;
+    char* Type;
+    bool Visable;
+    int X;
+    int Y;
+    int Width;
+    int Height;
+    float Rotation;
+};
+//const char* const ObjectDescriptor::NAME = "Name";
+
+struct MineDescriptor  :  ObjectDescriptor {
+    
+    MineDescriptor()  {}
+    
+    bool IsMoving;
+    bool IsVert;
+    float dt;
+    bool isUsingOnContact;
+    bool isUsingPhysics;
+
+};
+
+struct ScanBeam  :  ObjectDescriptor {
+    
+    ScanBeam()   {}
+    
+};
+
+
+struct  VerticalElectricFenceDescriptor  :  ObjectDescriptor {
+    
+    VerticalElectricFenceDescriptor()  {}
+ 
+    int steps = 3;
+    int showBeamBoundry;
+    
+    int beamColor;
+    int isRandomColor;
+    
+    int isBlinkling;
+    int blinkRateInSeconds;
+    
+    int increasing;
+    int isMoving;
+    int speedPixelPerSecond;
+    
+};
+
+struct  HorizontalElectricFenceDescriptor  :  ObjectDescriptor {
+    
+ 
+    HorizontalElectricFenceDescriptor()   {}
+    
+    int steps = 3;
+    int beamWidthInPixels = 64;
+    int showBeamBoundry;
+    int showBeamBookEnd;
+    
+    int beamColor;
+    int isRandomColor;
+  
+    int isBlinkling;
+    int blinkRateInSeconds;
+    
+    int increasing;
+    int isMoving;
+    int speedPixelPerSecond;
+};
+
+
+namespace GameAssets   {
+    
     //float MY_CONTENT_SCALE = 1;
 
     const char* const WELCOME_BACKGROUND           = "game.png" ;
