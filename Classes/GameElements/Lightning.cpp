@@ -127,6 +127,5 @@ void Lightning::drawOpenGL()
 
 
 Lightning::~Lightning(){
-    
     //delete color;
 };

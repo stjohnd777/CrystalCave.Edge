@@ -85,37 +85,66 @@ void LunarModule::applyThrush(Vec2 force, float percentage){
     Vec2 thrustAdjustedForceImplusVector(forcex,forcey);
 
 
-    if (this) {
+    if (this) { // TODO : why?
 
         Point posBust =  this->getPosition();
         if ( force.x > 0){
             posBust.x = this->getPosition().x - 64 ;
+            
+            auto animationContainer = Sprite::create();
+            animationContainer->setRotation(270);
+            animationContainer->setAnchorPoint(Vec2(0.5,0.5));
+            animationContainer->setScale(4, 4);
+            auto size = getContentSize();
+            animationContainer->setPosition(Vec2(-128 ,  size.height /2));
+            
+            animationManual("thruster" , 7, .1, false,animationContainer);
         }
+        
         if ( force.x < 0){
+            
             posBust.x = posBust.x + 64 ;
+            
+            auto animationContainer = Sprite::create();
+            animationContainer->setRotation(90);
+            animationContainer->setAnchorPoint(Vec2(0.5,0.5));
+            animationContainer->setScale(4, 4);
+            auto size = getContentSize();
+            animationContainer->setPosition(Vec2(size.width + 128  ,  size.height /2));
+            
+            animationManual("thruster" , 7, .1, false,animationContainer);
         }
         
         if ( force.y > 0){
+            
             posBust.y = posBust.y - 64 ;
             
         
-            auto animation = Animation::createWithSpriteFrames(vectorSpriteFrames, 1/60);
-            Sprite * thrustContainer = Sprite::create();
-            thrustContainer->setTag(777);
-            thrustContainer->setPosition(getPosition());
-            thrustContainer->setPosition(Vec2(0,-64));
-            this->addChild(thrustContainer,1000);
-            CallFunc* cleanUp = CallFunc::create([&](){
-                this->removeChildByTag(777);
-               
-            });
-            Sequence * seq = Sequence::create(Animate::create(animation),cleanUp,nullptr);
-            thrustContainer->runAction( seq );
+            auto animationContainer = Sprite::create();
+            animationContainer->setAnchorPoint(Vec2(0.5,0.5));
+            animationContainer->setScale(4, 4);
+            auto size = getContentSize();
+            animationContainer->setPosition(Vec2(size.width /2, - size.height /2));
+            
+            animationManual("thruster" , 7, .1, false,animationContainer);
+            
+ 
             
         }
         
         if ( force.y < 0){
+            
             posBust.y = posBust.y +64;
+            
+            auto animationContainer = Sprite::create();
+            animationContainer->setRotation(180);
+            animationContainer->setAnchorPoint(Vec2(0.5,0.5));
+            animationContainer->setScale(4, 4);
+            auto size = getContentSize();
+            animationContainer->setPosition(Vec2(size.width/2 ,  size.height +128 ));
+            
+            animationManual("thruster" , 7, .1, false,animationContainer);
+            
         }
 
         ParticleSystemQuad* particalEffectBurst = ParticleSmoke::create();

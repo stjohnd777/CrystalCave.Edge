@@ -225,16 +225,21 @@ public: // inherited functionality
                    std::string plist,
                    std::string subject,
                    int length,
-                   float dt,bool isForEver );
+                   float dt = 1/60,
+                   bool isForEver = false);
     
     void animationManual(
-                   std::string name,
-                   cocos2d::Vector<cocos2d::SpriteFrame*> v,
-                   std::string plist,
                    std::string subject,
                    int length,
-                   float dt,
-                         bool isForEver );
+                   float dt = 1/60,
+                   bool isForEver = false,
+                   cocos2d::Sprite * container = nullptr);
+    
+    void animationManual(
+                   cocos2d::Animation * animation,
+                   float dt = 1/60,
+                   bool isForEver = false,
+                   cocos2d::Sprite * container = nullptr);
     
     
     void explosion();
@@ -253,6 +258,7 @@ public: // inherited functionality
     CC_SYNTHESIZE(bool, m_IsUsingPhysics, IsUsingPhysics);
     
     CC_SYNTHESIZE(bool, m_IsUsingOnContact, IsUsingOnContact);
+    
     
     ///////////////////////////////////////////////////////////////
     // TODO : oportunity to make this inherited functionality
@@ -274,7 +280,9 @@ public: // inherited functionality
     /**
      * Physics engine notification of contact
      */
-    virtual bool onContactBegin(cocos2d::PhysicsContact& contact){};
+    virtual bool onContactBegin(cocos2d::PhysicsContact& contact){
+        return true;
+    };
 
    
     
@@ -319,7 +327,9 @@ public:
     
 private :
     
-    cocos2d::Map<std::string, cocos2d::Animation*> m_MapName2Animation;
+ 
+     cocos2d::Map<std::string, cocos2d::Animation *> m_MapName2Animation;
+    
     
 };
 

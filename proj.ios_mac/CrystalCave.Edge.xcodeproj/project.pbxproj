@@ -190,23 +190,27 @@
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
-		CD06D4CA2299C39C0041E43E /* thruster4.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C42299C39B0041E43E /* thruster4.png */; };
-		CD06D4CB2299C39C0041E43E /* thruster4.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C42299C39B0041E43E /* thruster4.png */; };
-		CD06D4CC2299C39C0041E43E /* thruster1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C52299C39C0041E43E /* thruster1.png */; };
-		CD06D4CD2299C39C0041E43E /* thruster1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C52299C39C0041E43E /* thruster1.png */; };
-		CD06D4CE2299C39C0041E43E /* thruster2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C62299C39C0041E43E /* thruster2.png */; };
-		CD06D4CF2299C39C0041E43E /* thruster2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C62299C39C0041E43E /* thruster2.png */; };
-		CD06D4D02299C39C0041E43E /* thruster0.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C72299C39C0041E43E /* thruster0.png */; };
-		CD06D4D12299C39C0041E43E /* thruster0.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C72299C39C0041E43E /* thruster0.png */; };
-		CD06D4D22299C39C0041E43E /* thruster5.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C82299C39C0041E43E /* thruster5.png */; };
-		CD06D4D32299C39C0041E43E /* thruster5.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C82299C39C0041E43E /* thruster5.png */; };
-		CD06D4D42299C39C0041E43E /* thruster3.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C92299C39C0041E43E /* thruster3.png */; };
-		CD06D4D52299C39C0041E43E /* thruster3.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C92299C39C0041E43E /* thruster3.png */; };
+		CD06D4CA2299C39C0041E43E /* thruster.4.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C42299C39B0041E43E /* thruster.4.png */; };
+		CD06D4CB2299C39C0041E43E /* thruster.4.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C42299C39B0041E43E /* thruster.4.png */; };
+		CD06D4CC2299C39C0041E43E /* thruster.1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C52299C39C0041E43E /* thruster.1.png */; };
+		CD06D4CD2299C39C0041E43E /* thruster.1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C52299C39C0041E43E /* thruster.1.png */; };
+		CD06D4CE2299C39C0041E43E /* thruster.2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C62299C39C0041E43E /* thruster.2.png */; };
+		CD06D4CF2299C39C0041E43E /* thruster.2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C62299C39C0041E43E /* thruster.2.png */; };
+		CD06D4D02299C39C0041E43E /* thruster.0.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C72299C39C0041E43E /* thruster.0.png */; };
+		CD06D4D12299C39C0041E43E /* thruster.0.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C72299C39C0041E43E /* thruster.0.png */; };
+		CD06D4D22299C39C0041E43E /* thruster.5.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C82299C39C0041E43E /* thruster.5.png */; };
+		CD06D4D32299C39C0041E43E /* thruster.5.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C82299C39C0041E43E /* thruster.5.png */; };
+		CD06D4D42299C39C0041E43E /* thruster.3.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C92299C39C0041E43E /* thruster.3.png */; };
+		CD06D4D52299C39C0041E43E /* thruster.3.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C92299C39C0041E43E /* thruster.3.png */; };
 		CD1E44D1229E0C1A002AAE51 /* LevelSelectLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD1E44CF229E0C1A002AAE51 /* LevelSelectLayer.cpp */; };
 		CD3C624E229B0F2E000A79FE /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD3C624C229B0F2E000A79FE /* GameManager.cpp */; };
 		CDCCB96D22A96983001AE79D /* TMX in Resources */ = {isa = PBXBuildFile; fileRef = CDCCB96C22A96983001AE79D /* TMX */; };
 		CDCCB96E22A96A3C001AE79D /* TMX in Resources */ = {isa = PBXBuildFile; fileRef = CDCCB96C22A96983001AE79D /* TMX */; };
 		CDCCB97222A9BCD2001AE79D /* QuartzCrystalNorthFliped3.png in Resources */ = {isa = PBXBuildFile; fileRef = CDCCB97122A9BCD2001AE79D /* QuartzCrystalNorthFliped3.png */; };
+		CDCEB8CE22C6470D00873022 /* thruster.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDCEB8CC22C6470D00873022 /* thruster.plist */; };
+		CDCEB8CF22C6470D00873022 /* thruster.png in Resources */ = {isa = PBXBuildFile; fileRef = CDCEB8CD22C6470D00873022 /* thruster.png */; };
+		CDCEB8D122C6AECC00873022 /* thruster.6.png in Resources */ = {isa = PBXBuildFile; fileRef = CDCEB8D022C6AECC00873022 /* thruster.6.png */; };
+		CDCEB8D222C6AF0600873022 /* thruster.6.png in Resources */ = {isa = PBXBuildFile; fileRef = CDCEB8D022C6AECC00873022 /* thruster.6.png */; };
 		CDF7873D229748AB00B5B1D5 /* HudLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDF7873C229748AB00B5B1D5 /* HudLayer.cpp */; };
 		CDF7873E229748AB00B5B1D5 /* HudLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDF7873C229748AB00B5B1D5 /* HudLayer.cpp */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
@@ -396,18 +400,21 @@
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CD06D4C12298C8780041E43E /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
-		CD06D4C42299C39B0041E43E /* thruster4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster4.png; sourceTree = "<group>"; };
-		CD06D4C52299C39C0041E43E /* thruster1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster1.png; sourceTree = "<group>"; };
-		CD06D4C62299C39C0041E43E /* thruster2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster2.png; sourceTree = "<group>"; };
-		CD06D4C72299C39C0041E43E /* thruster0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster0.png; sourceTree = "<group>"; };
-		CD06D4C82299C39C0041E43E /* thruster5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster5.png; sourceTree = "<group>"; };
-		CD06D4C92299C39C0041E43E /* thruster3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster3.png; sourceTree = "<group>"; };
+		CD06D4C42299C39B0041E43E /* thruster.4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster.4.png; sourceTree = "<group>"; };
+		CD06D4C52299C39C0041E43E /* thruster.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster.1.png; sourceTree = "<group>"; };
+		CD06D4C62299C39C0041E43E /* thruster.2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster.2.png; sourceTree = "<group>"; };
+		CD06D4C72299C39C0041E43E /* thruster.0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster.0.png; sourceTree = "<group>"; };
+		CD06D4C82299C39C0041E43E /* thruster.5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster.5.png; sourceTree = "<group>"; };
+		CD06D4C92299C39C0041E43E /* thruster.3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster.3.png; sourceTree = "<group>"; };
 		CD1E44CF229E0C1A002AAE51 /* LevelSelectLayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LevelSelectLayer.cpp; sourceTree = "<group>"; };
 		CD1E44D0229E0C1A002AAE51 /* LevelSelectLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelSelectLayer.h; sourceTree = "<group>"; };
 		CD3C624C229B0F2E000A79FE /* GameManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameManager.cpp; sourceTree = "<group>"; };
 		CD3C624D229B0F2E000A79FE /* GameManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
 		CDCCB96C22A96983001AE79D /* TMX */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TMX; sourceTree = "<group>"; };
 		CDCCB97122A9BCD2001AE79D /* QuartzCrystalNorthFliped3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QuartzCrystalNorthFliped3.png; sourceTree = "<group>"; };
+		CDCEB8CC22C6470D00873022 /* thruster.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = thruster.plist; sourceTree = "<group>"; };
+		CDCEB8CD22C6470D00873022 /* thruster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster.png; sourceTree = "<group>"; };
+		CDCEB8D022C6AECC00873022 /* thruster.6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thruster.6.png; sourceTree = "<group>"; };
 		CDF7873A229748AA00B5B1D5 /* HudLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HudLayer.h; sourceTree = "<group>"; };
 		CDF7873C229748AB00B5B1D5 /* HudLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HudLayer.cpp; sourceTree = "<group>"; };
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -746,9 +753,8 @@
 		2BEB99801FFE9BC300BB5777 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				CDCEB8CB22C646E200873022 /* explosion */,
 				CD06D4C32299C3850041E43E /* Thruster */,
-				2BEB97F61FFDE26400BB5777 /* animation_explosion.plist */,
-				2BEB97DE1FFDE25B00BB5777 /* animation_explosion.png */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -768,6 +774,13 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CD06D4C72299C39C0041E43E /* thruster.0.png */,
+				CD06D4C52299C39C0041E43E /* thruster.1.png */,
+				CD06D4C62299C39C0041E43E /* thruster.2.png */,
+				CD06D4C92299C39C0041E43E /* thruster.3.png */,
+				CD06D4C42299C39B0041E43E /* thruster.4.png */,
+				CD06D4C82299C39C0041E43E /* thruster.5.png */,
+				CDCEB8D022C6AECC00873022 /* thruster.6.png */,
 				CDCCB96C22A96983001AE79D /* TMX */,
 				2B5E001E2274E0F700205A72 /* Sound */,
 				521A8EA819F11F5000D177D7 /* fonts */,
@@ -833,12 +846,8 @@
 		CD06D4C32299C3850041E43E /* Thruster */ = {
 			isa = PBXGroup;
 			children = (
-				CD06D4C72299C39C0041E43E /* thruster0.png */,
-				CD06D4C52299C39C0041E43E /* thruster1.png */,
-				CD06D4C62299C39C0041E43E /* thruster2.png */,
-				CD06D4C92299C39C0041E43E /* thruster3.png */,
-				CD06D4C42299C39B0041E43E /* thruster4.png */,
-				CD06D4C82299C39C0041E43E /* thruster5.png */,
+				CDCEB8CC22C6470D00873022 /* thruster.plist */,
+				CDCEB8CD22C6470D00873022 /* thruster.png */,
 			);
 			path = Thruster;
 			sourceTree = "<group>";
@@ -850,6 +859,15 @@
 				CD1E44D0229E0C1A002AAE51 /* LevelSelectLayer.h */,
 			);
 			path = LevelSelect;
+			sourceTree = "<group>";
+		};
+		CDCEB8CB22C646E200873022 /* explosion */ = {
+			isa = PBXGroup;
+			children = (
+				2BEB97F61FFDE26400BB5777 /* animation_explosion.plist */,
+				2BEB97DE1FFDE25B00BB5777 /* animation_explosion.png */,
+			);
+			path = explosion;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -986,12 +1004,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BEB98D41FFDE27500BB5777 /* red_falcon.png in Resources */,
-				CD06D4D02299C39C0041E43E /* thruster0.png in Resources */,
-				CD06D4CC2299C39C0041E43E /* thruster1.png in Resources */,
-				CD06D4CE2299C39C0041E43E /* thruster2.png in Resources */,
-				CD06D4D42299C39C0041E43E /* thruster3.png in Resources */,
-				CD06D4CA2299C39C0041E43E /* thruster4.png in Resources */,
-				CD06D4D22299C39C0041E43E /* thruster5.png in Resources */,
+				CDCEB8CF22C6470D00873022 /* thruster.png in Resources */,
+				CDCEB8CE22C6470D00873022 /* thruster.plist in Resources */,
+				CD06D4D02299C39C0041E43E /* thruster.0.png in Resources */,
+				CD06D4CC2299C39C0041E43E /* thruster.1.png in Resources */,
+				CD06D4CE2299C39C0041E43E /* thruster.2.png in Resources */,
+				CD06D4D42299C39C0041E43E /* thruster.3.png in Resources */,
+				CD06D4CA2299C39C0041E43E /* thruster.4.png in Resources */,
+				CD06D4D22299C39C0041E43E /* thruster.5.png in Resources */,
 				2B5E00282274E38900205A72 /* box.red.hollow.32.32.png in Resources */,
 				2B5E0037227544BD00205A72 /* box.red.32.32.png in Resources */,
 				CDCCB97222A9BCD2001AE79D /* QuartzCrystalNorthFliped3.png in Resources */,
@@ -1003,6 +1023,7 @@
 				2BC09FF7226A7E9E0089757F /* star-space-x.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				2BDAC167225C244800CA02D9 /* space-cave.jpg in Resources */,
+				CDCEB8D122C6AECC00873022 /* thruster.6.png in Resources */,
 				1AF87B891F6F781D007BE51C /* LaunchScreenBackground.png in Resources */,
 				2BEB98941FFDE27500BB5777 /* GameOver.png in Resources */,
 				2B730E6D226CC8E1005DCD3F /* crystal_cave.plist in Resources */,
@@ -1035,12 +1056,13 @@
 				2BC09FF8226A7E9E0089757F /* star-space-x.png in Resources */,
 				2BEB98D51FFDE27500BB5777 /* red_falcon.png in Resources */,
 				2B5E00292274E38900205A72 /* box.red.hollow.32.32.png in Resources */,
-				CD06D4D12299C39C0041E43E /* thruster0.png in Resources */,
-				CD06D4CD2299C39C0041E43E /* thruster1.png in Resources */,
-				CD06D4CF2299C39C0041E43E /* thruster2.png in Resources */,
-				CD06D4D52299C39C0041E43E /* thruster3.png in Resources */,
-				CD06D4CB2299C39C0041E43E /* thruster4.png in Resources */,
-				CD06D4D32299C39C0041E43E /* thruster5.png in Resources */,
+				CD06D4D12299C39C0041E43E /* thruster.0.png in Resources */,
+				CD06D4CD2299C39C0041E43E /* thruster.1.png in Resources */,
+				CD06D4CF2299C39C0041E43E /* thruster.2.png in Resources */,
+				CD06D4D52299C39C0041E43E /* thruster.3.png in Resources */,
+				CD06D4CB2299C39C0041E43E /* thruster.4.png in Resources */,
+				CD06D4D32299C39C0041E43E /* thruster.5.png in Resources */,
+				CDCEB8D222C6AF0600873022 /* thruster.6.png in Resources */,
 				2B5E0038227544BD00205A72 /* box.red.32.32.png in Resources */,
 				2B5E00232274E36E00205A72 /* box.red.hollow.64.64.png in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,

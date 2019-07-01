@@ -170,8 +170,6 @@ void  GameObject::useHealthLabel(){
     m_healthLabel->setZOrder(9999);
  
     addChild(m_healthLabel);
-    
- 
 
     m_healthBar = Sprite::create("box.red.32.32.png");
     if (m_healthBar){
@@ -261,7 +259,6 @@ ParticleSystemQuad*  GameObject::randumParticalEffect(float scale,float duration
     }
     return effect;
 }
-
 
 ParticleSystemQuad*  GameObject::explosion(float scale,float duration){
     
@@ -650,40 +647,89 @@ void GameObject::sparkel(){
     tempExp->runAction( RepeatForever::create( Animate::create(idleanimation) ) );
     
 }
+
 void  GameObject::animationManual(
-                     std::string name,
-                     Vector<cocos2d::SpriteFrame*> v,
-                     std::string plist,
                      std::string subject,
                      int length,
                      float dt,
-                     bool isForEver ) {
+                     bool isForEver ,
+                     cocos2d::Sprite * container) {
     
-//    
-//    Vector<SpriteFrame*> vectorSpriteFrames ;
-// 
-//    for(int i = 0; i < length; i++) {
-//        std::stringstream ss;
-//        ss << subject << i  << i << ".png";
-//        std::string name = ss.str();
-//        
-//        auto sprite = Sprite::create(name);
-//        auto spriteFrame = sprite->getSpriteFrame();
-//        vectorSpriteFrames.pushBack(spriteFrame);
-//       }
-//    
-//    auto animation = Animation::createWithSpriteFrames(vectorSpriteFrames, dt);
-//    
-//    Sprite * tempExp = Sprite::create();
-//    tempExp->setPosition(getPosition());
-//    this->addChild(tempExp,99);
-//    
-//    Animation* idleanimation = Animation::createWithSpriteFrames(v, dt);
-//    CallFunc* cleanUp = CallFunc::create([&](){});
-//    Sequence * seq = Sequence::create(Animate::create(animation),cleanUp,nullptr);
-//    tempExp->runAction( seq );
+    Animation* animation = nullptr;
+    if ( m_MapName2Animation.find(subject) == m_MapName2Animation.end() ){
+
+        cocos2d::Vector<cocos2d::SpriteFrame*>  vectorSpriteFrames;
+        for(int i = 0; i < length; i++) {
+            std::stringstream ss;
+            // file path to imahe file
+            ss << subject <<  "." << i << ".png";
+            std::string name = ss.str();
+            // load sprite
+            auto sprite = Sprite::create(name);
+            // get sprite frame
+            // TODO : what is a sprite frmme and how is it different from sprite
+            auto spriteFrame = sprite->getSpriteFrame();
+            vectorSpriteFrames.pushBack(spriteFrame);
+        }
+        animation = Animation::createWithSpriteFrames(vectorSpriteFrames, dt);
+        //m_MapName2Animation.insert( pair<std::string,Animation*>( subject, animation ) );
+        //m_MapName2Animation [subject] =  animation;
+    } else {
+        animation = m_MapName2Animation.find(subject)->second;
+    }
+    GameObject::animationManual(animation,dt,isForEver,container);
+}
+
+// TODO vector Sprite *
+std::vector<Sprite *> animationContainers;
+void  GameObject::animationManual(Animation* animation ,float dt, bool isForEver , Sprite * container ) {
+    
+    Sprite * animationContainer = nullptr;
+    
+    if ( container == nullptr){
+        animationContainer = Sprite::create();
+        
+        animationContainer->setAnchorPoint(Vec2(0.5,0.5));
+        animationContainer->setScale(4, 4);
+        auto size = getContentSize();
+        animationContainer->setPosition(Vec2(size.width /2, - size.height /2));
+        
+    }else {
+        animationContainer = container;
+    }
+    
+    this->addChild(animationContainer,10000);
+    
+    
+    animationContainers.push_back(animationContainer);
+    
+    if ( isForEver){
+        animationContainer->runAction( RepeatForever::create( Animate::create(animation) ) );
+    } else {
+        
+        CallFunc* cleanUp = CallFunc::create([&](){
+ 
+            if ( animationContainers.size() >0) {
+                auto animationContainer = animationContainers.back();
+             
+                if ( animationContainer) {
+                    animationContainers.pop_back();
+                    animationContainer->setVisible(false);
+                    animationContainer->removeAllChildrenWithCleanup(true);
+                    animationContainer->removeFromParentAndCleanup(true);
+                    animationContainer = nullptr;
+                }
+            }
+        });
+        Sequence *  seq = Sequence::create(Animate::create(animation),cleanUp,nullptr);
+        animationContainer->runAction( seq );
+       
+        //animationContainer->runAction( Animate::create(animation) );
+
+    }
     
 }
+
                                          
 
 

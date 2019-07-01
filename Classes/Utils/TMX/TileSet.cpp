@@ -38,6 +38,7 @@ namespace dsj {
         assert(tileheight);
         this->tileheight =std::stoi(tileheight);
 
+        // TDOO :: gird missing boom
         auto elementGrid = elementTileset->FirstChildElement("grid");
         assert(elementGrid);
         this->orientation = elementGrid->Attribute("orientation");

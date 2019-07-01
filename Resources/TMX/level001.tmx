@@ -317,6 +317,7 @@
    <image width="128" height="128" source="QuartzCrystalWest.png"/>
   </tile>
  </tileset>
+
  <layer id="11" name="BG" width="52" height="32">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
