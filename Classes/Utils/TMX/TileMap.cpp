@@ -12,6 +12,12 @@ using namespace tinyxml2;
 namespace dsj {
 
 
+//     bool TileMap::isBoundingBox = false;
+//     bool TileMap::isDebug= false;
+//     bool TileMap::isFollow = false;
+//     bool TileMap::isScrollX= false;
+//     bool TileMap::isScrollY= false;
+    
     TileMap* TileMap::INSTANCE = nullptr;
 
 
@@ -22,54 +28,91 @@ namespace dsj {
 
     /*
      <map
-     version="1.2"
-     tiledversion="1.2.3"
-     orientation="orthogonal"
-     renderorder="left-up"
-     width="30"
-     height="16"
-     tilewidth="64"
-     tileheight="64"
-     infinite="0"
-     nextlayerid="7"
-     nextobjectid="13">
+        version="1.2"
+        tiledversion="1.2.3"
+        orientation="orthogonal"
+        renderorder="left-up"
+         width="30"
+        height="16"
+        tilewidth="64"
+        tileheight="64"
+        infinite="0"
+        nextlayerid="7"
+        nextobjectid="13">
+
      <properties>
-     <property name="LevelName" value="Hello"/>
-     <property name="X" type="int"  value="0"/>
-     ...
+        <property name="LevelName" value="Hello"/>
+        <property name="X" type="int"  value="0"/>
+        ...
      </properties>
-     <tileset firstgid="1" name="Tiles" tilewidth="64" tileheight="64" tilecount="8" columns="0">
-     <grid orientation="orthogonal" width="1" height="1"/>
-     <tile id="1" type="TR-1">
-     <properties> ...</properties>
-     <image width="64" height="64" source="./Tile2.png"/>
-     </tile>
-     ...
-     </tile
-     ...
-     <tileset
+
+     <tileset f
+        irstgid="1"
+        name="Tiles"
+        tilewidth="64"
+        tileheight="64"
+        tilecount="8"
+        columns="0">
+
+        <grid orientation="orthogonal" width="1" height="1"/>
+        <tile id="1" type="TR-1">
+            <properties> ...</properties>
+            <image width="64" height="64" source="./Tile2.png"/>
+        </tile>
+        ...
+        </tile
+        ...
+
+        <tileset
 
      */
     TileMap::TileMap(string pathTmx){
 
         INSTANCE = this;
 
-
         this->pathTmx = pathTmx;
 
         XMLDocument doc;
-        int retCode = doc.LoadFile( pathTmx.c_str());
+        
+#if IS_MOBILE
+        // TODO:: when running the iOS target the tmx file is not found. This if define
+        // solves the issue
+        std::string fullpath = FileUtils::getInstance()->fullPathForFilename(pathTmx);
+#else
+        std::string fullpath = pathTmx;
+#endif
+        
+        int retCode = doc.LoadFile( fullpath.c_str());
+
+        // if we have no been able to load the tile map then fail
         assert(retCode == 0);
 
         auto elementRoot =doc.RootElement();
+
         this->element = elementRoot;
 
-        // know attributes
+        // knowing the attribute we just pull them out
+        // <map version="1.2"
+        //      tiledversion="2019.05.08"
+        //      orientation="orthogonal"
+        //      renderorder="left-up"
+        //      width="26"
+        //      height="16"
+        //      tilewidth="64"
+        //      tileheight="64"
+        //      infinite="0"
+        //      nextlayerid="10"
+        //      nextobjectid="35">
         this->orientation = elementRoot->Attribute("orientation");
         this->width = std::stoi (elementRoot->Attribute("width"));
         this->height = std::stoi(elementRoot->Attribute("height"));
         this->tileWidth =std::stoi(elementRoot->Attribute("tilewidth"));
         this->tileWidth =std::stoi(elementRoot->Attribute("tileheight"));
+
+        // Remark :: The size of the world is  (width * tilewidth) X ( height * tileheight )
+        // I have not found a use case yet for a rectangular tile thus in general
+        // world = ( width * tilesize) X ( height * tilesize)
+
 
         this->m_attributes = ParseAttributes(elementRoot);
 
@@ -86,6 +129,7 @@ namespace dsj {
             log("Tilesets Error");
         }
 
+        // process the layer
         try {
             XMLElement* layerElement = elementRoot->FirstChildElement(Elements::LAYER);
             int layerCounter = 10;
@@ -101,6 +145,7 @@ namespace dsj {
             log("TileLayer Error");
         }
 
+        // process the object layers
         try {
             XMLElement* groupElement = elementRoot->FirstChildElement(Elements::OBJECTGROUP);
             while(groupElement) {

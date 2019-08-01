@@ -1,0 +1,170 @@
+let map :  {
+
+    type : 'tile_map'
+    ,
+
+    attributes : {
+
+        version:"1.2",
+        tiledversion:"1.2.3",
+        orientation:"orthogonal",
+        renderorder:"left-up",
+        width:"30",
+        height:"16",
+        tilewidth:"64",
+        tileheight:"64",
+        infinite:"0",
+        nextlayerid:"7",
+        nextobjectid:"13",
+
+    }
+    ,
+
+	properties : [
+	    {
+	        "name": "isBoundingBox",
+	        "type": "bool",
+	        "value": true
+	    },
+	    {
+	        "name": "isDebug",
+	        "type": "bool",
+	        "value": false
+	    },
+	    {
+	        "name": "isFollow",
+	        "type": "bool",
+	        "value": false
+	    },
+	    {
+	        "name": "isPhyDebug",
+	        "type": "bool",
+	        "value": false
+	    },
+	    {
+	        "name": "isScrollX",
+	        "type": "bool",
+	        "value": false
+	    },
+	    {
+	        "name": "isScrollY",
+	        "type": "bool",
+	        "value": false
+	    }
+	]
+}
+
+
+let scaneBeam = {
+
+	type : 'object'
+	,
+	attributes : {
+
+	}
+	,
+
+	properties : []
+}
+
+let vef = {
+
+	type : 'object'
+	,
+
+	attributes : {
+	 id:"10",
+	 name:"VEF",
+	 type="VEF",
+	 x:"1222",
+	 y:"196" 
+	 width:"64",
+	 height:"320"
+
+	}
+	,
+
+	properties : [
+    {
+        "name": "beamColor",
+        "type": "int",
+        "value": 0
+    },
+    {
+        "name": "blinkRateInSeconds",
+        "type": "int",
+        "value": 2
+    },
+    {
+        "name": "increasing",
+        "type": "int",
+        "value": 0
+    },
+    {
+        "name": "isBlinkling",
+        "type": "int",
+        "value": 1
+    },
+    {
+        "name": "isMoving",
+        "type": "int",
+        "value": 0
+    },
+    {
+        "name": "isRandomColor",
+        "type": "int",
+        "value": 1
+    },
+    {
+        "name": "minXPixel",
+        "type": "int",
+        "value": 0
+    },
+    {
+        "name": "showBeamBookEnd",
+        "type": "int",
+        "value": 0
+    },
+    {
+        "name": "showBeamBoundry",
+        "type": "int",
+        "value": 0
+    },
+    {
+        "name": "speedPixelPerSecond",
+        "type": "int",
+        "value": 0
+    },
+    {
+        "name": "steps",
+        "type": "int",
+        "value": 7
+    }
+]
+
+}
+
+let hef = {
+
+	type : 'object'
+	,
+	attributes : {
+
+	}
+	,
+
+	properties : []
+}
+
+
+
+  <object id="12" name="Mine" type="Mine" x="262" y="230" width="20" height="614">
+   <properties>
+    <property name="IsMoving" type="bool" value="true"/>
+    <property name="IsVert" type="bool" value="true"/>
+    <property name="dt" type="float" value="1"/>
+    <property name="isUsingOnContact" type="bool" value="false"/>
+    <property name="isUsingPhysics" type="bool" value="false"/>
+   </properties>
+  </object>
+ 

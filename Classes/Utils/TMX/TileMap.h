@@ -26,7 +26,62 @@
 
 namespace dsj {
     
+    /**
+    <map version="1.2" tiledversion="2019.05.08" orientation="orthogonal" renderorder="left-up" width="26" height="16" tilewidth="64" tileheight="64" infinite="0" nextlayerid="11" nextobjectid="41">
+    */
     class TileMap : public Element {
+    
+        
+    public:
+        
+//        class AttributeNames {
+//        public:
+//            static  char*  version = "version" ;
+//            static  char*  tiledversion = "tiledversion";
+//            static  char*  orientation = "orientation" ;
+//            static  char*  renderorder = "renderorder";
+//            static  char*  infinite = "infinite";
+//            
+//        };
+//        
+//        static bool isBoundingBox;
+//        static bool isDebug;
+//        static bool isFollow ;
+//        static bool isScrollX;
+//        static bool isScrollY;
+        
+        
+        
+        /* Custome Properties
+        [
+         {
+             "name": "isBoundingBox",
+             "type": "bool",
+             "value": true
+         },
+         {
+             "name": "isDebug",
+             "type": "bool",
+             "value": false
+         },
+         {
+             "name": "isFollow",
+             "type": "bool",
+             "value": false
+         },
+         {
+             "name": "isScrollX",
+             "type": "bool",
+             "value": false
+         },
+         {
+             "name": "isScrollY",
+             "type": "bool",
+             "value": false
+         }
+         ]
+         */
+
 
 
     public :

@@ -12,6 +12,7 @@ DONE: Follow(y) in the image of Follow(y)
 DONE Feature :Injured, Fire and Smoke Based on Health
 DONE: Injured, fire and smoke effect h=base oin Health
 HIDE IT ==> BUG: Pause button back button
+DONE : Thruster Animation
 
 BUG : QuartzCrystalNorthFliped.png Missing
 BUG : AcidTop PE not correct
@@ -30,7 +31,6 @@ TODO : PERSISTENCE
 
 TODO : HUD
     TODO HUD :Add level name and desc to the HUD
-
 
 
 TDOD: New Feature:
@@ -53,10 +53,10 @@ Success
     window, level stats
 
 TODO : OPTIONS
-BG SOUND
-SOUND LEVEL
-SHOW PHY
-SHOW GRID
+    BG SOUND
+    SOUND LEVEL
+    SHOW PHY
+    SHOW GRID
 
 Mechanics:
    Three Lives to Game
@@ -82,6 +82,10 @@ TODO: Follow(x,y) World Edge Stop Follow, using larg wall may be good enough
 TODO: Wall collosion velcoity check and prorted damage
 TODO: Does the particle effect clean it self up when finished, Do I have to clean up the particle effect?
 
-SHELFED : Thruster Animation
+
 SHELFED: Mine Move Path {p0,p1,...pn}
 /Users/p2749227/dev/sillymutts/cocos_projects/CrystalCave.Edge/Classes/Options
+
+BUG
+Missing Sprite
+cocos2d: fullPathForFilename: No file found at TMX/QuartzCrystalNorthFliped.png. Possible missing file.

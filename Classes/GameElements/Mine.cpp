@@ -68,6 +68,7 @@ void Mine::start( ) {
 
 
 void Mine::explodeMine(){
+    setStatus(DEAD);
     SoundManager::playEffect(SND_EXPLODE);
     GameObject::sun(5, .5);
     cleanUp();
@@ -83,6 +84,10 @@ void Mine::takeDamage(int weight){
 
 
 void Mine::update(float dt){
+    
+    if (  getReferenceCount() == 0 ){
+        return;
+    }
     manualCollisionCheck(dt);
     manualWarningProximityCheck();
     injured();
@@ -91,6 +96,10 @@ void Mine::update(float dt){
 
 void Mine::manualWarningProximityCheck() {
     
+ 
+    if (  getReferenceCount() == 0 ){
+        return;
+    }
     float distanceWarn = 2 * getContentSize().width;
     auto p = getPlayer()->getPosition();
     auto m = getPosition();
@@ -177,10 +186,16 @@ bool Mine::onContactBegin(cocos2d::PhysicsContact& contact)
 
 
 void Mine::cleanUp(){
+    unscheduleUpdate();
     unscheduleAllCallbacks();
+    setVisible(false);
+    //removeFromParent();
     removeFromParentAndCleanup(true);
 }
 
-Mine::~Mine(){
-    log("~Mine()");
-}
+//Mine::~Mine(){
+//    setStatus(DEAD);
+//    cleanUp();
+//    log("~Mine()");
+//    removeFromParent();
+//}

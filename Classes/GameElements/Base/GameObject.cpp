@@ -154,7 +154,6 @@ void  GameObject::useHealthLabel(){
     
     setUsesHealthLabel(true);
  
-    
     int contentHeight = getContentSize().height;
     Point pos  = Vec2(getPosition().x ,getPosition().y + contentHeight );
     
@@ -171,7 +170,9 @@ void  GameObject::useHealthLabel(){
  
     addChild(m_healthLabel);
 
-    m_healthBar = Sprite::create("box.red.32.32.png");
+    m_healthBar = Sprite::create();
+    m_healthBar->initWithFile("box.red.32.32.png");
+    assert(m_healthBar != nullptr);
     if (m_healthBar){
         m_healthBarScale = 1;
         m_healthBar->setScaleX(m_healthBarScale);
@@ -180,7 +181,9 @@ void  GameObject::useHealthLabel(){
         addChild(m_healthBar);
     }
     
-    m_hollow = Sprite::create("box.red.hollow.32.32.png");
+    m_hollow = Sprite::create();
+    m_hollow->initWithFile("box.red.hollow.32.32.png");
+    assert(m_hollow  != nullptr);
     if (m_hollow){
         m_hollow->setScaleX(m_healthBarScale);
         m_hollow->setPosition(pos);
@@ -665,7 +668,8 @@ void  GameObject::animationManual(
             ss << subject <<  "." << i << ".png";
             std::string name = ss.str();
             // load sprite
-            auto sprite = Sprite::create(name);
+            auto sprite = Sprite::create();
+            sprite->initWithFile(name);
             // get sprite frame
             // TODO : what is a sprite frmme and how is it different from sprite
             auto spriteFrame = sprite->getSpriteFrame();

@@ -76,53 +76,82 @@ void CtrlLayer::initControlLayer(){
 
 #if IS_MOBILE
 
+    
     float scale = 1;
+    
     sprite = Sprite::create(GameAssets::Sprite::BTN_NORTH);
     // North and South
-    Vector<MenuItem*> vMeniItemsNS;
+   
 
     // North
     auto imiThrustNorth = MenuItemImage::create(
         GameAssets::Sprite::BTN_NORTH,
         GameAssets::Sprite::BTN_NORTH_SEL,
         [&](Ref* sender){
-            m_ship->applyThrush(Vec2(0,-1), getThrustPercentage());
+            m_ship->applyThrush(Vec2(0,1), getThrustPercentage());
         });
+    imiThrustNorth->setAnchorPoint(Vec2(1,0));
     imiThrustNorth->setScale(scale);
-    vMeniItemsNS.pushBack(imiThrustNorth);
+    
+    Vector<MenuItem*> vMeniItemsN;
+    vMeniItemsN.pushBack(imiThrustNorth);
+    
+    auto menuN = Menu::createWithArray(vMeniItemsN);
+    menuN->setColor(Color3B::WHITE);
+    Vec2 posN= Vec2(Director::getInstance()->getWinSize().width ,  sprite->getContentSize().height);
+    menuN->setPosition(posN);
+    ctrlNode->addChild(menuN);
+    // End North
+    
+    
     
     // South
     auto imiThrustSouth = MenuItemImage::create(
         GameAssets::Sprite::BTN_SOUTH,
         GameAssets::Sprite::BTN_SOUTH_SEL,
         [&](Ref* sender){
-            m_ship->applyThrush(Vec2(0,1), getThrustPercentage());
+            m_ship->applyThrush(Vec2(0,-1), getThrustPercentage());
         });
     imiThrustSouth->setScale(scale);
-    vMeniItemsNS.pushBack(imiThrustSouth);
+    imiThrustSouth->setAnchorPoint(Vec2(0,0));
+    imiThrustSouth->setOpacity(128);
     
-    auto menuNS = Menu::createWithArray(vMeniItemsNS);
-    menuNS->setColor(Color3B::WHITE);
-    menuNS->alignItemsVerticallyWithPadding(32);
-    Vec2 posNS= Vec2(Director::getInstance()->getWinSize().width - 2 * sprite->getContentSize().width, Director::getInstance()->getWinSize().height /2);
-    menuNS->setPosition(posNS);
-    ctrlNode->addChild(menuNS);
+    Vector<MenuItem*> vMeniItemsS;
+    vMeniItemsS.pushBack(imiThrustSouth);
+    
+    auto menuS = Menu::createWithArray(vMeniItemsS);
+    menuS->setColor(Color3B::WHITE);
+    Vec2 posS = Vec2(0   ,  sprite->getContentSize().height);
+    menuS->setPosition(posS);
+    ctrlNode->addChild(menuS);
+    // End South
+    
+//    auto menuNS = Menu::createWithArray(vMeniItemsNS);
+//    menuNS->setColor(Color3B::WHITE);
+//    menuNS->alignItemsVerticallyWithPadding(32);
+//    //Vec2 posNS= Vec2(Director::getInstance()->getWinSize().width - 2 * sprite->getContentSize().width, Director::getInstance()->getWinSize().height /2);
+//     Vec2 posNS= Vec2(Director::getInstance()->getWinSize().width - sprite->getContentSize().width /2 , Director::getInstance()->getWinSize().height /2);
+//
+//    menuNS->setPosition(posNS);
+//    ctrlNode->addChild(menuNS);
     
     
     // East
     Vector<MenuItem*> vMenuIemsE;
-    auto imiThrustEast = MenuItemImage::create(
-                                               GameAssets::Sprite::BTN_EAST ,
-                                               GameAssets::Sprite::BTN_EAST_SEL,
+    auto imiThrustEast = MenuItemImage::create(GameAssets::Sprite::BTN_EAST ,GameAssets::Sprite::BTN_EAST_SEL,
         [&](Ref* sender){
             m_ship->applyThrush(Vec2(1,0),  getThrustPercentage());
         });
+    imiThrustEast->setAnchorPoint(Vec2(1,0));
     imiThrustEast->setScale(scale);
     vMenuIemsE.pushBack(imiThrustEast);
+    
     auto menuEast = Menu::createWithArray(vMenuIemsE);
-    Vec2 posEast = Vec2( Director::getInstance()->getWinSize().width - 2 * sprite->getContentSize().width, 4* sprite->getContentSize().height );
+    //Vec2 posEast = Vec2( Director::getInstance()->getWinSize().width - 2 * sprite->getContentSize().width, 4* sprite->getContentSize().height );
+    Vec2 posEast = Vec2( Director::getInstance()->getWinSize().width , 0);
     menuEast->setPosition(posEast);
     ctrlNode->addChild(menuEast);
+    // End East
 
     // West
     Vector<MenuItem*> vMenuItemW;
@@ -132,12 +161,16 @@ void CtrlLayer::initControlLayer(){
          [&](Ref* sender){
              m_ship->applyThrush(Vec2(-1,0),  getThrustPercentage());
          });
-    imiThrustWest->setScale(scale);
+    imiThrustWest->setAnchorPoint(Vec2(0,0));
+    //imiThrustWest->setScale(scale);
     vMenuItemW.pushBack(imiThrustWest);
     auto pMenuThrustWest = Menu::createWithArray(vMenuItemW);
-    Vec2 posWest =  Vec2(2 * sprite->getContentSize().width, 4* sprite->getContentSize().height);
+    //Vec2 posWest =  Vec2(2 * sprite->getContentSize().width, 4* sprite->getContentSize().height);
+    Vec2 posWest =  Vec2(0, 0);
     pMenuThrustWest->setPosition(posWest);
     ctrlNode->addChild(pMenuThrustWest);
+    // End West
+    
     
 #endif
 

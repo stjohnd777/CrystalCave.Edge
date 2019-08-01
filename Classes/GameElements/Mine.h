@@ -86,7 +86,7 @@ public:
     
     void cleanUp();
     
-    ~Mine();
+    //~Mine();
     
 private:
     

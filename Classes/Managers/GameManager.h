@@ -186,10 +186,15 @@ private :
 //            log("exists %d",exists);
 //        });
         
-        
+        auto sprite = Sprite::create("TMX/Acid_Bottom.png");
         XMLDocument doc;
         //int retCode = doc.LoadFile( "TMX2/GameLevelInfo.xml");
-        int retCode = doc.LoadFile( "TMX/GameLevelInfo.xml");
+#if IS_MOBILE
+        std::string fullpath = FileUtils::getInstance()->fullPathForFilename( "TMX/GameLevelInfo.xml");
+#else
+        std::string fullpath = "TMX/GameLevelInfo.xml";
+#endif
+        int retCode = doc.LoadFile( fullpath.c_str());
         assert(retCode == 0);
         auto elementRoot =doc.RootElement();
         

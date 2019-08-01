@@ -130,7 +130,6 @@
 		2BEB98951FFDE27500BB5777 /* GameOver.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BEB97E61FFDE25E00BB5777 /* GameOver.png */; };
 		2BEB98B41FFDE27500BB5777 /* animation_explosion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BEB97F61FFDE26400BB5777 /* animation_explosion.plist */; };
 		2BEB98B51FFDE27500BB5777 /* animation_explosion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BEB97F61FFDE26400BB5777 /* animation_explosion.plist */; };
-		2BEB98D41FFDE27500BB5777 /* red_falcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BEB98061FFDE26A00BB5777 /* red_falcon.png */; };
 		2BEB98D51FFDE27500BB5777 /* red_falcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BEB98061FFDE26A00BB5777 /* red_falcon.png */; };
 		2BEB99491FFDE29700BB5777 /* GLVertFence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99131FFDE28100BB5777 /* GLVertFence.cpp */; };
 		2BEB994A1FFDE29700BB5777 /* GLVertFence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB99131FFDE28100BB5777 /* GLVertFence.cpp */; };
@@ -204,8 +203,43 @@
 		CD06D4D52299C39C0041E43E /* thruster.3.png in Resources */ = {isa = PBXBuildFile; fileRef = CD06D4C92299C39C0041E43E /* thruster.3.png */; };
 		CD1E44D1229E0C1A002AAE51 /* LevelSelectLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD1E44CF229E0C1A002AAE51 /* LevelSelectLayer.cpp */; };
 		CD3C624E229B0F2E000A79FE /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD3C624C229B0F2E000A79FE /* GameManager.cpp */; };
+		CD4B835522EBA2EB000C1426 /* FightFX2 in Resources */ = {isa = PBXBuildFile; fileRef = CD4B834D22EBA2E1000C1426 /* FightFX2 */; };
+		CD4B835622EBA2EB000C1426 /* FightFX2 in Resources */ = {isa = PBXBuildFile; fileRef = CD4B834D22EBA2E1000C1426 /* FightFX2 */; };
+		CD4B835722EBA2EB000C1426 /* Sci fi Animated FX-by Acasas- in Resources */ = {isa = PBXBuildFile; fileRef = CD4B834F22EBA2E2000C1426 /* Sci fi Animated FX-by Acasas- */; };
+		CD4B835822EBA2EB000C1426 /* Sci fi Animated FX-by Acasas- in Resources */ = {isa = PBXBuildFile; fileRef = CD4B834F22EBA2E2000C1426 /* Sci fi Animated FX-by Acasas- */; };
+		CD4B835922EBA2EB000C1426 /* Space Shooter -by Acasas- in Resources */ = {isa = PBXBuildFile; fileRef = CD4B835022EBA2E3000C1426 /* Space Shooter -by Acasas- */; };
+		CD4B835A22EBA2EB000C1426 /* Space Shooter -by Acasas- in Resources */ = {isa = PBXBuildFile; fileRef = CD4B835022EBA2E3000C1426 /* Space Shooter -by Acasas- */; };
+		CD4B835B22EBA2EB000C1426 /* Top_Down_Green_Plane in Resources */ = {isa = PBXBuildFile; fileRef = CD4B835122EBA2E4000C1426 /* Top_Down_Green_Plane */; };
+		CD4B835C22EBA2EB000C1426 /* Top_Down_Green_Plane in Resources */ = {isa = PBXBuildFile; fileRef = CD4B835122EBA2E4000C1426 /* Top_Down_Green_Plane */; };
+		CD4B835D22EBA2EB000C1426 /* 8868_FYWE6EMG8N_Epic_Game_FX in Resources */ = {isa = PBXBuildFile; fileRef = CD4B835222EBA2EA000C1426 /* 8868_FYWE6EMG8N_Epic_Game_FX */; };
+		CD4B835E22EBA2EB000C1426 /* 8868_FYWE6EMG8N_Epic_Game_FX in Resources */ = {isa = PBXBuildFile; fileRef = CD4B835222EBA2EA000C1426 /* 8868_FYWE6EMG8N_Epic_Game_FX */; };
+		CD4B835F22EBA2EB000C1426 /* Super_Plane_Top_Down in Resources */ = {isa = PBXBuildFile; fileRef = CD4B835322EBA2EA000C1426 /* Super_Plane_Top_Down */; };
+		CD4B836022EBA2EB000C1426 /* Super_Plane_Top_Down in Resources */ = {isa = PBXBuildFile; fileRef = CD4B835322EBA2EA000C1426 /* Super_Plane_Top_Down */; };
+		CD4B836122EBA2EB000C1426 /* Fire and Smoke FX -by Acasas- in Resources */ = {isa = PBXBuildFile; fileRef = CD4B835422EBA2EB000C1426 /* Fire and Smoke FX -by Acasas- */; };
+		CD4B836222EBA2EB000C1426 /* Fire and Smoke FX -by Acasas- in Resources */ = {isa = PBXBuildFile; fileRef = CD4B835422EBA2EB000C1426 /* Fire and Smoke FX -by Acasas- */; };
+		CD4B836422F1F122000C1426 /* Junk_heaven_level_asset_package in Resources */ = {isa = PBXBuildFile; fileRef = CD4B836322F1F121000C1426 /* Junk_heaven_level_asset_package */; };
+		CD4B836522F1F122000C1426 /* Junk_heaven_level_asset_package in Resources */ = {isa = PBXBuildFile; fileRef = CD4B836322F1F121000C1426 /* Junk_heaven_level_asset_package */; };
+		CD80B83822CD3572000BE7C0 /* TMX in Resources */ = {isa = PBXBuildFile; fileRef = CDCCB96C22A96983001AE79D /* TMX */; };
+		CD80B83A22CFE051000BE7C0 /* box.red.32.32.png in Resources */ = {isa = PBXBuildFile; fileRef = CD80B83922CFE051000BE7C0 /* box.red.32.32.png */; };
+		CD80B83B22CFE051000BE7C0 /* box.red.32.32.png in Resources */ = {isa = PBXBuildFile; fileRef = CD80B83922CFE051000BE7C0 /* box.red.32.32.png */; };
+		CD80B83C22CFE051000BE7C0 /* box.red.32.32.png in Resources */ = {isa = PBXBuildFile; fileRef = CD80B83922CFE051000BE7C0 /* box.red.32.32.png */; };
+		CD80B83D22D8F224000BE7C0 /* red_falcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BEB98061FFDE26A00BB5777 /* red_falcon.png */; };
+		CD80B84322D8FC88000BE7C0 /* badalien.png in Resources */ = {isa = PBXBuildFile; fileRef = CD80B83E22D8FC88000BE7C0 /* badalien.png */; };
+		CD80B84422D8FC88000BE7C0 /* badalien.png in Resources */ = {isa = PBXBuildFile; fileRef = CD80B83E22D8FC88000BE7C0 /* badalien.png */; };
+		CD80B84522D8FC88000BE7C0 /* badalien.png in Resources */ = {isa = PBXBuildFile; fileRef = CD80B83E22D8FC88000BE7C0 /* badalien.png */; };
+		CD80B84622D8FC88000BE7C0 /* tank.png in Resources */ = {isa = PBXBuildFile; fileRef = CD80B83F22D8FC88000BE7C0 /* tank.png */; };
+		CD80B84722D8FC88000BE7C0 /* tank.png in Resources */ = {isa = PBXBuildFile; fileRef = CD80B83F22D8FC88000BE7C0 /* tank.png */; };
+		CD80B84822D8FC88000BE7C0 /* tank.png in Resources */ = {isa = PBXBuildFile; fileRef = CD80B83F22D8FC88000BE7C0 /* tank.png */; };
+		CD80B84922D8FC88000BE7C0 /* lunar_256.256.png in Resources */ = {isa = PBXBuildFile; fileRef = CD80B84022D8FC88000BE7C0 /* lunar_256.256.png */; };
+		CD80B84A22D8FC88000BE7C0 /* lunar_256.256.png in Resources */ = {isa = PBXBuildFile; fileRef = CD80B84022D8FC88000BE7C0 /* lunar_256.256.png */; };
+		CD80B84B22D8FC88000BE7C0 /* lunar_256.256.png in Resources */ = {isa = PBXBuildFile; fileRef = CD80B84022D8FC88000BE7C0 /* lunar_256.256.png */; };
+		CD80B84C22D8FC88000BE7C0 /* 170-space-cave-by-alex-van-der-linde_2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD80B84122D8FC88000BE7C0 /* 170-space-cave-by-alex-van-der-linde_2x.jpg */; };
+		CD80B84D22D8FC88000BE7C0 /* 170-space-cave-by-alex-van-der-linde_2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD80B84122D8FC88000BE7C0 /* 170-space-cave-by-alex-van-der-linde_2x.jpg */; };
+		CD80B84E22D8FC88000BE7C0 /* 170-space-cave-by-alex-van-der-linde_2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD80B84122D8FC88000BE7C0 /* 170-space-cave-by-alex-van-der-linde_2x.jpg */; };
+		CD80B84F22D8FC88000BE7C0 /* att3-w.png in Resources */ = {isa = PBXBuildFile; fileRef = CD80B84222D8FC88000BE7C0 /* att3-w.png */; };
+		CD80B85022D8FC88000BE7C0 /* att3-w.png in Resources */ = {isa = PBXBuildFile; fileRef = CD80B84222D8FC88000BE7C0 /* att3-w.png */; };
+		CD80B85122D8FC88000BE7C0 /* att3-w.png in Resources */ = {isa = PBXBuildFile; fileRef = CD80B84222D8FC88000BE7C0 /* att3-w.png */; };
 		CDCCB96D22A96983001AE79D /* TMX in Resources */ = {isa = PBXBuildFile; fileRef = CDCCB96C22A96983001AE79D /* TMX */; };
-		CDCCB96E22A96A3C001AE79D /* TMX in Resources */ = {isa = PBXBuildFile; fileRef = CDCCB96C22A96983001AE79D /* TMX */; };
 		CDCCB97222A9BCD2001AE79D /* QuartzCrystalNorthFliped3.png in Resources */ = {isa = PBXBuildFile; fileRef = CDCCB97122A9BCD2001AE79D /* QuartzCrystalNorthFliped3.png */; };
 		CDCEB8CE22C6470D00873022 /* thruster.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDCEB8CC22C6470D00873022 /* thruster.plist */; };
 		CDCEB8CF22C6470D00873022 /* thruster.png in Resources */ = {isa = PBXBuildFile; fileRef = CDCEB8CD22C6470D00873022 /* thruster.png */; };
@@ -410,6 +444,20 @@
 		CD1E44D0229E0C1A002AAE51 /* LevelSelectLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelSelectLayer.h; sourceTree = "<group>"; };
 		CD3C624C229B0F2E000A79FE /* GameManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameManager.cpp; sourceTree = "<group>"; };
 		CD3C624D229B0F2E000A79FE /* GameManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
+		CD4B834D22EBA2E1000C1426 /* FightFX2 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FightFX2; sourceTree = "<group>"; };
+		CD4B834F22EBA2E2000C1426 /* Sci fi Animated FX-by Acasas- */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Sci fi Animated FX-by Acasas-"; sourceTree = "<group>"; };
+		CD4B835022EBA2E3000C1426 /* Space Shooter -by Acasas- */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Space Shooter -by Acasas-"; sourceTree = "<group>"; };
+		CD4B835122EBA2E4000C1426 /* Top_Down_Green_Plane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Top_Down_Green_Plane; sourceTree = "<group>"; };
+		CD4B835222EBA2EA000C1426 /* 8868_FYWE6EMG8N_Epic_Game_FX */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 8868_FYWE6EMG8N_Epic_Game_FX; sourceTree = "<group>"; };
+		CD4B835322EBA2EA000C1426 /* Super_Plane_Top_Down */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Super_Plane_Top_Down; sourceTree = "<group>"; };
+		CD4B835422EBA2EB000C1426 /* Fire and Smoke FX -by Acasas- */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Fire and Smoke FX -by Acasas-"; sourceTree = "<group>"; };
+		CD4B836322F1F121000C1426 /* Junk_heaven_level_asset_package */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Junk_heaven_level_asset_package; sourceTree = "<group>"; };
+		CD80B83922CFE051000BE7C0 /* box.red.32.32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box.red.32.32.png; sourceTree = "<group>"; };
+		CD80B83E22D8FC88000BE7C0 /* badalien.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = badalien.png; sourceTree = "<group>"; };
+		CD80B83F22D8FC88000BE7C0 /* tank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tank.png; sourceTree = "<group>"; };
+		CD80B84022D8FC88000BE7C0 /* lunar_256.256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lunar_256.256.png; sourceTree = "<group>"; };
+		CD80B84122D8FC88000BE7C0 /* 170-space-cave-by-alex-van-der-linde_2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "170-space-cave-by-alex-van-der-linde_2x.jpg"; sourceTree = "<group>"; };
+		CD80B84222D8FC88000BE7C0 /* att3-w.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "att3-w.png"; sourceTree = "<group>"; };
 		CDCCB96C22A96983001AE79D /* TMX */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TMX; sourceTree = "<group>"; };
 		CDCCB97122A9BCD2001AE79D /* QuartzCrystalNorthFliped3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QuartzCrystalNorthFliped3.png; sourceTree = "<group>"; };
 		CDCEB8CC22C6470D00873022 /* thruster.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = thruster.plist; sourceTree = "<group>"; };
@@ -774,6 +822,17 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CD4B836322F1F121000C1426 /* Junk_heaven_level_asset_package */,
+				CD4B835222EBA2EA000C1426 /* 8868_FYWE6EMG8N_Epic_Game_FX */,
+				CD4B834D22EBA2E1000C1426 /* FightFX2 */,
+				CD4B835422EBA2EB000C1426 /* Fire and Smoke FX -by Acasas- */,
+				CD4B834F22EBA2E2000C1426 /* Sci fi Animated FX-by Acasas- */,
+				CD4B835022EBA2E3000C1426 /* Space Shooter -by Acasas- */,
+				CD4B835322EBA2EA000C1426 /* Super_Plane_Top_Down */,
+				CD4B835122EBA2E4000C1426 /* Top_Down_Green_Plane */,
+				CD80B85222D8FC99000BE7C0 /* Ships */,
+				CD80B84122D8FC88000BE7C0 /* 170-space-cave-by-alex-van-der-linde_2x.jpg */,
+				CD80B83922CFE051000BE7C0 /* box.red.32.32.png */,
 				CD06D4C72299C39C0041E43E /* thruster.0.png */,
 				CD06D4C52299C39C0041E43E /* thruster.1.png */,
 				CD06D4C62299C39C0041E43E /* thruster.2.png */,
@@ -793,7 +852,6 @@
 				2B5E0036227544BD00205A72 /* box.red.32.32.png */,
 				2B5E00252274E38900205A72 /* box.red.hollow.32.32.png */,
 				2B5E00212274E36E00205A72 /* box.red.hollow.64.64.png */,
-				2BEB98061FFDE26A00BB5777 /* red_falcon.png */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -859,6 +917,18 @@
 				CD1E44D0229E0C1A002AAE51 /* LevelSelectLayer.h */,
 			);
 			path = LevelSelect;
+			sourceTree = "<group>";
+		};
+		CD80B85222D8FC99000BE7C0 /* Ships */ = {
+			isa = PBXGroup;
+			children = (
+				CD80B84222D8FC88000BE7C0 /* att3-w.png */,
+				CD80B84022D8FC88000BE7C0 /* lunar_256.256.png */,
+				CD80B83F22D8FC88000BE7C0 /* tank.png */,
+				CD80B83E22D8FC88000BE7C0 /* badalien.png */,
+				2BEB98061FFDE26A00BB5777 /* red_falcon.png */,
+			);
+			name = Ships;
 			sourceTree = "<group>";
 		};
 		CDCEB8CB22C646E200873022 /* explosion */ = {
@@ -1003,33 +1073,47 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BEB98D41FFDE27500BB5777 /* red_falcon.png in Resources */,
+				CD80B83D22D8F224000BE7C0 /* red_falcon.png in Resources */,
+				1AF87B891F6F781D007BE51C /* LaunchScreenBackground.png in Resources */,
+				2B5E000E2273A03E00205A72 /* game.png in Resources */,
+				CD80B83A22CFE051000BE7C0 /* box.red.32.32.png in Resources */,
+				2BC09FF7226A7E9E0089757F /* star-space-x.png in Resources */,
+				2BDAC167225C244800CA02D9 /* space-cave.jpg in Resources */,
+				2BEB987E1FFDE27500BB5777 /* Success.jpeg in Resources */,
+				2BEB98941FFDE27500BB5777 /* GameOver.png in Resources */,
+				CD4B835522EBA2EB000C1426 /* FightFX2 in Resources */,
+				CD80B84622D8FC88000BE7C0 /* tank.png in Resources */,
+				2B3E10882271381500A792CF /* GameOver001.png in Resources */,
 				CDCEB8CF22C6470D00873022 /* thruster.png in Resources */,
 				CDCEB8CE22C6470D00873022 /* thruster.plist in Resources */,
 				CD06D4D02299C39C0041E43E /* thruster.0.png in Resources */,
 				CD06D4CC2299C39C0041E43E /* thruster.1.png in Resources */,
 				CD06D4CE2299C39C0041E43E /* thruster.2.png in Resources */,
+				CD80B84922D8FC88000BE7C0 /* lunar_256.256.png in Resources */,
+				CD4B835D22EBA2EB000C1426 /* 8868_FYWE6EMG8N_Epic_Game_FX in Resources */,
+				CD4B835722EBA2EB000C1426 /* Sci fi Animated FX-by Acasas- in Resources */,
+				CD4B835F22EBA2EB000C1426 /* Super_Plane_Top_Down in Resources */,
 				CD06D4D42299C39C0041E43E /* thruster.3.png in Resources */,
+				CD80B84322D8FC88000BE7C0 /* badalien.png in Resources */,
+				CD80B84C22D8FC88000BE7C0 /* 170-space-cave-by-alex-van-der-linde_2x.jpg in Resources */,
 				CD06D4CA2299C39C0041E43E /* thruster.4.png in Resources */,
 				CD06D4D22299C39C0041E43E /* thruster.5.png in Resources */,
-				2B5E00282274E38900205A72 /* box.red.hollow.32.32.png in Resources */,
-				2B5E0037227544BD00205A72 /* box.red.32.32.png in Resources */,
-				CDCCB97222A9BCD2001AE79D /* QuartzCrystalNorthFliped3.png in Resources */,
-				2B5E00222274E36E00205A72 /* box.red.hollow.64.64.png in Resources */,
-				CDCCB96D22A96983001AE79D /* TMX in Resources */,
-				1A88B2641FC3D9C9005C14AE /* Images.xcassets in Resources */,
-				2B5E000E2273A03E00205A72 /* game.png in Resources */,
-				2B5E001F2274E0F800205A72 /* Sound in Resources */,
-				2BC09FF7226A7E9E0089757F /* star-space-x.png in Resources */,
-				521A8EA919F11F5000D177D7 /* fonts in Resources */,
-				2BDAC167225C244800CA02D9 /* space-cave.jpg in Resources */,
 				CDCEB8D122C6AECC00873022 /* thruster.6.png in Resources */,
-				1AF87B891F6F781D007BE51C /* LaunchScreenBackground.png in Resources */,
-				2BEB98941FFDE27500BB5777 /* GameOver.png in Resources */,
+				CD4B835922EBA2EB000C1426 /* Space Shooter -by Acasas- in Resources */,
+				2B5E0037227544BD00205A72 /* box.red.32.32.png in Resources */,
+				2B5E00282274E38900205A72 /* box.red.hollow.32.32.png in Resources */,
+				2B5E00222274E36E00205A72 /* box.red.hollow.64.64.png in Resources */,
+				CDCCB97222A9BCD2001AE79D /* QuartzCrystalNorthFliped3.png in Resources */,
+				CD4B835B22EBA2EB000C1426 /* Top_Down_Green_Plane in Resources */,
 				2B730E6D226CC8E1005DCD3F /* crystal_cave.plist in Resources */,
-				2B3E10882271381500A792CF /* GameOver001.png in Resources */,
+				CDCCB96D22A96983001AE79D /* TMX in Resources */,
+				CD4B836422F1F122000C1426 /* Junk_heaven_level_asset_package in Resources */,
+				1A88B2641FC3D9C9005C14AE /* Images.xcassets in Resources */,
+				CD80B84F22D8FC88000BE7C0 /* att3-w.png in Resources */,
+				2B5E001F2274E0F800205A72 /* Sound in Resources */,
+				521A8EA919F11F5000D177D7 /* fonts in Resources */,
+				CD4B836122EBA2EB000C1426 /* Fire and Smoke FX -by Acasas- in Resources */,
 				2BEB999E1FFF247900BB5777 /* SIFI_GUI in Resources */,
-				2BEB987E1FFDE27500BB5777 /* Success.jpeg in Resources */,
 				2BEB98B41FFDE27500BB5777 /* animation_explosion.plist in Resources */,
 				2BEB98841FFDE27500BB5777 /* animation_explosion.png in Resources */,
 				1AF87B881F6F781D007BE51C /* LaunchScreen.storyboard in Resources */,
@@ -1040,6 +1124,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD80B83C22CFE051000BE7C0 /* box.red.32.32.png in Resources */,
+				CD80B84B22D8FC88000BE7C0 /* lunar_256.256.png in Resources */,
+				CD80B84522D8FC88000BE7C0 /* badalien.png in Resources */,
+				CD80B84E22D8FC88000BE7C0 /* 170-space-cave-by-alex-van-der-linde_2x.jpg in Resources */,
+				CD80B84822D8FC88000BE7C0 /* tank.png in Resources */,
+				CD80B85122D8FC88000BE7C0 /* att3-w.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1047,31 +1137,45 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDCCB96E22A96A3C001AE79D /* TMX in Resources */,
+				CD80B83822CD3572000BE7C0 /* TMX in Resources */,
+				CD4B836522F1F122000C1426 /* Junk_heaven_level_asset_package in Resources */,
 				2B5E00132273C5BA00205A72 /* game.png in Resources */,
+				CD4B835822EBA2EB000C1426 /* Sci fi Animated FX-by Acasas- in Resources */,
 				2BEB987F1FFDE27500BB5777 /* Success.jpeg in Resources */,
+				CD80B84422D8FC88000BE7C0 /* badalien.png in Resources */,
 				2BDAC168225C244800CA02D9 /* space-cave.jpg in Resources */,
+				CD80B84722D8FC88000BE7C0 /* tank.png in Resources */,
 				2BEB98951FFDE27500BB5777 /* GameOver.png in Resources */,
 				2B3E10892271381500A792CF /* GameOver001.png in Resources */,
+				CD80B84D22D8FC88000BE7C0 /* 170-space-cave-by-alex-van-der-linde_2x.jpg in Resources */,
 				2BC09FF8226A7E9E0089757F /* star-space-x.png in Resources */,
+				CD4B835622EBA2EB000C1426 /* FightFX2 in Resources */,
 				2BEB98D51FFDE27500BB5777 /* red_falcon.png in Resources */,
+				2B5E00232274E36E00205A72 /* box.red.hollow.64.64.png in Resources */,
 				2B5E00292274E38900205A72 /* box.red.hollow.32.32.png in Resources */,
+				2B5E0038227544BD00205A72 /* box.red.32.32.png in Resources */,
 				CD06D4D12299C39C0041E43E /* thruster.0.png in Resources */,
 				CD06D4CD2299C39C0041E43E /* thruster.1.png in Resources */,
+				CD4B835A22EBA2EB000C1426 /* Space Shooter -by Acasas- in Resources */,
 				CD06D4CF2299C39C0041E43E /* thruster.2.png in Resources */,
 				CD06D4D52299C39C0041E43E /* thruster.3.png in Resources */,
 				CD06D4CB2299C39C0041E43E /* thruster.4.png in Resources */,
+				CD4B836222EBA2EB000C1426 /* Fire and Smoke FX -by Acasas- in Resources */,
 				CD06D4D32299C39C0041E43E /* thruster.5.png in Resources */,
 				CDCEB8D222C6AF0600873022 /* thruster.6.png in Resources */,
-				2B5E0038227544BD00205A72 /* box.red.32.32.png in Resources */,
-				2B5E00232274E36E00205A72 /* box.red.hollow.64.64.png in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
+				CD4B836022EBA2EB000C1426 /* Super_Plane_Top_Down in Resources */,
 				2BEB98851FFDE27500BB5777 /* animation_explosion.png in Resources */,
 				2BEB98B51FFDE27500BB5777 /* animation_explosion.plist in Resources */,
 				2B730E6E226CC8E1005DCD3F /* crystal_cave.plist in Resources */,
+				CD80B83B22CFE051000BE7C0 /* box.red.32.32.png in Resources */,
 				2BEB999F1FFF247900BB5777 /* SIFI_GUI in Resources */,
 				2B5E00202274E0F800205A72 /* Sound in Resources */,
+				CD4B835E22EBA2EB000C1426 /* 8868_FYWE6EMG8N_Epic_Game_FX in Resources */,
+				CD80B84A22D8FC88000BE7C0 /* lunar_256.256.png in Resources */,
 				521A8EAA19F11F5000D177D7 /* fonts in Resources */,
+				CD80B85022D8FC88000BE7C0 /* att3-w.png in Resources */,
+				CD4B835C22EBA2EB000C1426 /* Top_Down_Green_Plane in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1280,7 +1384,7 @@
 				);
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
-				STRIP_PNG_TEXT = YES;
+				STRIP_PNG_TEXT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
 				VALID_ARCHS = "arm64 armv7";
@@ -1316,7 +1420,7 @@
 				);
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
-				STRIP_PNG_TEXT = YES;
+				STRIP_PNG_TEXT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
 				VALID_ARCHS = "arm64 armv7";

@@ -69,34 +69,30 @@ void GameElementsFactory::HandleObjectRequest(cocos2d::Node *target, dsj::Object
         glBeam->start();
         
     }
+    
     if (type.compare(TRANS) == 0) {
         
         /*
          <object id="32" name="TRANS" type="TRANS" x="1610" y="586" width="46" height="174">
-         <properties>
-         <property name="transitionTo" value="simplest.tmx"/>
-         </properties>
+             <properties>
+                <property name="transitionTo" value="simplest.tmx"/>
+             </properties>
          </object>
          */
-//        int X = obj->GetAttributeInt("x");
-//        int Y = size.height - obj->GetAttributeInt("y");
+
         int width = obj->GetAttributeInt("width");
         int height = obj->GetAttributeInt("height");
         
-        //             auto body = PhysicsBody::createBox(Size(width,height));
-        //             body->setDynamic(false);
-        //             body->setContactTestBitmask(1);
-        
+
         auto sprite = Sprite::create("box.red.hollow.64.64.png");
-        
-        sprite->setAnchorPoint(Vec2(0, 1));
-        //sprite->setPhysicsBody(body);
-        sprite->setTag(12345);
-        sprite->setPosition(Vec2(X, Y));
-        sprite->setScale(width / 64, height / 64);
-        sprite->setColor(Color3B::GREEN);
-        
-        getInstance()->getGameLayer()->addChild(sprite, 0);
+        if ( sprite) {
+            sprite->setAnchorPoint(Vec2(0, 1));
+            sprite->setTag(12345);
+            sprite->setPosition(Vec2(X, Y));
+            sprite->setScale(width / 64, height / 64);
+            sprite->setColor(Color3B::GREEN);
+            getInstance()->getGameLayer()->addChild(sprite, 0);
+        }
         
     }
     
@@ -124,8 +120,6 @@ void GameElementsFactory::HandleObjectRequest(cocos2d::Node *target, dsj::Object
          */
         
         
-//        int X = obj->GetAttributeInt("x");
-//        int Y = size.height - obj->GetAttributeInt("y");
         int width = obj->GetAttributeInt("width");
         int height = obj->GetAttributeInt("height");
         

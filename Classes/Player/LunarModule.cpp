@@ -26,7 +26,7 @@ const std::string LunarModule::THRUST_SOUND = "thrusters.mp3";
 const std::string LunarModule::LAND_SOUND = "applause.mp3";
 const std::string LunarModule::HIT_SOUND = "debris.wav";
 const std::string LunarModule::DIE_SOUND = "wawawa.mp3";
-const std::string LunarModule::PNG ="red_falcon.png";
+const std::string LunarModule::PNG = "red_falcon.png";
 
 
 float scale =  .75;
@@ -37,13 +37,23 @@ bool LunarModule::init(){
 
     INSTANCE = this;
     
+//#if IS_MOBILE
+//    std::string fullpath = FileUtils::getInstance()->fullPathForFilename(PNG);
+//#else
+//    std::string fullpath = PNG;
+//#endif
+    
+    //FileUtils::getInstance()->getP
     this->initWithFile(PNG);
     
     setScale( scale);
     
     soundId = -1 ;
-    
+
+    // TODO :: with TAG we do not need identity,
+    // consider a refacted on the onject
     setIdentity("LunarModule");
+    
     setTag(TAG);
     setWeight(WEIGHT);
     setMaxHealth(HEALTH);
@@ -52,17 +62,19 @@ bool LunarModule::init(){
     usePhysics();
     useOnContact();
     
-    
+    // TODO : uses then
+    /*
     for(int i = 0; i < 5; i++) {
         std::stringstream ss;
-        
-        ss << "⁨Animations⁩/Thruster⁩/thruster" << i << ".png";
+        //ss << "⁨Animations⁩/Thruster⁩/thruster" << i << ".png";
+         ss << "⁨thruster." << i << ".png";
         std::string name = ss.str();
         auto sprite = Sprite::create();
         sprite->initWithFile(name);
         auto spriteFrame = sprite->getSpriteFrame();
         vectorSpriteFrames.pushBack(spriteFrame);
     }
+    */
     
     return true;
 }
