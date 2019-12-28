@@ -130,7 +130,7 @@ bool MyTMX::init(std::string tmx) {
     // TileMap
     dsj::TileMap* tileMap;
     try {
-        tileMap = new dsj::TileMap(tmx);//"TMX-Cave/simplest2.tmx");
+        tileMap = new dsj::TileMap(tmx);
         log("%s", tileMap->to_string().c_str());
         tileMap->render(this);
     } catch (...) {

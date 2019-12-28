@@ -1,5 +1,5 @@
-//
-//  SceneManager.cpp
+
+#include "SceneManager.h"
 //  AsteroidTrouble
 //
 //  Created by Daniel St. John on 9/1/14.
@@ -22,7 +22,7 @@
 
 using namespace cocos2d;
 
-SceneManager *SceneManager::INSTANCE = NULL;
+SceneManager *SceneManager::INSTANCE = nullptr;
 
 SceneManager *SceneManager::getInstance() {
     if( INSTANCE == NULL)

@@ -89,3 +89,6 @@ SHELFED: Mine Move Path {p0,p1,...pn}
 BUG
 Missing Sprite
 cocos2d: fullPathForFilename: No file found at TMX/QuartzCrystalNorthFliped.png. Possible missing file.
+
+
+TODO : Tile Sheet Exports to promote resuablity
